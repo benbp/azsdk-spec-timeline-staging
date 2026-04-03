@@ -333,8 +333,9 @@ header {
 
 /* Lanes */
 .lanes {
+  position: relative;
   overflow-x: auto;
-  overflow-y: visible;
+  overflow-y: hidden;
 }
 
 .lane {

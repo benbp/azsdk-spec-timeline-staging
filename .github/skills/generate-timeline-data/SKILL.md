@@ -1,6 +1,13 @@
+---
+name: generate-timeline-data
+description: >
+  Fetches PR data from the Azure SDK generation process and produces a structured
+  timeline JSON for visualization. Use when asked to generate timeline data for an
+  azure-rest-api-specs PR, or to analyze SDK generation timelines.
+---
+
 # Generate Azure SDK Timeline Data
 
-## Description
 This skill fetches PR data from the Azure SDK generation process and produces a structured timeline JSON that can be visualized with the timeline-viz website. Given a spec PR URL from `azure-rest-api-specs`, it discovers downstream SDK PRs, fetches all events, and analyzes them to identify bottlenecks, nags, manual fixes, and idle gaps.
 
 ## Instructions
@@ -140,7 +147,7 @@ Produce a JSON file matching this schema:
   "endDate": "<latest event timestamp>",
   "specPR": {
     "repo": "Azure/azure-rest-api-specs",
-    "number": <number>,
+    "number": "<number>",
     "url": "<url>",
     "title": "<title>",
     "author": "<author>",
@@ -162,31 +169,31 @@ Produce a JSON file matching this schema:
           "body": "<full comment text if applicable>",
           "url": "<github link>",
           "targetUser": "<@ mentioned user if applicable>",
-          "durationHours": <number if idle_gap>
+          "durationHours": "<number if idle_gap>"
         }
       }
     ]
   },
-  "sdkPRs": [ /* same structure per SDK PR, with added "language" field */ ],
+  "sdkPRs": [ "/* same structure per SDK PR, with added 'language' field */" ],
   "insights": [
     {
       "type": "bottleneck|nag|manual_fix|idle|positive|summary",
       "severity": "info|warning|critical",
       "description": "<human-readable insight>",
-      "durationDays": <number if applicable>,
+      "durationDays": "<number if applicable>",
       "prRef": "<repo#number if applicable>"
     }
   ],
   "summary": {
-    "totalDurationDays": <number>,
-    "specPRDays": <number>,
-    "pipelineGapDays": <number>,
-    "sdkPRMaxDays": <number>,
-    "fastestSDKPR": { "language": "<lang>", "days": <number> },
-    "slowestSDKPR": { "language": "<lang>", "days": <number> },
-    "totalUniqueReviewers": <number>,
-    "totalNags": <number>,
-    "totalManualFixes": <number>
+    "totalDurationDays": "<number>",
+    "specPRDays": "<number>",
+    "pipelineGapDays": "<number>",
+    "sdkPRMaxDays": "<number>",
+    "fastestSDKPR": { "language": "<lang>", "days": "<number>" },
+    "slowestSDKPR": { "language": "<lang>", "days": "<number>" },
+    "totalUniqueReviewers": "<number>",
+    "totalNags": "<number>",
+    "totalManualFixes": "<number>"
   }
 }
 ```

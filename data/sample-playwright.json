@@ -215,8 +215,27 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48660"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-04-02T11:02:36Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "\u26a0 Package azure-resourcemanager-playwright merged but not yet released",
+          "sentiment": "blocking",
+          "details": {}
         }
-      ]
+      ],
+      "release": {
+        "packageName": "azure-resourcemanager-playwright",
+        "packageVersion": null,
+        "pipelineName": "java - playwright",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -295,8 +314,27 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26469"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-04-02T11:02:36Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "\u26a0 Package sdk/resourcemanager/playwright/armplaywright merged but not yet released",
+          "sentiment": "blocking",
+          "details": {}
         }
-      ]
+      ],
+      "release": {
+        "packageName": "sdk/resourcemanager/playwright/armplaywright",
+        "packageVersion": null,
+        "pipelineName": "go - armplaywright",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -361,8 +399,27 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/46051"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-04-02T11:02:36Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "\u26a0 Package azure-mgmt-playwright merged but not yet released",
+          "sentiment": "blocking",
+          "details": {}
         }
-      ]
+      ],
+      "release": {
+        "packageName": "azure-mgmt-playwright",
+        "packageVersion": null,
+        "pipelineName": "python - playwright",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-net",
@@ -453,8 +510,27 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57661"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-04-02T11:02:36Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "\u26a0 Package Azure.ResourceManager.Playwright merged but not yet released",
+          "sentiment": "blocking",
+          "details": {}
         }
-      ]
+      ],
+      "release": {
+        "packageName": "Azure.ResourceManager.Playwright",
+        "packageVersion": null,
+        "pipelineName": "net - playwright - mgmt",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -571,8 +647,27 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-04-02T11:02:36Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "\u26a0 Package @azure/arm-playwright merged but not yet released",
+          "sentiment": "blocking",
+          "details": {}
         }
-      ]
+      ],
+      "release": {
+        "packageName": "@azure/arm-playwright",
+        "packageVersion": null,
+        "pipelineName": "js - playwright - mgmt",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     }
   ],
   "insights": [
@@ -633,6 +728,11 @@
       "type": "summary",
       "severity": "info",
       "description": "kashish2508 (spec PR reviewer) merged 4 of 5 SDK PRs (Java, Go, Python, JS), streamlining the process. ArthurMa1978 handled .NET."
+    },
+    {
+      "type": "release_pending",
+      "severity": "critical",
+      "description": "5 SDK package(s) merged but not yet released \u2014 potential limbo"
     }
   ],
   "summary": {
@@ -650,6 +750,7 @@
     },
     "totalUniqueReviewers": 8,
     "totalNags": 0,
-    "totalManualFixes": 0
+    "totalManualFixes": 0,
+    "pendingReleases": 5
   }
 }

@@ -414,6 +414,28 @@ header {
 .lane-label .lane-language.net { background: var(--purple-bg); color: var(--purple); border-color: transparent; }
 .lane-label .lane-language.javascript { background: var(--yellow-bg); color: var(--yellow); border-color: transparent; }
 
+.release-badge {
+  display: inline-block;
+  padding: 0 4px;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.release-badge.released {
+  background: rgba(63, 185, 80, 0.15);
+  color: var(--teal);
+}
+.release-badge.pending {
+  background: rgba(210, 153, 34, 0.15);
+  color: var(--orange);
+  animation: pulse-pending 1.5s ease-in-out infinite;
+}
+.release-badge.failed {
+  background: rgba(248, 81, 73, 0.15);
+  color: var(--red);
+}
+
 .lane-content {
   flex: 1;
   position: relative;
@@ -436,6 +458,53 @@ header {
 .pr-bar.merged {
   background: var(--green-bg);
   border-color: var(--green);
+}
+
+/* Release segment: extends PR bar from merge to release */
+.release-bar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 6px;
+  border-radius: 0 3px 3px 0;
+  z-index: 1;
+}
+
+.release-bar.released {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--teal) 0px,
+    var(--teal) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  border: 1px solid var(--teal);
+  border-left: none;
+}
+
+.release-bar.pending {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--orange) 0px,
+    var(--orange) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  border: 1px dashed var(--orange);
+  border-left: none;
+  animation: pulse-pending 1.5s ease-in-out infinite;
+}
+
+.release-bar.failed {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--red) 0px,
+    var(--red) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  border: 1px dashed var(--red);
+  border-left: none;
 }
 
 /* Idle gap indicator */
@@ -524,6 +593,16 @@ header {
 .event-marker.label_added { background: var(--teal); width: 10px; height: 10px; }
 .event-marker.manual_fix { background: var(--orange); }
 .event-marker.ci_status { background: var(--gray); width: 10px; height: 10px; }
+.event-marker.release_pipeline_started { background: var(--teal); border-style: dashed; }
+.event-marker.release_pipeline_completed { background: var(--teal); }
+.event-marker.release_pipeline_failed { background: var(--red); border-color: var(--orange); }
+.event-marker.package_published { background: var(--green); box-shadow: 0 0 0 2px var(--teal); }
+.event-marker.release_pending { background: var(--orange); animation: pulse-pending 1.5s ease-in-out infinite; }
+
+@keyframes pulse-pending {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
 
 .event-marker.hidden {
   display: none;

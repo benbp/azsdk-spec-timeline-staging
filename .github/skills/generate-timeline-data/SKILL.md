@@ -177,7 +177,7 @@ Produce a JSON file matching this schema:
   "sdkPRs": [ "/* same structure per SDK PR, with added 'language' field */" ],
   "insights": [
     {
-      "type": "bottleneck|nag|manual_fix|idle|positive|summary",
+      "type": "bottleneck|nag|manual_fix|idle|positive|summary|release_delay|release_pending",
       "severity": "info|warning|critical",
       "description": "<human-readable insight>",
       "durationDays": "<number if applicable>",
@@ -193,12 +193,108 @@ Produce a JSON file matching this schema:
     "slowestSDKPR": { "language": "<lang>", "days": "<number>" },
     "totalUniqueReviewers": "<number>",
     "totalNags": "<number>",
-    "totalManualFixes": "<number>"
+    "totalManualFixes": "<number>",
+    "avgReleaseGapDays": "<number or omit>",
+    "maxReleaseGapDays": "<number or omit>",
+    "pendingReleases": "<number or omit>"
+  }
+}
+```
+
+Each SDK PR object should also include an optional `release` field:
+```json
+{
+  "release": {
+    "packageName": "<package name on package manager>",
+    "packageVersion": "<released version>",
+    "pipelineName": "<DevOps pipeline name e.g. 'java - durabletask'>",
+    "pipelineUrl": "<DevOps pipeline run URL>",
+    "buildId": "<DevOps build ID>",
+    "releasedAt": "<ISO 8601 timestamp when package was published, or null>",
+    "releaseGapDays": "<days from PR merge to package publish>",
+    "status": "released|pending|failed"
   }
 }
 ```
 
 Save the output to a file (e.g., `data/timeline-<name>.json`) and tell the user they can open `index.html` and load the file, or place it as `data/sample-durabletask.json` to make it the default.
+
+### Step 8: Look Up Release Data
+
+After determining PR merge dates, check whether each SDK package was actually released.
+
+#### 8a. Find Release Pipeline in Azure DevOps
+
+Pipeline names follow the pattern `<lang> - <service>` (sometimes with `-mgmt` suffix):
+
+| Language | Pattern | Example |
+|---|---|---|
+| Java | `java - <service>` | `java - durabletask` |
+| Go | `go - arm<service>` | `go - armdurabletask` |
+| Python | `python - <service>` | `python - durabletask` |
+| .NET | `net - <service> - mgmt` or `net - <service>` | `net - durabletask - mgmt` |
+| JS | `js - <service> - mgmt` or `js - <service>` | `js - durabletask - mgmt` |
+
+The service name comes from the AutoPR title: `[AutoPR azure-resourcemanager-<service>]` → service is `durabletask`.
+
+```bash
+# Find pipeline definition
+az devops invoke --area build --resource definitions \
+  --organization https://dev.azure.com/azure-sdk \
+  --route-parameters project=internal \
+  --query-parameters "name=java - durabletask" \
+  --output json
+
+# Find release builds (reason=manual means release trigger)
+az devops invoke --area build --resource builds \
+  --organization https://dev.azure.com/azure-sdk \
+  --route-parameters project=internal \
+  --query-parameters "definitions=<defId>" "\$top=100" "queryOrder=finishTimeDescending" \
+  --output json
+# Filter for reason=manual AND result=succeeded AND finishTime after PR merge date
+
+# Get release stage timing
+az devops invoke --area build --resource timeline \
+  --organization https://dev.azure.com/azure-sdk \
+  --route-parameters project=internal buildId=<buildId> \
+  --output json
+# Find the Stage record with "releas" in its name (case-insensitive)
+# Use the finishTime of that stage as the actual release timestamp
+# If result=skipped, the release was NOT actually published
+```
+
+#### 8b. Cross-reference with Azure SDK Release CSVs
+
+Release CSV data is at `/home/ben/azs/azure-sdk/_data/releases/`:
+- `latest/<lang>-packages.csv` has `Package`, `VersionGA`, `LatestGADate` (MM/DD/YYYY)
+- `<YYYY-MM>/<lang>.yml` has monthly entries with package name, version, changelog
+
+Package name patterns in the CSV:
+| Language | Package Name Pattern | Example |
+|---|---|---|
+| Java | `azure-resourcemanager-<service>` | `azure-resourcemanager-durabletask` |
+| Python | `azure-mgmt-<service>` | `azure-mgmt-durabletask` |
+| .NET | `Azure.ResourceManager.<Service>` | `Azure.ResourceManager.DurableTask` |
+| JS | `@azure/arm-<service>` | `@azure/arm-durabletask` |
+| Go | `sdk/resourcemanager/<service>/arm<service>` | `sdk/resourcemanager/durabletask/armdurabletask` |
+
+#### 8c. Determine Release Status
+
+For each SDK PR:
+1. If the DevOps release stage `result=succeeded` with a `finishTime`, status is `released`
+2. If the release stage `result=skipped`, status is `pending` (merged but not published)
+3. If no release pipeline/build found, status is `pending`
+4. If the release stage `result=failed`, status is `failed`
+
+Add `release_pipeline_started` and `release_pipeline_completed` (or `release_pipeline_failed`) events.
+For packages confirmed in the CSV, add a `package_published` event.
+For merged PRs with no release, add a `release_pending` event.
+
+#### 8d. Generate Release Insights
+
+- **Release delay**: If `releaseGapDays > 3`, generate a `release_delay` insight
+- **Pending releases**: If any SDK PR has `status=pending`, generate a `release_pending` insight (critical severity)
+- **Failed releases**: Generate critical insight for failed pipeline runs
 
 ### Actor Role Classification
 

@@ -2,7 +2,7 @@
   "title": "Adding 2025-11-01 spec for Nginx.NginxPlus",
   "owner": "briantkim93",
   "startDate": "2026-01-26T14:58:58Z",
-  "endDate": "2026-03-19T08:44:20Z",
+  "endDate": "2026-03-23T00:00:00Z",
   "specPR": {
     "repo": "Azure/azure-rest-api-specs",
     "number": 39907,
@@ -575,9 +575,31 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45661"
           }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-23T00:00:00Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Package azure-mgmt-nginx v4.0.0 published",
+          "sentiment": "positive",
+          "details": {
+            "packageVersion": "4.0.0",
+            "pipelineName": "python - nginx"
+          }
         }
       ],
-      "language": "Python"
+      "language": "Python",
+      "release": {
+        "packageName": "azure-mgmt-nginx",
+        "packageVersion": "4.0.0",
+        "pipelineName": "python - nginx",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": "2026-03-23T00:00:00Z",
+        "releaseGapDays": 5.4,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-net",
@@ -676,9 +698,31 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57070"
           }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-20T00:00:00Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Package Azure.ResourceManager.Nginx v1.1.0 published",
+          "sentiment": "positive",
+          "details": {
+            "packageVersion": "1.1.0",
+            "pipelineName": "net - nginx - mgmt"
+          }
         }
       ],
-      "language": ".NET"
+      "language": ".NET",
+      "release": {
+        "packageName": "Azure.ResourceManager.Nginx",
+        "packageVersion": "1.1.0",
+        "pipelineName": "net - nginx - mgmt",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": "2026-03-20T00:00:00Z",
+        "releaseGapDays": 2.3,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -801,9 +845,31 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48399"
           }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-23T00:00:00Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Package azure-resourcemanager-nginx v1.1.0 published",
+          "sentiment": "positive",
+          "details": {
+            "packageVersion": "1.1.0",
+            "pipelineName": "java - nginx"
+          }
         }
       ],
-      "language": "Java"
+      "language": "Java",
+      "release": {
+        "packageName": "azure-resourcemanager-nginx",
+        "packageVersion": "1.1.0",
+        "pipelineName": "java - nginx",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": "2026-03-23T00:00:00Z",
+        "releaseGapDays": 4.6,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -938,9 +1004,31 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26240"
           }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-23T00:00:00Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Package sdk/resourcemanager/nginx/armnginx v4.0.0 published",
+          "sentiment": "positive",
+          "details": {
+            "packageVersion": "4.0.0",
+            "pipelineName": "go - armnginx"
+          }
         }
       ],
-      "language": "Go"
+      "language": "Go",
+      "release": {
+        "packageName": "sdk/resourcemanager/nginx/armnginx",
+        "packageVersion": "4.0.0",
+        "pipelineName": "go - armnginx",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": "2026-03-23T00:00:00Z",
+        "releaseGapDays": 3.7,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -1077,9 +1165,31 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37616"
           }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-23T00:00:00Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Package @azure/arm-nginx v4.0.0 published",
+          "sentiment": "positive",
+          "details": {
+            "packageVersion": "4.0.0",
+            "pipelineName": "js - nginx - mgmt"
+          }
         }
       ],
-      "language": "JS"
+      "language": "JS",
+      "release": {
+        "packageName": "@azure/arm-nginx",
+        "packageVersion": "4.0.0",
+        "pipelineName": "js - nginx - mgmt",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": "2026-03-23T00:00:00Z",
+        "releaseGapDays": 3.6,
+        "status": "released"
+      }
     }
   ],
   "insights": [
@@ -1210,10 +1320,15 @@
         "Azure/azure-sdk-for-go#26240",
         "Azure/azure-sdk-for-js#37616"
       ]
+    },
+    {
+      "type": "release_delay",
+      "severity": "warning",
+      "description": "Longest release gap was 5.4d (avg 3.9d) from PR merge to package publish"
     }
   ],
   "summary": {
-    "totalDurationDays": 51.7,
+    "totalDurationDays": 55.4,
     "specPRDays": 13.7,
     "pipelineGapDays": 31.3,
     "sdkPRMaxDays": 6.7,
@@ -1227,6 +1342,8 @@
     },
     "totalUniqueReviewers": 9,
     "totalNags": 3,
-    "totalManualFixes": 0
+    "totalManualFixes": 0,
+    "avgReleaseGapDays": 3.9,
+    "maxReleaseGapDays": 5.4
   }
 }

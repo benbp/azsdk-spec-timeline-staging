@@ -62,8 +62,28 @@ const Timeline = (() => {
       { label: 'Total', value: `${s.totalDurationDays || DataLoader.computeDurationDays(data.startDate, data.endDate) || '—'}d`, sub: 'End to end', cls: 'info' },
       { label: 'Nags', value: `${s.totalNags || 0}`, sub: 'Author nudges', cls: s.totalNags > 0 ? 'warning' : 'positive' },
       { label: 'Manual Fixes', value: `${s.totalManualFixes || 0}`, sub: 'On auto PRs', cls: s.totalManualFixes > 0 ? 'warning' : 'positive' },
-      { label: 'Reviewers', value: `${s.totalUniqueReviewers || '—'}`, sub: 'Unique people', cls: 'info' }
+      { label: 'Reviewers', value: `${s.totalUniqueReviewers || '—'}`, sub: 'Unique people', cls: 'info' },
     ];
+
+    // Add release cards if release data exists
+    if (s.avgReleaseGapDays !== undefined || s.pendingReleases !== undefined) {
+      if (s.avgReleaseGapDays !== undefined) {
+        cards.push({
+          label: 'Release Gap',
+          value: `${s.avgReleaseGapDays}d`,
+          sub: 'Avg merge → publish',
+          cls: s.avgReleaseGapDays > 3 ? 'warning' : 'positive'
+        });
+      }
+      if (s.pendingReleases !== undefined && s.pendingReleases > 0) {
+        cards.push({
+          label: 'Pending',
+          value: `${s.pendingReleases}`,
+          sub: 'Unreleased packages',
+          cls: 'critical'
+        });
+      }
+    }
 
     for (const card of cards) {
       const el = document.createElement('div');
@@ -84,7 +104,8 @@ const Timeline = (() => {
     const types = [
       'pr_created', 'pr_merged', 'review_approved', 'review_comment',
       'issue_comment', 'author_nag', 'manual_fix', 'commit_pushed',
-      'bot_comment', 'label_added', 'idle_gap'
+      'bot_comment', 'label_added', 'idle_gap',
+      'release_pipeline_started', 'release_pipeline_completed', 'package_published', 'release_pending'
     ];
 
     for (const type of types) {
@@ -131,6 +152,7 @@ const Timeline = (() => {
       ts.add(new Date(pr.createdAt).getTime());
       if (pr.mergedAt) ts.add(new Date(pr.mergedAt).getTime());
       if (pr.closedAt) ts.add(new Date(pr.closedAt).getTime());
+      if (pr.release?.releasedAt) ts.add(new Date(pr.release.releasedAt).getTime());
       for (const ev of pr.events) {
         ts.add(new Date(ev.timestamp).getTime());
         if (ev.endTimestamp) ts.add(new Date(ev.endTimestamp).getTime());
@@ -358,6 +380,13 @@ const Timeline = (() => {
     const prDays = pr.mergedAt
       ? DataLoader.computeDurationDays(pr.createdAt, pr.mergedAt)
       : '—';
+    const releaseStatus = pr.release
+      ? pr.release.status === 'released'
+        ? `<span class="release-badge released" title="Released ${DataLoader.formatDate(pr.release.releasedAt)}">📦 ${pr.release.releaseGapDays || '?'}d</span>`
+        : pr.release.status === 'pending'
+          ? '<span class="release-badge pending" title="Release pending — merged but not published">⏳ pending</span>'
+          : '<span class="release-badge failed" title="Release pipeline failed">❌ failed</span>'
+      : '';
     label.innerHTML = `
       <div class="lane-repo">
         <a href="${pr.url}" target="_blank" title="${pr.repo}#${pr.number}">#${pr.number}</a>
@@ -365,6 +394,7 @@ const Timeline = (() => {
       <div class="lane-meta">
         <span class="lane-language ${langClass}">${langText}</span>
         <span>${prDays}d</span>
+        ${releaseStatus}
       </div>
     `;
     lane.appendChild(label);
@@ -393,6 +423,31 @@ const Timeline = (() => {
     bar.style.left = barStart + 'px';
     bar.style.width = Math.max(barEnd - barStart, 4) + 'px';
     content.appendChild(bar);
+
+    // Release segment bar (extends from merge to release)
+    if (pr.release && pr.mergedAt) {
+      const releaseStart = timeToX(pr.mergedAt);
+      let releaseEnd;
+      const status = pr.release.status || 'pending';
+
+      if (pr.release.releasedAt) {
+        releaseEnd = timeToX(pr.release.releasedAt);
+      } else {
+        // For pending/failed, extend to endDate or a fixed amount past merge
+        releaseEnd = timeToX(data.endDate);
+      }
+
+      const releaseBar = document.createElement('div');
+      releaseBar.className = `release-bar ${status}`;
+      releaseBar.style.left = releaseStart + 'px';
+      releaseBar.style.width = Math.max(releaseEnd - releaseStart, 4) + 'px';
+      releaseBar.title = status === 'released'
+        ? `Released ${DataLoader.formatDate(pr.release.releasedAt)} (${pr.release.releaseGapDays || '?'}d after merge)`
+        : status === 'pending'
+          ? `⚠ Release pending — merged but not yet published`
+          : `❌ Release pipeline failed`;
+      content.appendChild(releaseBar);
+    }
 
     // Idle gaps
     const idleEvents = pr.events.filter(e => e.type === 'idle_gap');
@@ -558,7 +613,9 @@ const Timeline = (() => {
       manual_fix: '🔧',
       idle: '⏳',
       positive: '✅',
-      summary: '📊'
+      summary: '📊',
+      release_delay: '📦',
+      release_pending: '⚠️'
     };
 
     for (const insight of data.insights) {

@@ -328,6 +328,17 @@
           }
         },
         {
+          "type": "pr_merged",
+          "timestamp": "2026-03-26T04:49:46Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Java SDK PR merged by weidongxu-microsoft",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570"
+          }
+        },
+        {
           "type": "issue_comment",
           "timestamp": "2026-03-26T04:49:55Z",
           "actor": "weidongxu-microsoft",
@@ -340,17 +351,25 @@
           }
         },
         {
-          "type": "pr_merged",
-          "timestamp": "2026-03-26T04:49:46Z",
-          "actor": "weidongxu-microsoft",
-          "actorRole": "reviewer",
-          "description": "Java SDK PR merged by weidongxu-microsoft",
-          "sentiment": "positive",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570"
-          }
+          "type": "release_pending",
+          "timestamp": "2026-03-27T17:30:31Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "\u26a0 Package ? merged but not yet released",
+          "sentiment": "blocking",
+          "details": {}
         }
-      ]
+      ],
+      "release": {
+        "packageName": null,
+        "packageVersion": null,
+        "pipelineName": "java - appnetwork",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -463,8 +482,27 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-03-27T17:30:31Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "\u26a0 Package sdk/resourcemanager/appnetwork/armappnetwork merged but not yet released",
+          "sentiment": "blocking",
+          "details": {}
         }
-      ]
+      ],
+      "release": {
+        "packageName": "sdk/resourcemanager/appnetwork/armappnetwork",
+        "packageVersion": null,
+        "pipelineName": "go - armappnetwork",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -589,8 +627,27 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-03-27T17:30:31Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "\u26a0 Package azure-mgmt-appnetwork merged but not yet released",
+          "sentiment": "blocking",
+          "details": {}
         }
-      ]
+      ],
+      "release": {
+        "packageName": "azure-mgmt-appnetwork",
+        "packageVersion": null,
+        "pipelineName": "python - appnetwork",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-net",
@@ -622,17 +679,6 @@
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448"
-          }
-        },
-        {
-          "type": "bot_comment",
-          "timestamp": "2026-03-26T03:15:27Z",
-          "actor": "github-actions[bot]",
-          "actorRole": "bot",
-          "description": "API Change Check \u2014 ApiView link generated",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#issuecomment-4131332290"
           }
         },
         {
@@ -671,6 +717,17 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4010796162",
             "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-26T03:15:27Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView link generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#issuecomment-4131332290"
           }
         },
         {
@@ -768,8 +825,27 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-03-27T17:30:31Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "\u26a0 Package Azure.ResourceManager.AppNetwork merged but not yet released",
+          "sentiment": "blocking",
+          "details": {}
         }
-      ]
+      ],
+      "release": {
+        "packageName": "Azure.ResourceManager.AppNetwork",
+        "packageVersion": null,
+        "pipelineName": "net - appnetwork - mgmt",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -872,8 +948,27 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-03-27T17:30:31Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "\u26a0 Package ? merged but not yet released",
+          "sentiment": "blocking",
+          "details": {}
         }
-      ]
+      ],
+      "release": {
+        "packageName": null,
+        "packageVersion": null,
+        "pipelineName": "js - appnetwork - mgmt",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     }
   ],
   "insights": [
@@ -941,10 +1036,15 @@
       "type": "summary",
       "severity": "info",
       "description": "End-to-end process took 27.44 days: 11.45 days for spec PR, 13.54 days pipeline gap, and 2.45 days for slowest SDK PR (.NET)"
+    },
+    {
+      "type": "release_pending",
+      "severity": "critical",
+      "description": "5 SDK package(s) merged but not yet released \u2014 potential limbo"
     }
   ],
   "summary": {
-    "totalDurationDays": 27.44,
+    "totalDurationDays": 27.4,
     "specPRDays": 11.45,
     "pipelineGapDays": 13.54,
     "sdkPRMaxDays": 2.45,
@@ -958,6 +1058,7 @@
     },
     "totalUniqueReviewers": 13,
     "totalNags": 1,
-    "totalManualFixes": 0
+    "totalManualFixes": 0,
+    "pendingReleases": 5
   }
 }

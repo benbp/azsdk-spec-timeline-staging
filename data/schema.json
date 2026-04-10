@@ -52,6 +52,21 @@
         "state": { "type": "string", "enum": ["open", "closed", "merged"] },
         "labels": { "type": "array", "items": { "type": "string" } },
         "reviewers": { "type": "array", "items": { "type": "string" } },
+        "release": {
+          "type": "object",
+          "description": "Release/publish information for this PR's package",
+          "properties": {
+            "packageName": { "type": "string", "description": "Package name on the package manager" },
+            "packageVersion": { "type": "string", "description": "Released version" },
+            "pipelineName": { "type": "string", "description": "DevOps release pipeline name" },
+            "pipelineUrl": { "type": "string", "format": "uri", "description": "DevOps pipeline run URL" },
+            "buildId": { "type": "integer", "description": "DevOps build ID" },
+            "releasedAt": { "type": ["string", "null"], "format": "date-time", "description": "When the package was published" },
+            "releaseGapDays": { "type": "number", "description": "Days from PR merge to package publish" },
+            "status": { "type": "string", "enum": ["released", "pending", "failed"], "description": "Release status" },
+            "packageManagerUrl": { "type": "string", "format": "uri", "description": "URL to the package on the package manager" }
+          }
+        },
         "events": {
           "type": "array",
           "items": { "$ref": "#/definitions/timelineEvent" }
@@ -79,7 +94,12 @@
             "label_added",
             "manual_fix",
             "idle_gap",
-            "ci_status"
+            "ci_status",
+            "release_pipeline_started",
+            "release_pipeline_completed",
+            "release_pipeline_failed",
+            "package_published",
+            "release_pending"
           ]
         },
         "timestamp": { "type": "string", "format": "date-time" },
@@ -108,7 +128,12 @@
             "label": { "type": "string", "description": "Label name for label_added events" },
             "durationHours": { "type": "number", "description": "Duration in hours for idle_gap events" },
             "commitSha": { "type": "string", "description": "Commit SHA for commit_pushed events" },
-            "reviewState": { "type": "string", "description": "Review state (APPROVED, CHANGES_REQUESTED, COMMENTED)" }
+            "reviewState": { "type": "string", "description": "Review state (APPROVED, CHANGES_REQUESTED, COMMENTED)" },
+            "pipelineName": { "type": "string", "description": "DevOps pipeline name for release events" },
+            "pipelineUrl": { "type": "string", "format": "uri", "description": "DevOps pipeline run URL" },
+            "buildId": { "type": "integer", "description": "DevOps build ID for release events" },
+            "packageVersion": { "type": "string", "description": "Package version for release events" },
+            "packageManagerUrl": { "type": "string", "format": "uri", "description": "URL to the package on the package manager" }
           }
         }
       }
@@ -119,7 +144,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["bottleneck", "nag", "manual_fix", "idle", "positive", "summary"]
+          "enum": ["bottleneck", "nag", "manual_fix", "idle", "positive", "summary", "release_delay", "release_pending"]
         },
         "description": { "type": "string" },
         "severity": {
@@ -155,7 +180,10 @@
         },
         "totalUniqueReviewers": { "type": "integer" },
         "totalNags": { "type": "integer" },
-        "totalManualFixes": { "type": "integer" }
+        "totalManualFixes": { "type": "integer" },
+        "avgReleaseGapDays": { "type": "number", "description": "Average days from PR merge to package publish across all released SDK PRs" },
+        "maxReleaseGapDays": { "type": "number", "description": "Maximum days from PR merge to package publish" },
+        "pendingReleases": { "type": "integer", "description": "Number of SDK PRs merged but not yet released" }
       }
     }
   }

@@ -2,7 +2,7 @@
   "title": "Introduce Version 2026-02-01 & 2026-03-01-preview for Azure Key Vault",
   "owner": "melissamserv",
   "startDate": "2026-02-17T21:17:10Z",
-  "endDate": "2026-03-20T02:50:02Z",
+  "endDate": "2026-03-30T00:00:00Z",
   "specPR": {
     "repo": "Azure/azure-rest-api-specs",
     "number": 40486,
@@ -184,6 +184,18 @@
           }
         },
         {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-19T00:00:00Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Package sdk/resourcemanager/keyvault/armkeyvault v2.0.2 published",
+          "sentiment": "positive",
+          "details": {
+            "packageVersion": "2.0.2",
+            "pipelineName": "go - armkeyvault"
+          }
+        },
+        {
           "type": "pr_merged",
           "timestamp": "2026-03-19T00:38:52Z",
           "actor": "FRL200",
@@ -194,7 +206,17 @@
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26294"
           }
         }
-      ]
+      ],
+      "release": {
+        "packageName": "sdk/resourcemanager/keyvault/armkeyvault",
+        "packageVersion": "2.0.2",
+        "pipelineName": "go - armkeyvault",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": "2026-03-19T00:00:00Z",
+        "releaseGapDays": 0,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-net",
@@ -237,6 +259,18 @@
           }
         },
         {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-19T00:00:00Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Package Azure.ResourceManager.KeyVault v1.4.0 published",
+          "sentiment": "positive",
+          "details": {
+            "packageVersion": "1.4.0",
+            "pipelineName": "net - keyvault - mgmt"
+          }
+        },
+        {
           "type": "review_comment",
           "timestamp": "2026-03-19T00:29:45Z",
           "actor": "copilot-pull-request-reviewer[bot]",
@@ -269,7 +303,17 @@
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57181"
           }
         }
-      ]
+      ],
+      "release": {
+        "packageName": "Azure.ResourceManager.KeyVault",
+        "packageVersion": "1.4.0",
+        "pipelineName": "net - keyvault - mgmt",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": "2026-03-19T00:00:00Z",
+        "releaseGapDays": 0,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -410,8 +454,30 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446"
           }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-30T00:00:00Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Package azure-resourcemanager-keyvault v2.55.1 published",
+          "sentiment": "positive",
+          "details": {
+            "packageVersion": "2.55.1",
+            "pipelineName": "java - keyvault"
+          }
         }
-      ]
+      ],
+      "release": {
+        "packageName": "azure-resourcemanager-keyvault",
+        "packageVersion": "2.55.1",
+        "pipelineName": "java - keyvault",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": "2026-03-30T00:00:00Z",
+        "releaseGapDays": 10.7,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -538,8 +604,30 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750"
           }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-27T00:00:00Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Package azure-mgmt-keyvault v14.0.1 published",
+          "sentiment": "positive",
+          "details": {
+            "packageVersion": "14.0.1",
+            "pipelineName": "python - keyvault"
+          }
         }
-      ]
+      ],
+      "release": {
+        "packageName": "azure-mgmt-keyvault",
+        "packageVersion": "14.0.1",
+        "pipelineName": "python - keyvault",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": "2026-03-27T00:00:00Z",
+        "releaseGapDays": 7.3,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -652,6 +740,18 @@
           }
         },
         {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-20T00:00:00Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Package @azure/arm-keyvault v5.0.0 published",
+          "sentiment": "positive",
+          "details": {
+            "packageVersion": "5.0.0",
+            "pipelineName": "js - keyvault - mgmt"
+          }
+        },
+        {
           "type": "review_approved",
           "timestamp": "2026-03-20T01:47:41Z",
           "actor": "JialinHuang803",
@@ -684,7 +784,17 @@
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37688"
           }
         }
-      ]
+      ],
+      "release": {
+        "packageName": "@azure/arm-keyvault",
+        "packageVersion": "5.0.0",
+        "pipelineName": "js - keyvault - mgmt",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": "2026-03-20T00:00:00Z",
+        "releaseGapDays": 1.0,
+        "status": "released"
+      }
     }
   ],
   "insights": [
@@ -798,6 +908,11 @@
         "Azure/azure-rest-api-specs#40486",
         "Azure/azure-sdk-for-js#37688"
       ]
+    },
+    {
+      "type": "release_delay",
+      "severity": "critical",
+      "description": "Longest release gap was 10.7d (avg 3.8d) from PR merge to package publish"
     }
   ],
   "summary": {
@@ -814,6 +929,8 @@
     "totalUniqueReviewers": 10,
     "totalNags": 3,
     "totalManualFixes": 3,
-    "totalDurationDays": 30.2
+    "totalDurationDays": 40.1,
+    "avgReleaseGapDays": 3.8,
+    "maxReleaseGapDays": 10.7
   }
 }

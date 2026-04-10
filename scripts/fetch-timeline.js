@@ -11,6 +11,9 @@
 
 const { execSync } = require('child_process');
 
+const fs = require('fs');
+const path = require('path');
+
 const SDK_REPOS = [
   'Azure/azure-sdk-for-java',
   'Azure/azure-sdk-for-go',
@@ -25,6 +28,36 @@ const LANG_MAP = {
   'azure-sdk-for-python': 'Python',
   'azure-sdk-for-net': '.NET',
   'azure-sdk-for-js': 'JavaScript'
+};
+
+const DEVOPS_ORG = 'https://dev.azure.com/azure-sdk';
+const DEVOPS_PROJECT = 'internal';
+
+// Pipeline naming conventions per language
+const PIPELINE_PATTERNS = {
+  'Java':       (svc) => [`java - ${svc}`],
+  'Go':         (svc) => [`go - arm${svc}`],
+  'Python':     (svc) => [`python - ${svc}`],
+  '.NET':       (svc) => [`net - ${svc} - mgmt`, `net - ${svc}`],
+  'JavaScript': (svc) => [`js - ${svc} - mgmt`, `js - ${svc}`]
+};
+
+// Package name patterns per language for CSV lookup
+const PACKAGE_PATTERNS = {
+  'Java':       (svc) => `azure-resourcemanager-${svc}`,
+  'Go':         (svc) => `sdk/resourcemanager/${svc}/arm${svc}`,
+  'Python':     (svc) => `azure-mgmt-${svc}`,
+  '.NET':       (svc) => `Azure.ResourceManager.${svc.charAt(0).toUpperCase() + svc.slice(1)}`,
+  'JavaScript': (svc) => `@azure/arm-${svc}`
+};
+
+// CSV file naming per language
+const CSV_LANG_MAP = {
+  'Java': 'java',
+  'Go': 'go',
+  'Python': 'python',
+  '.NET': 'dotnet',
+  'JavaScript': 'js'
 };
 
 function gh(args) {
@@ -86,6 +119,228 @@ function fetchCommits(repo, number) {
 function fetchTimelineEvents(repo, number) {
   console.error(`  Fetching timeline events: ${repo}#${number}`);
   return ghJson(`api repos/${repo}/issues/${number}/timeline --paginate -H "Accept: application/vnd.github.mockingbird-preview+json"`) || [];
+}
+
+/* ── Azure DevOps Release Pipeline Helpers ──────────────── */
+
+function azDevOps(area, resource, routeParams, queryParams) {
+  const route = Object.entries(routeParams || {})
+    .map(([k, v]) => `${k}=${v}`).join(' ');
+  const query = Object.entries(queryParams || {})
+    .map(([k, v]) => `"${k}=${v}"`).join(' ');
+  const cmd = `az devops invoke --area ${area} --resource ${resource}` +
+    ` --organization ${DEVOPS_ORG}` +
+    ` --route-parameters project=${DEVOPS_PROJECT} ${route}` +
+    (query ? ` --query-parameters ${query}` : '') +
+    ` --output json`;
+  try {
+    const result = execSync(cmd, {
+      encoding: 'utf-8',
+      maxBuffer: 10 * 1024 * 1024,
+      timeout: 30000
+    });
+    return JSON.parse(result.trim());
+  } catch (e) {
+    return null;
+  }
+}
+
+function inferServiceName(prTitle) {
+  // Extract service name from AutoPR title patterns
+  // e.g. "[AutoPR azure-resourcemanager-durabletask]" → "durabletask"
+  const patterns = [
+    /\[AutoPR\s+(?:azure-resourcemanager-|azure-mgmt-|arm-)([^\]]+)\]/i,
+    /\[AutoPR\s+([^\]]+)\]/i,
+    /specification\/([^/]+)\//i
+  ];
+  for (const pat of patterns) {
+    const m = prTitle.match(pat);
+    if (m) return m[1].toLowerCase().replace(/[_-]$/, '');
+  }
+  return null;
+}
+
+function findReleasePipeline(language, serviceName) {
+  const patternFn = PIPELINE_PATTERNS[language];
+  if (!patternFn) return null;
+  
+  const names = patternFn(serviceName);
+  for (const name of names) {
+    console.error(`    Searching DevOps pipeline: "${name}"`);
+    const result = azDevOps('build', 'definitions', {}, { name });
+    const defs = result?.value || [];
+    if (defs.length > 0) {
+      return { definitionId: defs[0].id, name: defs[0].name, url: defs[0]._links?.web?.href };
+    }
+  }
+  return null;
+}
+
+function findReleaseBuilds(definitionId, afterDate) {
+  console.error(`    Fetching builds for definition ${definitionId}...`);
+  const result = azDevOps('build', 'builds', {}, {
+    definitions: String(definitionId),
+    $top: '50',
+    queryOrder: 'finishTimeDescending'
+  });
+  
+  const builds = (result?.value || []).filter(b => {
+    if (b.reason !== 'manual') return false;
+    if (afterDate && b.finishTime && b.finishTime < afterDate) return false;
+    return true;
+  });
+  
+  return builds;
+}
+
+function getReleaseStage(buildId) {
+  console.error(`    Fetching timeline for build ${buildId}...`);
+  const result = azDevOps('build', 'timeline', { buildId: String(buildId) }, {});
+  if (!result?.records) return null;
+  
+  const stage = result.records.find(r =>
+    r.type === 'Stage' && /releas/i.test(r.name)
+  );
+  
+  if (!stage) return null;
+  return {
+    name: stage.name,
+    state: stage.state,
+    result: stage.result,
+    startTime: stage.startTime,
+    finishTime: stage.finishTime
+  };
+}
+
+function fetchReleaseFromDevOps(language, serviceName, mergedAt) {
+  if (!serviceName || !language) return null;
+  
+  console.error(`  Looking up DevOps release: ${language} / ${serviceName}`);
+  const pipeline = findReleasePipeline(language, serviceName);
+  if (!pipeline) {
+    console.error(`    No pipeline found`);
+    return null;
+  }
+  
+  console.error(`    Found pipeline: ${pipeline.name} (${pipeline.definitionId})`);
+  const builds = findReleaseBuilds(pipeline.definitionId, mergedAt);
+  if (builds.length === 0) {
+    console.error(`    No release builds found after ${mergedAt}`);
+    return { pipeline, status: 'pending', stage: null };
+  }
+  
+  // Check each build for a release stage
+  for (const build of builds.slice(0, 5)) {
+    const stage = getReleaseStage(build.id);
+    if (!stage) continue;
+    
+    if (stage.result === 'succeeded' && stage.finishTime) {
+      console.error(`    Released via build ${build.id} at ${stage.finishTime}`);
+      return { pipeline, status: 'released', stage, buildId: build.id, buildUrl: build._links?.web?.href };
+    }
+    if (stage.result === 'failed') {
+      console.error(`    Release FAILED in build ${build.id}`);
+      return { pipeline, status: 'failed', stage, buildId: build.id, buildUrl: build._links?.web?.href };
+    }
+    if (stage.result === 'skipped') {
+      console.error(`    Release SKIPPED in build ${build.id}`);
+      // Keep searching — a later build might have released
+    }
+  }
+  
+  console.error(`    No successful release found — pending`);
+  return { pipeline, status: 'pending', stage: null };
+}
+
+/* ── CSV Release Date Lookup ────────────────────────────── */
+
+function lookupReleaseCSV(language, serviceName, releaseCsvDir) {
+  if (!releaseCsvDir || !serviceName || !language) return null;
+  
+  const csvLang = CSV_LANG_MAP[language];
+  if (!csvLang) return null;
+  
+  const csvPath = path.join(releaseCsvDir, 'latest', `${csvLang}-packages.csv`);
+  if (!fs.existsSync(csvPath)) {
+    console.error(`    CSV not found: ${csvPath}`);
+    return null;
+  }
+  
+  const patternFn = PACKAGE_PATTERNS[language];
+  if (!patternFn) return null;
+  const expectedPkg = patternFn(serviceName);
+  
+  console.error(`  Looking up CSV: ${expectedPkg} in ${csvPath}`);
+  const content = fs.readFileSync(csvPath, 'utf-8');
+  const lines = content.split('\n');
+  const header = lines[0].split(',').map(h => h.trim());
+  
+  const pkgIdx = header.indexOf('Package');
+  const gaVersionIdx = header.indexOf('VersionGA');
+  const gaDateIdx = header.indexOf('LatestGADate');
+  
+  if (pkgIdx === -1) return null;
+  
+  for (const line of lines.slice(1)) {
+    if (!line.trim()) continue;
+    // Simple CSV parse (handles quoted fields)
+    const cols = parseCSVLine(line);
+    const pkg = cols[pkgIdx]?.trim();
+    
+    if (pkg === expectedPkg) {
+      const version = gaVersionIdx >= 0 ? cols[gaVersionIdx]?.trim() : null;
+      const dateStr = gaDateIdx >= 0 ? cols[gaDateIdx]?.trim() : null;
+      
+      let gaDate = null;
+      if (dateStr) {
+        // Parse MM/DD/YYYY
+        const [m, d, y] = dateStr.split('/').map(Number);
+        if (y && m && d) {
+          gaDate = `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}T00:00:00Z`;
+        }
+      }
+      
+      console.error(`    CSV match: ${pkg} v${version} released ${gaDate || 'unknown'}`);
+      return { packageName: pkg, packageVersion: version, gaDate };
+    }
+  }
+  
+  console.error(`    No CSV match for ${expectedPkg}`);
+  return null;
+}
+
+function parseCSVLine(line) {
+  const result = [];
+  let current = '';
+  let inQuotes = false;
+  for (const ch of line) {
+    if (ch === '"') { inQuotes = !inQuotes; }
+    else if (ch === ',' && !inQuotes) { result.push(current); current = ''; }
+    else { current += ch; }
+  }
+  result.push(current);
+  return result;
+}
+
+function fetchReleaseData(language, prTitle, mergedAt, releaseCsvDir) {
+  const serviceName = inferServiceName(prTitle);
+  if (!serviceName) {
+    console.error(`  Could not infer service name from: ${prTitle}`);
+    return null;
+  }
+  
+  console.error(`  Service name: ${serviceName}`);
+  
+  const devOps = fetchReleaseFromDevOps(language, serviceName, mergedAt);
+  const csv = lookupReleaseCSV(language, serviceName, releaseCsvDir);
+  
+  return {
+    serviceName,
+    language,
+    devOps,
+    csv,
+    packageName: csv?.packageName || (PACKAGE_PATTERNS[language] ? PACKAGE_PATTERNS[language](serviceName) : null)
+  };
 }
 
 function discoverSDKPRs(specRepo, specNumber) {
@@ -154,7 +409,7 @@ function fetchFullPRData(repo, number) {
 function main() {
   const args = process.argv.slice(2);
   if (args.length === 0) {
-    console.error('Usage: node fetch-timeline.js <spec-pr-url> [--sdk-prs <url1> <url2> ...]');
+    console.error('Usage: node fetch-timeline.js <spec-pr-url> [--sdk-prs <url1> <url2> ...] [--release-csv <dir>] [--skip-releases]');
     process.exit(1);
   }
 
@@ -165,8 +420,16 @@ function main() {
   let sdkPRUrls = [];
   const sdkIdx = args.indexOf('--sdk-prs');
   if (sdkIdx !== -1) {
-    sdkPRUrls = args.slice(sdkIdx + 1);
+    const nextFlagIdx = args.findIndex((a, i) => i > sdkIdx && a.startsWith('--'));
+    sdkPRUrls = args.slice(sdkIdx + 1, nextFlagIdx === -1 ? undefined : nextFlagIdx);
   }
+
+  // Parse release CSV dir
+  const csvIdx = args.indexOf('--release-csv');
+  const releaseCsvDir = csvIdx !== -1 ? args[csvIdx + 1] : null;
+
+  // Check skip-releases flag
+  const skipReleases = args.includes('--skip-releases');
 
   // Fetch spec PR data
   const specData = fetchFullPRData(specRepo, specNumber);
@@ -191,11 +454,24 @@ function main() {
     }
   }
 
+  // Fetch release data for merged SDK PRs
+  if (!skipReleases) {
+    for (const sdk of sdkPRs) {
+      if (!sdk.mergedAt) continue;
+      console.error(`\nLooking up release for ${sdk.language} (${sdk.repo}#${sdk.number})...`);
+      const release = fetchReleaseData(sdk.language, sdk.title, sdk.mergedAt, releaseCsvDir);
+      if (release) {
+        sdk._release = release;
+      }
+    }
+  }
+
   // Output the raw data for agent processing
   const output = {
     _meta: {
       fetchedAt: new Date().toISOString(),
       specUrl,
+      releaseCsvDir: releaseCsvDir || null,
       note: 'This is raw fetched data. It needs agent processing to produce the final timeline JSON.'
     },
     specPR: specData,

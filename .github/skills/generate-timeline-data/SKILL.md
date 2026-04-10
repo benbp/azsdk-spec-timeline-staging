@@ -30,8 +30,10 @@ Parse the user's input to extract the spec PR URL. Expected format:
 
 Use the fetch script if available:
 ```bash
-node scripts/fetch-timeline.js <spec-pr-url> [--sdk-prs <url1> <url2> ...]
+node scripts/fetch-timeline.js <spec-pr-url> [--sdk-prs <url1> <url2> ...] [--release-csv /path/to/azure-sdk/_data/releases] [--skip-releases]
 ```
+
+The script automatically fetches release data from Azure DevOps pipelines and optionally cross-references with the Azure SDK release CSVs. Use `--release-csv` to point to the `_data/releases` directory for CSV lookup. Use `--skip-releases` to skip release data entirely.
 
 Or fetch manually with `gh` CLI:
 ```bash

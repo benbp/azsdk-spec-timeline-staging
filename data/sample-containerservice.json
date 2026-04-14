@@ -299,7 +299,7 @@
         },
         {
           "type": "release_pipeline_completed",
-          "timestamp": "2026-03-19T00:00:00Z",
+          "timestamp": "2026-03-19T09:11:08Z",
           "actor": "azure-sdk",
           "actorRole": "bot",
           "description": "Package @azure/arm-containerservice v25.0.0 published",
@@ -351,8 +351,8 @@
         "pipelineName": "js - containerservice - mgmt",
         "pipelineUrl": null,
         "buildId": null,
-        "releasedAt": "2026-03-19T00:00:00Z",
-        "releaseGapDays": 0,
+        "releasedAt": "2026-03-19T09:11:08Z",
+        "releaseGapDays": 0.0,
         "status": "released"
       }
     },

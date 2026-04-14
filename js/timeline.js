@@ -371,6 +371,7 @@ const Timeline = (() => {
   function renderLane(container, pr, isSpec) {
     const lane = document.createElement('div');
     lane.className = `lane ${isSpec ? 'spec-lane' : ''}`;
+    if (!isSpec && pr.release?.status === 'released') lane.classList.add('released');
 
     // Label
     const label = document.createElement('div');
@@ -382,7 +383,7 @@ const Timeline = (() => {
       : '—';
     const releaseStatus = pr.release
       ? pr.release.status === 'released'
-        ? `<span class="release-badge released" title="Released ${DataLoader.formatDate(pr.release.releasedAt)}">📦 ${pr.release.releaseGapDays || '?'}d</span>`
+        ? `<span class="release-badge released" title="Released ${DataLoader.formatDate(pr.release.releasedAt)}">${pr.release.releaseGapDays ? '📦 ' + pr.release.releaseGapDays + 'd' : '📦 &lt;1d'}</span>`
         : pr.release.status === 'pending'
           ? '<span class="release-badge pending" title="Release pending — merged but not published">⏳ pending</span>'
           : '<span class="release-badge failed" title="Release pipeline failed">❌ failed</span>'
@@ -426,23 +427,25 @@ const Timeline = (() => {
 
     // Release segment bar (extends from merge to release)
     if (pr.release && pr.mergedAt) {
-      const releaseStart = timeToX(pr.mergedAt);
+      const mergeX = timeToX(pr.mergedAt);
       let releaseEnd;
       const status = pr.release.status || 'pending';
 
       if (pr.release.releasedAt) {
         releaseEnd = timeToX(pr.release.releasedAt);
+        // Clamp: release can't render before merge (CSV dates are midnight approx)
+        if (releaseEnd <= mergeX) releaseEnd = mergeX + 8;
       } else {
-        // For pending/failed, extend to endDate or a fixed amount past merge
         releaseEnd = timeToX(data.endDate);
       }
 
+      const barWidth = Math.max(releaseEnd - mergeX, 4);
       const releaseBar = document.createElement('div');
       releaseBar.className = `release-bar ${status}`;
-      releaseBar.style.left = releaseStart + 'px';
-      releaseBar.style.width = Math.max(releaseEnd - releaseStart, 4) + 'px';
+      releaseBar.style.left = mergeX + 'px';
+      releaseBar.style.width = barWidth + 'px';
       releaseBar.title = status === 'released'
-        ? `Released ${DataLoader.formatDate(pr.release.releasedAt)} (${pr.release.releaseGapDays || '?'}d after merge)`
+        ? `Released ${DataLoader.formatDate(pr.release.releasedAt)} (${pr.release.releaseGapDays != null ? pr.release.releaseGapDays + 'd' : 'same day'} after merge)`
         : status === 'pending'
           ? `⚠ Release pending — merged but not yet published`
           : `❌ Release pipeline failed`;

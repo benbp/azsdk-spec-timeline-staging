@@ -429,6 +429,14 @@ header {
   font-weight: 600;
   letter-spacing: 0.02em;
 }
+
+.flow-badge {
+  font-size: 11px;
+  cursor: help;
+  opacity: 0.8;
+}
+.flow-badge.automated { opacity: 0.7; }
+.flow-badge.manual { opacity: 0.9; }
 .release-badge.released {
   background: rgba(63, 185, 80, 0.15);
   color: var(--teal);

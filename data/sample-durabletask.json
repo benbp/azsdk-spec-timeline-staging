@@ -342,7 +342,8 @@
         "releasedAt": "2026-03-12T20:25:25Z",
         "releaseGapDays": 2.8,
         "status": "released"
-      }
+      },
+      "generationFlow": "automated"
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -445,7 +446,8 @@
         "releasedAt": "2026-03-13T01:02:38Z",
         "releaseGapDays": 0.3,
         "status": "released"
-      }
+      },
+      "generationFlow": "automated"
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -567,7 +569,8 @@
         "releasedAt": null,
         "releaseGapDays": null,
         "status": "pending"
-      }
+      },
+      "generationFlow": "automated"
     },
     {
       "repo": "Azure/azure-sdk-for-net",
@@ -724,7 +727,8 @@
         "releasedAt": "2026-03-12T15:47:31Z",
         "releaseGapDays": 0.4,
         "status": "released"
-      }
+      },
+      "generationFlow": "automated"
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -852,7 +856,8 @@
         "releasedAt": null,
         "releaseGapDays": null,
         "status": "pending"
-      }
+      },
+      "generationFlow": "automated"
     }
   ],
   "insights": [

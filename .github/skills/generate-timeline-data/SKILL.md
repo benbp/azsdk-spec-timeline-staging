@@ -176,7 +176,7 @@ Produce a JSON file matching this schema:
       }
     ]
   },
-  "sdkPRs": [ "/* same structure per SDK PR, with added 'language' field */" ],
+  "sdkPRs": [ "/* same structure per SDK PR, with added 'language' and 'generationFlow' fields. generationFlow is 'automated' for AutoPR bot PRs or 'manual' for human-authored PRs */" ],
   "insights": [
     {
       "type": "bottleneck|nag|manual_fix|idle|positive|summary|release_delay|release_pending",

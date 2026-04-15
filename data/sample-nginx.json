@@ -599,7 +599,8 @@
         "releasedAt": "2026-03-23T23:59:59Z",
         "releaseGapDays": 6.4,
         "status": "released"
-      }
+      },
+      "generationFlow": "automated"
     },
     {
       "repo": "Azure/azure-sdk-for-net",
@@ -722,7 +723,8 @@
         "releasedAt": "2026-03-20T23:59:59Z",
         "releaseGapDays": 3.3,
         "status": "released"
-      }
+      },
+      "generationFlow": "automated"
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -869,7 +871,8 @@
         "releasedAt": "2026-03-23T23:59:59Z",
         "releaseGapDays": 5.6,
         "status": "released"
-      }
+      },
+      "generationFlow": "automated"
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -1028,7 +1031,8 @@
         "releasedAt": "2026-03-23T23:59:59Z",
         "releaseGapDays": 4.7,
         "status": "released"
-      }
+      },
+      "generationFlow": "automated"
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -1189,7 +1193,8 @@
         "releasedAt": "2026-03-23T23:59:59Z",
         "releaseGapDays": 4.6,
         "status": "released"
-      }
+      },
+      "generationFlow": "automated"
     }
   ],
   "insights": [

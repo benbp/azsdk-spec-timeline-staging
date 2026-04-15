@@ -223,8 +223,10 @@ const UI = (() => {
 
     // PR reference
     const repoShort = pr.repo.split('/')[1];
+    const flowLabel = pr.generationFlow === 'automated' ? ' 🤖 automated'
+      : pr.generationFlow === 'manual' ? ' 👤 manual' : '';
     addDetailField(body, 'Pull Request',
-      `<a href="${pr.url}" target="_blank">${pr.repo}#${pr.number}</a> — ${pr.language || 'TypeSpec'}`);
+      `<a href="${pr.url}" target="_blank">${pr.repo}#${pr.number}</a> — ${pr.language || 'TypeSpec'}${flowLabel}`);
 
     // Sentiment
     if (event.sentiment) {

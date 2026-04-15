@@ -393,12 +393,19 @@ const Timeline = (() => {
     if (pr.release?.pipelineUrl) {
       releaseLinkHtml = ` <a href="${pr.release.pipelineUrl}" target="_blank" title="Release pipeline: ${pr.release.pipelineName || ''}">🔗</a>`;
     }
+    // Flow type indicator (automated=bot, manual=human)
+    const flowIcon = !isSpec && pr.generationFlow
+      ? pr.generationFlow === 'automated'
+        ? '<span class="flow-badge automated" title="Automated (pipeline-generated)">🤖</span>'
+        : '<span class="flow-badge manual" title="Manual (human-authored)">👤</span>'
+      : '';
     label.innerHTML = `
       <div class="lane-repo">
         <a href="${pr.url}" target="_blank" title="${pr.repo}#${pr.number}">#${pr.number}</a>${releaseLinkHtml}
       </div>
       <div class="lane-meta">
         <span class="lane-language ${langClass}">${langText}</span>
+        ${flowIcon}
         <span>${prDays}d</span>
         ${releaseStatus}
       </div>

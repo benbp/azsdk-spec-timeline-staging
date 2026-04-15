@@ -45,6 +45,11 @@
         "url": { "type": "string", "format": "uri" },
         "title": { "type": "string" },
         "author": { "type": "string" },
+        "generationFlow": {
+          "type": "string",
+          "enum": ["automated", "manual"],
+          "description": "How this SDK PR was created: automated (AutoPR bot pipeline) or manual (human-authored)"
+        },
         "createdAt": { "type": "string", "format": "date-time" },
         "mergedAt": { "type": ["string", "null"], "format": "date-time" },
         "closedAt": { "type": ["string", "null"], "format": "date-time" },

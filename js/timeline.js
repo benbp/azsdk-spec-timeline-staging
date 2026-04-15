@@ -101,6 +101,22 @@ const Timeline = (() => {
       }
     }
 
+    // Add tool call cards if tool_call events exist
+    const allToolCalls = DataLoader.getAllEvents(data).filter(e => e.type === 'tool_call');
+    if (allToolCalls.length > 0) {
+      const successCount = allToolCalls.filter(e => e.details?.success !== false).length;
+      const failCount = allToolCalls.length - successCount;
+      const agentCount = allToolCalls.filter(e => e.details?.clientType === 'agent').length;
+      const humanCount = allToolCalls.length - agentCount;
+      const successRate = Math.round(successCount * 100 / allToolCalls.length);
+      cards.push({
+        label: 'Tool Calls',
+        value: `${allToolCalls.length}`,
+        sub: `${successRate}% success · ${humanCount}👤 ${agentCount}🤖`,
+        cls: failCount > 0 ? 'warning' : 'positive'
+      });
+    }
+
     for (const card of cards) {
       const el = document.createElement('div');
       el.className = `summary-card ${card.cls}`;
@@ -121,7 +137,8 @@ const Timeline = (() => {
       'pr_created', 'pr_merged', 'review_approved', 'review_comment',
       'issue_comment', 'author_nag', 'manual_fix', 'commit_pushed',
       'bot_comment', 'label_added', 'idle_gap',
-      'release_pipeline_started', 'release_pipeline_completed', 'release_pending'
+      'release_pipeline_started', 'release_pipeline_completed', 'release_pending',
+      'tool_call'
     ];
 
     for (const type of types) {
@@ -550,6 +567,11 @@ const Timeline = (() => {
       const marker = document.createElement('div');
       marker.className = `event-marker ${event.type}`;
       if (hiddenEventTypes.has(event.type)) marker.classList.add('hidden');
+      // Tool call sub-classes for success/fail and agent/human
+      if (event.type === 'tool_call' && event.details) {
+        marker.classList.add(event.details.success === false ? 'tool-fail' : 'tool-success');
+        if (event.details.clientType === 'agent') marker.classList.add('tool-agent');
+      }
       marker.style.left = x + 'px';
       marker.dataset.eventType = event.type;
       marker.title = '';
@@ -693,7 +715,9 @@ const Timeline = (() => {
       positive: '✅',
       summary: '📊',
       release_delay: '📦',
-      release_pending: '⚠️'
+      release_pending: '⚠️',
+      tool_usage: '⚙️',
+      observation: '💡'
     };
 
     for (const insight of data.insights) {

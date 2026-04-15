@@ -600,6 +600,295 @@
           }
         },
         {
+          "type": "tool_call",
+          "timestamp": "2026-03-02T22:50:33.950Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (25.6s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 25565,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-02T23:13:33.983Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (22.5s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 22538,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-02T23:35:27.376Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (21.7s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 21669,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-02T23:44:21.830Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_tests — Failed (31.9s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_run_tests",
+            "success": false,
+            "durationMs": 31925,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T00:06:41.138Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (22.3s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 22336,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T00:15:36.741Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (17.0s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 17032,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T00:28:27.772Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (15.8s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 15821,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T00:30:03.755Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (14.6s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 14586,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T00:30:39.979Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (16.7s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 16732,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T00:49:10.026Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (9.0s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 9032,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T00:55:18.405Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (14.0s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 13969,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T00:55:55.015Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (16.4s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 16426,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T01:25:20.046Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Succeeded (26.1s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "durationMs": 26069,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T01:26:08.294Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_tests — Failed (25.1s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_run_tests",
+            "success": false,
+            "durationMs": 25063,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T01:31:21.662Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_tests — Failed (66.0s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_run_tests",
+            "success": false,
+            "durationMs": 65986,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T01:33:03.451Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_tests — Succeeded (57.3s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_run_tests",
+            "success": true,
+            "durationMs": 57278,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-03T01:47:26.372Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (18.7s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 18721,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
           "type": "review_comment",
           "timestamp": "2026-03-04T04:41:48Z",
           "actor": "ArthurMa1978",
@@ -692,6 +981,125 @@
           }
         },
         {
+          "type": "tool_call",
+          "timestamp": "2026-03-05T17:25:30.557Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_tests — Failed (49.1s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_run_tests",
+            "success": false,
+            "durationMs": 49119,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-05T17:26:52.632Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_tests — Succeeded (69.7s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_run_tests",
+            "success": true,
+            "durationMs": 69679,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-05T17:28:17.991Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_check — Failed (98.4s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_run_check",
+            "success": false,
+            "durationMs": 98384,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-05T17:35:42.399Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_tests — Succeeded (57.2s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_run_tests",
+            "success": true,
+            "durationMs": 57223,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-05T17:37:24.464Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_check — Failed (49.3s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_run_check",
+            "success": false,
+            "durationMs": 49271,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-05T17:39:54.275Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_check — Failed (3.0s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_run_check",
+            "success": false,
+            "durationMs": 2964,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-05T17:40:14.671Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_check — Succeeded (6.5s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_run_check",
+            "success": true,
+            "durationMs": 6495,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
           "type": "review_approved",
           "timestamp": "2026-03-06T07:35:38Z",
           "actor": "ArthurMa1978",
@@ -711,6 +1119,261 @@
           "sentiment": "positive",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-06T20:46:51.729Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status — Succeeded (3.7s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "durationMs": 3667,
+            "clientName": "unknown",
+            "clientType": "human",
+            "language": "DotNet",
+            "packageType": "Unknown"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-10T08:13:36.725Z",
+          "actor": "copilot-agent",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (4.4s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 4406,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-10T08:20:51.588Z",
+          "actor": "copilot-agent",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (4.1s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 4125,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-10T08:21:25.126Z",
+          "actor": "copilot-agent",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (6.9s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 6873,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-10T08:25:27.583Z",
+          "actor": "copilot-agent",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (2.8s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 2781,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-10T08:25:49.369Z",
+          "actor": "copilot-agent",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (6.7s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 6660,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-10T08:27:30.537Z",
+          "actor": "copilot-agent",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (9.2s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 9243,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-10T08:29:39.422Z",
+          "actor": "copilot-agent",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Succeeded (14.3s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "durationMs": 14324,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-10T08:30:14.884Z",
+          "actor": "copilot-agent",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_check — Failed (482ms)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_run_check",
+            "success": false,
+            "durationMs": 482,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-10T09:56:06.197Z",
+          "actor": "copilot-agent",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (3.4s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 3358,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-10T09:57:23.808Z",
+          "actor": "copilot-agent",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Failed (5.8s)",
+          "sentiment": "negative",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": false,
+            "durationMs": 5792,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-10T09:59:00.729Z",
+          "actor": "copilot-agent",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Succeeded (16.7s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "durationMs": 16670,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-10T10:22:04.019Z",
+          "actor": "copilot-agent",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code — Succeeded (14.3s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "durationMs": 14305,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "language": ".NET",
+            "packageType": "mgmt"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-22T22:16:20.517Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status — Succeeded (3.6s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "durationMs": 3566,
+            "clientName": "unknown",
+            "clientType": "human",
+            "language": "DotNet",
+            "packageType": "Unknown"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T18:06:49.813Z",
+          "actor": "developer",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status — Succeeded (2.9s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "durationMs": 2862,
+            "clientName": "unknown",
+            "clientType": "human",
+            "language": "DotNet",
+            "packageType": "Unknown"
           }
         }
       ],
@@ -1592,6 +2255,11 @@
       "type": "observation",
       "severity": "info",
       "description": "All 5 SDK packages released with avg 3.0-day gap from merge to release (max 4.6 days for .NET)"
+    },
+    {
+      "type": "tool_usage",
+      "severity": "info",
+      "description": "39 MCP tool calls tracked for .NET SDK development — build/test/check cycles from both human (VS Code) and AI agent (github-copilot-developer). Multiple build failures before first success on Mar 2, followed by agent-assisted builds on Mar 10."
     }
   ],
   "summary": {

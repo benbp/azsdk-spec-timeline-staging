@@ -648,6 +648,10 @@ header {
 .event-marker.release_pipeline_completed { background: var(--teal); border: 2px solid var(--green); }
 .event-marker.release_pipeline_failed { background: var(--red); border: 2px solid var(--orange); }
 .event-marker.release_pending { background: var(--orange); animation: pulse-pending 1.5s ease-in-out infinite; }
+.event-marker.tool_call { background: var(--accent); border-radius: 2px; border: 2px solid var(--teal); }
+.event-marker.tool_call.tool-success { background: var(--teal); border-color: var(--green); }
+.event-marker.tool_call.tool-fail { background: var(--red); border-color: var(--orange); }
+.event-marker.tool_call.tool-agent { box-shadow: 0 0 0 2px var(--purple); }
 
 @keyframes pulse-pending {
   0%, 100% { opacity: 1; }
@@ -1044,11 +1048,29 @@ header {
 /* Sample buttons grid */
 .sample-buttons {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  max-width: 640px;
+  width: 100%;
+}
+.sample-section-heading {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 8px;
+  width: 100%;
+  text-align: center;
+}
+.sample-grid {
+  display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  margin-bottom: 12px;
-  max-width: 640px;
+  width: 100%;
 }
 
 .sample-btn {
@@ -1068,6 +1090,14 @@ header {
 .sample-btn:hover {
   border-color: var(--accent);
   background: var(--bg-tertiary);
+}
+.sample-btn.has-tooling {
+  border-color: var(--teal);
+  background: rgba(63, 185, 80, 0.04);
+}
+.sample-btn.has-tooling:hover {
+  border-color: var(--green);
+  background: rgba(63, 185, 80, 0.1);
 }
 
 .sample-btn .sample-name {

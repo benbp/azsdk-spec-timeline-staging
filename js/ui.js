@@ -8,44 +8,52 @@ const UI = (() => {
 
   const SAMPLES = [
     {
+      file: 'data/sample-netapp.json',
+      name: 'NetApp',
+      meta: 'audunn · 39d · 👤 manual .NET + 🤖 automated · all released',
+      hasTooling: true
+    },
+    {
       file: 'data/sample-durabletask.json',
       name: 'DurableTask',
-      meta: 'berndverst · 31d · 4 nags · 1 manual fix'
+      meta: 'berndverst · 31d · 4 nags · 1 manual fix',
+      hasTooling: false
     },
     {
       file: 'data/sample-playwright.json',
       name: 'Playwright Testing',
-      meta: 'mjmadhu · 57d · 49d pipeline gap'
+      meta: 'mjmadhu · 57d · 49d pipeline gap',
+      hasTooling: false
     },
     {
       file: 'data/sample-containerservice.json',
       name: 'Container Service (AKS)',
-      meta: 'FumingZhang · 42d · breaking changes'
+      meta: 'FumingZhang · 42d · breaking changes',
+      hasTooling: false
     },
     {
       file: 'data/sample-appnetwork.json',
       name: 'AppNetwork (AppLink)',
-      meta: 'deveshdama · 27d · new RP onboarding'
+      meta: 'deveshdama · 27d · new RP onboarding',
+      hasTooling: false
     },
     {
       file: 'data/sample-keyvault.json',
       name: 'Key Vault',
-      meta: 'melissamserv · 30d · 22d pipeline gap · 3 nags'
+      meta: 'melissamserv · 30d · 22d pipeline gap · 3 nags',
+      hasTooling: false
     },
     {
       file: 'data/sample-nginx.json',
       name: 'Nginx.NginxPlus',
-      meta: 'briantkim93 · 52d · 31d pipeline gap · 3 nags'
-    },
-    {
-      file: 'data/sample-netapp.json',
-      name: 'NetApp',
-      meta: 'audunn · 39d · 👤 manual .NET + 🤖 automated · all released'
+      meta: 'briantkim93 · 52d · 31d pipeline gap · 3 nags',
+      hasTooling: false
     },
     {
       file: 'data/sample-search.json',
       name: 'AzureSearch',
-      meta: 'yangylu91 · 49d · 42d spec review · missing .NET'
+      meta: 'yangylu91 · 49d · 42d spec review · missing .NET',
+      hasTooling: false
     }
   ];
 
@@ -120,16 +128,46 @@ const UI = (() => {
     const container = document.getElementById('sample-buttons');
     if (!container) return;
     container.innerHTML = '';
-    for (const sample of SAMPLES) {
-      const btn = document.createElement('button');
-      btn.className = 'sample-btn';
-      btn.innerHTML = `
-        <div class="sample-name">${sample.name}</div>
-        <div class="sample-meta">${sample.meta}</div>
-      `;
-      btn.addEventListener('click', () => loadSample(sample.file));
-      container.appendChild(btn);
+
+    const toolingSamples = SAMPLES.filter(s => s.hasTooling);
+    const standardSamples = SAMPLES.filter(s => !s.hasTooling);
+
+    if (toolingSamples.length > 0) {
+      const heading = document.createElement('div');
+      heading.className = 'sample-section-heading';
+      heading.innerHTML = '⚙️ With Agent Tooling';
+      container.appendChild(heading);
+      const grid = document.createElement('div');
+      grid.className = 'sample-grid';
+      for (const sample of toolingSamples) {
+        grid.appendChild(createSampleBtn(sample));
+      }
+      container.appendChild(grid);
     }
+
+    if (standardSamples.length > 0) {
+      const heading = document.createElement('div');
+      heading.className = 'sample-section-heading';
+      heading.innerHTML = '📋 Standard Flows';
+      container.appendChild(heading);
+      const grid = document.createElement('div');
+      grid.className = 'sample-grid';
+      for (const sample of standardSamples) {
+        grid.appendChild(createSampleBtn(sample));
+      }
+      container.appendChild(grid);
+    }
+  }
+
+  function createSampleBtn(sample) {
+    const btn = document.createElement('button');
+    btn.className = `sample-btn ${sample.hasTooling ? 'has-tooling' : ''}`;
+    btn.innerHTML = `
+      <div class="sample-name">${sample.name}</div>
+      <div class="sample-meta">${sample.meta}</div>
+    `;
+    btn.addEventListener('click', () => loadSample(sample.file));
+    return btn;
   }
 
   function showHome() {
@@ -178,6 +216,13 @@ const UI = (() => {
     const tip = tooltip();
     const info = DataLoader.getEventTypeInfo(event.type);
 
+    const toolMeta = event.type === 'tool_call' && event.details
+      ? `<div class="tooltip-meta">
+          <span>${event.details.success === false ? '❌' : '✅'} ${event.details.clientType === 'agent' ? '🤖' : '👤'} ${Timeline.escapeHtml(event.details.clientName || '')}</span>
+          ${event.details.durationMs != null ? `<span>⏱ ${event.details.durationMs >= 1000 ? (event.details.durationMs / 1000).toFixed(1) + 's' : event.details.durationMs + 'ms'}</span>` : ''}
+        </div>`
+      : '';
+
     tip.innerHTML = `
       <div class="tooltip-type">${info.icon} ${info.label}</div>
       <div class="tooltip-desc">${Timeline.escapeHtml(event.description)}</div>
@@ -185,6 +230,7 @@ const UI = (() => {
         <span>👤 ${Timeline.escapeHtml(event.actor)}</span>
         <span>🕐 ${DataLoader.formatDateTime(event.timestamp)}</span>
       </div>
+      ${toolMeta}
       ${event.details?.durationHours ? `<div class="tooltip-meta"><span>⏱ Duration: ${DataLoader.formatDuration(event.details.durationHours)}</span></div>` : ''}
     `;
 
@@ -278,6 +324,24 @@ const UI = (() => {
       if (rel.releaseGapDays != null) {
         addDetailField(body, 'Release Gap', `${rel.releaseGapDays}d from PR merge`);
       }
+    }
+
+    // Tool call details
+    if (event.type === 'tool_call' && event.details) {
+      const d = event.details;
+      addDetailField(body, 'Tool', `<code>${Timeline.escapeHtml(d.toolName || '—')}</code>`);
+      const statusIcon = d.success === false ? '❌ Failed' : '✅ Succeeded';
+      addDetailField(body, 'Status', statusIcon);
+      if (d.durationMs != null) {
+        const dur = d.durationMs >= 1000 ? `${(d.durationMs / 1000).toFixed(1)}s` : `${d.durationMs}ms`;
+        addDetailField(body, 'Duration', dur);
+      }
+      if (d.clientName) {
+        const clientIcon = d.clientType === 'agent' ? '🤖' : '👤';
+        addDetailField(body, 'Client', `${clientIcon} ${Timeline.escapeHtml(d.clientName)}`);
+      }
+      if (d.language) addDetailField(body, 'Language', d.language);
+      if (d.packageType) addDetailField(body, 'Package Type', d.packageType);
     }
 
     // Comment body

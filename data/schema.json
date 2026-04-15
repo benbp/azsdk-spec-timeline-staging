@@ -103,7 +103,8 @@
             "release_pipeline_started",
             "release_pipeline_completed",
             "release_pipeline_failed",
-            "release_pending"
+            "release_pending",
+            "tool_call"
           ]
         },
         "timestamp": { "type": "string", "format": "date-time" },
@@ -115,7 +116,7 @@
         "actor": { "type": "string", "description": "GitHub username or bot name" },
         "actorRole": {
           "type": "string",
-          "enum": ["author", "reviewer", "bot", "copilot"]
+          "enum": ["author", "reviewer", "bot", "copilot", "tool"]
         },
         "description": { "type": "string", "description": "Short human-readable description" },
         "sentiment": {
@@ -128,6 +129,13 @@
           "properties": {
             "body": { "type": "string", "description": "Full comment/review body text" },
             "url": { "type": "string", "format": "uri", "description": "Link to this event on GitHub" },
+            "toolName": { "type": "string", "description": "MCP tool or CLI command name (e.g. azsdk_package_build_code)" },
+            "success": { "type": "boolean", "description": "Whether the tool call succeeded" },
+            "durationMs": { "type": "integer", "description": "Tool call duration in milliseconds" },
+            "clientName": { "type": "string", "description": "Client that invoked the tool (e.g. Visual Studio Code, github-copilot-developer)" },
+            "clientType": { "type": "string", "enum": ["human", "agent"], "description": "Whether the tool was called by a human or an AI agent" },
+            "language": { "type": "string", "description": "SDK language for tool call context" },
+            "packageType": { "type": "string", "description": "Package type (mgmt, data-plane, etc.)" }
             "targetUser": { "type": "string", "description": "User being @mentioned or addressed" },
             "label": { "type": "string", "description": "Label name for label_added events" },
             "durationHours": { "type": "number", "description": "Duration in hours for idle_gap events" },

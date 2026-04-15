@@ -299,7 +299,7 @@
         },
         {
           "type": "release_pipeline_completed",
-          "timestamp": "2026-03-19T09:11:08Z",
+          "timestamp": "2026-03-19T23:59:59Z",
           "actor": "azure-sdk",
           "actorRole": "bot",
           "description": "Package @azure/arm-containerservice v25.0.0 published",
@@ -351,8 +351,8 @@
         "pipelineName": "js - containerservice - mgmt",
         "pipelineUrl": null,
         "buildId": null,
-        "releasedAt": "2026-03-19T09:11:08Z",
-        "releaseGapDays": 0.0,
+        "releasedAt": "2026-03-19T23:59:59Z",
+        "releaseGapDays": 0.7,
         "status": "released"
       }
     },
@@ -458,7 +458,7 @@
         },
         {
           "type": "release_pipeline_completed",
-          "timestamp": "2026-03-27T00:00:00Z",
+          "timestamp": "2026-03-27T23:59:59Z",
           "actor": "azure-sdk",
           "actorRole": "bot",
           "description": "Package Azure.ResourceManager.ContainerService v1.4.0 published",
@@ -475,8 +475,8 @@
         "pipelineName": "net - containerservice - mgmt",
         "pipelineUrl": null,
         "buildId": null,
-        "releasedAt": "2026-03-27T00:00:00Z",
-        "releaseGapDays": 0.8,
+        "releasedAt": "2026-03-27T23:59:59Z",
+        "releaseGapDays": 1.8,
         "status": "released"
       }
     },
@@ -556,7 +556,7 @@
         },
         {
           "type": "release_pipeline_completed",
-          "timestamp": "2026-04-01T00:00:00Z",
+          "timestamp": "2026-04-01T23:59:59Z",
           "actor": "azure-sdk",
           "actorRole": "bot",
           "description": "Package sdk/resourcemanager/containerservice/armcontainerservice v9.0.0 published",
@@ -573,8 +573,8 @@
         "pipelineName": "go - armcontainerservice",
         "pipelineUrl": null,
         "buildId": null,
-        "releasedAt": "2026-04-01T00:00:00Z",
-        "releaseGapDays": 2.0,
+        "releasedAt": "2026-04-01T23:59:59Z",
+        "releaseGapDays": 2.7,
         "status": "released"
       }
     },
@@ -655,7 +655,7 @@
         },
         {
           "type": "release_pipeline_completed",
-          "timestamp": "2026-04-01T00:00:00Z",
+          "timestamp": "2026-04-01T23:59:59Z",
           "actor": "azure-sdk",
           "actorRole": "bot",
           "description": "Package azure-mgmt-containerservice v41.0.0 published",
@@ -672,8 +672,8 @@
         "pipelineName": "python - containerservice",
         "pipelineUrl": null,
         "buildId": null,
-        "releasedAt": "2026-04-01T00:00:00Z",
-        "releaseGapDays": 1.0,
+        "releasedAt": "2026-04-01T23:59:59Z",
+        "releaseGapDays": 1.6,
         "status": "released"
       }
     },
@@ -927,8 +927,8 @@
     "totalUniqueReviewers": 14,
     "totalNags": 1,
     "totalManualFixes": 0,
-    "avgReleaseGapDays": 0.9,
-    "maxReleaseGapDays": 2.0,
+    "avgReleaseGapDays": 1.7,
+    "maxReleaseGapDays": 2.7,
     "pendingReleases": 1
   }
 }

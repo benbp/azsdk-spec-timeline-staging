@@ -2,7 +2,7 @@
   "title": "Adding 2025-11-01 spec for Nginx.NginxPlus",
   "owner": "briantkim93",
   "startDate": "2026-01-26T14:58:58Z",
-  "endDate": "2026-03-23T00:00:00Z",
+  "endDate": "2026-03-23T23:59:59Z",
   "specPR": {
     "repo": "Azure/azure-rest-api-specs",
     "number": 39907,
@@ -578,7 +578,7 @@
         },
         {
           "type": "release_pipeline_completed",
-          "timestamp": "2026-03-23T00:00:00Z",
+          "timestamp": "2026-03-23T23:59:59Z",
           "actor": "azure-sdk",
           "actorRole": "bot",
           "description": "Package azure-mgmt-nginx v4.0.0 published",
@@ -596,8 +596,8 @@
         "pipelineName": "python - nginx",
         "pipelineUrl": null,
         "buildId": null,
-        "releasedAt": "2026-03-23T00:00:00Z",
-        "releaseGapDays": 5.4,
+        "releasedAt": "2026-03-23T23:59:59Z",
+        "releaseGapDays": 6.4,
         "status": "released"
       }
     },
@@ -701,7 +701,7 @@
         },
         {
           "type": "release_pipeline_completed",
-          "timestamp": "2026-03-20T00:00:00Z",
+          "timestamp": "2026-03-20T23:59:59Z",
           "actor": "azure-sdk",
           "actorRole": "bot",
           "description": "Package Azure.ResourceManager.Nginx v1.1.0 published",
@@ -719,8 +719,8 @@
         "pipelineName": "net - nginx - mgmt",
         "pipelineUrl": null,
         "buildId": null,
-        "releasedAt": "2026-03-20T00:00:00Z",
-        "releaseGapDays": 2.3,
+        "releasedAt": "2026-03-20T23:59:59Z",
+        "releaseGapDays": 3.3,
         "status": "released"
       }
     },
@@ -848,7 +848,7 @@
         },
         {
           "type": "release_pipeline_completed",
-          "timestamp": "2026-03-23T00:00:00Z",
+          "timestamp": "2026-03-23T23:59:59Z",
           "actor": "azure-sdk",
           "actorRole": "bot",
           "description": "Package azure-resourcemanager-nginx v1.1.0 published",
@@ -866,8 +866,8 @@
         "pipelineName": "java - nginx",
         "pipelineUrl": null,
         "buildId": null,
-        "releasedAt": "2026-03-23T00:00:00Z",
-        "releaseGapDays": 4.6,
+        "releasedAt": "2026-03-23T23:59:59Z",
+        "releaseGapDays": 5.6,
         "status": "released"
       }
     },
@@ -1007,7 +1007,7 @@
         },
         {
           "type": "release_pipeline_completed",
-          "timestamp": "2026-03-23T00:00:00Z",
+          "timestamp": "2026-03-23T23:59:59Z",
           "actor": "azure-sdk",
           "actorRole": "bot",
           "description": "Package sdk/resourcemanager/nginx/armnginx v4.0.0 published",
@@ -1025,8 +1025,8 @@
         "pipelineName": "go - armnginx",
         "pipelineUrl": null,
         "buildId": null,
-        "releasedAt": "2026-03-23T00:00:00Z",
-        "releaseGapDays": 3.7,
+        "releasedAt": "2026-03-23T23:59:59Z",
+        "releaseGapDays": 4.7,
         "status": "released"
       }
     },
@@ -1168,7 +1168,7 @@
         },
         {
           "type": "release_pipeline_completed",
-          "timestamp": "2026-03-23T00:00:00Z",
+          "timestamp": "2026-03-23T23:59:59Z",
           "actor": "azure-sdk",
           "actorRole": "bot",
           "description": "Package @azure/arm-nginx v4.0.0 published",
@@ -1186,8 +1186,8 @@
         "pipelineName": "js - nginx - mgmt",
         "pipelineUrl": null,
         "buildId": null,
-        "releasedAt": "2026-03-23T00:00:00Z",
-        "releaseGapDays": 3.6,
+        "releasedAt": "2026-03-23T23:59:59Z",
+        "releaseGapDays": 4.6,
         "status": "released"
       }
     }
@@ -1343,7 +1343,7 @@
     "totalUniqueReviewers": 9,
     "totalNags": 3,
     "totalManualFixes": 0,
-    "avgReleaseGapDays": 3.9,
-    "maxReleaseGapDays": 5.4
+    "avgReleaseGapDays": 4.9,
+    "maxReleaseGapDays": 6.4
   }
 }

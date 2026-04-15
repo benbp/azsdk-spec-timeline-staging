@@ -293,10 +293,10 @@ function lookupReleaseCSV(language, serviceName, releaseCsvDir) {
       
       let gaDate = null;
       if (dateStr) {
-        // Parse MM/DD/YYYY
+        // Parse MM/DD/YYYY — use end-of-day since CSV has date-only precision
         const [m, d, y] = dateStr.split('/').map(Number);
         if (y && m && d) {
-          gaDate = `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}T00:00:00Z`;
+          gaDate = `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}T23:59:59Z`;
         }
       }
       

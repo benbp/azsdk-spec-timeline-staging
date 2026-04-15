@@ -1,0 +1,2252 @@
+{
+  "title": "AzureSearch SDK Generation",
+  "owner": "yangylu91",
+  "startDate": "2026-02-13T00:16:08Z",
+  "endDate": "2026-04-02T15:35:16Z",
+  "specPR": {
+    "repo": "Azure/azure-rest-api-specs",
+    "number": 40408,
+    "url": "https://github.com/Azure/azure-rest-api-specs/pull/40408",
+    "title": "[AzureSearch] Resource Manager 2026-03-01-preview Release",
+    "author": "yangylu91",
+    "createdAt": "2026-02-13T00:16:08Z",
+    "mergedAt": "2026-03-26T18:22:25Z",
+    "mergedBy": "yangylu91",
+    "state": "merged",
+    "labels": [
+      "Search",
+      "ARMSignedOff",
+      "ARMReview",
+      "resource-manager",
+      "Approved-Suppression",
+      "SuppressionReviewRequired",
+      "new-api-version",
+      "TypeSpec",
+      "Versioning-Approved-BugFix",
+      "VersioningReviewRequired",
+      "PublishToCustomers",
+      "ARMAutoSignedOff-IncrementalTSP"
+    ],
+    "reviewers": [
+      "HeidiSteen",
+      "efrainretana",
+      "gary-x-li",
+      "haileytap",
+      "mattgotteiner",
+      "mentat9",
+      "mikeharder",
+      "qiaozha",
+      "sandipsh",
+      "xiong-qiao"
+    ],
+    "events": [
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-12T22:16:48Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "Pushed 6 commits",
+        "sentiment": "neutral",
+        "details": {
+          "commitCount": 6
+        }
+      },
+      {
+        "type": "pr_created",
+        "timestamp": "2026-02-13T00:16:08Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "Opened PR #40408: [AzureSearch] Resource Manager 2026-03-01-preview Release",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40408"
+        }
+      },
+      {
+        "type": "bot_comment",
+        "timestamp": "2026-02-13T00:16:29Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "[github-actions[bot]] <h2>Next Steps to Merge</h2>✅ All automated merging requirements have been me...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-13T00:17:56Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: ARMReview",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-13T00:17:56Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: new-api-version",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-13T00:17:57Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: resource-manager",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-13T00:17:57Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: SuppressionReviewRequired",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-13T00:17:57Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: WaitForARMFeedback",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "bot_comment",
+        "timestamp": "2026-02-13T00:18:23Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "[github-actions[bot]] ## API Change Check\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-13T00:23:21Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: BreakingChange-Go-Sdk",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-13T00:23:38Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: BreakingChange-JavaScript-Sdk",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-13T00:25:48Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: BreakingChange-Python-Sdk",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-13T17:43:50Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "Pushed 4 commits",
+        "sentiment": "neutral",
+        "details": {
+          "commitCount": 4
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-13T19:32:37Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91: All features are included in this PR. False-Positive Breaking Change Noises h...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-13T19:32:37Z",
+        "endTimestamp": "2026-02-18T18:11:45Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "4.9-day wait for response",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 118.7
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-18T18:11:45Z",
+        "actor": "mattgotteiner",
+        "actorRole": "reviewer",
+        "description": "mattgotteiner commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: @HeidiSteen @haileytap @mattwojo",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-18T21:32:17Z",
+        "actor": "haileytap",
+        "actorRole": "reviewer",
+        "description": "haileytap commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: ```suggestion",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-18T21:33:13Z",
+        "actor": "haileytap",
+        "actorRole": "reviewer",
+        "description": "haileytap commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: ```suggestion",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-18T21:47:44Z",
+        "actor": "Copilot",
+        "actorRole": "reviewer",
+        "description": "Copilot commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchCreateOrUpdateServiceWithServerless.json: The serverless service example responses are missing seve...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-18T21:47:45Z",
+        "actor": "Copilot",
+        "actorRole": "reviewer",
+        "description": "Copilot commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchCreateOrUpdateServiceWithServerless.json: The 201 response is missing several fields that are prese...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-18T21:47:46Z",
+        "actor": "Copilot",
+        "actorRole": "reviewer",
+        "description": "Copilot commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchUpdateServiceToAllowAccessFromPublicCustomIPs.json: The encryptionWithCmk object is missing the encryptionCom...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-18T21:50:59Z",
+        "actor": "psah434",
+        "actorRole": "reviewer",
+        "description": "Label added: ARMChangesRequested",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-18T21:50:59Z",
+        "endTimestamp": "2026-02-20T22:25:09Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "2.0-day idle gap",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 48.6
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-20T22:25:09Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "Pushed 7 commits",
+        "sentiment": "neutral",
+        "details": {
+          "commitCount": 7
+        }
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-20T22:25:09Z",
+        "endTimestamp": "2026-02-23T18:13:01Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "2.8-day wait for review",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 67.8
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-23T18:13:01Z",
+        "actor": "mattgotteiner",
+        "actorRole": "reviewer",
+        "description": "mattgotteiner commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: let's clarify this is about the billing plan as well to b...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-23T18:13:11Z",
+        "actor": "mattgotteiner",
+        "actorRole": "reviewer",
+        "description": "mattgotteiner commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Looks good!",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-23T18:54:27Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/ListSupportedPrivateLinkResources.json: This description doesn't mention private connections.   S...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-23T18:57:47Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/ListSupportedPrivateLinkResources.json: similar suggestion:  \"Indexers can make private connectio...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-23T18:58:48Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/ListSupportedPrivateLinkResources.json: suggestion for this + other DS:  \"can connect privately\"",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-23T19:28:38Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchListOperations.json: Is this for reading stuff like Get Service Stats or Get I...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-23T19:41:47Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchListOperations.json: Suggestion:  \"Unloads a serverless search service due to ...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-23T22:57:09Z",
+        "actor": "xiong-qiao",
+        "actorRole": "reviewer",
+        "description": "xiong-qiao commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchCreateOrUpdateServiceWithServerless.json: Added",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-23T22:57:58Z",
+        "actor": "xiong-qiao",
+        "actorRole": "reviewer",
+        "description": "xiong-qiao commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchCreateOrUpdateServiceWithServerless.json: Added",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-24T20:04:53Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchCreateAutoGeneratedDomainNameLabel.json: `autoGeneratedDomainNameLabelScope` change is excluded fr...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-24T20:12:47Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchUpdateServiceToAllowAccessFromPublicCustomIPs.json: Fixed.",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-24T20:13:01Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchUpdateServiceToAllowAccessFromPublicCustomIPs.json: Fixed.",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-24T20:19:34Z",
+        "actor": "haileytap",
+        "actorRole": "reviewer",
+        "description": "haileytap commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: @mattgotteiner, do you prefer this wording? I'm assuming ...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-24T20:20:20Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchCreateOrUpdateService.json: @copilot open a new pull request to apply changes based o...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-24T20:20:31Z",
+        "actor": "Copilot",
+        "actorRole": "reviewer",
+        "description": "Copilot: @yangylu91 I've opened a new pull request, #40703, to work on those changes. ...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-24T20:20:40Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchCreateOrUpdateServiceAuthOptions.json: @copilot open a new pull request to apply changes based o...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-24T20:20:49Z",
+        "actor": "Copilot",
+        "actorRole": "reviewer",
+        "description": "Copilot: @yangylu91 I've opened a new pull request, #40704, to work on those changes. ...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-24T22:59:09Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "Pushed 4 commits",
+        "sentiment": "neutral",
+        "details": {
+          "commitCount": 4
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-25T05:13:01Z",
+        "actor": "mattgotteiner",
+        "actorRole": "reviewer",
+        "description": "mattgotteiner commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: looks good",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-25T05:13:01Z",
+        "endTimestamp": "2026-02-26T18:33:12Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "1.6-day wait for response",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 37.3
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-26T18:33:12Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: updated description on behalf of Hailey",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-26T18:53:04Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91: @psah434 We've updated the PR and resolved all comments. Could you pls take a...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-27T03:20:42Z",
+        "actor": "yangylu91",
+        "actorRole": "reviewer",
+        "description": "Label added: WaitForARMFeedback",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-27T03:20:42Z",
+        "actor": "yangylu91",
+        "actorRole": "reviewer",
+        "description": "Label added: WaitForARMFeedback",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-27T03:21:19Z",
+        "actor": "yangylu91",
+        "actorRole": "reviewer",
+        "description": "Label added: WaitForARMFeedback",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-27T03:21:19Z",
+        "actor": "yangylu91",
+        "actorRole": "reviewer",
+        "description": "Label added: WaitForARMFeedback",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T14:44:26Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/GetQuotaUsagesList.json: I don't see serverless SKU in this list, should it be here?",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T14:47:08Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/ListSupportedPrivateLinkResources.json: \"can access keys over a private connection in Azure Key V...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T14:51:44Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchListOfferings.json: should you include a serverless example?",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:09:09Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchListOperations.json: \"Create an index schema or update its properties, except ...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:12:40Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchListOperations.json: I don't see Knowledge Bases, Knowledge Retrieval, or Know...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:15:42Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/UpdatePrivateEndpointConnection.json: Who or what is doing the rejecting??",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:19:09Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Is the \"globally unique\" part still true?",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:20:36Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Is this unique to dedicated? If it applies to both dedica...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:21:29Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: can you lowercase \"Search\"",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:21:59Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: can you lower case \"Search\"",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:23:35Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: is this for dedicated only? If yes, suggest saying \"dedic...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:25:44Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: can you add a serverless service to NSP?  If not, I would...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:26:41Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: applies to serverless and dedicated?",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:27:06Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: applies to serverless and dedicated?",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:30:11Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: applies to serverless as well?",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:31:42Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: \"Only applies to the Standard3 (S3) SKU, where the search...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:35:11Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: \"The search service is in the process of being provisione...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:37:19Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Is this provider for dedicated only?  I might be misremem...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:39:16Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: \"supported\" seems like an odd word choice here.  What abo...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:40:49Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: this and the next description are pretty much identical, ...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:42:12Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: I don't think this is true anymore.  I believe SR is enab...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:43:12Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: How about \"Enables semantic reranker on a search service ...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:44:03Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: same suggestion \"as a billable feature after the free quo...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:45:16Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: replicas and partitions apply to dedicated only, per Mike...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:45:27Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: dedicated search service",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:46:57Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: \"The maximum limit of indexes is determined by the SKU or...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:48:11Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: \"Applies only to the Standard3 (S3) SKU or pricing tier, ...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:48:31Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: dedicated only?",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:50:04Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: any qualifiers or interesting things to say about serverl...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:50:44Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: anything to say about serverless?",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:51:33Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: is this serverless only?  And should the description say ...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:54:18Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: add serverless?  If not, then suggest adding \"dedicated\" ...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T15:55:46Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: this is dedicated only right?  You can't switch from a de...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T16:06:21Z",
+        "actor": "HeidiSteen",
+        "actorRole": "reviewer",
+        "description": "HeidiSteen commented: Sorry the late review. The main things: I don't see AR ops (KB, KB Retrieve, ...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-27T20:05:56Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91: > Sorry the late review. The main things: I don't see AR ops (KB, KB Retrieve...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-27T22:59:57Z",
+        "actor": "mentat9",
+        "actorRole": "reviewer",
+        "description": "mentat9 commented on specification/search/resource-manager/Microsoft.Search/Search/readme.md: >code: RequiredPropertiesMissingInResourceModel [](http:/...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-27T23:00:03Z",
+        "actor": "mentat9",
+        "actorRole": "reviewer",
+        "description": "mentat9: >     \"/providers/Microsoft.Search/offerings\": {\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-02-27T23:00:30Z",
+        "actor": "mentat9",
+        "actorRole": "reviewer",
+        "description": "Label added: ARMChangesRequested",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-27T23:00:30Z",
+        "endTimestamp": "2026-03-02T23:58:08Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "3.0-day idle gap",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 73
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-02T23:58:08Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/readme.md: Thanks for the detailed feedback.\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-03T19:07:48Z",
+        "actor": "yangylu91",
+        "actorRole": "reviewer",
+        "description": "Label added: WaitForARMFeedback",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-03-03T20:33:50Z",
+        "actor": "psah434",
+        "actorRole": "reviewer",
+        "description": "psah434: please address comments from chris and heidi",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-03T20:34:05Z",
+        "actor": "psah434",
+        "actorRole": "reviewer",
+        "description": "Label added: ARMChangesRequested",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-03-03T21:35:21Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91: > please address comments from chris and heidi\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-03-03T21:35:21Z",
+        "endTimestamp": "2026-03-12T15:28:21Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "8.7-day wait for response",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 209.9
+        }
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-12T15:28:21Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: WaitForARMFeedback",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-03-12T18:51:57Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91: We created two issues to explicitly tracking these comments and next steps:\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-03-12T18:51:57Z",
+        "endTimestamp": "2026-03-13T19:24:14Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "1.0-day wait for response",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 24.5
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-03-13T19:24:14Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "sandipsh: > > please address comments from chris and heidi\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-03-13T19:26:08Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "sandipsh: > > > please address comments from chris and heidi\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-13T19:28:01Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "sandipsh commented on specification/search/resource-manager/Microsoft.Search/Search/readme.md: rollout and compatibility risk is not the right justifica...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-13T19:29:39Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "Label added: ARMChangesRequested",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-03-13T19:29:39Z",
+        "endTimestamp": "2026-03-18T21:03:21Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "5.1-day idle gap",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 121.6
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-03-18T21:03:21Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91: ## Response to ARM Review on Offerings API shape\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-18T21:49:03Z",
+        "actor": "yangylu91",
+        "actorRole": "reviewer",
+        "description": "Label added: WaitForARMFeedback",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-18T23:37:56Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "Pushed commit: Update API description and suppression for the known API shape issue on Offer...",
+        "sentiment": "neutral",
+        "details": {
+          "commitCount": 1
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-03-18T23:39:36Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91: > ## Response to ARM Review on Offerings API shape\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-19T17:00:30Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/readme.md: Appreciate your feedback and guidance in helping us move ...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-19T20:32:34Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "Label added: Approved-Suppression",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-03-19T20:33:22Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "sandipsh: I see lot's of comment's primarily Heidi's comment still unresolved. Please a...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-03-19T20:35:35Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "sandipsh: >     \"/providers/Microsoft.Search/offerings\": {\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-19T20:37:32Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "Label added: ARMChangesRequested",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-19T23:49:39Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "Pushed commit: Resolve comments on example: ListSupportedPrivateLinkResources.json",
+        "sentiment": "neutral",
+        "details": {
+          "commitCount": 1
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-19T23:52:28Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/ListSupportedPrivateLinkResources.json: updated as suggested",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-19T23:53:36Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchListOperations.json: Will update the description to \"Gets the search service p...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T00:14:17Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/UpdatePrivateEndpointConnection.json: The search service owner/administrator is rejecting the p...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-20T00:17:53Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "Pushed 9 commits",
+        "sentiment": "neutral",
+        "details": {
+          "commitCount": 9
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T16:50:57Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: will update as \"The SKU name information of the current s...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T16:51:15Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: updated as \"The SKU name information, including its ident...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T16:58:05Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/readme.md: resolved this comment as the suppression was approved and...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T17:02:19Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchListOperations.json: Thanks for pointing this out. I've confirmed with the tea...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T17:38:17Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchListOfferings.json: Thanks for capturing this gap. The serverless SKU will on...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T17:39:29Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/GetQuotaUsagesList.json: Update from the team: Our current implementation will ret...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T17:39:50Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: I've confirmed with the team: Yes, it's still true.",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T17:45:06Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: I think you're right. The public doc [Enable or disable s...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T18:55:11Z",
+        "actor": "xiong-qiao",
+        "actorRole": "reviewer",
+        "description": "xiong-qiao commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: This applies to Serverless as well",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T18:56:43Z",
+        "actor": "xiong-qiao",
+        "actorRole": "reviewer",
+        "description": "xiong-qiao commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Yes, we can create a serverless search service through PU...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T19:02:20Z",
+        "actor": "xiong-qiao",
+        "actorRole": "reviewer",
+        "description": "xiong-qiao commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Serverless quota usage is from the same API, just like ot...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T23:04:29Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/examples/SearchListOperations.json: This is not related to serverless.",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T23:05:23Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: NSP is applicable to both dedicated and serverless",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T23:05:40Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: PE is applicable to both dedicated and serverless",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T23:06:18Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: PE is applicable to both dedicated and serverless",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T23:07:10Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Confidential is not supported for serverless",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T23:08:00Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: I'll update with \"dedicated\" service",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T23:08:23Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: ProvisioningState should be no different from non-serverl...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T23:10:32Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Disabled has existed for a long time and is not related t...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T23:11:13Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Yes. Upgrade available should only be for dedicated as of...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T23:17:15Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Confidential is dedicated only. Will update its description",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T23:18:43Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Yes. Will align it with SkuName.description below",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-20T23:22:49Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: There is no specific content to add for serverless for now",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "author_nag",
+        "timestamp": "2026-03-20T23:28:51Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 asked for review/merge: > > ```\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-20T23:29:40Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: WaitForARMFeedback",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-03-20T23:29:40Z",
+        "endTimestamp": "2026-03-23T19:23:34Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "2.8-day idle gap",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 67.9
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-03-23T19:23:34Z",
+        "actor": "gary-x-li",
+        "actorRole": "reviewer",
+        "description": "gary-x-li: >             \"$ref\": \"../../../../../../common-types/resource-management/v5/...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-23T19:28:59Z",
+        "actor": "gary-x-li",
+        "actorRole": "reviewer",
+        "description": "gary-x-li commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: How do you distinguish between `204` and `404` for your D...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-23T19:29:13Z",
+        "actor": "gary-x-li",
+        "actorRole": "reviewer",
+        "description": "Label added: ARMChangesRequested",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-23T21:48:49Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "Pushed commit: Fix nit: use v6 of LocationParameter for consistency",
+        "sentiment": "neutral",
+        "details": {
+          "commitCount": 1
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-24T19:15:56Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Hi Gary, thank you for identifying the non-compliance wit...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-24T19:17:25Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: WaitForARMFeedback",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-24T19:58:02Z",
+        "actor": "gary-x-li",
+        "actorRole": "reviewer",
+        "description": "gary-x-li commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Thank you for your detailed explanation!\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-24T19:58:18Z",
+        "actor": "gary-x-li",
+        "actorRole": "reviewer",
+        "description": "Label added: ARMChangesRequested",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-24T21:08:10Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "Pushed 2 commits",
+        "sentiment": "neutral",
+        "details": {
+          "commitCount": 2
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-24T21:38:31Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Hi Gary,\r",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-24T21:40:03Z",
+        "actor": "yangylu91",
+        "actorRole": "reviewer",
+        "description": "Label added: WaitForARMFeedback",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-24T22:26:14Z",
+        "actor": "gary-x-li",
+        "actorRole": "reviewer",
+        "description": "Label added: ARMSignedOff",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_approved",
+        "timestamp": "2026-03-24T22:26:42Z",
+        "actor": "gary-x-li",
+        "actorRole": "reviewer",
+        "description": "gary-x-li approved",
+        "sentiment": "positive"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-24T22:44:22Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json: Thank you for the sign-off! I'm resolving this conversati...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-25T02:40:07Z",
+        "actor": "qiaozha",
+        "actorRole": "reviewer",
+        "description": "qiaozha commented on specification/search/resource-manager/Microsoft.Search/Search/suppressions.yaml: why do we need to add this suppression given typespec alr...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-25T02:57:07Z",
+        "actor": "qiaozha",
+        "actorRole": "reviewer",
+        "description": "qiaozha commented on specification/search/resource-manager/Microsoft.Search/Search/suppressions.yaml: @mikeharder created an issue to track this https://github...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-25T06:07:12Z",
+        "actor": "mikeharder",
+        "actorRole": "reviewer",
+        "description": "mikeharder commented on specification/search/resource-manager/Microsoft.Search/Search/suppressions.yaml: I think the main problem with this PR, the rule \"no swagg...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-25T16:54:51Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/suppressions.yaml: Hi Qiaoqiao, thanks for the question. Let me share some c...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-25T19:28:43Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/suppressions.yaml: We’re updating this through TypeSpec to align with SDK re...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-26T06:05:33Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "Pushed 2 commits",
+        "sentiment": "neutral",
+        "details": {
+          "commitCount": 2
+        }
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-26T06:19:34Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: TypeSpec",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-26T06:21:01Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: VersioningReviewRequired",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-26T06:21:52Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: NotReadyForARMReview",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-26T06:22:43Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/suppressions.yaml: Hi Qiaoqiao, I’ve updated this PR to be TypeSpec-based. C...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-26T06:27:24Z",
+        "actor": "yangylu91",
+        "actorRole": "reviewer",
+        "description": "Label added: Versioning-Approved-BugFix",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-26T06:27:45Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: WaitForARMFeedback",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-26T06:35:52Z",
+        "actor": "qiaozha",
+        "actorRole": "reviewer",
+        "description": "qiaozha commented on specification/search/resource-manager/Microsoft.Search/Search/suppressions.yaml: I dismissed my review, but maybe you should take a look a...",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-26T06:38:19Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "Pushed 2 commits",
+        "sentiment": "neutral",
+        "details": {
+          "commitCount": 2
+        }
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-26T06:56:09Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: ARMAutoSignedOff-IncrementalTSP",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "label_added",
+        "timestamp": "2026-03-26T06:56:09Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Label added: ARMSignedOff",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-26T07:00:55Z",
+        "actor": "yangylu91",
+        "actorRole": "author",
+        "description": "yangylu91 commented on specification/search/resource-manager/Microsoft.Search/Search/suppressions.yaml: I've fixed them. Thank you for the reminder!",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_approved",
+        "timestamp": "2026-03-26T16:04:39Z",
+        "actor": "efrainretana",
+        "actorRole": "reviewer",
+        "description": "efrainretana approved",
+        "sentiment": "positive"
+      },
+      {
+        "type": "pr_merged",
+        "timestamp": "2026-03-26T18:22:25Z",
+        "actor": "yangylu91",
+        "actorRole": "reviewer",
+        "description": "Merged PR #40408",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40408"
+        }
+      }
+    ]
+  },
+  "sdkPRs": [
+    {
+      "repo": "Azure/azure-sdk-for-java",
+      "language": "Java",
+      "number": 48618,
+      "url": "https://github.com/Azure/azure-sdk-for-java/pull/48618",
+      "title": "[AutoPR azure-resourcemanager-search]-generated-from-SDK Generation - Java-6075076",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-27T21:17:40Z",
+      "mergedAt": "2026-03-30T17:10:12Z",
+      "mergedBy": "efrainretana",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "XiaofeiCao",
+        "weidongxu-microsoft"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-27T21:17:35Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Pushed commit: Configurations:  'specification/search/resource-manager/Microsoft.Search/Sear...",
+          "sentiment": "neutral",
+          "details": {
+            "commitCount": 1
+          }
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-27T21:17:40Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Opened PR #48618: [AutoPR azure-resourcemanager-search]-generated-from-SDK Generation - Java-60...",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48618"
+          }
+        },
+        {
+          "type": "label_added",
+          "timestamp": "2026-03-27T21:20:51Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "Label added: Mgmt",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-27T21:30:26Z",
+          "actor": "Copilot",
+          "actorRole": "reviewer",
+          "description": "Copilot commented on sdk/search/azure-resourcemanager-search/src/main/java/com/azure/resourcemanager/search/fluent/models/OfferingsListResultInner.java: OfferingsListResultInner.toJson currently serializes to a...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-27T21:30:27Z",
+          "actor": "Copilot",
+          "actorRole": "reviewer",
+          "description": "Copilot commented on sdk/search/azure-resourcemanager-search/CHANGELOG.md: Changelog entry `2.55.0-beta.1` is marked with a concrete...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-27T21:32:36Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "[github-actions[bot]] ## API Change Check\r",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-27T21:32:36Z",
+          "endTimestamp": "2026-03-30T02:40:19Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2.2-day idle gap",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 53.1
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-30T02:40:19Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Pushed commit: Update CHANGELOG.md",
+          "sentiment": "neutral",
+          "details": {
+            "commitCount": 1
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-30T02:40:30Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "weidongxu-microsoft approved",
+          "sentiment": "positive"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-30T02:56:36Z",
+          "actor": "XiaofeiCao",
+          "actorRole": "reviewer",
+          "description": "XiaofeiCao approved",
+          "sentiment": "positive"
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-30T17:10:12Z",
+          "actor": "efrainretana",
+          "actorRole": "reviewer",
+          "description": "Merged PR #48618",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48618"
+          }
+        }
+      ],
+      "release": {
+        "status": "pending",
+        "packageName": "azure-resourcemanager-search",
+        "latestVersion": "2.54.6",
+        "latestGADate": "03/30/2026"
+      }
+    },
+    {
+      "repo": "Azure/azure-sdk-for-go",
+      "language": "Go",
+      "number": 26440,
+      "url": "https://github.com/Azure/azure-sdk-for-go/pull/26440",
+      "title": "[AutoPR sdk-resourcemanager/search/armsearch]-generated-from-SDK Generation - Go-6075075",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-27T21:12:41Z",
+      "mergedAt": "2026-03-30T17:10:00Z",
+      "mergedBy": "efrainretana",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "tadelesh"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-27T21:12:38Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Pushed commit: Configurations:  'specification/search/resource-manager/Microsoft.Search/Sear...",
+          "sentiment": "neutral",
+          "details": {
+            "commitCount": 1
+          }
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-27T21:12:41Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Opened PR #26440: [AutoPR sdk-resourcemanager/search/armsearch]-generated-from-SDK Generation -...",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26440"
+          }
+        },
+        {
+          "type": "label_added",
+          "timestamp": "2026-03-27T21:14:35Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "Label added: Mgmt",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-27T21:26:50Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "[github-actions[bot]] ## API Change Check\r",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-27T21:27:24Z",
+          "actor": "Copilot",
+          "actorRole": "reviewer",
+          "description": "Copilot commented on sdk/resourcemanager/search/armsearch/constants.go: The doc comment for `SearchSemanticSearchFree` ends with ...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-27T21:27:24Z",
+          "endTimestamp": "2026-03-30T03:19:38Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2.2-day wait for response",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 53.9
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-30T03:19:38Z",
+          "actor": "tadelesh",
+          "actorRole": "reviewer",
+          "description": "tadelesh approved",
+          "sentiment": "positive"
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-30T17:10:00Z",
+          "actor": "efrainretana",
+          "actorRole": "reviewer",
+          "description": "Merged PR #26440",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26440"
+          }
+        }
+      ],
+      "release": {
+        "status": "pending",
+        "packageName": "sdk/resourcemanager/search/armsearch",
+        "latestVersion": "1.4.0",
+        "latestGADate": "07/21/2025"
+      }
+    },
+    {
+      "repo": "Azure/azure-sdk-for-python",
+      "language": "Python",
+      "number": 45971,
+      "url": "https://github.com/Azure/azure-sdk-for-python/pull/45971",
+      "title": "[AutoPR azure-mgmt-search]-generated-from-SDK Generation - Python-6075078",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-27T21:15:19Z",
+      "mergedAt": "2026-03-31T05:34:25Z",
+      "mergedBy": "efrainretana",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [],
+      "reviewers": [
+        "ChenxiJiang333",
+        "efrainretana",
+        "msyyc"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-27T21:15:16Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Pushed commit: Configurations:  'specification/search/resource-manager/Microsoft.Search/Sear...",
+          "sentiment": "neutral",
+          "details": {
+            "commitCount": 1
+          }
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-27T21:15:19Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Opened PR #45971: [AutoPR azure-mgmt-search]-generated-from-SDK Generation - Python-6075078",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45971"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-27T21:30:06Z",
+          "actor": "Copilot",
+          "actorRole": "reviewer",
+          "description": "Copilot commented on sdk/search/azure-mgmt-search/CHANGELOG.md: Changelog entry misclassifies `SearchManagementClient` as...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-27T21:30:07Z",
+          "actor": "Copilot",
+          "actorRole": "reviewer",
+          "description": "Copilot commented on sdk/search/azure-mgmt-search/CHANGELOG.md: Changelog entry says \"Added model `OfferingsOperations`\",...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-27T21:30:07Z",
+          "endTimestamp": "2026-03-30T03:42:17Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2.3-day wait for response",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 54.2
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-30T03:42:17Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral",
+          "details": {
+            "commitCount": 2
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-30T07:19:05Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "ChenxiJiang333: @msyyc, pr ready, please help review",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-30T07:19:09Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/azure-mgmt-search-6075078",
+          "sentiment": "neutral",
+          "details": {
+            "commitCount": 1
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-30T19:22:44Z",
+          "actor": "efrainretana",
+          "actorRole": "reviewer",
+          "description": "efrainretana approved",
+          "sentiment": "positive"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-31T02:50:15Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Pushed 6 commits",
+          "sentiment": "neutral",
+          "details": {
+            "commitCount": 6
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-31T04:56:04Z",
+          "actor": "msyyc",
+          "actorRole": "reviewer",
+          "description": "msyyc approved",
+          "sentiment": "positive"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-31T05:34:23Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "ChenxiJiang333 approved",
+          "sentiment": "positive"
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-31T05:34:25Z",
+          "actor": "efrainretana",
+          "actorRole": "reviewer",
+          "description": "Merged PR #45971",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45971"
+          }
+        }
+      ],
+      "release": {
+        "status": "pending",
+        "packageName": "azure-mgmt-search",
+        "latestVersion": "9.2.0",
+        "latestGADate": "07/21/2025"
+      }
+    },
+    {
+      "repo": "Azure/azure-sdk-for-js",
+      "language": "JavaScript",
+      "number": 37881,
+      "url": "https://github.com/Azure/azure-sdk-for-js/pull/37881",
+      "title": "[AutoPR @azure-arm-search]-generated-from-SDK Generation - JS-6075077",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-27T21:15:28Z",
+      "mergedAt": "2026-04-02T15:35:16Z",
+      "mergedBy": "efrainretana",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt",
+        "Self-Service Release",
+        "first-typespec-migration",
+        "mgmt-review-needed"
+      ],
+      "reviewers": [
+        "JialinHuang803",
+        "efrainretana",
+        "kazrael2119"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-27T21:15:25Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Pushed commit: Configurations:  'specification/search/resource-manager/Microsoft.Search/Sear...",
+          "sentiment": "neutral",
+          "details": {
+            "commitCount": 1
+          }
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-27T21:15:28Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Opened PR #37881: [AutoPR @azure-arm-search]-generated-from-SDK Generation - JS-6075077",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37881"
+          }
+        },
+        {
+          "type": "label_added",
+          "timestamp": "2026-03-27T21:17:54Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "Label added: Mgmt",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-27T21:19:34Z",
+          "actor": "Copilot",
+          "actorRole": "reviewer",
+          "description": "Copilot commented on sdk/search/arm-search/src/classic/networkSecurityPerimeterConfigurations/index.ts: `beginReconcileAndWait` is declared to return `Promise<vo...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-27T21:19:35Z",
+          "actor": "Copilot",
+          "actorRole": "reviewer",
+          "description": "Copilot commented on sdk/search/arm-search/samples/v4-beta/typescript/src/operationsListSample.ts: This sample constructs `SearchManagementClient` without a...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-27T21:19:36Z",
+          "actor": "Copilot",
+          "actorRole": "reviewer",
+          "description": "Copilot commented on sdk/search/arm-search/src/classic/privateEndpointConnections/index.ts: Same concern as `QueryKeysOperations`: the `@fixme` block...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-27T21:19:37Z",
+          "actor": "Copilot",
+          "actorRole": "reviewer",
+          "description": "Copilot commented on sdk/search/arm-search/eslint.config.mjs: Disabling Azure SDK ESLint rules (setting them to `\"off\"`...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-27T21:26:51Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "[github-actions[bot]] ## API Change Check\r",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-27T21:26:51Z",
+          "endTimestamp": "2026-03-30T02:20:32Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2.2-day idle gap",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 52.9
+          }
+        },
+        {
+          "type": "label_added",
+          "timestamp": "2026-03-30T02:20:32Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "Label added: mgmt-review-needed",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "label_added",
+          "timestamp": "2026-03-30T02:32:50Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "Label added: first-typespec-migration",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-30T06:26:05Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "kazrael2119: ci failure is because you need to run the test and push the test recordings\r",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-31T05:06:53Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral",
+          "details": {
+            "commitCount": 2
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-31T05:36:47Z",
+          "actor": "efrainretana",
+          "actorRole": "reviewer",
+          "description": "efrainretana: > ci failure is because you need to run the test and push the test recordings...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-31T07:04:04Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "kazrael2119 commented on sdk/search/arm-search/CHANGELOG.md: we have a issue to track `x-ms-parameter-grouping` issue ...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-31T15:14:53Z",
+          "actor": "efrainretana",
+          "actorRole": "reviewer",
+          "description": "efrainretana commented on sdk/search/arm-search/CHANGELOG.md: @kazrael2119 - we are aiming to release all SDKs on 03/31...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-04-01T02:27:14Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "kazrael2119 commented on sdk/search/arm-search/CHANGELOG.md: I will update the code manually",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-04-01T06:48:12Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Pushed commit: update",
+          "sentiment": "neutral",
+          "details": {
+            "commitCount": 1
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-04-01T06:54:53Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "kazrael2119 commented on sdk/search/arm-search/CHANGELOG.md: Breaking is from https://github.com/Azure/azure-rest-api-...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-04-01T18:41:59Z",
+          "actor": "efrainretana",
+          "actorRole": "reviewer",
+          "description": "efrainretana commented on sdk/search/arm-search/CHANGELOG.md: Good observation, yeah this is expected. This is to align...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-04-01T18:44:41Z",
+          "actor": "efrainretana",
+          "actorRole": "reviewer",
+          "description": "efrainretana: @kazrael2119  - are there other part of the code that might need to get updat...",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "label_added",
+          "timestamp": "2026-04-02T02:06:44Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "Label added: mgmt-review-needed",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-04-02T02:17:53Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "[github-actions[bot]] ## Next Steps to Merge",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-04-02T05:43:44Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral",
+          "details": {
+            "commitCount": 2
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-04-02T10:10:29Z",
+          "actor": "JialinHuang803",
+          "actorRole": "reviewer",
+          "description": "JialinHuang803 approved",
+          "sentiment": "positive"
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-04-02T15:35:16Z",
+          "actor": "efrainretana",
+          "actorRole": "reviewer",
+          "description": "Merged PR #37881",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37881"
+          }
+        }
+      ],
+      "release": {
+        "status": "pending",
+        "packageName": "@azure/arm-search",
+        "latestVersion": "3.3.0",
+        "latestGADate": "07/25/2025"
+      }
+    },
+    {
+      "repo": "Azure/azure-sdk-for-net",
+      "language": ".NET",
+      "number": null,
+      "url": null,
+      "title": "No SDK PR generated",
+      "author": null,
+      "createdAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "state": "missing",
+      "generationFlow": null,
+      "labels": [],
+      "reviewers": [],
+      "events": []
+    }
+  ],
+  "insights": [
+    {
+      "type": "missing_language",
+      "severity": "warning",
+      "message": ".NET SDK PR was never generated for this spec change. The other 4 languages (Java, Go, Python, JavaScript) all received automated PRs, but .NET was skipped.",
+      "language": ".NET"
+    },
+    {
+      "type": "fastest_sdk",
+      "severity": "info",
+      "message": "Go SDK PR was merged fastest at 94.8 hours after spec merge.",
+      "language": "Go"
+    },
+    {
+      "type": "slowest_sdk",
+      "severity": "info",
+      "message": "JavaScript SDK PR took the longest at 165.2 hours after spec merge.",
+      "language": "JavaScript"
+    },
+    {
+      "type": "idle_time",
+      "severity": "warning",
+      "message": "Total idle time across all PRs was 983 hours (41.0 days), indicating significant waiting periods in the pipeline."
+    },
+    {
+      "type": "automation",
+      "severity": "info",
+      "message": "All 4 SDK PRs were generated via automated (AutoPR) flow, demonstrating the automated SDK generation pipeline."
+    }
+  ],
+  "summary": {
+    "totalDurationDays": 48.6,
+    "specPRDays": 41.8,
+    "pipelineGapDays": 1.1,
+    "fastestSDKPR": {
+      "language": "Go",
+      "days": 2.8
+    },
+    "slowestSDKPR": {
+      "language": "JavaScript",
+      "days": 5.8
+    },
+    "totalUniqueReviewers": 17,
+    "totalNags": 1,
+    "totalManualFixes": 0,
+    "pendingReleases": 4
+  }
+}

@@ -36,6 +36,16 @@ const UI = (() => {
       file: 'data/sample-nginx.json',
       name: 'Nginx.NginxPlus',
       meta: 'briantkim93 · 52d · 31d pipeline gap · 3 nags'
+    },
+    {
+      file: 'data/sample-netapp.json',
+      name: 'NetApp',
+      meta: 'audunn · 39d · 👤 manual .NET + 🤖 automated · all released'
+    },
+    {
+      file: 'data/sample-search.json',
+      name: 'AzureSearch',
+      meta: 'yangylu91 · 49d · 42d spec review · missing .NET'
     }
   ];
 

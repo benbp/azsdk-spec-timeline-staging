@@ -1,0 +1,1617 @@
+{
+  "title": "NetApp API SDK Generation",
+  "owner": "audunn",
+  "startDate": "2026-01-26T16:14:44Z",
+  "endDate": "2026-03-06T23:59:59Z",
+  "specPR": {
+    "repo": "Azure/azure-rest-api-specs",
+    "number": 39908,
+    "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908",
+    "title": "[NetAppFiles] Release microsoft.net app 2025 12 01",
+    "author": "audunn",
+    "createdAt": "2026-01-26T16:14:44Z",
+    "mergedAt": "2026-02-11T10:34:29Z",
+    "mergedBy": "audunn",
+    "state": "merged",
+    "labels": [
+      "ARMSignedOff",
+      "ARMReview",
+      "resource-manager",
+      "BreakingChangeReviewRequired",
+      "Approved-Suppression",
+      "SuppressionReviewRequired",
+      "new-api-version",
+      "TypeSpec",
+      "BreakingChange-Approved-BugFix",
+      "Versioning-Approved-BugFix",
+      "PublishToCustomers",
+      "ARMAutoSignedOff-IncrementalTSP"
+    ],
+    "reviewers": [
+      "einarnetapp",
+      "razvanbadea-msft",
+      "sandipsh"
+    ],
+    "events": [
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-01-20T16:13:29Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "Pushed commit: bump tsp version",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-01-20T16:13:29Z",
+        "endTimestamp": "2026-01-22T16:24:20Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "2.0-day wait for review after commits",
+        "sentiment": "neutral",
+        "details": {
+          "durationHours": 48.2
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-01-22T16:24:20Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "Pushed commit: bump tsp version",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-01-22T16:24:20Z",
+        "endTimestamp": "2026-01-26T16:13:50Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "4.0-day wait for review after commits",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 95.8
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-01-26T16:13:50Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "Pushed commit: fix smbAccessBasedEnumeration",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "pr_created",
+        "timestamp": "2026-01-26T16:14:44Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "Opened spec PR: [NetAppFiles] Release microsoft.net app 2025 12 01",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908"
+        }
+      },
+      {
+        "type": "bot_comment",
+        "timestamp": "2026-01-26T16:15:07Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "CI bot posted Next Steps to Merge checklist",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3800432969"
+        }
+      },
+      {
+        "type": "bot_comment",
+        "timestamp": "2026-01-26T16:17:31Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "API Change Check — ApiView links generated",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3800443771"
+        }
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-01-26T16:17:31Z",
+        "endTimestamp": "2026-01-28T10:35:21Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "1.8-day wait for first review",
+        "sentiment": "neutral",
+        "details": {
+          "durationHours": 42.3
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-01-28T10:35:21Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "Pushed 4 commits",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-01-28T13:24:36Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "BugFix breaking change, applying `@secret` to properties in a POST operation `Bu",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3811296652",
+          "body": "BugFix breaking change, applying `@secret`  to properties in a POST operation `Buckets_GenerateCredentials` that is used to generate credentials to access buckets (in preview).\r\n\r\nLintdiff Suppressions added for [this ongoing issue](https://github.com/Azure/azure-openapi-validator/issues/809) with P"
+        }
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-01-28T13:24:36Z",
+        "endTimestamp": "2026-01-30T12:26:51Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "2.0-day wait for reviewer action",
+        "sentiment": "neutral",
+        "details": {
+          "durationHours": 47
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-01-30T12:26:51Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "Pushed 4 commits",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-01-30T13:05:41Z",
+        "actor": "razvanbadea-msft",
+        "actorRole": "reviewer",
+        "description": "3 inline comments on readme.md, NetAppAccount.tsp, Volume.tsp",
+        "sentiment": "blocking",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#discussion_r2746176302",
+          "count": 3
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-01-30T13:16:48Z",
+        "actor": "razvanbadea-msft",
+        "actorRole": "reviewer",
+        "description": "> * ClientId of the multi-tenant AAD Application. Used to access cross-tenant ke",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3823701485",
+          "body": ">    * ClientId of the multi-tenant AAD Application. Used to access cross-tenant keyvaults.\r\n\r\nchange it to Entra Id to by in sync with other descriptions\r\n\r\n---\r\nRefers to: specification/netapp/resource-manager/Microsoft.NetApp/NetApp/NetAppAccount.tsp:537 in 92e06ee. [](commit_id = 92e06ee6f830b25"
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-01-30T15:02:50Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "3 inline comments on readme.md, NetAppAccount.tsp, Volume.tsp",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#discussion_r2746704837",
+          "count": 3
+        }
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-01-30T15:02:50Z",
+        "endTimestamp": "2026-02-02T10:32:00Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "2.8-day wait for reviewer response",
+        "sentiment": "neutral",
+        "details": {
+          "durationHours": 67.5
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-02T10:32:00Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "Pushed 3 commits",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-02T10:32:00Z",
+        "endTimestamp": "2026-02-03T13:30:34Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "1.1-day wait for review after commits",
+        "sentiment": "neutral",
+        "details": {
+          "durationHours": 27
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-03T13:30:34Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "/azp run SDK Validation - JS",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3841339767",
+          "body": "/azp run SDK Validation - JS"
+        }
+      },
+      {
+        "type": "bot_comment",
+        "timestamp": "2026-02-03T13:30:48Z",
+        "actor": "azure-pipelines[bot]",
+        "actorRole": "bot",
+        "description": "Azure Pipelines started CI run",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3841341046"
+        }
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-03T13:30:48Z",
+        "endTimestamp": "2026-02-04T22:31:46Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "1.4-day wait for first review",
+        "sentiment": "neutral",
+        "details": {
+          "durationHours": 33
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-04T22:31:46Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "3 inline comments on ActiveDirectory.tsp, CapacityPool.tsp",
+        "sentiment": "blocking",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#discussion_r2766259162",
+          "count": 3
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-04T22:40:38Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "> size: int64; is not needed to be renamed? --- Refers to: specification/netapp/",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3850101747",
+          "body": ">   size: int64;\r\n\r\nis not needed to be renamed?\r\n\r\n---\r\nRefers to: specification/netapp/resource-manager/Microsoft.NetApp/NetApp/Elastic/ElasticCapacityPool.tsp:47 in add3e1f. [](commit_id = add3e1f6908e7d619e6fcf7f63b55414c0b2d327, deletion_comment = False)"
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-05T10:05:46Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "4 inline comments on ActiveDirectory.tsp, CapacityPool.tsp",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#discussion_r2768117878",
+          "count": 4
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-05T10:43:26Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "> is not needed to be renamed? No, this should be `size`",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3852711850",
+          "body": "> is not needed to be renamed?\r\n\r\nNo, this should be `size`"
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-06T00:44:59Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "not all comments are addressed.",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3857164031",
+          "body": "not all comments are addressed."
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-06T19:29:25Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "PR intake form says it is new version, but I still don't see readme.md file to i",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3862204176",
+          "body": "PR intake form says it is new version, but I still don't see readme.md file to include new version."
+        }
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-06T19:29:25Z",
+        "endTimestamp": "2026-02-09T10:59:23Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "2.6-day idle gap",
+        "sentiment": "neutral",
+        "details": {
+          "durationHours": 63.5
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-09T10:59:23Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "Pushed 4 commits",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_approved",
+        "timestamp": "2026-02-09T15:30:28Z",
+        "actor": "einarnetapp",
+        "actorRole": "reviewer",
+        "description": "einarnetapp approved the PR",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#pullrequestreview-3773981661"
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-10T15:03:19Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "Pushed 6 commits",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_approved",
+        "timestamp": "2026-02-11T10:32:46Z",
+        "actor": "einarnetapp",
+        "actorRole": "reviewer",
+        "description": "einarnetapp approved the PR",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#pullrequestreview-3783997905"
+        }
+      },
+      {
+        "type": "pr_merged",
+        "timestamp": "2026-02-11T10:34:29Z",
+        "actor": "audunn",
+        "actorRole": "author",
+        "description": "Merged azure-rest-api-specs#39908",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908"
+        }
+      }
+    ]
+  },
+  "sdkPRs": [
+    {
+      "repo": "Azure/azure-sdk-for-net",
+      "language": ".NET",
+      "number": 56362,
+      "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362",
+      "title": "[NetApp] Regenerate ARM SDK for 2025-12-01 and update tests",
+      "author": "nandakus2",
+      "createdAt": "2026-02-20T06:03:33Z",
+      "mergedAt": "2026-03-06T07:39:19Z",
+      "mergedBy": "ArthurMa1978",
+      "state": "merged",
+      "generationFlow": "manual",
+      "labels": [],
+      "reviewers": [
+        "ArthurMa1978"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-20T05:45:21Z",
+          "actor": "nandakus2",
+          "actorRole": "author",
+          "description": "Pushed 6 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-02-20T06:03:33Z",
+          "actor": "nandakus2",
+          "actorRole": "author",
+          "description": "Opened .NET PR: [NetApp] Regenerate ARM SDK for 2025-12-01 and update tests",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-20T06:08:46Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review summary",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#pullrequestreview-3830176289"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-02-20T06:14:20Z",
+          "actor": "nandakus2",
+          "actorRole": "author",
+          "description": "Inline comment on NetAppResource_Tests.cs: fixed",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2831564361",
+            "body": "fixed"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-20T17:03:18Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check — ApiView links generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#issuecomment-3936059255"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-20T17:03:18Z",
+          "endTimestamp": "2026-02-23T15:19:37Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2.9-day wait for first review",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 70.3
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-02-23T15:19:37Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Inline comment on autorest.md: This `Type` was renamed from the old name in API specs `Type",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2841440627",
+            "body": "This `Type`  was renamed from the old name in API specs `Type` to `NetAppVolumeQuotaType` in previous beta SDK since it was deemed too generic. \nNow name changed in API specs to `QuotaType` so this re"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-02-23T17:26:56Z",
+          "actor": "nandakus2",
+          "actorRole": "author",
+          "description": "Inline comment on autorest.md: updated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2842122757",
+            "body": "updated"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-23T17:26:56Z",
+          "endTimestamp": "2026-02-26T22:09:28Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "3.2-day wait for reviewer response",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 76.7
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T22:09:28Z",
+          "actor": "nandakus2",
+          "actorRole": "author",
+          "description": "Pushed commit: [NetApp] Regenerate ARM SDK for 2025-12-01 and update tests ",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-26T22:09:28Z",
+          "endTimestamp": "2026-02-28T02:50:49Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.2-day wait for review after commits",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 28.7
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-02-28T02:50:49Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "Inline comment on ApiCompatBaseline.txt: should not use compatbaseline file to mitigate breaking chan",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2866956138",
+            "body": "should not use compatbaseline file to mitigate breaking changes"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-28T02:50:49Z",
+          "endTimestamp": "2026-03-02T16:56:41Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2.6-day wait for author to address review comments",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 62.1
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-02T16:56:41Z",
+          "actor": "nandakus2",
+          "actorRole": "author",
+          "description": "Pushed commit: [NetApp] Regenerate ARM SDK for 2025-12-01 and update tests ",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-02T16:57:11Z",
+          "actor": "nandakus2",
+          "actorRole": "author",
+          "description": "Inline comment on ApiCompatBaseline.txt: @ArthurMa1978 Have reverted this.",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2873546995",
+            "body": "@ArthurMa1978 Have reverted this."
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-02T16:57:11Z",
+          "endTimestamp": "2026-03-04T04:41:48Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.5-day wait for reviewer response",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 35.7
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-04T04:41:48Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "2 inline comments on autorest.md, Exclude.cs",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2881762617",
+            "count": 2
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-04T05:38:57Z",
+          "actor": "nandakus2",
+          "actorRole": "author",
+          "description": "Inline comment on Exclude.cs: Renamned from Exclude to ExcludeReplicationsFilter",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2881938652",
+            "body": "Renamned from Exclude to ExcludeReplicationsFilter"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-04T05:42:23Z",
+          "actor": "nandakus2",
+          "actorRole": "author",
+          "description": "Pushed commit: [NetApp] Regenerate ARM SDK for 2025-12-01 and update tests ",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-04T06:48:20Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "Inline comment on CHANGELOG.md: The version should be updated to 1.15.0, as the API version ",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2882126748",
+            "body": "The version should be updated to 1.15.0, as the API version is now stable. The same change should also be applied to Azure.ResourceManager.NetApp.csproj.\nAdditionally, replace Unreleased with the inte"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-04T07:10:31Z",
+          "actor": "nandakus2",
+          "actorRole": "author",
+          "description": "2 inline comments on autorest.md, CHANGELOG.md",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2882191722",
+            "count": 2
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-04T07:10:31Z",
+          "endTimestamp": "2026-03-05T09:38:09Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.1-day wait for reviewer response",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 26.5
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-05T09:38:09Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "Inline comment on autorest.md: `QuotaItem` is too generic, please rename it to a more descr",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2888832199",
+            "body": "`QuotaItem` is too generic,  please rename it to a more described name"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-05T12:59:30Z",
+          "actor": "nandakus2",
+          "actorRole": "author",
+          "description": "Inline comment on autorest.md: Have renamed back QuotaItem: NetAppSubscriptionQuotaItem by ",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2889840171",
+            "body": "Have renamed back QuotaItem: NetAppSubscriptionQuotaItem by migrating the custom adapters to new generated types (from generated NetAppSubscriptionQuotaItemData to legacy NetAppSubscriptionQuotaItem)"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-06T07:35:38Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "ArthurMa1978 approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#pullrequestreview-3901980394"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-06T07:39:19Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "Merged azure-sdk-for-net#56362",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362"
+          }
+        }
+      ],
+      "release": {
+        "packageName": "Azure.ResourceManager.NetApp",
+        "packageVersion": "1.15.0",
+        "releasedAt": "2026-03-06T23:59:59Z",
+        "status": "released",
+        "releaseGapDays": 0.68
+      }
+    },
+    {
+      "repo": "Azure/azure-sdk-for-java",
+      "language": "Java",
+      "number": 47995,
+      "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995",
+      "title": "[AutoPR azure-resourcemanager-netapp]-generated-from-SDK Generation - Java-5873947",
+      "author": "azure-sdk",
+      "createdAt": "2026-02-12T17:21:42Z",
+      "mergedAt": "2026-02-28T03:08:47Z",
+      "mergedBy": "audunn",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "XiaofeiCao",
+        "weidongxu-microsoft"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-12T17:21:38Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/netapp/resource-manager/Micr",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-02-12T17:21:42Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Opened Java PR: [AutoPR azure-resourcemanager-netapp]-generated-from-SDK Gen",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-12T17:29:38Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check — ApiView links generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#issuecomment-3892323258"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-12T17:29:38Z",
+          "endTimestamp": "2026-02-14T01:55:22Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.4-day wait for first review",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 32.4
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-02-14T01:55:22Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Inline comment on CHANGELOG.md: Can we rename it back to `Type` in \"client.tsp\" to avoid bre",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#discussion_r2806779425",
+            "body": "Can we rename it back to `Type` in \"client.tsp\" to avoid break?"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-14T01:55:22Z",
+          "endTimestamp": "2026-02-16T10:50:34Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2.4-day wait for author to address review comments",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 56.9
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-02-16T10:50:34Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Inline comment on CHANGELOG.md: This `Type` comes from the previous preview version (beta). ",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#discussion_r2811800516",
+            "body": "This `Type` comes from the previous preview version (beta). Would prefere to rename to `QuotaType` ifpossible now that we are moving this to stable. That changed because `Type` is too generic  (ARM re"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-16T10:50:34Z",
+          "endTimestamp": "2026-02-26T02:19:22Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "9.6-day wait for reviewer response",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 231.5
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-26T02:19:22Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review summary",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#pullrequestreview-3858047188"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T02:24:52Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/azure-resourcemanager-netap",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T02:38:23Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/netapp/resource-manager/Micr",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T03:27:50Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Update pom.xml",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-02-26T03:57:46Z",
+          "actor": "XiaofeiCao",
+          "actorRole": "reviewer",
+          "description": "XiaofeiCao approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#pullrequestreview-3858254764"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T09:49:14Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-02-26T10:12:07Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Regenerated to incorportate TypeSpec fix https://github.com/Azure/azure-rest-api",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#issuecomment-3965582190",
+            "body": "Regenerated to incorportate TypeSpec fix https://github.com/Azure/azure-rest-api-specs/pull/40743 "
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T13:17:15Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/azure-resourcemanager-netap",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T15:49:34Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/netapp/resource-manager/Micr",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T16:34:38Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/azure-resourcemanager-netap",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-27T01:43:04Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Update pom.xml",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-02-27T01:43:13Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "weidongxu-microsoft approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#pullrequestreview-3864419011"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-27T09:35:06Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/azure-resourcemanager-netap",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-02-27T10:37:24Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "@XiaofeiCao for review service is ready to merge",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#issuecomment-3972123000",
+            "body": "@XiaofeiCao for review\r\n\r\nservice is ready to merge"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-02-28T03:08:19Z",
+          "actor": "XiaofeiCao",
+          "actorRole": "reviewer",
+          "description": "XiaofeiCao approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#pullrequestreview-3869987420"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-02-28T03:08:47Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Merged azure-sdk-for-java#47995",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995"
+          }
+        }
+      ],
+      "release": {
+        "packageName": "azure-resourcemanager-netapp",
+        "packageVersion": "2.1.0",
+        "releasedAt": "2026-03-03T23:59:59Z",
+        "status": "released",
+        "releaseGapDays": 3.87
+      }
+    },
+    {
+      "repo": "Azure/azure-sdk-for-go",
+      "language": "Go",
+      "number": 26020,
+      "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020",
+      "title": "[AutoPR sdk-resourcemanager/netapp/armnetapp]-generated-from-SDK Generation - Go-5873945",
+      "author": "azure-sdk",
+      "createdAt": "2026-02-12T17:18:30Z",
+      "mergedAt": "2026-02-27T09:35:25Z",
+      "mergedBy": "audunn",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "JiaqiZhang-Dev"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-12T17:18:23Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/netapp/resource-manager/Micr",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-02-12T17:18:30Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Opened Go PR: [AutoPR sdk-resourcemanager/netapp/armnetapp]-generated-from",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-12T17:26:22Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check — ApiView links generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020#issuecomment-3892302891"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-12T17:26:22Z",
+          "endTimestamp": "2026-02-16T14:07:01Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "3.9-day wait for first review",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 92.7
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-16T14:07:01Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review summary",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020#pullrequestreview-3808830823"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-16T14:07:01Z",
+          "endTimestamp": "2026-02-18T16:30:03Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2.1-day wait for first review",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 50.4
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-02-18T16:30:03Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "2 inline comments on CHANGELOG.md, accounts_client_example_test.go",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020#discussion_r2823272899",
+            "count": 2
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-18T16:30:03Z",
+          "endTimestamp": "2026-02-24T02:48:24Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "5.4-day wait for reviewer response",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 130.3
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-02-24T02:48:24Z",
+          "actor": "JiaqiZhang-Dev",
+          "actorRole": "reviewer",
+          "description": "JiaqiZhang-Dev approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020#pullrequestreview-3844726802"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-02-24T09:10:31Z",
+          "actor": "JiaqiZhang-Dev",
+          "actorRole": "reviewer",
+          "description": "Inline comment on CHANGELOG.md: came from this PR: https://github.com/Azure/azure-rest-api-s",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020#discussion_r2845508687",
+            "body": "came from this PR: https://github.com/Azure/azure-rest-api-specs/pull/39908"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-24T09:10:31Z",
+          "endTimestamp": "2026-02-26T10:32:42Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2.1-day wait for author to address review comments",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 49.4
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-02-26T10:32:42Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "@copilot Regenerate SDK",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020#issuecomment-3965698802",
+            "body": "@copilot Regenerate SDK"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T15:44:55Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "author_nag",
+          "timestamp": "2026-02-26T16:34:29Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Author pinged @JiaqiZhang-Dev for review",
+          "sentiment": "negative",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020#issuecomment-3967753894",
+            "targetUser": "JiaqiZhang-Dev",
+            "body": "@JiaqiZhang-Dev your review is stale due to regenration, can you have another look?"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-02-27T08:33:36Z",
+          "actor": "JiaqiZhang-Dev",
+          "actorRole": "reviewer",
+          "description": "JiaqiZhang-Dev approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020#pullrequestreview-3865678095"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-02-27T09:35:25Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Merged azure-sdk-for-go#26020",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020"
+          }
+        }
+      ],
+      "release": {
+        "packageName": "sdk/resourcemanager/netapp/armnetapp",
+        "packageVersion": "9.0.0",
+        "releasedAt": "2026-03-03T23:59:59Z",
+        "status": "released",
+        "releaseGapDays": 4.6
+      }
+    },
+    {
+      "repo": "Azure/azure-sdk-for-python",
+      "language": "Python",
+      "number": 45164,
+      "url": "https://github.com/Azure/azure-sdk-for-python/pull/45164",
+      "title": "[AutoPR azure-mgmt-netapp]-generated-from-SDK Generation - Python-5873948",
+      "author": "azure-sdk",
+      "createdAt": "2026-02-12T17:23:27Z",
+      "mergedAt": "2026-02-27T09:34:47Z",
+      "mergedBy": "audunn",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [],
+      "reviewers": [
+        "ChenxiJiang333",
+        "hnsunil",
+        "msyyc"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-12T17:23:23Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/netapp/resource-manager/Micr",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-02-12T17:23:27Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Opened Python PR: [AutoPR azure-mgmt-netapp]-generated-from-SDK Generation - P",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45164"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-12T17:23:27Z",
+          "endTimestamp": "2026-02-20T13:32:23Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "7.8-day wait for first review",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 188.1
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-20T13:32:23Z",
+          "actor": "hnsunil",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: update assets.json after live tests are run",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-20T13:53:37Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review summary",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45164#pullrequestreview-3832141356"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-20T13:53:37Z",
+          "endTimestamp": "2026-02-26T09:51:12Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "5.8-day wait for first review",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 140
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T09:51:12Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T13:16:56Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/azure-mgmt-netapp-5873948",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T15:50:41Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/netapp/resource-manager/Micr",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T16:35:18Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/azure-mgmt-netapp-5873948",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-27T07:10:59Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-02-27T07:29:57Z",
+          "actor": "msyyc",
+          "actorRole": "reviewer",
+          "description": "Inline comment on CHANGELOG.md: Operation group instead of model",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45164#discussion_r2862959050",
+            "body": "Operation group instead of model"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-02-27T07:36:57Z",
+          "actor": "msyyc",
+          "actorRole": "reviewer",
+          "description": "msyyc approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45164#pullrequestreview-3865472229"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-02-27T07:39:30Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "Hi @hnsunil @audunn, pr approved, you can move on to the next step",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45164#issuecomment-3971336260",
+            "body": "Hi @hnsunil @audunn, pr approved, you can move on to the next step\r\n"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-02-27T09:34:47Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Merged azure-sdk-for-python#45164",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45164"
+          }
+        }
+      ],
+      "release": {
+        "packageName": "azure-mgmt-netapp",
+        "packageVersion": "15.0.0",
+        "releasedAt": "2026-03-03T23:59:59Z",
+        "status": "released",
+        "releaseGapDays": 4.6
+      }
+    },
+    {
+      "repo": "Azure/azure-sdk-for-js",
+      "language": "JavaScript",
+      "number": 37299,
+      "url": "https://github.com/Azure/azure-sdk-for-js/pull/37299",
+      "title": "[AutoPR @azure-arm-netapp]-generated-from-SDK Generation - JS-5873946",
+      "author": "azure-sdk",
+      "createdAt": "2026-02-12T17:20:46Z",
+      "mergedAt": "2026-03-02T14:17:55Z",
+      "mergedBy": "audunn",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt",
+        "Self-Service Release"
+      ],
+      "reviewers": [
+        "JialinHuang803",
+        "kazrael2119"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-12T17:20:42Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/netapp/resource-manager/Micr",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-02-12T17:20:46Z",
+          "actor": "azure-sdk",
+          "actorRole": "author",
+          "description": "Opened JavaScript PR: [AutoPR @azure-arm-netapp]-generated-from-SDK Generation - J",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37299"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-12T17:28:11Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check — ApiView links generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37299#issuecomment-3892314331"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-13T13:59:50Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Pushed commit: assets",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-13T13:59:50Z",
+          "endTimestamp": "2026-02-16T14:06:01Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "3.0-day wait for review after commits",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 72.1
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-16T14:06:01Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review summary",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37299#pullrequestreview-3808826315"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-16T14:06:01Z",
+          "endTimestamp": "2026-02-25T07:22:44Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "8.7-day wait for first review",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 209.3
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-02-25T07:22:44Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "LGTM cc @JialinHuang803",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37299#issuecomment-3957335981",
+            "body": "LGTM\r\ncc @JialinHuang803 "
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-25T07:22:44Z",
+          "endTimestamp": "2026-02-26T09:48:59Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.1-day idle gap",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 26.4
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-26T09:48:59Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed 3 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-27T05:51:25Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: update",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-27T05:51:25Z",
+          "endTimestamp": "2026-03-02T14:17:52Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "3.4-day wait for review after commits",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 80.4
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-02T14:17:52Z",
+          "actor": "JialinHuang803",
+          "actorRole": "reviewer",
+          "description": "JialinHuang803 approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37299#pullrequestreview-3876512698"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-02T14:17:55Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "Merged azure-sdk-for-js#37299",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37299"
+          }
+        }
+      ],
+      "release": {
+        "packageName": "@azure/arm-netapp",
+        "packageVersion": "23.0.0",
+        "releasedAt": "2026-03-03T23:59:59Z",
+        "status": "released",
+        "releaseGapDays": 1.4
+      }
+    }
+  ],
+  "insights": [
+    {
+      "type": "observation",
+      "severity": "info",
+      "description": "1.28-day gap between spec PR merge (Feb 11) and first SDK PR creation (Feb 12) — AutoPR triggered quickly",
+      "startDate": "2026-02-11T10:34:29Z",
+      "endDate": "2026-02-12T17:18:30Z",
+      "durationDays": 1.28
+    },
+    {
+      "type": "idle",
+      "severity": "warning",
+      "description": "3.87-day wait for first human review on spec PR — audunn opened Jan 26, first review from razvanbadea-msft on Jan 30",
+      "startDate": "2026-01-26T16:14:44Z",
+      "endDate": "2026-01-30T13:05:41Z",
+      "durationDays": 3.87,
+      "prRef": "Azure/azure-rest-api-specs#39908"
+    },
+    {
+      "type": "observation",
+      "severity": "info",
+      "description": ".NET SDK PR was manually authored (by nandakus2), took 14.07 days — manual flow has more review cycles compared to automated PRs",
+      "durationDays": 14.07,
+      "prRef": "Azure/azure-sdk-for-net#56362"
+    },
+    {
+      "type": "summary",
+      "severity": "info",
+      "description": "Mixed generation flow: .NET was manual (human-authored), Java/Go/Python/JS were automated (AutoPR). All 5 SDK PRs merged and released within ~3 weeks of spec merge."
+    },
+    {
+      "type": "nag",
+      "severity": "warning",
+      "description": "1 author nag(s) detected — spec owner had to ping reviewers for action on SDK PRs"
+    },
+    {
+      "type": "observation",
+      "severity": "info",
+      "description": "All 5 SDK packages released with avg 3.0-day gap from merge to release (max 4.6 days for .NET)"
+    }
+  ],
+  "summary": {
+    "totalDurationDays": 39.32,
+    "specPRDays": 15.76,
+    "pipelineGapDays": 1.28,
+    "sdkPRMaxDays": 17.87,
+    "fastestSDKPR": {
+      "language": ".NET",
+      "days": 14.07
+    },
+    "slowestSDKPR": {
+      "language": "JavaScript",
+      "days": 17.87
+    },
+    "totalUniqueReviewers": 12,
+    "totalNags": 1,
+    "totalManualFixes": 0,
+    "avgReleaseGapDays": 3,
+    "maxReleaseGapDays": 4.6,
+    "pendingReleases": 0
+  }
+}

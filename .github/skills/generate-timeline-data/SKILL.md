@@ -57,7 +57,7 @@ gh api repos/Azure/azure-rest-api-specs/pulls/{number}/commits --paginate
 
 SDK PRs can be found by:
 
-1. **Search SDK repos** for references to the spec PR:
+1. **Search SDK repos for the spec PR URL in PR bodies** — this works for BOTH automated (AutoPR bot) and manual (human-authored) flows:
 ```bash
 gh api "search/issues?q=repo:Azure/azure-sdk-for-java+azure-rest-api-specs/pull/{number}+is:pr&per_page=5"
 gh api "search/issues?q=repo:Azure/azure-sdk-for-go+azure-rest-api-specs/pull/{number}+is:pr&per_page=5"
@@ -66,10 +66,29 @@ gh api "search/issues?q=repo:Azure/azure-sdk-for-net+azure-rest-api-specs/pull/{
 gh api "search/issues?q=repo:Azure/azure-sdk-for-js+azure-rest-api-specs/pull/{number}+is:pr&per_page=5"
 ```
 
-2. **Check SDK PR bodies** — they typically contain:
-   `Spec Pull Request: https://github.com/Azure/azure-rest-api-specs/pull/{number}`
+2. **The user may also provide SDK PR URLs directly** — use those if given.
 
-3. **The user may also provide SDK PR URLs directly** — use those if given.
+3. **Detect generation flow type** — for each discovered SDK PR:
+   - If the title starts with `[AutoPR ` or the author is `azure-sdk` → `generationFlow: "automated"`
+   - Otherwise → `generationFlow: "manual"` (human-authored PR)
+   - This distinction is important: some flows are mixed (e.g., automated for most languages but manual for one)
+
+4. **If a language has no SDK PR**, include an empty placeholder in the output:
+```json
+{
+  "repo": "Azure/azure-sdk-for-net",
+  "language": ".NET",
+  "number": null,
+  "url": null,
+  "title": "No SDK PR generated",
+  "author": null,
+  "createdAt": null,
+  "mergedAt": null,
+  "state": "missing",
+  "generationFlow": null,
+  "events": []
+}
+```
 
 For each discovered SDK PR, fetch the same data (metadata, comments, reviews, review comments, commits).
 

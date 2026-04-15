@@ -312,8 +312,13 @@ const Timeline = (() => {
     // Pipeline gap connector
     renderPipelineGap(lanesContainer);
 
-    // SDK PR lanes sorted by merge date
+    // SDK PR lanes sorted by merge date (missing PRs last)
     const sdkPRs = [...data.sdkPRs].sort((a, b) => {
+      const aMissing = a.state === 'missing' || !a.createdAt;
+      const bMissing = b.state === 'missing' || !b.createdAt;
+      if (aMissing && !bMissing) return 1;
+      if (!aMissing && bMissing) return -1;
+      if (aMissing && bMissing) return 0;
       const aDate = a.mergedAt || a.closedAt || a.createdAt;
       const bDate = b.mergedAt || b.closedAt || b.createdAt;
       return new Date(aDate) - new Date(bDate);
@@ -369,18 +374,57 @@ const Timeline = (() => {
   }
 
   function renderLane(container, pr, isSpec) {
+    const isMissing = pr.state === 'missing' || (!pr.createdAt && !isSpec);
     const lane = document.createElement('div');
-    lane.className = `lane ${isSpec ? 'spec-lane' : ''}`;
-    if (!isSpec && pr.release?.status === 'released') lane.classList.add('released');
+    lane.className = `lane ${isSpec ? 'spec-lane' : ''} ${isMissing ? 'missing-lane' : ''}`;
+    if (!isSpec && !isMissing && pr.release?.status === 'released') lane.classList.add('released');
 
     // Label
     const label = document.createElement('div');
     label.className = 'lane-label';
     const langClass = pr.language ? pr.language.toLowerCase().replace('.', '') : 'spec';
     const langText = pr.language || 'TypeSpec';
+
+    if (isMissing) {
+      label.innerHTML = `
+        <div class="lane-repo"><span class="missing-pr">—</span></div>
+        <div class="lane-meta">
+          <span class="lane-language ${langClass}">${langText}</span>
+          <span class="missing-label" title="No SDK PR was generated for this language">no PR</span>
+        </div>
+      `;
+      lane.appendChild(label);
+      const content = document.createElement('div');
+      content.className = 'lane-content';
+      content.style.width = contentWidth + 'px';
+      const placeholder = document.createElement('div');
+      placeholder.className = 'missing-placeholder';
+      placeholder.textContent = 'No SDK PR generated';
+      content.appendChild(placeholder);
+      lane.appendChild(content);
+      container.appendChild(lane);
+      return;
+    }
+
     const prDays = pr.mergedAt
       ? DataLoader.computeDurationDays(pr.createdAt, pr.mergedAt)
       : '—';
+    // Tooltip for the duration label showing created/merged dates
+    const durationTooltip = pr.mergedAt
+      ? `PR open ${prDays} days (${DataLoader.formatDate(pr.createdAt)} → ${DataLoader.formatDate(pr.mergedAt)})`
+      : 'PR not yet merged';
+    // For spec PR: compute time to first SDK PR opening
+    let specToSdkHtml = '';
+    if (isSpec && data.sdkPRs && data.sdkPRs.length > 0) {
+      const sdkCreatedDates = data.sdkPRs
+        .filter(sdk => sdk.createdAt)
+        .map(sdk => new Date(sdk.createdAt).getTime());
+      if (sdkCreatedDates.length > 0 && pr.mergedAt) {
+        const firstSdkDate = Math.min(...sdkCreatedDates);
+        const gapDays = DataLoader.computeDurationDays(pr.mergedAt, new Date(firstSdkDate).toISOString());
+        specToSdkHtml = `<span class="spec-to-sdk" title="Time from spec merge to first SDK PR opened">→ SDK: ${gapDays}d</span>`;
+      }
+    }
     const releaseStatus = pr.release
       ? pr.release.status === 'released'
         ? `<span class="release-badge released" title="Released ${DataLoader.formatDate(pr.release.releasedAt)}">${pr.release.releaseGapDays ? '📦 ' + pr.release.releaseGapDays + 'd' : '📦 &lt;1d'}</span>`
@@ -406,7 +450,8 @@ const Timeline = (() => {
       <div class="lane-meta">
         <span class="lane-language ${langClass}">${langText}</span>
         ${flowIcon}
-        <span>${prDays}d</span>
+        <span title="${durationTooltip}">${prDays}d</span>
+        ${specToSdkHtml}
         ${releaseStatus}
       </div>
     `;
@@ -551,11 +596,12 @@ const Timeline = (() => {
   /* ── Pipeline Gap / Gridlines ───────────────────────────── */
 
   function renderPipelineGap(container) {
-    if (!data.sdkPRs.length) return;
+    const validPRs = data.sdkPRs.filter(pr => pr.createdAt);
+    if (!validPRs.length) return;
     const specMergedAt = data.specPR.mergedAt;
     if (!specMergedAt) return;
 
-    const earliestSDK = data.sdkPRs.reduce((earliest, pr) =>
+    const earliestSDK = validPRs.reduce((earliest, pr) =>
       new Date(pr.createdAt) < new Date(earliest.createdAt) ? pr : earliest
     );
 

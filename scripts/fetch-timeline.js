@@ -367,6 +367,15 @@ function discoverSDKPRs(specRepo, specNumber) {
   return results;
 }
 
+function detectGenerationFlow(pr) {
+  const title = pr.title || '';
+  const author = pr.user?.login || '';
+  if (title.startsWith('[AutoPR ') || author === 'azure-sdk') {
+    return 'automated';
+  }
+  return 'manual';
+}
+
 function fetchFullPRData(repo, number) {
   const pr = fetchPR(repo, number);
   if (!pr) return null;
@@ -391,6 +400,7 @@ function fetchFullPRData(repo, number) {
     closedAt: pr.closed_at,
     mergedBy: pr.merged_by?.login,
     state: pr.merged ? 'merged' : pr.state,
+    generationFlow: detectGenerationFlow(pr),
     labels: (pr.labels || []).map(l => l.name),
     reviewers: [
       ...(pr.requested_reviewers || []).map(r => r.login),

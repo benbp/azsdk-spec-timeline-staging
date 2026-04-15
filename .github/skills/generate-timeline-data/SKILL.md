@@ -151,10 +151,11 @@ Analyze the complete timeline and generate insights:
 1. **Pipeline gap**: Time between spec PR merge and first SDK PR creation
 2. **Spec PR review wait**: Time from spec PR creation to first human review
 3. **Author nag count**: How many times the owner had to nudge reviewers
-4. **Manual fixes**: How many SDK PRs needed manual intervention
-5. **Slowest/fastest SDK PR**: Which language took longest/shortest
-6. **Reviewer bottlenecks**: Which reviewers were slow to respond
-7. **Positive patterns**: What went well (e.g., fast approvals)
+4. **Manual fixes on auto PRs**: How many automated SDK PRs needed manual intervention (manual_fix events)
+5. **PR edits on manual PRs**: Count subsequent commits (excl. merge commits from main) on manual (human-authored) SDK PRs — these indicate iteration/rework cycles
+6. **Slowest/fastest SDK PR**: Which language took longest/shortest
+7. **Reviewer bottlenecks**: Which reviewers were slow to respond
+8. **Positive patterns**: What went well (e.g., fast approvals)
 
 ### Step 7: Output JSON
 
@@ -214,7 +215,8 @@ Produce a JSON file matching this schema:
     "slowestSDKPR": { "language": "<lang>", "days": "<number>" },
     "totalUniqueReviewers": "<number>",
     "totalNags": "<number>",
-    "totalManualFixes": "<number>",
+    "totalManualFixes": "<number — manual_fix events on automated PRs>",
+    "totalPREdits": "<number — subsequent commits excl. merge commits on manual PRs>",
     "avgReleaseGapDays": "<number or omit>",
     "maxReleaseGapDays": "<number or omit>",
     "pendingReleases": "<number or omit>"

@@ -2206,30 +2206,27 @@
     {
       "type": "missing_language",
       "severity": "warning",
-      "message": ".NET SDK PR was never generated for this spec change. The other 4 languages (Java, Go, Python, JavaScript) all received automated PRs, but .NET was skipped.",
-      "language": ".NET"
+      "description": ".NET SDK PR was never generated for this spec change. The other 4 languages (Java, Go, Python, JavaScript) all received automated PRs, but .NET was skipped."
     },
     {
       "type": "fastest_sdk",
       "severity": "info",
-      "message": "Go SDK PR was merged fastest at 94.8 hours after spec merge.",
-      "language": "Go"
+      "description": "Go SDK PR was merged fastest at 94.8 hours after spec merge."
     },
     {
       "type": "slowest_sdk",
       "severity": "info",
-      "message": "JavaScript SDK PR took the longest at 165.2 hours after spec merge.",
-      "language": "JavaScript"
+      "description": "JavaScript SDK PR took the longest at 165.2 hours after spec merge."
     },
     {
       "type": "idle_time",
       "severity": "warning",
-      "message": "Total idle time across all PRs was 983 hours (41.0 days), indicating significant waiting periods in the pipeline."
+      "description": "Total idle time across all PRs was 983 hours (41.0 days), indicating significant waiting periods in the pipeline."
     },
     {
       "type": "automation",
       "severity": "info",
-      "message": "All 4 SDK PRs were generated via automated (AutoPR) flow, demonstrating the automated SDK generation pipeline."
+      "description": "All 4 SDK PRs were generated via automated (AutoPR) flow, demonstrating the automated SDK generation pipeline."
     }
   ],
   "summary": {

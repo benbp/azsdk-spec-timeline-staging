@@ -54,6 +54,21 @@ const Timeline = (() => {
     container.innerHTML = '';
     const s = data.summary || {};
 
+    // Compute PR edits for manual PRs if not in summary
+    if (s.totalPREdits === undefined && data.sdkPRs) {
+      s.totalPREdits = 0;
+      for (const pr of data.sdkPRs) {
+        if (pr.generationFlow === 'manual') {
+          const commits = pr.events.filter(e =>
+            e.type === 'commit_pushed' &&
+            !(e.description || '').toLowerCase().includes('merge')
+          );
+          // Subtract 1 for the initial commit (first is opening, rest are edits)
+          s.totalPREdits += Math.max(0, commits.length - 1);
+        }
+      }
+    }
+
     const cards = [
       { label: 'Spec PR', value: `${s.specPRDays || '—'}d`, sub: 'API review', cls: 'info' },
       { label: 'Pipeline Gap', value: `${s.pipelineGapDays || '—'}d`, sub: 'Merge → SDK PRs', cls: s.pipelineGapDays > 7 ? 'critical' : 'warning' },
@@ -62,6 +77,7 @@ const Timeline = (() => {
       { label: 'Total', value: `${s.totalDurationDays || DataLoader.computeDurationDays(data.startDate, data.endDate) || '—'}d`, sub: 'End to end', cls: 'info' },
       { label: 'Nags', value: `${s.totalNags || 0}`, sub: 'Author nudges', cls: s.totalNags > 0 ? 'warning' : 'positive' },
       { label: 'Manual Fixes', value: `${s.totalManualFixes || 0}`, sub: 'On auto PRs', cls: s.totalManualFixes > 0 ? 'warning' : 'positive' },
+      { label: 'PR Edits', value: `${s.totalPREdits || 0}`, sub: 'On manual PRs', cls: s.totalPREdits > 0 ? 'warning' : 'positive' },
       { label: 'Reviewers', value: `${s.totalUniqueReviewers || '—'}`, sub: 'Unique people', cls: 'info' },
     ];
 
@@ -149,6 +165,7 @@ const Timeline = (() => {
     const ts = new Set();
 
     for (const pr of allPRs) {
+      if (pr.state === 'missing' || !pr.createdAt) continue;
       ts.add(new Date(pr.createdAt).getTime());
       if (pr.mergedAt) ts.add(new Date(pr.mergedAt).getTime());
       if (pr.closedAt) ts.add(new Date(pr.closedAt).getTime());

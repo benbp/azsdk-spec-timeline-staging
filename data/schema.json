@@ -184,7 +184,8 @@
         },
         "totalUniqueReviewers": { "type": "integer" },
         "totalNags": { "type": "integer" },
-        "totalManualFixes": { "type": "integer" },
+        "totalManualFixes": { "type": "integer", "description": "Number of manual fix events on automated PRs" },
+        "totalPREdits": { "type": "integer", "description": "Number of subsequent commits (excl. merge commits) on manual PRs" },
         "avgReleaseGapDays": { "type": "number", "description": "Average days from PR merge to package publish across all released SDK PRs" },
         "maxReleaseGapDays": { "type": "number", "description": "Maximum days from PR merge to package publish" },
         "pendingReleases": { "type": "integer", "description": "Number of SDK PRs merged but not yet released" }

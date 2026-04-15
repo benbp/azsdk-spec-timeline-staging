@@ -10,7 +10,7 @@ const DataLoader = (() => {
     'issue_comment', 'bot_comment', 'author_nag', 'reviewer_responds',
     'label_added', 'manual_fix', 'idle_gap', 'ci_status',
     'release_pipeline_started', 'release_pipeline_completed',
-    'release_pipeline_failed', 'package_published', 'release_pending'
+    'release_pipeline_failed', 'release_pending'
   ];
 
   function validate(data) {
@@ -71,7 +71,6 @@ const DataLoader = (() => {
       release_pipeline_started:  { icon: '🚀', label: 'Release Started',       color: 'teal' },
       release_pipeline_completed:{ icon: '📦', label: 'Released',              color: 'teal' },
       release_pipeline_failed:   { icon: '❌', label: 'Release Failed',        color: 'red' },
-      package_published:         { icon: '✅', label: 'Package Published',     color: 'green' },
       release_pending:           { icon: '⏳', label: 'Release Pending',       color: 'orange' }
     };
     return info[type] || { icon: '❓', label: type, color: 'gray' };

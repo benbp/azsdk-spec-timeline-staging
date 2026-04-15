@@ -289,7 +289,6 @@ For each SDK PR:
 4. If the release stage `result=failed`, status is `failed`
 
 Add `release_pipeline_started` and `release_pipeline_completed` (or `release_pipeline_failed`) events.
-For packages confirmed in the CSV, add a `package_published` event.
 For merged PRs with no release, add a `release_pending` event.
 
 #### 8d. Generate Release Insights

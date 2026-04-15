@@ -98,7 +98,6 @@
             "release_pipeline_started",
             "release_pipeline_completed",
             "release_pipeline_failed",
-            "package_published",
             "release_pending"
           ]
         },

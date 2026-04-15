@@ -248,6 +248,26 @@ const UI = (() => {
         `<a href="${event.details.url}" target="_blank">View on GitHub ↗</a>`);
     }
 
+    // Release details (pull from PR's release object when viewing release events)
+    if (event.type.startsWith('release_') && pr.release) {
+      const rel = pr.release;
+      if (rel.packageName) {
+        const verStr = rel.packageVersion ? ` v${Timeline.escapeHtml(rel.packageVersion)}` : '';
+        addDetailField(body, 'Package', `${Timeline.escapeHtml(rel.packageName)}${verStr}`);
+      }
+      if (rel.pipelineUrl) {
+        addDetailField(body, 'Release Pipeline',
+          `<a href="${rel.pipelineUrl}" target="_blank">${Timeline.escapeHtml(rel.pipelineName || 'View pipeline')} ↗</a>`);
+      }
+      if (rel.packageManagerUrl) {
+        addDetailField(body, 'Package Manager',
+          `<a href="${rel.packageManagerUrl}" target="_blank">View on registry ↗</a>`);
+      }
+      if (rel.releaseGapDays != null) {
+        addDetailField(body, 'Release Gap', `${rel.releaseGapDays}d from PR merge`);
+      }
+    }
+
     // Comment body
     if (event.details?.body) {
       const bodyField = document.createElement('div');

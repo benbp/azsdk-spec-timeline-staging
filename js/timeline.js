@@ -105,7 +105,7 @@ const Timeline = (() => {
       'pr_created', 'pr_merged', 'review_approved', 'review_comment',
       'issue_comment', 'author_nag', 'manual_fix', 'commit_pushed',
       'bot_comment', 'label_added', 'idle_gap',
-      'release_pipeline_started', 'release_pipeline_completed', 'package_published', 'release_pending'
+      'release_pipeline_started', 'release_pipeline_completed', 'release_pending'
     ];
 
     for (const type of types) {
@@ -388,9 +388,14 @@ const Timeline = (() => {
           ? '<span class="release-badge pending" title="Release pending — merged but not published">⏳ pending</span>'
           : '<span class="release-badge failed" title="Release pipeline failed">❌ failed</span>'
       : '';
+    // Build release link for lane label
+    let releaseLinkHtml = '';
+    if (pr.release?.pipelineUrl) {
+      releaseLinkHtml = ` <a href="${pr.release.pipelineUrl}" target="_blank" title="Release pipeline: ${pr.release.pipelineName || ''}">🔗</a>`;
+    }
     label.innerHTML = `
       <div class="lane-repo">
-        <a href="${pr.url}" target="_blank" title="${pr.repo}#${pr.number}">#${pr.number}</a>
+        <a href="${pr.url}" target="_blank" title="${pr.repo}#${pr.number}">#${pr.number}</a>${releaseLinkHtml}
       </div>
       <div class="lane-meta">
         <span class="lane-language ${langClass}">${langText}</span>

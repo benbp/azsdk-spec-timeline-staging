@@ -25,7 +25,7 @@
   --teal: #39d353;
   --gray: #8b949e;
 
-  --lane-height: 56px;
+  --lane-height: 112px;
   --lane-gap: 4px;
   --label-width: 200px;
   --event-size: 16px;
@@ -273,6 +273,35 @@ header {
 
 .filter-btn .filter-icon {
   font-size: 12px;
+}
+
+/* Legend swatch in filter buttons — inline mini marker */
+.legend-swatch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+.legend-swatch .event-marker {
+  position: static;
+  transform: none;
+  cursor: inherit;
+  transition: none;
+  pointer-events: none;
+}
+.legend-swatch .event-marker.tool_call {
+  transform: rotate(45deg);
+}
+.legend-swatch .event-marker:hover {
+  transform: none;
+  box-shadow: none;
+}
+.legend-swatch .event-marker.tool_call:hover {
+  transform: rotate(45deg);
+  box-shadow: none;
 }
 
 /* Timeline Container */
@@ -648,10 +677,11 @@ header {
 .event-marker.release_pipeline_completed { background: var(--teal); border: 2px solid var(--green); }
 .event-marker.release_pipeline_failed { background: var(--red); border: 2px solid var(--orange); }
 .event-marker.release_pending { background: var(--orange); animation: pulse-pending 1.5s ease-in-out infinite; }
-.event-marker.tool_call { background: var(--accent); border-radius: 2px; border: 2px solid var(--teal); }
-.event-marker.tool_call.tool-success { background: var(--teal); border-color: var(--green); }
-.event-marker.tool_call.tool-fail { background: var(--red); border-color: var(--orange); }
-.event-marker.tool_call.tool-agent { box-shadow: 0 0 0 2px var(--purple); }
+.event-marker.tool_call { background: var(--accent); border-radius: 2px; border: 2px solid var(--teal); transform: translate(-50%, -50%) rotate(45deg); width: 12px; height: 12px; }
+.event-marker.tool_call.tool-success { background: var(--teal); border-color: #2ea043; }
+.event-marker.tool_call.tool-fail { background: #f85149; border-color: #da3633; }
+.event-marker.tool_call.tool-agent { box-shadow: 0 0 0 3px var(--purple); }
+.event-marker.tool_call:hover { transform: translate(-50%, -50%) rotate(45deg) scale(1.4); }
 
 @keyframes pulse-pending {
   0%, 100% { opacity: 1; }

@@ -313,7 +313,7 @@ const Timeline = (() => {
   /* ── Zoom Controls ──────────────────────────────────────── */
 
   function renderZoomControls() {
-    const spacer = document.querySelector('.timeline-header .lane-label-spacer');
+    const spacer = document.querySelector('.timeline-labels .lane-label-spacer');
     if (!spacer) return;
     let controls = document.getElementById('zoom-controls');
     if (!controls) {
@@ -351,10 +351,12 @@ const Timeline = (() => {
 
   function renderTimeline() {
     const lanesContainer = document.getElementById('lanes');
+    const labelsContainer = document.getElementById('lane-labels');
     lanesContainer.innerHTML = '';
+    labelsContainer.innerHTML = '';
 
-    const containerEl = document.getElementById('timeline-container');
-    const availWidth = containerEl.clientWidth - 200; // minus label width
+    const scrollEl = document.querySelector('.timeline-scroll');
+    const availWidth = scrollEl.clientWidth;
     contentWidth = Math.max(availWidth * zoomLevel, 600);
 
     // Build segments for gap compaction
@@ -368,7 +370,7 @@ const Timeline = (() => {
     renderTimeAxis('time-axis-bottom');
 
     // Spec PR lane
-    renderLane(lanesContainer, data.specPR, true);
+    renderLane(lanesContainer, labelsContainer, data.specPR, true);
 
     // Pipeline gap connector
     renderPipelineGap(lanesContainer);
@@ -384,7 +386,7 @@ const Timeline = (() => {
       const bDate = b.mergedAt || b.closedAt || b.createdAt;
       return new Date(aDate) - new Date(bDate);
     });
-    for (const pr of sdkPRs) renderLane(lanesContainer, pr, false);
+    for (const pr of sdkPRs) renderLane(lanesContainer, labelsContainer, pr, false);
 
     // Gridlines
     addGridlines(lanesContainer);
@@ -434,15 +436,27 @@ const Timeline = (() => {
     }
   }
 
-  function renderLane(container, pr, isSpec) {
+  function renderLane(container, labelsContainer, pr, isSpec) {
     const isMissing = pr.state === 'missing' || (!pr.createdAt && !isSpec);
+    const laneIndex = container.children.length;
     const lane = document.createElement('div');
     lane.className = `lane ${isSpec ? 'spec-lane' : ''} ${isMissing ? 'missing-lane' : ''}`;
     if (!isSpec && !isMissing && pr.release?.status === 'released') lane.classList.add('released');
+    lane.dataset.laneIndex = laneIndex;
 
-    // Label
+    // Label (goes to fixed labels column)
     const label = document.createElement('div');
-    label.className = 'lane-label';
+    label.className = `lane-label ${isSpec ? 'spec-lane' : ''} ${isMissing ? 'missing-lane' : ''}`;
+    if (!isSpec && !isMissing && pr.release?.status === 'released') label.classList.add('released');
+    label.dataset.laneIndex = laneIndex;
+
+    // Hover coordination between label and lane
+    const addHoverSync = () => {
+      lane.addEventListener('mouseenter', () => label.classList.add('hover'));
+      lane.addEventListener('mouseleave', () => label.classList.remove('hover'));
+      label.addEventListener('mouseenter', () => { lane.classList.add('hover'); label.classList.add('hover'); });
+      label.addEventListener('mouseleave', () => { lane.classList.remove('hover'); label.classList.remove('hover'); });
+    };
     const langClass = pr.language ? pr.language.toLowerCase().replace('.', '') : 'spec';
     const langText = pr.language || 'TypeSpec';
 
@@ -454,7 +468,7 @@ const Timeline = (() => {
           <span class="missing-label" title="No SDK PR was generated for this language">no PR</span>
         </div>
       `;
-      lane.appendChild(label);
+      labelsContainer.appendChild(label);
       const content = document.createElement('div');
       content.className = 'lane-content';
       content.style.width = contentWidth + 'px';
@@ -464,6 +478,7 @@ const Timeline = (() => {
       content.appendChild(placeholder);
       lane.appendChild(content);
       container.appendChild(lane);
+      addHoverSync();
       return;
     }
 
@@ -516,7 +531,7 @@ const Timeline = (() => {
         ${releaseStatus}
       </div>
     `;
-    lane.appendChild(label);
+    labelsContainer.appendChild(label);
 
     // Content area
     const content = document.createElement('div');
@@ -612,6 +627,7 @@ const Timeline = (() => {
 
     lane.appendChild(content);
     container.appendChild(lane);
+    addHoverSync();
   }
 
   /* ── Collision Resolution ───────────────────────────────── */
@@ -670,7 +686,7 @@ const Timeline = (() => {
     const x = timeToX(specMergedAt);
     const gapLine = document.createElement('div');
     gapLine.className = 'pipeline-gap';
-    gapLine.style.left = `calc(var(--label-width) + ${x}px)`;
+    gapLine.style.left = x + 'px';
     gapLine.style.top = '0';
     gapLine.style.height = '100%';
     container.style.position = 'relative';
@@ -682,7 +698,7 @@ const Timeline = (() => {
       const label = document.createElement('div');
       label.className = 'pipeline-gap-label';
       label.textContent = `↕ Pipeline gap: ${gapDays}d`;
-      label.style.left = `calc(var(--label-width) + ${x + 6}px)`;
+      label.style.left = (x + 6) + 'px';
       label.style.top = '4px';
       container.appendChild(label);
     }
@@ -709,7 +725,7 @@ const Timeline = (() => {
         const x = timeToX(tickDate.toISOString());
         const gridline = document.createElement('div');
         gridline.className = 'gridline';
-        gridline.style.left = `calc(var(--label-width) + ${x}px)`;
+        gridline.style.left = x + 'px';
         container.appendChild(gridline);
         tickDate.setUTCDate(tickDate.getUTCDate() + intervalDays);
       }

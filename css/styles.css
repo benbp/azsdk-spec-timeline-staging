@@ -320,17 +320,27 @@ header {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.timeline-labels {
+  min-width: var(--label-width);
+  max-width: var(--label-width);
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.timeline-scroll {
+  flex: 1;
   overflow-x: auto;
   overflow-y: hidden;
-  margin-bottom: 20px;
 }
 
 .timeline-header, .timeline-footer {
-  display: flex;
   border-bottom: 1px solid var(--border);
   background: var(--bg-tertiary);
-  position: sticky;
-  z-index: 10;
 }
 
 .timeline-header {
@@ -343,13 +353,13 @@ header {
 }
 
 .lane-label-spacer {
-  min-width: var(--label-width);
-  max-width: var(--label-width);
-  border-right: 1px solid var(--border);
-  position: sticky;
-  left: 0;
-  z-index: 6;
+  height: 32px;
+  border-bottom: 1px solid var(--border);
   background: var(--bg-tertiary);
+}
+.lane-label-spacer:last-child {
+  border-bottom: none;
+  border-top: 1px solid var(--border);
 }
 
 .time-axis {
@@ -382,20 +392,23 @@ header {
 }
 
 .lane {
-  display: flex;
   min-height: var(--lane-height);
   border-bottom: 1px solid var(--border-light);
   transition: background 0.1s;
+  position: relative;
 }
 
 .lane:last-child {
   border-bottom: none;
 }
+.lane-label:last-child {
+  border-bottom: none;
+}
 
-.lane:hover {
+.lane:hover, .lane.hover {
   background: var(--bg-tertiary);
 }
-.lane:hover .lane-label {
+.lane-label.hover {
   background: var(--bg-tertiary);
 }
 
@@ -403,23 +416,31 @@ header {
   border-bottom: 2px solid var(--border);
   background: rgba(88, 166, 255, 0.03);
 }
-.lane.spec-lane .lane-label {
-  background: rgba(88, 166, 255, 0.03);
-}
 
 .lane.released {
   background: rgba(63, 185, 80, 0.04);
 }
-.lane.released .lane-label {
-  background: rgba(63, 185, 80, 0.04);
-}
-.lane.released:hover {
+.lane.released:hover, .lane.released.hover {
   background: rgba(63, 185, 80, 0.08);
 }
-.lane.released:hover .lane-label {
+
+.lane-label.spec-lane {
+  border-bottom: 2px solid var(--border);
+  background: rgba(88, 166, 255, 0.03);
+}
+.lane-label.spec-lane.hover {
+  background: rgba(88, 166, 255, 0.08);
+}
+.lane-label.released {
+  background: rgba(63, 185, 80, 0.04);
+}
+.lane-label.released.hover {
   background: rgba(63, 185, 80, 0.08);
 }
 .lane.missing-lane {
+  opacity: 0.5;
+}
+.lane-label.missing-lane {
   opacity: 0.5;
 }
 .lane.missing-lane .lane-content {
@@ -452,16 +473,16 @@ header {
 .lane-label {
   min-width: var(--label-width);
   max-width: var(--label-width);
+  min-height: var(--lane-height);
   padding: 10px 12px;
-  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-light);
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 4px;
-  position: sticky;
-  left: 0;
-  z-index: 6;
   background: var(--bg-secondary);
+  transition: background 0.1s;
+  box-sizing: border-box;
 }
 
 .lane-label .lane-repo {
@@ -549,7 +570,6 @@ header {
 }
 
 .lane-content {
-  flex: 1;
   position: relative;
   min-height: var(--lane-height);
   overflow: visible;

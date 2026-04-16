@@ -14,6 +14,36 @@ const UI = (() => {
       hasTooling: true
     },
     {
+      file: 'data/sample-computeschedule.json',
+      name: 'ComputeSchedule',
+      meta: 'hardikginwala · 28d · 21 tool calls · 14 manual .NET commits',
+      hasTooling: true
+    },
+    {
+      file: 'data/sample-confluent.json',
+      name: 'Confluent',
+      meta: 'mzhongl524 · 84d · 32 tool calls · 👤 manual .NET',
+      hasTooling: true
+    },
+    {
+      file: 'data/sample-containerservice.json',
+      name: 'ContainerService (AKS)',
+      meta: 'FumingZhang · 47d · 33 tool calls · 12 SDK PRs · 2 nags',
+      hasTooling: true
+    },
+    {
+      file: 'data/sample-storage.json',
+      name: 'Storage (AdvancedPlatformMetrics)',
+      meta: 'jwfeshuk · 17d · 18 tool calls · no SDK PRs yet',
+      hasTooling: true
+    },
+    {
+      file: 'data/sample-search.json',
+      name: 'AzureSearch',
+      meta: 'yangylu91 · 53d · 25 tool calls · 42d spec review',
+      hasTooling: true
+    },
+    {
       file: 'data/sample-durabletask.json',
       name: 'DurableTask',
       meta: 'berndverst · 31d · 4 nags · 1 manual fix',
@@ -23,12 +53,6 @@ const UI = (() => {
       file: 'data/sample-playwright.json',
       name: 'Playwright Testing',
       meta: 'mjmadhu · 57d · 49d pipeline gap',
-      hasTooling: false
-    },
-    {
-      file: 'data/sample-containerservice.json',
-      name: 'Container Service (AKS)',
-      meta: 'FumingZhang · 42d · breaking changes',
       hasTooling: false
     },
     {
@@ -47,12 +71,6 @@ const UI = (() => {
       file: 'data/sample-nginx.json',
       name: 'Nginx.NginxPlus',
       meta: 'briantkim93 · 52d · 31d pipeline gap · 3 nags',
-      hasTooling: false
-    },
-    {
-      file: 'data/sample-search.json',
-      name: 'AzureSearch',
-      meta: 'yangylu91 · 49d · 42d spec review · missing .NET',
       hasTooling: false
     }
   ];

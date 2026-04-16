@@ -1,0 +1,1959 @@
+{
+  "title": "Confluent API SDK Generation",
+  "owner": "mzhongl524",
+  "startDate": "2026-01-08T07:59:09Z",
+  "endDate": "2026-04-02T07:26:51Z",
+  "specPR": {
+    "repo": "Azure/azure-rest-api-specs",
+    "number": 39519,
+    "url": "https://github.com/Azure/azure-rest-api-specs/pull/39519",
+    "title": "MPG migration - Confluent",
+    "author": "mzhongl524",
+    "createdAt": "2026-01-08T07:59:09Z",
+    "mergedAt": "2026-03-12T08:38:26Z",
+    "mergedBy": "live1206",
+    "state": "merged",
+    "labels": [
+      "TypeSpec"
+    ],
+    "reviewers": [
+      "live1206"
+    ],
+    "events": [
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-01-08T07:41:36Z",
+        "actor": "mzhongl524",
+        "actorRole": "author",
+        "description": "Pushed commit: add config",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "pr_created",
+        "timestamp": "2026-01-08T07:59:09Z",
+        "actor": "mzhongl524",
+        "actorRole": "author",
+        "description": "Opened spec PR: MPG migration - Confluent",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39519"
+        }
+      },
+      {
+        "type": "bot_comment",
+        "timestamp": "2026-01-08T07:59:31Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Bot: <h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merged, see <a href=\"http",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "bot_comment",
+        "timestamp": "2026-01-08T08:06:55Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "Bot: ## API Change Check\r \r APIView identified API level changes in this PR and created the following API reviews\r \r | Langua",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-01-08T08:06:55Z",
+        "endTimestamp": "2026-01-20T03:10:13Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "11.8-day wait",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 283.1
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-01-20T03:10:13Z",
+        "actor": "mzhongl524",
+        "actorRole": "author",
+        "description": "Pushed commit: Merge remote-tracking branch 'upstream/main' into pr-confluent-from-tsp",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-01-20T03:10:13Z",
+        "endTimestamp": "2026-02-09T06:39:33Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "20.1-day wait after commits",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 483.5
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-09T06:39:33Z",
+        "actor": "mzhongl524",
+        "actorRole": "author",
+        "description": "Pushed commit: Merge branch 'main' into pr-confluent-from-tsp",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-09T06:39:33Z",
+        "endTimestamp": "2026-02-28T08:16:23Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "19.1-day wait after commits",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 457.6
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-28T08:16:23Z",
+        "actor": "mzhongl524",
+        "actorRole": "author",
+        "description": "Pushed commit: Merge branch 'main' into pr-confluent-from-tsp",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-28T09:51:19Z",
+        "actor": "mzhongl524",
+        "actorRole": "author",
+        "description": "Pushed commit: updated",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-28T09:51:19Z",
+        "endTimestamp": "2026-03-04T05:57:05Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "3.8-day wait after commits",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 92.1
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-04T05:57:05Z",
+        "actor": "mzhongl524",
+        "actorRole": "author",
+        "description": "Pushed commit: Merge branch 'main' into pr-confluent-from-tsp",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-03-04T05:57:05Z",
+        "endTimestamp": "2026-03-11T08:14:30Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "7.1-day wait after commits",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 170.3
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-11T08:14:30Z",
+        "actor": "ArcturusZhang",
+        "actorRole": "reviewer",
+        "description": "Pushed 2 commit(s)",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-11T08:51:46Z",
+        "actor": "ArcturusZhang",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: fix tsp",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-11T09:09:01Z",
+        "actor": "ArcturusZhang",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: fix tsp",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-11T11:30:53Z",
+        "actor": "ArcturusZhang",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: Add C# client name customizations for backward compatibility",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-11T11:45:24Z",
+        "actor": "ArcturusZhang",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: Rename ConnectorResource to ConfluentConnector for C#",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-12T07:25:44Z",
+        "actor": "ArcturusZhang",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: format",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_approved",
+        "timestamp": "2026-03-12T08:38:14Z",
+        "actor": "live1206",
+        "actorRole": "reviewer",
+        "description": "live1206 approved the PR",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39519#pullrequestreview-3934809793"
+        }
+      },
+      {
+        "type": "pr_merged",
+        "timestamp": "2026-03-12T08:38:26Z",
+        "actor": "live1206",
+        "actorRole": "reviewer",
+        "description": "PR merged by live1206",
+        "sentiment": "positive"
+      }
+    ]
+  },
+  "sdkPRs": [
+    {
+      "repo": "Azure/azure-sdk-for-net",
+      "language": ".NET",
+      "number": 54889,
+      "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889",
+      "title": "MPG migration - Confluent",
+      "author": "mzhongl524",
+      "createdAt": "2026-01-08T08:00:26Z",
+      "mergedAt": "2026-03-12T10:42:09Z",
+      "mergedBy": "ArcturusZhang",
+      "state": "merged",
+      "generationFlow": "manual",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "Copilot",
+        "ArcturusZhang",
+        "live1206"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-01-08T07:41:45Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "Pushed commit: add config",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-01-08T08:00:26Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "Opened .NET PR: MPG migration - Confluent",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-01-08T08:00:26Z",
+          "endTimestamp": "2026-01-20T03:09:48Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "11.8-day wait after PR opened",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 283.2
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-01-20T03:09:48Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "Pushed commit: Merge remote-tracking branch 'upstream/main' into pr-confluent-from-tsp",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-01-20T03:26:56Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "Pushed commit: regen and error",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-01-20T03:26:56Z",
+          "endTimestamp": "2026-02-09T06:41:17Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "20.1-day wait after commits",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 483.2
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-09T06:41:17Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "Pushed commit: Merge remote-tracking branch 'upstream/main' into pr-confluent-from-tsp",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-09T06:41:17Z",
+          "endTimestamp": "2026-02-28T08:20:17Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "19.1-day wait after commits",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 457.6
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-28T08:20:17Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "Pushed commit: Merge remote-tracking branch 'upstream/main' into pr-confluent-from-tsp",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-28T09:53:33Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "Pushed commit: regen",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-28T09:53:33Z",
+          "endTimestamp": "2026-03-04T05:57:53Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "3.8-day wait after commits",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 92.1
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-04T05:57:53Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "Pushed commit: Merge remote-tracking branch 'upstream/main' into pr-confluent-from-tsp",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-04T05:57:53Z",
+          "endTimestamp": "2026-03-11T08:12:22Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "7.1-day wait after commits",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 170.2
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-11T08:12:22Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Merge remote-tracking branch 'origin/main' into pr-confluent-from-tsp",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-11T09:14:19Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Pushed 2 commit(s)",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-11T09:39:46Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "ArcturusZhang commented on review",
+          "sentiment": "neutral",
+          "details": {
+            "body": "## MPG Migration Review \u2014 Azure.ResourceManager.Confluent\n\n### Phase 1: Versioning \u2705\n- Version `1.3.0-beta.1` \u2014 appropriate for new features\n- `ApiCompatVersion: 1.2.1` \u2014 preserved\n- No `ApiCompatBase",
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#pullrequestreview-3928207986"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-11T09:39:47Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "ArcturusZhang left inline comment",
+          "sentiment": "neutral",
+          "details": {
+            "body": "\ud83d\udd34 All new extensible enum types use ALL_UPPERCASE member names. This violates .NET naming conventions \u2014 enum members should be PascalCase.\n\nAffected enums and their members:\n- `AuthType`: `KAFKAAPIKEY",
+            "path": "sdk/confluent/Azure.ResourceManager.Confluent/api/Azure.ResourceManager.Confluent.net10.0.cs",
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#discussion_r2917104577"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-11T09:39:47Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "ArcturusZhang left inline comment",
+          "sentiment": "neutral",
+          "details": {
+            "body": "\ud83d\udfe1 `Package` is an extremely generic name for an extensible enum \u2014 it provides no indication of which service or concept it belongs to. Same applies to `AuthType` (line 781) and `DataFormatType` (line ",
+            "path": "sdk/confluent/Azure.ResourceManager.Confluent/api/Azure.ResourceManager.Confluent.net10.0.cs",
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#discussion_r2917104582"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-11T09:39:47Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "ArcturusZhang left inline comment",
+          "sentiment": "neutral",
+          "details": {
+            "body": "\ud83d\udfe1 The `data` parameter for PUT operations should be **required**, not optional (`= null`). This applies to all new resource `CreateOrUpdate`/`Update` methods:\n- `ConnectorResourceCollection.CreateOrUp",
+            "path": "sdk/confluent/Azure.ResourceManager.Confluent/api/Azure.ResourceManager.Confluent.net10.0.cs",
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#discussion_r2917104591"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-11T09:39:47Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "ArcturusZhang left inline comment",
+          "sentiment": "neutral",
+          "details": {
+            "body": "\ud83d\udfe1 The name `ConnectorResourceData` (and `ConnectorResourceCollection`) has \"\"Resource\"\" in the middle, which is unusual for Data/Collection types. This happens because the TypeSpec resource is named `",
+            "path": "sdk/confluent/Azure.ResourceManager.Confluent/api/Azure.ResourceManager.Confluent.net10.0.cs",
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#discussion_r2917104597"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-11T10:12:47Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code \u2014 Succeeded (32.1s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "durationMs": 32118,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-11T11:31:49Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Mitigate breaking changes for Confluent MPG migration",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-11T11:49:03Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Pushed 2 commit(s)",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T03:43:22Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code \u2014 Succeeded (52.7s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "durationMs": 52669,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T03:44:21Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_check \u2014 Succeeded (125.5s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_run_check",
+            "success": true,
+            "durationMs": 125524,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T03:46:38Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_check \u2014 Succeeded (90.5s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_run_check",
+            "success": true,
+            "durationMs": 90531,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T03:46:38Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_check \u2014 Succeeded (5.3s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_run_check",
+            "success": true,
+            "durationMs": 5256,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T03:46:38Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_check \u2014 Succeeded (5.1s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_run_check",
+            "success": true,
+            "durationMs": 5069,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T03:48:13Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_check \u2014 Succeeded (37.2s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_run_check",
+            "success": true,
+            "durationMs": 37182,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T03:48:13Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_run_check \u2014 Succeeded (2.3s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_run_check",
+            "success": true,
+            "durationMs": 2345,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T03:56:53Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code \u2014 Succeeded (19.6s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "durationMs": 19572,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T05:46:04Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code \u2014 Succeeded (36.1s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "durationMs": 36150,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T05:49:29Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code \u2014 Succeeded (10.1s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "durationMs": 10062,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T05:50:14Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code \u2014 Succeeded (10.0s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "durationMs": 9963,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-12T05:50:41Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Fix obsolete API usage in Confluent samples and move to Samples folder",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-12T06:26:50Z",
+          "actor": "Copilot",
+          "actorRole": "reviewer",
+          "description": "Copilot left inline comment",
+          "sentiment": "neutral",
+          "details": {
+            "body": "The XML summary for Id is incorrect ('Type of cluster'). This is a backward-compat shim type meant for end users; please correct the summary to something like 'Cluster id.' to avoid confusing API docu",
+            "path": "sdk/confluent/Azure.ResourceManager.Confluent/src/Custom/Models/SCClusterRecord.cs",
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#discussion_r2922560797"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-12T06:26:51Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review summary",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#pullrequestreview-3934248477"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-12T06:26:51Z",
+          "actor": "Copilot",
+          "actorRole": "reviewer",
+          "description": "Copilot left inline comment",
+          "sentiment": "neutral",
+          "details": {
+            "body": "System.Runtime.CompilerServices and System.Threading are not used in this file. Removing unused using directives reduces noise and avoids potential analyzer warnings.\n```suggestion\n\n```",
+            "path": "sdk/confluent/Azure.ResourceManager.Confluent/src/Custom/Utils/MappedAsyncPageable.cs",
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#discussion_r2922560851"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T06:52:17Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code \u2014 Succeeded (55.7s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "durationMs": 55738,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-12T06:54:11Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code \u2014 Succeeded (26.8s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "durationMs": 26771,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-12T07:24:49Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Fix doc comment, remove IncludeAutorestDependency, populate changelog",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-12T07:40:19Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Remove unused usings in MappedAsyncPageable and update assets.json tag",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-12T08:42:40Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: update commit id",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-12T09:18:01Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: update",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-12T09:18:52Z",
+          "actor": "live1206",
+          "actorRole": "reviewer",
+          "description": "live1206 approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#pullrequestreview-3935046528"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-12T10:42:09Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "PR merged by ArcturusZhang",
+          "sentiment": "positive"
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-18T08:04:34Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_update_version \u2014 Succeeded (2.6s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_update_version",
+            "success": true,
+            "durationMs": 2642,
+            "clientName": "github-copilot-developer",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-19T08:36:24Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status \u2014 Succeeded (2.7s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "durationMs": 2657,
+            "clientName": "",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T05:53:22Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_release_sdk \u2014 Succeeded (1.7s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_release_sdk",
+            "success": true,
+            "durationMs": 1692,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T05:56:03Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_release_sdk \u2014 Succeeded (12.0s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_release_sdk",
+            "success": true,
+            "durationMs": 11998,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "packageName": "Azure.ResourceManager.Confluent",
+            "language": ".NET"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-java",
+      "language": "Java",
+      "number": 47954,
+      "url": "https://github.com/Azure/azure-sdk-for-java/pull/47954",
+      "title": "[AutoPR azure-resourcemanager-confluent]-generated-from-SDK Generation - Java-5858328",
+      "author": "azure-sdk",
+      "createdAt": "2026-02-10T05:03:31Z",
+      "mergedAt": "2026-02-24T20:27:43Z",
+      "mergedBy": "Shekar2004",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "weidongxu-microsoft"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-10T05:03:26Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/confluent/Confluent.Management/tspconfig.yaml', ",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-02-10T05:03:31Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened Java PR: [AutoPR azure-resourcemanager-confluent]-generated-from-SDK Generation - Java-5858328",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47954"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-10T05:14:17Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "Bot: ## API Change Check\r \r APIView identified API level changes in this PR and created the following API reviews\r \r [com.azu",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-10T05:52:57Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/azure-resourcemanager-confluent-5858328",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-10T05:52:57Z",
+          "endTimestamp": "2026-02-18T02:56:17Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "7.9-day wait after commits",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 189.1
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-18T02:56:17Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review summary",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47954#pullrequestreview-3817414279"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-18T02:56:17Z",
+          "endTimestamp": "2026-02-21T03:31:46Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "3.0-day wait",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 72.6
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-02-21T03:31:46Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "weidongxu-microsoft approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47954#pullrequestreview-3834976564"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-21T03:31:46Z",
+          "endTimestamp": "2026-02-24T20:27:43Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "3.7-day wait after approval",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 88.9
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-02-24T20:27:43Z",
+          "actor": "Shekar2004",
+          "actorRole": "reviewer",
+          "description": "PR merged by Shekar2004",
+          "sentiment": "positive"
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T05:53:30Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_release_sdk \u2014 Succeeded (1.7s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_release_sdk",
+            "success": true,
+            "durationMs": 1686,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "packageName": "azure-resourcemanager-confluent",
+            "language": "Java"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T05:56:23Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_release_sdk \u2014 Succeeded (14.2s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_release_sdk",
+            "success": true,
+            "durationMs": 14172,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "packageName": "azure-resourcemanager-confluent",
+            "language": "Java"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T07:26:51Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status \u2014 Succeeded (3.2s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "durationMs": 3186,
+            "clientName": "",
+            "clientType": "agent",
+            "packageName": "azure-resourcemanager-confluent",
+            "language": "Java"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-python",
+      "language": "Python",
+      "number": 45102,
+      "url": "https://github.com/Azure/azure-sdk-for-python/pull/45102",
+      "title": "[AutoPR azure-mgmt-confluent]-generated-from-SDK Generation - Python-5858324",
+      "author": "azure-sdk",
+      "createdAt": "2026-02-10T05:01:17Z",
+      "mergedAt": "2026-03-22T08:02:23Z",
+      "mergedBy": "Shekar2004",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [],
+      "reviewers": [
+        "msyyc",
+        "Shekar2004",
+        "ChenxiJiang333"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-10T05:01:14Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/confluent/Confluent.Management/tspconfig.yaml', ",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-02-10T05:01:17Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened Python PR: [AutoPR azure-mgmt-confluent]-generated-from-SDK Generation - Python-5858324",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45102"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-10T05:01:17Z",
+          "endTimestamp": "2026-02-18T02:57:58Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "7.9-day wait after PR opened",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 189.9
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-18T02:57:58Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review summary",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45102#pullrequestreview-3817421385"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-18T02:57:58Z",
+          "endTimestamp": "2026-02-19T18:25:51Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.6-day wait",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 39.5
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-19T18:25:51Z",
+          "actor": "Shekar2004",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Fix missing dependencies",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-19T19:11:44Z",
+          "actor": "Shekar2004",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Skip test until recordings are updated for new API version",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-19T19:11:44Z",
+          "endTimestamp": "2026-02-24T20:24:13Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "5.1-day wait after commits",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 121.2
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-02-24T20:24:13Z",
+          "actor": "Shekar2004",
+          "actorRole": "reviewer",
+          "description": "Shekar2004 commented",
+          "sentiment": "neutral",
+          "details": {
+            "body": "@msyyc, @ChenxiJiang333 can you please Review this PR"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-24T20:24:13Z",
+          "endTimestamp": "2026-02-26T07:56:20Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.5-day wait",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 35.5
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-02-26T07:56:20Z",
+          "actor": "msyyc",
+          "actorRole": "reviewer",
+          "description": "msyyc commented",
+          "sentiment": "neutral",
+          "details": {
+            "body": "Hi @Shekar2004 Pls create a release plan instead of trigger pipeline to generate SDK pr directly. If you don't know how to make release plan, you could seek help in teams channel https://teams.microso"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-26T07:56:20Z",
+          "endTimestamp": "2026-03-11T05:02:38Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "12.9-day wait",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 309.1
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-11T05:02:38Z",
+          "actor": "Shekar2004",
+          "actorRole": "reviewer",
+          "description": "Shekar2004 commented",
+          "sentiment": "neutral",
+          "details": {
+            "body": "We have already created the release plan: https://apps.powerapps.com/play/e/ed2ffefd-774d-40dd-ab23-7fff01aeec9f/a/821ab569-ae60-420d-8264-d7b5d5ef734c?release-plan-id=946c92ae-4506-f111-8406-000d3a59"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-11T05:34:51Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "ChenxiJiang333 commented",
+          "sentiment": "neutral",
+          "details": {
+            "body": "Hi @Shekar2004, it looks like the prerequisite's checks of sdk release haven't be finished for this release plan.\r\n<img width=\"1534\" height=\"781\" alt=\"image\" src=\"https://github.com/user-attachments/a"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-11T05:34:51Z",
+          "endTimestamp": "2026-03-15T14:49:47Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "4.4-day wait",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 105.2
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-15T14:49:47Z",
+          "actor": "Shekar2004",
+          "actorRole": "reviewer",
+          "description": "Shekar2004 commented",
+          "sentiment": "neutral",
+          "details": {
+            "body": "Thank you for pointing out the gap in release plan @ChenxiJiang333, Updated the release plan to complete the Prequisite checks. Please let me know if anything else need to be done too??"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-16T02:44:53Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/confluent/Confluent.Management/tspconfig.yaml', ",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-16T06:06:08Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/confluent/Confluent.Management/tspconfig.yaml', ",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-16T06:39:19Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: update",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-16T07:35:20Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "ChenxiJiang333 approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45102#pullrequestreview-3951933193"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-16T07:57:50Z",
+          "actor": "msyyc",
+          "actorRole": "reviewer",
+          "description": "msyyc approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45102#pullrequestreview-3952020604"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-16T07:58:31Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "ChenxiJiang333 commented",
+          "sentiment": "neutral",
+          "details": {
+            "body": "@Shekar2004, pr ready, feel free to merge and release\r\n"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-16T07:58:31Z",
+          "endTimestamp": "2026-03-22T08:02:23Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "6.0-day wait",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 144.1
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-22T08:02:23Z",
+          "actor": "Shekar2004",
+          "actorRole": "reviewer",
+          "description": "PR merged by Shekar2004",
+          "sentiment": "positive"
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T05:53:12Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_release_sdk \u2014 Succeeded (4.5s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_release_sdk",
+            "success": true,
+            "durationMs": 4480,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "packageName": "azure-mgmt-confluent",
+            "language": "Python"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T05:54:59Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_release_sdk \u2014 Succeeded (13.8s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_release_sdk",
+            "success": true,
+            "durationMs": 13752,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "packageName": "azure-mgmt-confluent",
+            "language": "Python"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T07:19:01Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status \u2014 Succeeded (3.1s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "durationMs": 3138,
+            "clientName": "",
+            "clientType": "agent",
+            "packageName": "azure-mgmt-confluent",
+            "language": "Python"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-go",
+      "language": "Go",
+      "number": 26002,
+      "url": "https://github.com/Azure/azure-sdk-for-go/pull/26002",
+      "title": "[AutoPR sdk-resourcemanager/confluent/armconfluent]-generated-from-SDK Generation - Go-5858327",
+      "author": "azure-sdk",
+      "createdAt": "2026-02-10T05:00:38Z",
+      "mergedAt": "2026-02-24T20:30:50Z",
+      "mergedBy": "Shekar2004",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "JiaqiZhang-Dev"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-10T05:00:32Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/confluent/Confluent.Management/tspconfig.yaml', ",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-02-10T05:00:38Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened Go PR: [AutoPR sdk-resourcemanager/confluent/armconfluent]-generated-from-SDK Generation - Go-5858327",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26002"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-10T05:10:31Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "Bot: ## API Change Check\r \r APIView identified API level changes in this PR and created the following API reviews\r \r [sdk/res",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-10T05:10:31Z",
+          "endTimestamp": "2026-02-18T02:58:10Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "7.9-day wait",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 189.8
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-18T02:58:10Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review summary",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26002#pullrequestreview-3817422422"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-18T02:58:10Z",
+          "endTimestamp": "2026-02-24T03:09:16Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "6.0-day wait",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 144.2
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-02-24T03:09:16Z",
+          "actor": "JiaqiZhang-Dev",
+          "actorRole": "reviewer",
+          "description": "JiaqiZhang-Dev approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26002#pullrequestreview-3844779957"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-02-24T20:30:50Z",
+          "actor": "Shekar2004",
+          "actorRole": "reviewer",
+          "description": "PR merged by Shekar2004",
+          "sentiment": "positive"
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T05:53:50Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_release_sdk \u2014 Succeeded (1.8s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_release_sdk",
+            "success": true,
+            "durationMs": 1752,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "packageName": "sdk/resourcemanager/confluent/armconfluent",
+            "language": "Go"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T05:56:59Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_release_sdk \u2014 Succeeded (4.4s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_release_sdk",
+            "success": true,
+            "durationMs": 4444,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "packageName": "sdk/resourcemanager/confluent/armconfluent",
+            "language": "Go"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T05:58:17Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_release_sdk \u2014 Succeeded (3.4s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_release_sdk",
+            "success": true,
+            "durationMs": 3383,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "packageName": "sdk/resourcemanager/confluent/armconfluent",
+            "language": "Go"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T05:58:24Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_release_sdk \u2014 Succeeded (1.5s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_release_sdk",
+            "success": true,
+            "durationMs": 1489,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "packageName": "sdk/resourcemanager/confluent/armconfluent",
+            "language": "Go"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T06:46:03Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status \u2014 Succeeded (2.9s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "durationMs": 2908,
+            "clientName": "",
+            "clientType": "agent",
+            "packageName": "sdk/resourcemanager/confluent/armconfluent",
+            "language": "Go"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-js",
+      "language": "JavaScript",
+      "number": 37273,
+      "url": "https://github.com/Azure/azure-sdk-for-js/pull/37273",
+      "title": "[AutoPR @azure-arm-confluent]-generated-from-SDK Generation - JS-5858326",
+      "author": "azure-sdk",
+      "createdAt": "2026-02-10T05:02:14Z",
+      "mergedAt": "2026-03-05T09:06:23Z",
+      "mergedBy": "qiaozha",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt",
+        "Self-Service Release",
+        "first-typespec-migration"
+      ],
+      "reviewers": [
+        "qiaozha",
+        "Shekar2004",
+        "kazrael2119"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-10T05:02:10Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/confluent/Confluent.Management/tspconfig.yaml', ",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-02-10T05:02:14Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened JavaScript PR: [AutoPR @azure-arm-confluent]-generated-from-SDK Generation - JS-5858326",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37273"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-10T05:13:59Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "Bot: ## API Change Check\r \r APIView identified API level changes in this PR and created the following API reviews\r \r [@azure/",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-10T05:13:59Z",
+          "endTimestamp": "2026-02-18T02:56:16Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "7.9-day wait",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 189.7
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-02-18T02:56:16Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review summary",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37273#pullrequestreview-3817414168"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-18T02:56:16Z",
+          "endTimestamp": "2026-02-22T20:41:34Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "4.7-day wait",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 113.8
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-22T20:41:34Z",
+          "actor": "Shekar2004",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Update test recordings for API version 2025-08-18-preview",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-23T04:19:47Z",
+          "actor": "Shekar2004",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Update test recordings with browser tests for API version 2025-08-18-preview",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-23T04:19:47Z",
+          "endTimestamp": "2026-02-24T20:30:38Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.7-day wait after commits",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 40.2
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-02-24T20:30:38Z",
+          "actor": "Shekar2004",
+          "actorRole": "reviewer",
+          "description": "Shekar2004 commented",
+          "sentiment": "neutral",
+          "details": {
+            "body": "@qiaozha, @MaryGao, @JialinHuang803 , @Azure/azure-sdk-js-dev , @Azure/azure-sdk-for-js-core , @jeremymeng Request to please review this PR changes"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-24T20:30:38Z",
+          "endTimestamp": "2026-03-02T02:50:12Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "5.3-day wait",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 126.3
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-02T02:50:12Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "kazrael2119 left inline comment",
+          "sentiment": "neutral",
+          "details": {
+            "body": "need revert these breakings\npr: https://github.com/Azure/azure-rest-api-specs/pull/40840",
+            "path": "sdk/confluent/arm-confluent/CHANGELOG.md",
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37273#discussion_r2870275112"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-02T02:50:12Z",
+          "endTimestamp": "2026-03-03T03:06:26Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.0-day wait",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 24.3
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-03T03:06:26Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/confluent/Confluent.Management/tspconfig.yaml', ",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-03T03:06:26Z",
+          "endTimestamp": "2026-03-04T09:01:31Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.2-day wait after commits",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 29.9
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-04T09:01:31Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: merge main",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-05T06:47:04Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: update",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-05T06:48:22Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "kazrael2119 left inline comment",
+          "sentiment": "neutral",
+          "details": {
+            "body": "https://github.com/Azure/azure-rest-api-specs/pull/41032",
+            "path": "sdk/confluent/arm-confluent/CHANGELOG.md",
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37273#discussion_r2888002644"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-05T07:35:05Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/confluent/Confluent.Management/tspconfig.yaml', ",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-05T07:51:04Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/@azure-arm-confluent-5858326",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-05T08:03:50Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/confluent/Confluent.Management/tspconfig.yaml', ",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-05T08:15:09Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Update CHANGELOG.md",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-05T08:36:49Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "kazrael2119 left inline comment",
+          "sentiment": "neutral",
+          "details": {
+            "body": "```suggestion\n  const userAgentInfo = `azsdk-js-arm-confluent/4.0.0-beta.1`;\n```",
+            "path": "sdk/confluent/arm-confluent/src/api/confluentManagementContext.ts",
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37273#discussion_r2888513804"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-05T08:36:56Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Apply suggestion from @kazrael2119",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-05T09:05:55Z",
+          "actor": "qiaozha",
+          "actorRole": "reviewer",
+          "description": "qiaozha approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37273#pullrequestreview-3894992973"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-05T09:06:23Z",
+          "actor": "qiaozha",
+          "actorRole": "reviewer",
+          "description": "PR merged by qiaozha",
+          "sentiment": "positive"
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T05:53:39Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_release_sdk \u2014 Succeeded (1.6s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_release_sdk",
+            "success": true,
+            "durationMs": 1640,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "packageName": "@azure/arm-confluent",
+            "language": "JavaScript"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T05:56:43Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_release_sdk \u2014 Succeeded (10.2s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_release_sdk",
+            "success": true,
+            "durationMs": 10206,
+            "clientName": "Visual Studio Code",
+            "clientType": "human",
+            "packageName": "@azure/arm-confluent",
+            "language": "JavaScript"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T06:55:35Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status \u2014 Succeeded (3.0s)",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "durationMs": 2975,
+            "clientName": "",
+            "clientType": "agent",
+            "packageName": "@azure/arm-confluent",
+            "language": "JavaScript"
+          }
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "type": "summary",
+      "severity": "info",
+      "description": "SDK PRs were auto-generated 63.0 days BEFORE spec merge \u2014 pipeline ran on spec commits pre-merge",
+      "startDate": "2026-01-08T08:00:26Z",
+      "endDate": "2026-03-12T08:38:26Z",
+      "durationDays": 63.03
+    },
+    {
+      "type": "idle",
+      "severity": "warning",
+      "description": "63.0-day wait for first human review on spec PR",
+      "startDate": "2026-01-08T07:59:09Z",
+      "endDate": "2026-03-12T08:38:14Z",
+      "durationDays": 63.03,
+      "prRef": "Azure/azure-rest-api-specs#39519"
+    },
+    {
+      "type": "bottleneck",
+      "severity": "warning",
+      "description": ".NET SDK PR was manually authored (by mzhongl524), took 63.11 days \u2014 manual flow vs automated for other languages",
+      "durationDays": 63.11,
+      "prRef": "Azure/azure-sdk-for-net#54889"
+    },
+    {
+      "type": "summary",
+      "severity": "info",
+      "description": "Mixed generation: .NET manual, Java, Python, Go, JavaScript automated (AutoPR). All 5 SDK PRs merged."
+    },
+    {
+      "type": "summary",
+      "severity": "info",
+      "description": "32 MCP tool calls tracked across SDKs \u2014 32 succeeded, 0 failed. .NET: 18 calls (18 ok); Go: 5 calls (5 ok); Java: 3 calls (3 ok); JavaScript: 3 calls (3 ok); Python: 3 calls (3 ok)."
+    },
+    {
+      "type": "bottleneck",
+      "severity": "info",
+      "description": "Fastest SDK PR: Java (14.64 days). Slowest: .NET (63.11 days)."
+    },
+    {
+      "type": "positive",
+      "severity": "info",
+      "description": "All 5 SDK PRs successfully merged across 5 languages."
+    }
+  ],
+  "summary": {
+    "totalDurationDays": 84.0,
+    "specPRDays": 63.03,
+    "pipelineGapDays": 0,
+    "sdkPRMaxDays": 63.11,
+    "fastestSDKPR": {
+      "language": "Java",
+      "days": 14.64
+    },
+    "slowestSDKPR": {
+      "language": ".NET",
+      "days": 63.11
+    },
+    "totalUniqueReviewers": 10,
+    "totalNags": 0,
+    "totalManualFixes": 0,
+    "totalPREdits": 3,
+    "pendingReleases": 5
+  }
+}

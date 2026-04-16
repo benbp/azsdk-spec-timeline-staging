@@ -1,8 +1,8 @@
 {
-  "title": "Review request for Microsoft.ContainerService/aks to add version stable/2026-01-01 and preview/2026-01-02-preview",
+  "title": "ContainerService AKS SDK Generation",
   "owner": "FumingZhang",
   "startDate": "2026-02-19T02:18:30Z",
-  "endDate": "2026-04-02T03:15:26Z",
+  "endDate": "2026-04-07T04:14:39Z",
   "specPR": {
     "repo": "Azure/azure-rest-api-specs",
     "number": 40533,
@@ -28,15 +28,25 @@
       "ARMAutoSignedOff-IncrementalTSP"
     ],
     "reviewers": [
-      "mentat9",
+      "zman-ms",
+      "matthchr",
+      "norshtein",
       "sandipsh",
       "psah434",
-      "CustardTart32",
       "erinborders",
-      "norshtein",
-      "palma21"
+      "palma21",
+      "mentat9",
+      "CustardTart32"
     ],
     "events": [
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-19T02:16:16Z",
+        "actor": "FumingZhang",
+        "actorRole": "author",
+        "description": "Pushed 7 commits",
+        "sentiment": "neutral"
+      },
       {
         "type": "pr_created",
         "timestamp": "2026-02-19T02:18:30Z",
@@ -64,34 +74,114 @@
         "timestamp": "2026-02-19T02:22:46Z",
         "actor": "github-actions[bot]",
         "actorRole": "bot",
-        "description": "API Change Check \u2014 ApiView links generated for all languages",
+        "description": "API Change Check \u2014 ApiView links generated",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#issuecomment-3924318868"
         }
       },
       {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-20T01:16:58Z",
+        "actor": "SanyaKochhar",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: add Istio CNI to AKS 2026-01-01 GA API (#40535)",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-20T02:39:23Z",
+        "actor": "levimm",
+        "actorRole": "reviewer",
+        "description": "Pushed 4 commits",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-20T04:17:11Z",
+        "actor": "erinborders",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: machine properties: evictionPolicy, billing, ultrassd enabled (#40562)",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-20T05:22:15Z",
+        "actor": "saewoni",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: machine properties: add localDNSProfile (#40585)",
+        "sentiment": "neutral"
+      },
+      {
         "type": "idle_gap",
-        "timestamp": "2026-02-19T02:22:46Z",
-        "endTimestamp": "2026-02-25T23:47:33Z",
+        "timestamp": "2026-02-20T05:22:15Z",
+        "endTimestamp": "2026-02-23T00:21:12Z",
         "actor": "system",
         "actorRole": "bot",
-        "description": "6.9-day wait with no human activity after PR creation",
-        "sentiment": "blocking",
+        "description": "2.8-day wait for review after commits",
+        "sentiment": "neutral",
         "details": {
-          "durationHours": 165.4
+          "durationHours": 67.0
         }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-23T00:21:12Z",
+        "actor": "jaiveerk",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: Preview Typespec + Swagger Changes to Introduce Meshless Istio (#40548)",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-23T02:17:16Z",
+        "actor": "weiliu2dev",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: Add enableOSDiskFullCaching field to 2026-01-02-preview (#40630)",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-23T03:43:56Z",
+        "actor": "xuexu6666",
+        "actorRole": "reviewer",
+        "description": "Pushed 2 commits",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-23T06:40:27Z",
+        "actor": "CustardTart32",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: feat: implement List VM Skus API (#40590)",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-24T06:32:14Z",
+        "actor": "zman-ms",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: Add health monitor profile to 2026-01-02-preview (#40660)",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-25T03:09:17Z",
+        "actor": "snguyen64",
+        "actorRole": "reviewer",
+        "description": "Pushed 2 commits",
+        "sentiment": "neutral"
       },
       {
         "type": "issue_comment",
         "timestamp": "2026-02-25T23:47:33Z",
         "actor": "FumingZhang",
         "actorRole": "author",
-        "description": "Explained breaking change alert \u2014 provisioning state made read-only per LintDiff CI, considers it minor",
+        "description": "The [breaking change](https://github.com/Azure/azure-rest-api-specs/actions/runs",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#issuecomment-3962947054",
-          "body": "The breaking change alert is due to updates in several model definitions, making the provisioning state read-only as required by the LintDiff CI. Since external users cannot set the provisioning state, I believe this is a minor change."
+          "body": "The [breaking change](https://github.com/Azure/azure-rest-api-specs/actions/runs/22380516396) alert is due to updates in several model definitions, making the provisioning state read-only as required by the LintDiff CI. Since external users cannot set the provisioning state, I believe this is a mino"
         }
       },
       {
@@ -100,7 +190,7 @@
         "endTimestamp": "2026-02-28T01:26:09Z",
         "actor": "system",
         "actorRole": "bot",
-        "description": "2.1-day wait before Copilot and ARM reviewer comments",
+        "description": "2.1-day wait for reviewer response",
         "sentiment": "neutral",
         "details": {
           "durationHours": 49.6
@@ -111,10 +201,11 @@
         "timestamp": "2026-02-28T01:26:09Z",
         "actor": "copilot-pull-request-reviewer[bot]",
         "actorRole": "copilot",
-        "description": "Copilot code review \u2014 generated 8 comments on example files (operationId, null values, casing issues)",
+        "description": "8 inline comments on LocationRoutes.tsp, AgentPools_Start.json, AgentPools_Stop.json +5 more",
         "sentiment": "neutral",
         "details": {
-          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#pullrequestreview-3869824946"
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2866836812",
+          "count": 8
         }
       },
       {
@@ -122,24 +213,23 @@
         "timestamp": "2026-02-28T02:52:08Z",
         "actor": "mentat9",
         "actorRole": "reviewer",
-        "description": "ARM reviewer mentat9 posted 15 review comments \u2014 recommended unions over booleans, flagged ARM naming violations including [ARMBlockingComment]",
+        "description": "15 inline comments on LocationRoutes.tsp, Machine.tsp, AgentPoolModels.tsp +2 more",
         "sentiment": "blocking",
         "details": {
-          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#pullrequestreview-3869972782",
-          "reviewState": "COMMENTED",
-          "body": "Multiple review comments: recommend union over boolean, ARM property naming issues, ARMBlockingComment on reusing top-level ARM property names"
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2866957247",
+          "count": 15
         }
       },
       {
         "type": "idle_gap",
-        "timestamp": "2026-02-28T02:59:33Z",
+        "timestamp": "2026-02-28T02:52:08Z",
         "endTimestamp": "2026-03-02T02:40:16Z",
         "actor": "system",
         "actorRole": "bot",
-        "description": "2-day gap before author responded to ARM review comments",
+        "description": "2.0-day wait for author to address review comments",
         "sentiment": "neutral",
         "details": {
-          "durationHours": 47.7
+          "durationHours": 47.8
         }
       },
       {
@@ -147,11 +237,111 @@
         "timestamp": "2026-03-02T02:40:16Z",
         "actor": "FumingZhang",
         "actorRole": "author",
-        "description": "Responded to all review comments \u2014 fixed example issues, pushed back on boolean-to-union suggestions, delegated some to feature owners (@CustardTart32, @erinborders, @norshtein)",
+        "description": "1 inline comments on AgentPools_Start.json",
         "sentiment": "neutral",
         "details": {
-          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#pullrequestreview-3873818901",
-          "body": "Addressed copilot and mentat9 review comments \u2014 fixed example files, explained boolean patterns are common practice in AKS, delegated some to feature owners"
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2870256218",
+          "count": 1
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-02T03:12:09Z",
+        "actor": "FumingZhang",
+        "actorRole": "author",
+        "description": "22 inline comments on LocationRoutes.tsp, Machine.tsp, AgentPools_Stop.json +8 more",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2870312580",
+          "count": 22
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-02T04:12:25Z",
+        "actor": "CustardTart32",
+        "actorRole": "reviewer",
+        "description": "4 inline comments on VmSkus.tsp, LocationRoutes.tsp",
+        "sentiment": "blocking",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2870410770",
+          "count": 4
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-02T04:50:46Z",
+        "actor": "CustardTart32",
+        "actorRole": "reviewer",
+        "description": "Pushed commit: fix: use boolean type for includeExtendedLocations (#40904)",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-02T07:35:17Z",
+        "actor": "norshtein",
+        "actorRole": "reviewer",
+        "description": "1 inline comments on CommonModels.tsp",
+        "sentiment": "blocking",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2870940614",
+          "count": 1
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-02T11:24:22Z",
+        "actor": "zman-ms",
+        "actorRole": "reviewer",
+        "description": "1 inline comments on CommonModels.tsp",
+        "sentiment": "blocking",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2871893653",
+          "count": 1
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-02T15:18:39Z",
+        "actor": "erinborders",
+        "actorRole": "reviewer",
+        "description": "1 inline comments on Machine.tsp",
+        "sentiment": "blocking",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2873026083",
+          "count": 1
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-03-03T00:20:43Z",
+        "actor": "FumingZhang",
+        "actorRole": "author",
+        "description": "Pushed commit: Fuming/dev cs 202601 (#40903)",
+        "sentiment": "neutral"
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-03T00:28:01Z",
+        "actor": "FumingZhang",
+        "actorRole": "author",
+        "description": "1 inline comments on CommonModels.tsp",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2875402850",
+          "count": 1
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-03T01:18:50Z",
+        "actor": "sandipsh",
+        "actorRole": "reviewer",
+        "description": "1 inline comments on VmSkus.tsp",
+        "sentiment": "blocking",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2875526106",
+          "count": 1
         }
       },
       {
@@ -159,11 +349,35 @@
         "timestamp": "2026-03-03T01:21:23Z",
         "actor": "sandipsh",
         "actorRole": "reviewer",
-        "description": "ARM reviewer requested all previous comments (including ARMBlockingComment) be addressed before requesting review",
-        "sentiment": "blocking",
+        "description": "please address all the previous comments (including the ones markes ARMBlockingC",
+        "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#issuecomment-3988003077",
           "body": "please address all the previous comments (including the ones markes ARMBlockingComment) from iteration 22, before requesting arm api review feedback."
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-03T01:31:22Z",
+        "actor": "CustardTart32",
+        "actorRole": "reviewer",
+        "description": "8 inline comments on VmSkus.tsp",
+        "sentiment": "blocking",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2875559801",
+          "count": 8
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-03T02:07:56Z",
+        "actor": "FumingZhang",
+        "actorRole": "author",
+        "description": "9 inline comments on VmSkus.tsp, AgentPoolModels.tsp",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2875651225",
+          "count": 9
         }
       },
       {
@@ -171,23 +385,70 @@
         "timestamp": "2026-03-03T02:12:03Z",
         "actor": "FumingZhang",
         "actorRole": "author",
-        "description": "Confirmed all review comments resolved",
+        "description": "> please address all the previous comments (including the ones markes ARMBlockin",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#issuecomment-3988172522",
-          "body": "comments resolved"
+          "body": "> please address all the previous comments (including the ones markes ARMBlockingComment) from iteration 22, before requesting arm api review feedback.  comments resolved"
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-03T21:09:38Z",
+        "actor": "psah434",
+        "actorRole": "reviewer",
+        "description": "1 inline comments on VmSkus.tsp",
+        "sentiment": "blocking",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2880493352",
+          "count": 1
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-03T23:27:15Z",
+        "actor": "CustardTart32",
+        "actorRole": "reviewer",
+        "description": "1 inline comments on VmSkus.tsp",
+        "sentiment": "blocking",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#discussion_r2881005945",
+          "count": 1
         }
       },
       {
         "type": "idle_gap",
-        "timestamp": "2026-03-03T02:12:03Z",
+        "timestamp": "2026-03-03T23:27:15Z",
+        "endTimestamp": "2026-03-06T00:44:08Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "2.1-day wait for author to address review comments",
+        "sentiment": "neutral",
+        "details": {
+          "durationHours": 49.3
+        }
+      },
+      {
+        "type": "review_approved",
+        "timestamp": "2026-03-06T00:44:08Z",
+        "actor": "matthchr",
+        "actorRole": "reviewer",
+        "description": "matthchr approved the PR",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533#pullrequestreview-3900507774"
+        }
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-03-06T00:44:08Z",
         "endTimestamp": "2026-03-10T23:25:16Z",
         "actor": "system",
         "actorRole": "bot",
-        "description": "7.9-day wait from comments resolved to PR merge \u2014 ARM sign-off and breaking change review process",
+        "description": "4.9-day wait for reviewer response",
         "sentiment": "blocking",
         "details": {
-          "durationHours": 189.2
+          "durationHours": 118.7
         }
       },
       {
@@ -195,7 +456,7 @@
         "timestamp": "2026-03-10T23:25:16Z",
         "actor": "FumingZhang",
         "actorRole": "author",
-        "description": "Spec PR merged by FumingZhang after ARM sign-off and breaking change approval",
+        "description": "Merged azure-rest-api-specs#40533",
         "sentiment": "positive",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40533"
@@ -205,6 +466,1575 @@
   },
   "sdkPRs": [
     {
+      "repo": "Azure/azure-sdk-for-net",
+      "language": ".NET",
+      "number": 57567,
+      "url": "https://github.com/Azure/azure-sdk-for-net/pull/57567",
+      "title": "[AutoPR Azure.ResourceManager.ContainerService]-generated-from-SDK Generation - .NET-6078552",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-30T05:22:27Z",
+      "mergedAt": "2026-04-07T02:50:01Z",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "ArcturusZhang"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-30T05:22:24Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-30T05:22:27Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened .NET PR: [AutoPR Azure.ResourceManager.ContainerService]-generated-from-SDK Gen",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57567"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-30T23:50:50Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-31T02:34:17Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "1 inline comments on tsp-location.yaml",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57567#discussion_r3013118395",
+            "count": 1
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-31T08:45:21Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-31T08:45:21Z",
+          "endTimestamp": "2026-04-02T04:06:44Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.8-day wait for review after commits",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 43.4
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T03:10:19Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "59,308",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T03:58:43Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "56,047",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T04:02:47Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "37,824",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T04:03:59Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "52,470",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-04-02T04:06:44Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Pushed 3 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-04-02T04:25:41Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView links generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57567#issuecomment-4174551957"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-04-02T04:51:11Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Please update the changelog.md to include some release notes and a release date.",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57567#pullrequestreview-4048347503",
+            "body": "Please update the changelog.md to include some release notes and a release date."
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-04-02T04:51:11Z",
+          "endTimestamp": "2026-04-06T23:39:05Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "4.8-day wait for author to address review comments",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 114.8
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-04-06T23:39:05Z",
+          "actor": "FumingZhang",
+          "actorRole": "author",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-04-07T01:06:47Z",
+          "actor": "FumingZhang",
+          "actorRole": "author",
+          "description": "Pushed commit: fix",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-04-07T02:49:46Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "ArcturusZhang approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57567#pullrequestreview-4065497708"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-04-07T02:50:01Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Merged azure-sdk-for-net#57567",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57567"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-07T04:14:39Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "3,237",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        }
+      ],
+      "mergedBy": "ArcturusZhang"
+    },
+    {
+      "repo": "Azure/azure-sdk-for-net",
+      "language": ".NET",
+      "number": 57339,
+      "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339",
+      "title": "[AutoPR Azure.ResourceManager.ContainerService]-generated-from-SDK Generation - .NET-6046264",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-23T05:21:05Z",
+      "mergedAt": "2026-03-26T05:07:32Z",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "ArcturusZhang"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-23T05:20:59Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-23T05:21:05Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened .NET PR: [AutoPR Azure.ResourceManager.ContainerService]-generated-from-SDK Gen",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-23T05:27:04Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "## Pull request overview  Promotes `Azure.ResourceManager.ContainerService` from",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339#pullrequestreview-3989420322",
+            "body": "## Pull request overview  Promotes `Azure.ResourceManager.ContainerService` from a prerelease version to a stable release and aligns the tracked swagger API version to the stable `2026-01-01` Containe"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-23T15:55:36Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-23T15:55:36Z",
+          "endTimestamp": "2026-03-25T09:13:02Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.7-day wait for review after commits",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 41.3
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T04:14:25Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "29,552",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T04:22:21Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "25,992",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T04:24:30Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "11,304",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T04:25:50Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "15,599",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T04:27:05Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "11,115",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T04:28:05Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "32,711",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T05:47:31Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "27,835",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T08:41:24Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "16,171",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T08:42:22Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "58,838",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T08:58:32Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "12,130",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T08:59:07Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "11,829",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T09:00:13Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "17,749",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-25T09:13:02Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Fix customization code for backward compatibility after regeneration",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-25T10:05:44Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "## Mgmt SDK PR Review \u2014 Azure.ResourceManager.ContainerService 1.4.0 (stable)  #",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339#pullrequestreview-4005470336",
+            "body": "## Mgmt SDK PR Review \u2014 Azure.ResourceManager.ContainerService 1.4.0 (stable)  ### Phase 1: Versioning Review \u2705 PASS - **Version**: `1.4.0-beta.2` \u2192 `1.4.0` \u2014 no major version bump \u2713 - **ApiCompatVers"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-25T10:57:55Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Currently the only issue is that the changelog file is not updated accordingly. ",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339#issuecomment-4125600831",
+            "body": "Currently the only issue is that the changelog file is not updated accordingly. We need to change its latest version to 1.4.0 with a release date and some related release note."
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-26T04:40:46Z",
+          "actor": "FumingZhang",
+          "actorRole": "author",
+          "description": "Pushed commit: update changelog",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-26T05:03:56Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "ArcturusZhang approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339#pullrequestreview-4011438457"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-26T05:07:32Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Merged azure-sdk-for-net#57339",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-27T09:04:35Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "3,532",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T03:10:19Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "59,308",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T03:58:43Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "56,047",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T04:02:47Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "37,824",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T04:03:59Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "azsdk_package_build_code - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "azsdk_package_build_code",
+            "success": true,
+            "duration": "52,470",
+            "clientType": "agent",
+            "packageName": "Azure.ResourceManager.ContainerService"
+          }
+        }
+      ],
+      "mergedBy": "ArcturusZhang"
+    },
+    {
+      "repo": "Azure/azure-sdk-for-java",
+      "language": "Java",
+      "number": 48641,
+      "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641",
+      "title": "Failed-[AutoPR azure-resourcemanager-containerservice]-generated-from-SDK Generation - Java-6083044",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-30T23:53:56Z",
+      "mergedAt": "2026-04-02T03:15:26Z",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "weidongxu-microsoft",
+        "XiaofeiCao"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-30T23:53:52Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-30T23:53:56Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened Java PR: Failed-[AutoPR azure-resourcemanager-containerservice]-generated-from-",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-31T00:26:06Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView links generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641#issuecomment-4158986583"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-31T02:35:50Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Pushed 3 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-31T03:52:11Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "weidongxu-microsoft approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641#pullrequestreview-4034507048"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-31T05:52:09Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "4 inline comments on IdentityBindingOidcIssuerProfile.java, GuardrailsAvailableVersionsProperties.java, LabelSelector.java +1 more",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641#discussion_r3013664657",
+            "count": 4
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-31T08:47:09Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-31T09:01:49Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "weidongxu-microsoft approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641#pullrequestreview-4035818762"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-04-01T08:23:46Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/azure-resourcemanager-containerservice-6083044",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-04-01T08:24:00Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "weidongxu-microsoft approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641#pullrequestreview-4042531117"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-04-02T03:09:49Z",
+          "actor": "XiaofeiCao",
+          "actorRole": "reviewer",
+          "description": "XiaofeiCao approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641#pullrequestreview-4048103216"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-04-02T03:15:26Z",
+          "actor": "XiaofeiCao",
+          "actorRole": "reviewer",
+          "description": "Merged azure-sdk-for-java#48641",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-02T06:47:26Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "3,631",
+            "clientType": "agent",
+            "packageName": "azure-resourcemanager-containerservice"
+          }
+        }
+      ],
+      "mergedBy": "XiaofeiCao"
+    },
+    {
+      "repo": "Azure/azure-sdk-for-java",
+      "language": "Java",
+      "number": 48439,
+      "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439",
+      "title": "[AutoPR azure-resourcemanager-containerservice-generated]-generated-from-SDK Generation - Java-6020376",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-17T07:56:49Z",
+      "mergedAt": "2026-03-25T02:37:25Z",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "Ari4ka",
+        "weidongxu-microsoft",
+        "XiaofeiCao",
+        "FumingZhang"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-17T07:56:46Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-17T07:56:49Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened Java PR: [AutoPR azure-resourcemanager-containerservice-generated]-generated-fr",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-17T07:56:49Z",
+          "endTimestamp": "2026-03-20T00:27:02Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2.7-day wait for first review",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 64.5
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-20T00:27:02Z",
+          "actor": "FumingZhang",
+          "actorRole": "author",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/azure-resourcemanager-containerservice-generate",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-20T00:34:43Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "4 inline comments on pom.xml, CHANGELOG.md",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439#discussion_r2963429106",
+            "count": 4
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-20T01:24:32Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "We will need some manual update on tspconfig and the repo for the 1st release fr",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439#issuecomment-4094745975",
+            "body": "We will need some manual update on tspconfig and the repo for the 1st release from TypeSpec. Please wait a few days while SDK dev work on it.  - https://github.com/Azure/azure-rest-api-specs/pull/41612 - https://github.com/Azure/azure-sdk-for-java/pull/48491 - https://github.com/Azure/azure-rest-api"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-20T01:24:32Z",
+          "endTimestamp": "2026-03-23T11:43:17Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "3.4-day wait for reviewer response",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 82.3
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-23T11:43:17Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Pushed 3 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-23T13:39:30Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: fix revapi",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-23T16:10:48Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-24T00:26:23Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/azure-resourcemanager-containerservice-generate",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-24T03:23:21Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Pushed 4 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-24T03:24:47Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "@XiaofeiCao for review.  Generated changelog is ``` ### Breaking Changes  #### `",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439#issuecomment-4115122387",
+            "body": "@XiaofeiCao for review.  Generated changelog is ``` ### Breaking Changes  #### `models.OperationListResult` was removed  #### `models.ManagedClusterListResult` was removed  #### `models.AgentPoolListResult` was removed  #### `models.OutboundEnvironmentEndpointCollection` was removed  #### `models.Sn"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-24T03:25:30Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "We will merge the PR after approval from both service dev and SDK dev.",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439#issuecomment-4115125176",
+            "body": "We will merge the PR after approval from both service dev and SDK dev."
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-24T03:36:20Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "1 inline comments on revapi.json",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439#discussion_r2978797355",
+            "count": 1
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-24T06:07:55Z",
+          "actor": "XiaofeiCao",
+          "actorRole": "reviewer",
+          "description": "XiaofeiCao approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439#pullrequestreview-3996570565"
+          }
+        },
+        {
+          "type": "author_nag",
+          "timestamp": "2026-03-25T02:29:52Z",
+          "actor": "FumingZhang",
+          "actorRole": "author",
+          "description": "Hi @weidongxu-microsoft, @XiaofeiCao, thank you for the quick fix. Since you've ",
+          "sentiment": "negative",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439#issuecomment-4122706132",
+            "body": "Hi @weidongxu-microsoft, @XiaofeiCao, thank you for the quick fix. Since you've approved the change, is it okay to merge and proceed with the release?",
+            "isNag": true
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-25T02:37:25Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Merged azure-sdk-for-java#48439",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-25T02:37:41Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "@FumingZhang  I've merged the PR. You are good to release (remember to select th",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439#issuecomment-4122733728",
+            "body": "@FumingZhang  I've merged the PR. You are good to release (remember to select the package when running the release pipeline)."
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-25T04:10:17Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "3,248",
+            "clientType": "agent",
+            "packageName": "azure-resourcemanager-containerservice"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-25T04:40:22Z",
+          "actor": "Ari4ka",
+          "actorRole": "reviewer",
+          "description": "Ari4ka approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439#pullrequestreview-4003872871"
+          }
+        }
+      ],
+      "mergedBy": "weidongxu-microsoft"
+    },
+    {
+      "repo": "Azure/azure-sdk-for-go",
+      "language": "Go",
+      "number": 26443,
+      "url": "https://github.com/Azure/azure-sdk-for-go/pull/26443",
+      "title": "[AutoPR sdk-resourcemanager/containerservice/armcontainerservice]-generated-from-SDK Generation - Go-6078553",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-30T05:20:07Z",
+      "mergedAt": "2026-03-30T07:36:08Z",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "tadelesh"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-30T05:20:04Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-30T05:20:07Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened Go PR: [AutoPR sdk-resourcemanager/containerservice/armcontainerservice]-gene",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26443"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-30T06:23:33Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "1 inline comments on agentpools_client.go",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26443#discussion_r3007789002",
+            "count": 1
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-30T06:30:58Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView links generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26443#issuecomment-4152600009"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-30T07:21:51Z",
+          "actor": "tadelesh",
+          "actorRole": "reviewer",
+          "description": "tadelesh approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26443#pullrequestreview-4028550273"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-30T07:36:08Z",
+          "actor": "FumingZhang",
+          "actorRole": "author",
+          "description": "Merged azure-sdk-for-go#26443",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26443"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-31T00:17:11Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "3,336",
+            "clientType": "agent",
+            "packageName": "sdk/resourcemanager/containerservice/armcontainerservice"
+          }
+        }
+      ],
+      "mergedBy": "FumingZhang"
+    },
+    {
+      "repo": "Azure/azure-sdk-for-python",
+      "language": "Python",
+      "number": 45986,
+      "url": "https://github.com/Azure/azure-sdk-for-python/pull/45986",
+      "title": "[AutoPR azure-mgmt-containerservice]-generated-from-SDK Generation - Python-6078554",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-30T05:27:41Z",
+      "mergedAt": "2026-03-31T08:31:41Z",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [],
+      "reviewers": [
+        "msyyc"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-30T05:27:37Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-30T05:27:41Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened Python PR: [AutoPR azure-mgmt-containerservice]-generated-from-SDK Generation - P",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45986"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-30T23:56:49Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-31T02:35:10Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "1 inline comments on tsp-location.yaml",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45986#discussion_r3013120364",
+            "count": 1
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-31T03:19:37Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: update",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-31T03:20:23Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "@msyyc, pr ready, please help review",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45986#issuecomment-4159587748",
+            "body": "@msyyc, pr ready, please help review"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-31T06:29:37Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: Merge branch 'main' into sdkauto/azure-mgmt-containerservice-6078554",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-31T08:07:54Z",
+          "actor": "msyyc",
+          "actorRole": "reviewer",
+          "description": "msyyc approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45986#pullrequestreview-4035494147"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-31T08:31:41Z",
+          "actor": "FumingZhang",
+          "actorRole": "author",
+          "description": "Merged azure-sdk-for-python#45986",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45986"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-01T05:06:33Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "3,302",
+            "clientType": "agent",
+            "packageName": "azure-mgmt-containerservice"
+          }
+        }
+      ],
+      "mergedBy": "FumingZhang"
+    },
+    {
+      "repo": "Azure/azure-sdk-for-python",
+      "language": "Python",
+      "number": 45636,
+      "url": "https://github.com/Azure/azure-sdk-for-python/pull/45636",
+      "title": "[AutoPR azure-mgmt-containerservice]-generated-from-SDK Generation - Python-5990414",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-10T23:45:32Z",
+      "mergedAt": "2026-03-16T05:03:13Z",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [],
+      "reviewers": [
+        "FumingZhang",
+        "msyyc",
+        "ChenxiJiang333"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-10T23:45:29Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-10T23:45:32Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened Python PR: [AutoPR azure-mgmt-containerservice]-generated-from-SDK Generation - P",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45636"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-11T06:04:31Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "4 inline comments on serialization.py, CHANGELOG.md, utils.py",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45636#discussion_r2916117053",
+            "count": 4
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-11T06:04:31Z",
+          "endTimestamp": "2026-03-13T02:46:07Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.9-day wait for author to address review comments",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 44.7
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-13T02:46:07Z",
+          "actor": "msyyc",
+          "actorRole": "reviewer",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-13T06:07:39Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "Pushed commit: update",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-13T06:09:00Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "1 inline comments on CHANGELOG.md",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45636#discussion_r2929277818",
+            "count": 1
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-13T06:09:00Z",
+          "endTimestamp": "2026-03-16T04:17:43Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2.9-day wait for author to address review comments",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 70.1
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-16T04:17:43Z",
+          "actor": "FumingZhang",
+          "actorRole": "author",
+          "description": "FumingZhang approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45636#pullrequestreview-3951335593"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-16T05:00:03Z",
+          "actor": "msyyc",
+          "actorRole": "reviewer",
+          "description": "msyyc approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45636#pullrequestreview-3951433367"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-16T05:03:13Z",
+          "actor": "FumingZhang",
+          "actorRole": "author",
+          "description": "Merged azure-sdk-for-python#45636",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45636"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-03-17T07:38:32Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "3,629",
+            "clientType": "agent",
+            "packageName": "azure-mgmt-containerservice"
+          }
+        }
+      ],
+      "mergedBy": "FumingZhang"
+    },
+    {
+      "repo": "Azure/azure-sdk-for-js",
+      "language": "JavaScript",
+      "number": 37885,
+      "url": "https://github.com/Azure/azure-sdk-for-js/pull/37885",
+      "title": "[AutoPR @azure-arm-containerservice]-generated-from-SDK Generation - JS-6078550",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-30T05:23:01Z",
+      "mergedAt": "2026-04-07T02:04:01Z",
+      "state": "merged",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt",
+        "Self-Service Release",
+        "mgmt-review-needed"
+      ],
+      "reviewers": [
+        "kazrael2119",
+        "MaryGao"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-30T05:22:58Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-30T05:23:01Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened JavaScript PR: [AutoPR @azure-arm-containerservice]-generated-from-SDK Generation - J",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37885"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-30T05:57:59Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView links generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37885#issuecomment-4152465116"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-30T23:50:12Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-31T05:46:04Z",
+          "actor": "FumingZhang",
+          "actorRole": "author",
+          "description": "Pushed commit: Update test recordings for @azure/arm-containerservice API version bump",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-31T05:52:53Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "3 inline comments on README.md, package.json, meshMembershipsListByManagedClusterSample.ts",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37885#discussion_r3013666926",
+            "count": 3
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-31T08:47:08Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-04-01T03:54:34Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "No API design or tooling issues found for this PR.  **Summary:** `@azure/arm-con",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37885#pullrequestreview-4041509809",
+            "body": "No API design or tooling issues found for this PR.  **Summary:** `@azure/arm-containerservice` 25.1.0-beta.1 (API version 2026-01-02-preview, beta release). All CI checks pass. CHANGELOG correctly com"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-04-02T03:22:48Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "LGTM cc @MaryGao ",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37885#issuecomment-4174371896",
+            "body": "LGTM cc @MaryGao "
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-04-02T03:22:48Z",
+          "endTimestamp": "2026-04-07T02:03:50Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "4.9-day wait for reviewer response",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 118.7
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-04-07T02:03:50Z",
+          "actor": "MaryGao",
+          "actorRole": "reviewer",
+          "description": "MaryGao approved the PR",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37885#pullrequestreview-4065392334"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-04-07T02:04:01Z",
+          "actor": "MaryGao",
+          "actorRole": "reviewer",
+          "description": "Merged azure-sdk-for-js#37885",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37885"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-07T03:40:18Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "3,168",
+            "clientType": "agent",
+            "packageName": "@azure/arm-containerservice"
+          }
+        }
+      ],
+      "mergedBy": "MaryGao"
+    },
+    {
       "repo": "Azure/azure-sdk-for-js",
       "language": "JavaScript",
       "number": 37575,
@@ -213,24 +2043,33 @@
       "author": "azure-sdk",
       "createdAt": "2026-03-10T23:46:23Z",
       "mergedAt": "2026-03-19T08:11:08Z",
-      "mergedBy": "FumingZhang",
       "state": "merged",
+      "generationFlow": "automated",
       "labels": [
         "Mgmt",
         "Self-Service Release",
         "first-typespec-migration"
       ],
       "reviewers": [
-        "kazrael2119",
-        "JialinHuang803"
+        "FumingZhang",
+        "JialinHuang803",
+        "kazrael2119"
       ],
       "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-10T23:46:19Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
         {
           "type": "pr_created",
           "timestamp": "2026-03-10T23:46:23Z",
           "actor": "azure-sdk",
           "actorRole": "bot",
-          "description": "JavaScript SDK PR auto-generated by pipeline \u2014 first SDK PR, created 21 minutes after spec merge",
+          "description": "Opened JavaScript PR: [AutoPR @azure-arm-containerservice]-generated-from-SDK Generation - J",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37575"
@@ -242,7 +2081,7 @@
           "endTimestamp": "2026-03-17T05:01:02Z",
           "actor": "system",
           "actorRole": "bot",
-          "description": "6.2-day wait for first review activity on JS PR",
+          "description": "6.2-day wait for first review",
           "sentiment": "blocking",
           "details": {
             "durationHours": 149.2
@@ -253,35 +2092,71 @@
           "timestamp": "2026-03-17T05:01:02Z",
           "actor": "copilot-pull-request-reviewer[bot]",
           "actorRole": "copilot",
-          "description": "Copilot code review \u2014 5 comments on sample files (missing subscriptionId, hard-coded UUIDs, grammar issues)",
+          "description": "5 inline comments on machinesListSample.ts, snapshotsListSample.ts, trustedAccessRolesListSample.ts +2 more",
           "sentiment": "neutral",
           "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37575#pullrequestreview-3958183192"
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37575#discussion_r2944370442",
+            "count": 5
           }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-17T05:01:31Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-17T07:51:01Z",
+          "actor": "FumingZhang",
+          "actorRole": "author",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
         },
         {
           "type": "review_comment",
           "timestamp": "2026-03-17T07:57:46Z",
           "actor": "FumingZhang",
           "actorRole": "author",
-          "description": "Responded to Copilot review \u2014 explained constructor overloads make subscriptionId optional, dismissed hard-coded UUID concern",
+          "description": "2 inline comments on machinesListSample.ts, operationsListSample.ts",
           "sentiment": "neutral",
           "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37575#pullrequestreview-3958820029",
-            "body": "The constructor has two overloads \u2014 subscriptionId is optional for tenant-level operations like operations.list()"
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37575#discussion_r2945004561",
+            "count": 2
           }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-17T07:57:46Z",
+          "endTimestamp": "2026-03-18T08:23:17Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "1.0-day wait for author to address review comments",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 24.4
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-18T08:23:17Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
         },
         {
           "type": "issue_comment",
           "timestamp": "2026-03-18T09:40:15Z",
           "actor": "kazrael2119",
           "actorRole": "reviewer",
-          "description": "kazrael2119 commented LGTM, cc'd JialinHuang803",
-          "sentiment": "positive",
+          "description": "LGTM cc @JialinHuang803 ",
+          "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37575#issuecomment-4081104251",
-            "body": "LGTM\ncc @JialinHuang803",
-            "targetUser": "JialinHuang803"
+            "body": "LGTM cc @JialinHuang803 "
           }
         },
         {
@@ -289,24 +2164,12 @@
           "timestamp": "2026-03-18T23:59:42Z",
           "actor": "FumingZhang",
           "actorRole": "author",
-          "description": "Asked @kazrael2119 to approve and cc'd @JialinHuang803",
+          "description": "Thanks for the fix @kazrael2119. Could you please help approve the change? cc @J",
           "sentiment": "negative",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37575#issuecomment-4086439694",
             "body": "Thanks for the fix @kazrael2119. Could you please help approve the change? cc @JialinHuang803",
-            "targetUser": "kazrael2119"
-          }
-        },
-        {
-          "type": "release_pipeline_completed",
-          "timestamp": "2026-03-19T23:59:59Z",
-          "actor": "azure-sdk",
-          "actorRole": "bot",
-          "description": "Package @azure/arm-containerservice v25.0.0 published",
-          "sentiment": "positive",
-          "details": {
-            "packageVersion": "25.0.0",
-            "pipelineName": "js - containerservice - mgmt"
+            "isNag": true
           }
         },
         {
@@ -314,11 +2177,11 @@
           "timestamp": "2026-03-19T05:22:30Z",
           "actor": "JialinHuang803",
           "actorRole": "reviewer",
-          "description": "Posted detailed breaking change analysis \u2014 21 breaking changes all from TypeSpec/emitter migration, 0 from API version upgrade",
+          "description": "## Breaking Change Analysis (CHANGELOG lines 65-85)  **Old SDK:** Swagger / Auto",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37575#issuecomment-4087891835",
-            "body": "Breaking Change Analysis: 21 breaking changes, all caused by TypeSpec/emitter migration. 0 from API version upgrade. 11 void-return changes, 4 model type changes, 3 list interfaces removed."
+            "body": "## Breaking Change Analysis (CHANGELOG lines 65-85)  **Old SDK:** Swagger / AutoRest, API version `2025-10-02-preview`, package `24.2.0-beta.1` **New SDK:** TypeSpec / `@azure-tools/typespec-ts` emitter, API version `2026-01-01`, package `25.0.0`  ---  ### Type 1: Introduced by API Version Upgrade ("
           }
         },
         {
@@ -326,11 +2189,10 @@
           "timestamp": "2026-03-19T08:11:04Z",
           "actor": "JialinHuang803",
           "actorRole": "reviewer",
-          "description": "JialinHuang803 approved after breaking change analysis",
+          "description": "JialinHuang803 approved the PR",
           "sentiment": "positive",
           "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37575#pullrequestreview-3973465902",
-            "reviewState": "APPROVED"
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37575#pullrequestreview-3973465902"
           }
         },
         {
@@ -338,589 +2200,295 @@
           "timestamp": "2026-03-19T08:11:08Z",
           "actor": "FumingZhang",
           "actorRole": "author",
-          "description": "JavaScript SDK PR merged by FumingZhang \u2014 slowest SDK PR at 8.4 days",
+          "description": "Merged azure-sdk-for-js#37575",
           "sentiment": "positive",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37575"
           }
-        }
-      ],
-      "release": {
-        "packageName": "@azure/arm-containerservice",
-        "packageVersion": "25.0.0",
-        "pipelineName": "js - containerservice - mgmt",
-        "pipelineUrl": null,
-        "buildId": null,
-        "releasedAt": "2026-03-19T23:59:59Z",
-        "releaseGapDays": 0.7,
-        "status": "released"
-      },
-      "generationFlow": "automated"
-    },
-    {
-      "repo": "Azure/azure-sdk-for-net",
-      "language": ".NET",
-      "number": 57339,
-      "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339",
-      "title": "[AutoPR Azure.ResourceManager.ContainerService]-generated-from-SDK Generation - .NET-6046264",
-      "author": "azure-sdk",
-      "createdAt": "2026-03-23T05:21:05Z",
-      "mergedAt": "2026-03-26T05:07:32Z",
-      "mergedBy": "ArcturusZhang",
-      "state": "merged",
-      "labels": [
-        "Mgmt"
-      ],
-      "reviewers": [
-        "ArcturusZhang"
-      ],
-      "events": [
-        {
-          "type": "pr_created",
-          "timestamp": "2026-03-23T05:21:05Z",
-          "actor": "azure-sdk",
-          "actorRole": "bot",
-          "description": ".NET SDK PR auto-generated by pipeline \u2014 stable 2026-01-01 API version",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339"
-          }
         },
         {
-          "type": "review_comment",
-          "timestamp": "2026-03-23T05:27:04Z",
-          "actor": "copilot-pull-request-reviewer[bot]",
-          "actorRole": "copilot",
-          "description": "Copilot code review \u2014 reviewed 2 out of 351 changed files, no comments generated",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339#pullrequestreview-3989420322"
-          }
-        },
-        {
-          "type": "idle_gap",
-          "timestamp": "2026-03-23T05:27:04Z",
-          "endTimestamp": "2026-03-25T10:05:44Z",
-          "actor": "system",
-          "actorRole": "bot",
-          "description": "2.2-day wait for first human review on .NET PR",
-          "sentiment": "neutral",
-          "details": {
-            "durationHours": 52.6
-          }
-        },
-        {
-          "type": "review_comment",
-          "timestamp": "2026-03-25T10:05:44Z",
-          "actor": "ArcturusZhang",
-          "actorRole": "reviewer",
-          "description": "ArcturusZhang posted thorough 3-phase SDK review (versioning, API, breaking changes) \u2014 all PASS",
+          "type": "tool_call",
+          "timestamp": "2026-03-20T03:12:17Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
           "sentiment": "positive",
           "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339#pullrequestreview-4005470336",
-            "reviewState": "COMMENTED",
-            "body": "Mgmt SDK PR Review \u2014 All three review phases pass. Versioning, API naming, and breaking change detection all clean."
-          }
-        },
-        {
-          "type": "issue_comment",
-          "timestamp": "2026-03-25T10:57:55Z",
-          "actor": "ArcturusZhang",
-          "actorRole": "reviewer",
-          "description": "Noted changelog file needs updating \u2014 version 1.4.0 with release date and notes",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339#issuecomment-4125600831",
-            "body": "Currently the only issue is that the changelog file is not updated accordingly. We need to change its latest version to 1.4.0 with a release date and some related release note."
-          }
-        },
-        {
-          "type": "review_approved",
-          "timestamp": "2026-03-26T05:03:56Z",
-          "actor": "ArcturusZhang",
-          "actorRole": "reviewer",
-          "description": "ArcturusZhang approved",
-          "sentiment": "positive",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339#pullrequestreview-4011438457",
-            "reviewState": "APPROVED"
-          }
-        },
-        {
-          "type": "pr_merged",
-          "timestamp": "2026-03-26T05:07:32Z",
-          "actor": "ArcturusZhang",
-          "actorRole": "reviewer",
-          "description": ".NET SDK PR merged by ArcturusZhang",
-          "sentiment": "positive",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57339"
-          }
-        },
-        {
-          "type": "release_pipeline_completed",
-          "timestamp": "2026-03-27T23:59:59Z",
-          "actor": "azure-sdk",
-          "actorRole": "bot",
-          "description": "Package Azure.ResourceManager.ContainerService v1.4.0 published",
-          "sentiment": "positive",
-          "details": {
-            "packageVersion": "1.4.0",
-            "pipelineName": "net - containerservice - mgmt"
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "4,290",
+            "clientType": "agent",
+            "packageName": "@azure/arm-containerservice"
           }
         }
       ],
-      "release": {
-        "packageName": "Azure.ResourceManager.ContainerService",
-        "packageVersion": "1.4.0",
-        "pipelineName": "net - containerservice - mgmt",
-        "pipelineUrl": null,
-        "buildId": null,
-        "releasedAt": "2026-03-27T23:59:59Z",
-        "releaseGapDays": 1.8,
-        "status": "released"
-      },
-      "generationFlow": "automated"
-    },
-    {
-      "repo": "Azure/azure-sdk-for-go",
-      "language": "Go",
-      "number": 26443,
-      "url": "https://github.com/Azure/azure-sdk-for-go/pull/26443",
-      "title": "[AutoPR sdk-resourcemanager/containerservice/armcontainerservice]-generated-from-SDK Generation - Go-6078553",
-      "author": "azure-sdk",
-      "createdAt": "2026-03-30T05:20:07Z",
-      "mergedAt": "2026-03-30T07:36:08Z",
-      "mergedBy": "FumingZhang",
-      "state": "merged",
-      "labels": [
-        "Mgmt"
-      ],
-      "reviewers": [
-        "tadelesh"
-      ],
-      "events": [
-        {
-          "type": "pr_created",
-          "timestamp": "2026-03-30T05:20:07Z",
-          "actor": "azure-sdk",
-          "actorRole": "bot",
-          "description": "Go SDK PR auto-generated by pipeline \u2014 preview 2026-01-02-preview API version",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26443"
-          }
-        },
-        {
-          "type": "review_comment",
-          "timestamp": "2026-03-30T06:23:33Z",
-          "actor": "copilot-pull-request-reviewer[bot]",
-          "actorRole": "copilot",
-          "description": "Copilot code review \u2014 1 comment about missing HTTP 200 status code in completeUpgrade operation",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26443#pullrequestreview-4028309882"
-          }
-        },
-        {
-          "type": "bot_comment",
-          "timestamp": "2026-03-30T06:30:58Z",
-          "actor": "github-actions[bot]",
-          "actorRole": "bot",
-          "description": "API Change Check \u2014 ApiView link generated",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26443#issuecomment-4152600009"
-          }
-        },
-        {
-          "type": "review_approved",
-          "timestamp": "2026-03-30T07:21:51Z",
-          "actor": "tadelesh",
-          "actorRole": "reviewer",
-          "description": "tadelesh approved (Go SDK team)",
-          "sentiment": "positive",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26443#pullrequestreview-4028550273",
-            "reviewState": "APPROVED"
-          }
-        },
-        {
-          "type": "pr_merged",
-          "timestamp": "2026-03-30T07:36:08Z",
-          "actor": "FumingZhang",
-          "actorRole": "author",
-          "description": "Go SDK PR merged by FumingZhang \u2014 fastest SDK PR at 2.3 hours",
-          "sentiment": "positive",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26443"
-          }
-        },
-        {
-          "type": "release_pipeline_completed",
-          "timestamp": "2026-04-01T23:59:59Z",
-          "actor": "azure-sdk",
-          "actorRole": "bot",
-          "description": "Package sdk/resourcemanager/containerservice/armcontainerservice v9.0.0 published",
-          "sentiment": "positive",
-          "details": {
-            "packageVersion": "9.0.0",
-            "pipelineName": "go - armcontainerservice"
-          }
-        }
-      ],
-      "release": {
-        "packageName": "sdk/resourcemanager/containerservice/armcontainerservice",
-        "packageVersion": "9.0.0",
-        "pipelineName": "go - armcontainerservice",
-        "pipelineUrl": null,
-        "buildId": null,
-        "releasedAt": "2026-04-01T23:59:59Z",
-        "releaseGapDays": 2.7,
-        "status": "released"
-      },
-      "generationFlow": "automated"
-    },
-    {
-      "repo": "Azure/azure-sdk-for-python",
-      "language": "Python",
-      "number": 45986,
-      "url": "https://github.com/Azure/azure-sdk-for-python/pull/45986",
-      "title": "[AutoPR azure-mgmt-containerservice]-generated-from-SDK Generation - Python-6078554",
-      "author": "azure-sdk",
-      "createdAt": "2026-03-30T05:27:41Z",
-      "mergedAt": "2026-03-31T08:31:41Z",
-      "mergedBy": "FumingZhang",
-      "state": "merged",
-      "labels": [],
-      "reviewers": [
-        "ChenxiJiang333",
-        "msyyc"
-      ],
-      "events": [
-        {
-          "type": "pr_created",
-          "timestamp": "2026-03-30T05:27:41Z",
-          "actor": "azure-sdk",
-          "actorRole": "bot",
-          "description": "Python SDK PR auto-generated by pipeline \u2014 preview 2026-01-02-preview API version",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45986"
-          }
-        },
-        {
-          "type": "review_comment",
-          "timestamp": "2026-03-31T02:35:10Z",
-          "actor": "copilot-pull-request-reviewer[bot]",
-          "actorRole": "copilot",
-          "description": "Copilot code review \u2014 1 comment about spec commit SHA inconsistency between PR description and metadata",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45986#pullrequestreview-4034259956"
-          }
-        },
-        {
-          "type": "issue_comment",
-          "timestamp": "2026-03-31T03:20:23Z",
-          "actor": "ChenxiJiang333",
-          "actorRole": "reviewer",
-          "description": "ChenxiJiang333 asked msyyc to review",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45986#issuecomment-4159587748",
-            "body": "@msyyc, pr ready, please help review",
-            "targetUser": "msyyc"
-          }
-        },
-        {
-          "type": "review_approved",
-          "timestamp": "2026-03-31T08:07:54Z",
-          "actor": "msyyc",
-          "actorRole": "reviewer",
-          "description": "msyyc approved (Python SDK reviewer)",
-          "sentiment": "positive",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45986#pullrequestreview-4035494147",
-            "reviewState": "APPROVED"
-          }
-        },
-        {
-          "type": "pr_merged",
-          "timestamp": "2026-03-31T08:31:41Z",
-          "actor": "FumingZhang",
-          "actorRole": "author",
-          "description": "Python SDK PR merged by FumingZhang",
-          "sentiment": "positive",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45986"
-          }
-        },
-        {
-          "type": "release_pipeline_completed",
-          "timestamp": "2026-04-01T23:59:59Z",
-          "actor": "azure-sdk",
-          "actorRole": "bot",
-          "description": "Package azure-mgmt-containerservice v41.0.0 published",
-          "sentiment": "positive",
-          "details": {
-            "packageVersion": "41.0.0",
-            "pipelineName": "python - containerservice"
-          }
-        }
-      ],
-      "release": {
-        "packageName": "azure-mgmt-containerservice",
-        "packageVersion": "41.0.0",
-        "pipelineName": "python - containerservice",
-        "pipelineUrl": null,
-        "buildId": null,
-        "releasedAt": "2026-04-01T23:59:59Z",
-        "releaseGapDays": 1.6,
-        "status": "released"
-      },
-      "generationFlow": "automated"
+      "mergedBy": "FumingZhang"
     },
     {
       "repo": "Azure/azure-sdk-for-java",
       "language": "Java",
-      "number": 48641,
-      "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641",
-      "title": "Failed-[AutoPR azure-resourcemanager-containerservice]-generated-from-SDK Generation - Java-6083044",
+      "number": 48521,
+      "url": "https://github.com/Azure/azure-sdk-for-java/pull/48521",
+      "title": "[AutoPR azure-resourcemanager-containerservice-generated]-generated-from-SDK Generation - Java-6046263",
       "author": "azure-sdk",
-      "createdAt": "2026-03-30T23:53:56Z",
-      "mergedAt": "2026-04-02T03:15:26Z",
-      "mergedBy": "XiaofeiCao",
-      "state": "merged",
+      "createdAt": "2026-03-23T05:23:15Z",
+      "mergedAt": null,
+      "state": "open",
+      "generationFlow": "automated",
       "labels": [
         "Mgmt"
       ],
-      "reviewers": [
-        "weidongxu-microsoft",
-        "XiaofeiCao"
-      ],
+      "reviewers": [],
       "events": [
         {
-          "type": "pr_created",
-          "timestamp": "2026-03-30T23:53:56Z",
+          "type": "commit_pushed",
+          "timestamp": "2026-03-23T05:23:11Z",
           "actor": "azure-sdk",
           "actorRole": "bot",
-          "description": "Java SDK PR auto-generated by pipeline \u2014 title prefixed with 'Failed-' indicating generation pipeline had issues",
-          "sentiment": "negative",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-23T05:23:15Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened Java PR: [AutoPR azure-resourcemanager-containerservice-generated]-generated-fr",
+          "sentiment": "neutral",
           "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641"
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48521"
           }
         },
         {
           "type": "bot_comment",
-          "timestamp": "2026-03-31T00:26:06Z",
+          "timestamp": "2026-03-23T05:35:59Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "API Change Check \u2014 ApiView link generated",
+          "description": "API Change Check \u2014 ApiView links generated",
           "sentiment": "neutral",
           "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641#issuecomment-4158986583"
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48521#issuecomment-4108130772"
           }
         },
         {
-          "type": "review_approved",
-          "timestamp": "2026-03-31T03:52:11Z",
-          "actor": "weidongxu-microsoft",
-          "actorRole": "reviewer",
-          "description": "weidongxu-microsoft approved (first approval)",
-          "sentiment": "positive",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641#pullrequestreview-4034507048",
-            "reviewState": "APPROVED"
-          }
-        },
-        {
-          "type": "review_comment",
-          "timestamp": "2026-03-31T05:52:09Z",
-          "actor": "copilot-pull-request-reviewer[bot]",
-          "actorRole": "copilot",
-          "description": "Copilot code review \u2014 4 comments on JSON round-tripping issues, missing toJson serialization, Javadoc type mismatch",
+          "type": "issue_comment",
+          "timestamp": "2026-03-23T06:46:52Z",
+          "actor": "FumingZhang",
+          "actorRole": "author",
+          "description": "related to #48521",
           "sentiment": "neutral",
           "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641#pullrequestreview-4034847434"
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48521#issuecomment-4108392754",
+            "body": "related to #48521"
           }
         },
         {
-          "type": "review_approved",
-          "timestamp": "2026-03-31T09:01:49Z",
-          "actor": "weidongxu-microsoft",
-          "actorRole": "reviewer",
-          "description": "weidongxu-microsoft approved again (after new commits)",
+          "type": "tool_call",
+          "timestamp": "2026-03-25T04:10:17Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
           "sentiment": "positive",
           "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641#pullrequestreview-4035818762",
-            "reviewState": "APPROVED"
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "3,248",
+            "clientType": "agent",
+            "packageName": "azure-resourcemanager-containerservice"
           }
         },
         {
-          "type": "idle_gap",
-          "timestamp": "2026-03-31T09:01:49Z",
-          "endTimestamp": "2026-04-01T08:24:00Z",
-          "actor": "system",
-          "actorRole": "bot",
-          "description": "23.4-hour wait between approvals",
-          "sentiment": "neutral",
-          "details": {
-            "durationHours": 23.4
-          }
-        },
-        {
-          "type": "review_approved",
-          "timestamp": "2026-04-01T08:24:00Z",
-          "actor": "weidongxu-microsoft",
-          "actorRole": "reviewer",
-          "description": "weidongxu-microsoft approved (third time, after final commit)",
+          "type": "tool_call",
+          "timestamp": "2026-04-02T06:47:26Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
           "sentiment": "positive",
           "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641#pullrequestreview-4042531117",
-            "reviewState": "APPROVED"
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "3,631",
+            "clientType": "agent",
+            "packageName": "azure-resourcemanager-containerservice"
           }
-        },
-        {
-          "type": "review_approved",
-          "timestamp": "2026-04-02T03:09:49Z",
-          "actor": "XiaofeiCao",
-          "actorRole": "reviewer",
-          "description": "XiaofeiCao approved",
-          "sentiment": "positive",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641#pullrequestreview-4048103216",
-            "reviewState": "APPROVED"
-          }
-        },
-        {
-          "type": "pr_merged",
-          "timestamp": "2026-04-02T03:15:26Z",
-          "actor": "XiaofeiCao",
-          "actorRole": "reviewer",
-          "description": "Java SDK PR merged by XiaofeiCao \u2014 'Failed-' prefix PR successfully merged after 3 days",
-          "sentiment": "positive",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48641"
-          }
-        },
-        {
-          "type": "release_pending",
-          "timestamp": "2026-04-02T03:15:26Z",
-          "actor": "system",
-          "actorRole": "bot",
-          "description": "Package azure-resourcemanager-containerservice merged but not yet released",
-          "sentiment": "blocking",
-          "details": {}
         }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-python",
+      "language": "Python",
+      "number": 46011,
+      "url": "https://github.com/Azure/azure-sdk-for-python/pull/46011",
+      "title": "[AutoPR azure-mgmt-containerservice]-generated-from-SDK Generation - Python-6085716",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-31T08:51:23Z",
+      "mergedAt": null,
+      "state": "open",
+      "generationFlow": "automated",
+      "labels": [],
+      "reviewers": [],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-31T08:51:19Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed 2 commits",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-31T08:51:23Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened Python PR: [AutoPR azure-mgmt-containerservice]-generated-from-SDK Generation - P",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/46011"
+          }
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-01T05:06:33Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "3,302",
+            "clientType": "agent",
+            "packageName": "azure-mgmt-containerservice"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-js",
+      "language": "JavaScript",
+      "number": 37766,
+      "url": "https://github.com/Azure/azure-sdk-for-js/pull/37766",
+      "title": "[AutoPR @azure-arm-containerservice]-generated-from-SDK Generation - JS-6046262",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-23T05:22:12Z",
+      "mergedAt": null,
+      "state": "open",
+      "generationFlow": "automated",
+      "labels": [
+        "Mgmt",
+        "Self-Service Release"
       ],
-      "release": {
-        "packageName": "azure-resourcemanager-containerservice",
-        "packageVersion": null,
-        "pipelineName": "java - containerservice",
-        "pipelineUrl": null,
-        "buildId": null,
-        "releasedAt": null,
-        "releaseGapDays": null,
-        "status": "pending"
-      },
-      "generationFlow": "automated"
+      "reviewers": [],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-23T05:22:09Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-23T05:22:12Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Opened JavaScript PR: [AutoPR @azure-arm-containerservice]-generated-from-SDK Generation - J",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37766"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-23T15:57:53Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Pushed commit: Configurations:  'specification/containerservice/resource-manager/Microsoft.Cont",
+          "sentiment": "neutral"
+        },
+        {
+          "type": "tool_call",
+          "timestamp": "2026-04-07T03:40:18Z",
+          "actor": "unknown",
+          "actorRole": "tool",
+          "description": "release-plan.update-release-status - success",
+          "sentiment": "positive",
+          "details": {
+            "toolName": "release-plan.update-release-status",
+            "success": true,
+            "duration": "3,168",
+            "clientType": "agent",
+            "packageName": "@azure/arm-containerservice"
+          }
+        }
+      ]
     }
   ],
   "insights": [
     {
-      "type": "bottleneck",
-      "severity": "critical",
-      "description": "Staggered SDK pipeline \u2014 JS PR created 21 min after spec merge, but Go/Python/Java PRs not created until 19-20 days later. Different API versions (stable vs preview) generated at different times.",
+      "type": "idle",
+      "severity": "warning",
+      "description": "9.02-day wait for first human review on spec PR",
+      "startDate": "2026-02-19T02:18:30Z",
+      "endDate": "2026-02-28T02:52:08Z",
+      "durationDays": 9.02,
+      "prRef": "Azure/azure-rest-api-specs#40533"
+    },
+    {
+      "type": "observation",
+      "severity": "info",
+      "description": "0.01-day gap between spec PR merge and first SDK PR creation (Python) \u2014 AutoPR triggered quickly",
       "startDate": "2026-03-10T23:25:16Z",
-      "endDate": "2026-03-30T23:53:56Z",
-      "durationDays": 20.02
+      "endDate": "2026-03-10T23:45:32Z",
+      "durationDays": 0.01
     },
     {
-      "type": "idle",
-      "severity": "critical",
-      "description": "6.9-day wait for any human activity on spec PR \u2014 no reviews from Feb 19 creation until Feb 25 when author posted breaking change explanation",
-      "startDate": "2026-02-19T02:22:46Z",
-      "endDate": "2026-02-25T23:47:33Z",
-      "durationDays": 6.89,
-      "prRef": "Azure/azure-rest-api-specs#40533"
-    },
-    {
-      "type": "idle",
-      "severity": "critical",
-      "description": "7.9-day wait between author resolving all review comments and spec PR merge \u2014 ARM sign-off and BreakingChangeReviewRequired process",
-      "startDate": "2026-03-03T02:12:03Z",
-      "endDate": "2026-03-10T23:25:16Z",
-      "durationDays": 7.88,
-      "prRef": "Azure/azure-rest-api-specs#40533"
-    },
-    {
-      "type": "idle",
-      "severity": "warning",
-      "description": "6.2-day wait for first review on JavaScript SDK PR \u2014 longest idle period among SDK PRs",
-      "startDate": "2026-03-10T23:46:23Z",
-      "endDate": "2026-03-17T05:01:02Z",
-      "durationDays": 6.22,
-      "prRef": "Azure/azure-sdk-for-js#37575"
+      "type": "observation",
+      "severity": "info",
+      "description": "Fastest SDK PR: Go (0.1 days). Slowest: JavaScript (8.4 days)."
     },
     {
       "type": "summary",
-      "severity": "warning",
-      "description": "BreakingChangeReviewRequired label on spec PR \u2014 ARM reviewer mentat9 posted 15 review comments including [ARMBlockingComment] flags. Breaking changes were ultimately approved as bug fixes (BreakingChange-Approved-BugFix label).",
-      "prRef": "Azure/azure-rest-api-specs#40533"
-    },
-    {
-      "type": "summary",
-      "severity": "warning",
-      "description": "Java SDK PR title starts with 'Failed-' \u2014 the SDK generation pipeline (build 6083044) encountered failures during auto-generation, likely due to the large scope of the ContainerService API. PR was still created, reviewed by weidongxu-microsoft 3 times, and merged after additional commits.",
-      "prRef": "Azure/azure-sdk-for-java#48641"
+      "severity": "info",
+      "description": "All 12 SDK PRs were automated (AutoPR by azure-sdk). Multiple generation attempts per language due to spec iterations."
     },
     {
       "type": "nag",
       "severity": "warning",
-      "description": "Author nagged @kazrael2119 and @JialinHuang803 on JS PR to approve and merge",
-      "startDate": "2026-03-18T23:59:42Z",
-      "prRef": "Azure/azure-sdk-for-js#37575"
+      "description": "2 author nag(s) detected \u2014 spec owner had to ping reviewers for action"
     },
     {
-      "type": "summary",
+      "type": "tool_usage",
       "severity": "info",
-      "description": "JS SDK PR included 'first-typespec-migration' label and required a detailed breaking change analysis by JialinHuang803 \u2014 21 breaking changes all attributed to TypeSpec/emitter migration, 0 from API version upgrade",
-      "prRef": "Azure/azure-sdk-for-js#37575"
+      "description": "29 MCP tool calls tracked (29 success, 0 failed). By language: .NET: 20, Go: 3, Java: 2, JavaScript: 2, Python: 2"
     },
     {
-      "type": "positive",
-      "severity": "info",
-      "description": "Go SDK PR was the fastest \u2014 merged in 2.3 hours after creation. tadelesh approved within 2 hours.",
-      "prRef": "Azure/azure-sdk-for-go#26443"
-    },
-    {
-      "type": "positive",
-      "severity": "info",
-      "description": ".NET SDK reviewer ArcturusZhang posted an exemplary 3-phase review (versioning, API surface, breaking changes) \u2014 all phases passed with clear documentation",
-      "prRef": "Azure/azure-sdk-for-net#57339"
-    },
-    {
-      "type": "summary",
-      "severity": "info",
-      "description": "Spec PR had 734 changed files and 24 commits \u2014 large-scale API update spanning both stable and preview versions of ContainerService/aks"
-    },
-    {
-      "type": "release_delay",
+      "type": "observation",
       "severity": "warning",
-      "description": "Longest release gap was 2.0d (avg 0.9d) from PR merge to package publish"
+      "description": "3 SDK PR(s) still open: Java, Python, JavaScript"
     },
     {
-      "type": "release_pending",
-      "severity": "critical",
-      "description": "1 SDK package(s) merged but not yet released"
+      "type": "observation",
+      "severity": "warning",
+      "description": "Failed AutoPR generation detected for: Java \u2014 required manual intervention"
+    },
+    {
+      "type": "observation",
+      "severity": "info",
+      "description": "Collaborative spec PR: 11 contributors pushed commits (jaiveerk, zman-ms, snguyen64, FumingZhang, xuexu6666)"
     }
   ],
   "summary": {
-    "totalDurationDays": 42.0,
+    "totalDurationDays": 47.1,
     "specPRDays": 19.88,
     "pipelineGapDays": 0.01,
     "sdkPRMaxDays": 8.35,
+    "totalUniqueReviewers": 20,
+    "totalNags": 2,
+    "totalManualFixes": 0,
+    "pendingReleases": 3,
     "fastestSDKPR": {
       "language": "Go",
       "days": 0.09
@@ -928,12 +2496,6 @@
     "slowestSDKPR": {
       "language": "JavaScript",
       "days": 8.35
-    },
-    "totalUniqueReviewers": 14,
-    "totalNags": 1,
-    "totalManualFixes": 0,
-    "avgReleaseGapDays": 1.7,
-    "maxReleaseGapDays": 2.7,
-    "pendingReleases": 1
+    }
   }
 }

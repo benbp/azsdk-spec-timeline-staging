@@ -109,6 +109,36 @@ For each discovered SDK PR, fetch the same data (metadata, comments, reviews, re
 
 **IMPORTANT**: Include closed (not merged) SDK PRs too — they tell an important story. For example, AutoPR may generate PRs that are later closed without merge (superseded by manual PRs or newer generation runs). These show up as `state: "closed"` and should have `pr_closed` events. Including them helps visualize the full picture of what happened.
 
+### Steps 4–6: Process Raw Data into Timeline JSON
+
+After fetching raw data (Step 2) and discovering SDK PRs (Step 3), use the processing script to classify events, perform AI analysis, and generate insights in one step:
+
+```bash
+node scripts/process-timeline.js <raw-json> <output-json> <title>
+```
+
+For example:
+```bash
+# Fetch raw data first
+node scripts/fetch-timeline.js https://github.com/Azure/azure-rest-api-specs/pull/41510 \
+  --sdk-prs https://github.com/Azure/azure-sdk-for-java/pull/48467 \
+  --skip-releases > /tmp/raw.json
+
+# Process into final timeline JSON
+node scripts/process-timeline.js /tmp/raw.json data/sample-keyvault-secrets.json "KeyVault Secrets SDK Generation"
+```
+
+The processing script automatically:
+- Classifies all events into timeline event types (Step 4)
+- Detects author nags, manual fixes, and sentiment (Step 5)
+- Computes idle gaps (>24h between events)
+- Generates insights about bottlenecks, open PRs, and summary stats (Step 6)
+- Adds missing language placeholders for any of the 5 standard languages (Java, Go, Python, .NET, JavaScript) not present in the SDK PRs
+
+After processing, **audit the output** — verify PR states, event counts, and insights match what you see on GitHub. Fix any issues in the raw data or re-fetch if needed.
+
+The sections below document the classification and analysis rules implemented by the script, for reference and manual overrides.
+
 ### Step 4: Classify Events
 
 For each PR, create timeline events from the raw data. Map each raw data item to one of these event types:
@@ -176,7 +206,7 @@ Analyze the complete timeline and generate insights:
 
 ### Step 7: Output JSON
 
-Produce a JSON file matching this schema:
+The processing script (`scripts/process-timeline.js`) produces this JSON automatically. When running manually or auditing, ensure the output matches this schema:
 
 ```json
 {

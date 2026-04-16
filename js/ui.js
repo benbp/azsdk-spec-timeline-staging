@@ -82,6 +82,20 @@ const UI = (() => {
       meta: 'Mar 27 – Apr 1 · Copilot · 4d · no .NET PR · 2 PRs still open',
       hasTooling: false,
       inFlight: true
+    },
+    {
+      file: 'data/sample-batch.json',
+      name: 'Batch',
+      meta: 'Jan 6 – Mar 18 · wiboris · 70d · 35d spec review · JS still open · no .NET',
+      hasTooling: false,
+      inFlight: true
+    },
+    {
+      file: 'data/sample-keyvault-secrets.json',
+      name: 'KeyVault Secrets/Certs',
+      meta: 'Mar 18 – Apr 2 · rohitsinghal4u · 15d · 4 PRs still open · no .NET',
+      hasTooling: false,
+      inFlight: true
     }
   ];
 

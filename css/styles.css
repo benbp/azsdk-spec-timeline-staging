@@ -396,6 +396,8 @@ header {
   border-bottom: 1px solid var(--border-light);
   transition: background 0.1s;
   position: relative;
+  box-sizing: border-box;
+  display: flex;
 }
 
 .lane:last-child {
@@ -571,7 +573,8 @@ header {
 
 .lane-content {
   position: relative;
-  min-height: var(--lane-height);
+  flex: 1;
+  min-height: 0;
   overflow: visible;
 }
 
@@ -730,17 +733,17 @@ header {
 .event-marker.pr_created { background: var(--green); }
 .event-marker.pr_merged { background: var(--purple); }
 .event-marker.pr_closed { background: var(--gray); }
-.event-marker.commit_pushed { background: var(--blue); width: 10px; height: 10px; }
+.event-marker.commit_pushed { background: var(--blue); width: 10px; height: 10px; opacity: 0.45; }
 .event-marker.review_approved { background: var(--green); border: 2px solid #fff3; border-radius: 3px; }
-.event-marker.review_changes_requested { background: var(--red); }
-.event-marker.review_comment { background: var(--yellow); border-radius: 3px; }
+.event-marker.review_changes_requested { background: var(--red); width: 20px; height: 20px; box-shadow: 0 0 6px var(--red); }
+.event-marker.review_comment { background: var(--yellow); border-radius: 3px; width: 10px; height: 10px; }
 .event-marker.issue_comment { background: var(--text-secondary); border-radius: 3px; width: 10px; height: 10px; }
-.event-marker.bot_comment { background: var(--text-muted); width: 8px; height: 8px; }
-.event-marker.author_nag { background: var(--orange); border-radius: 2px; }
+.event-marker.bot_comment { background: var(--text-muted); width: 8px; height: 8px; opacity: 0.5; }
+.event-marker.author_nag { background: var(--orange); border-radius: 2px; width: 20px; height: 20px; box-shadow: 0 0 6px var(--orange); }
 .event-marker.reviewer_responds { background: var(--accent); border-radius: 3px; }
 .event-marker.label_added { background: var(--teal); width: 8px; height: 8px; }
-.event-marker.manual_fix { background: var(--orange); border: 2px solid var(--red); }
-.event-marker.ci_status { background: var(--gray); width: 8px; height: 8px; border-radius: 2px; }
+.event-marker.manual_fix { background: var(--orange); border: 2px solid var(--red); width: 20px; height: 20px; box-shadow: 0 0 6px var(--orange); }
+.event-marker.ci_status { background: var(--gray); width: 8px; height: 8px; border-radius: 2px; opacity: 0.5; }
 .event-marker.release_pipeline_started { background: var(--teal); border: 2px dashed var(--bg-secondary); }
 .event-marker.release_pipeline_completed { background: var(--teal); border: 2px solid var(--green); }
 .event-marker.release_pipeline_failed { background: var(--red); border: 2px solid var(--orange); }

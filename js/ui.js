@@ -300,10 +300,13 @@ const UI = (() => {
       addDetailField(body, 'Target User', `@${event.details.targetUser}`);
     }
 
-    // GitHub link
+    // GitHub / pipeline link
     if (event.details?.url) {
-      addDetailField(body, 'GitHub Link',
-        `<a href="${event.details.url}" target="_blank">View on GitHub ↗</a>`);
+      const isReleasePipeline = event.type.startsWith('release_pipeline');
+      const linkLabel = isReleasePipeline ? 'Pipeline Run' : 'GitHub Link';
+      const linkText = isReleasePipeline ? 'View pipeline run ↗' : 'View on GitHub ↗';
+      addDetailField(body, linkLabel,
+        `<a href="${event.details.url}" target="_blank">${linkText}</a>`);
     }
 
     // Release details (pull from PR's release object when viewing release events)
@@ -313,7 +316,8 @@ const UI = (() => {
         const verStr = rel.packageVersion ? ` v${Timeline.escapeHtml(rel.packageVersion)}` : '';
         addDetailField(body, 'Package', `${Timeline.escapeHtml(rel.packageName)}${verStr}`);
       }
-      if (rel.pipelineUrl) {
+      // Show pipeline link from PR release object only if the event doesn't already have its own URL
+      if (rel.pipelineUrl && !event.details?.url) {
         addDetailField(body, 'Release Pipeline',
           `<a href="${rel.pipelineUrl}" target="_blank">${Timeline.escapeHtml(rel.pipelineName || 'View pipeline')} ↗</a>`);
       }

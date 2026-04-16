@@ -177,8 +177,8 @@ const UI = (() => {
 
     const sections = [
       { items: toolingSamples, icon: '⚙️', label: 'With Agent Tooling' },
-      { items: inFlightSamples, icon: '🚧', label: 'In Flight' },
-      { items: standardSamples, icon: '📋', label: 'Standard Flows' }
+      { items: standardSamples, icon: '📋', label: 'Standard Flows' },
+      { items: inFlightSamples, icon: '🚧', label: 'In Flight' }
     ];
 
     for (const section of sections) {

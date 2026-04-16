@@ -57,6 +57,17 @@ function daysBetween(a, b) {
   return Math.round(((d2 - d1) / 86400000) * 100) / 100;
 }
 
+// Extract description from comment body, skipping markdown quote lines (> ...)
+function stripQuotedDescription(body) {
+  const lines = body.split('\n');
+  const firstNonQuote = lines.find(l => {
+    const trimmed = l.trim();
+    return trimmed.length > 0 && !trimmed.startsWith('>');
+  });
+  const text = firstNonQuote || lines[0] || '';
+  return text.trim().slice(0, 100).replace(/\n/g, ' ');
+}
+
 function processEvents(prData, owner) {
   const events = [];
   const raw = prData._raw || {};
@@ -186,7 +197,7 @@ function processEvents(prData, owner) {
     events.push({
       type: etype, timestamp: ts,
       actor: user, actorRole: makeActorRole(user, owner),
-      description: body ? body.slice(0, 100).replace(/\n/g, ' ') : `Comment by ${user}`,
+      description: body ? stripQuotedDescription(body) : `Comment by ${user}`,
       sentiment: 'neutral',
       details: { body: body ? body.slice(0, 500) : null, url: c.html_url || '' }
     });
@@ -201,7 +212,7 @@ function processEvents(prData, owner) {
     events.push({
       type: 'review_comment', timestamp: ts,
       actor: user, actorRole: makeActorRole(user, owner),
-      description: body ? body.slice(0, 100).replace(/\n/g, ' ') : `Inline review by ${user}`,
+      description: body ? stripQuotedDescription(body) : `Inline review by ${user}`,
       sentiment: user !== owner ? 'blocking' : 'neutral',
       details: { body: body ? body.slice(0, 500) : null, url: c.html_url || '' }
     });

@@ -27,7 +27,7 @@
 
   --lane-height: 112px;
   --lane-gap: 4px;
-  --label-width: 200px;
+  --label-width: 220px;
   --event-size: 16px;
   --header-height: auto;
   --radius: 6px;
@@ -452,12 +452,12 @@ header {
 .lane-label {
   min-width: var(--label-width);
   max-width: var(--label-width);
-  padding: 8px 12px;
+  padding: 10px 12px;
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2px;
+  gap: 4px;
   position: sticky;
   left: 0;
   z-index: 6;
@@ -465,7 +465,7 @@ header {
 }
 
 .lane-label .lane-repo {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-primary);
   overflow: hidden;
@@ -482,7 +482,7 @@ header {
 }
 
 .lane-label .lane-meta {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-muted);
   display: flex;
   gap: 4px 8px;
@@ -492,9 +492,9 @@ header {
 
 .lane-label .lane-language {
   display: inline-block;
-  padding: 0 6px;
+  padding: 1px 7px;
   border-radius: 3px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -512,23 +512,23 @@ header {
 
 .release-badge {
   display: inline-block;
-  padding: 0 4px;
+  padding: 1px 5px;
   border-radius: 3px;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
 
 .flow-badge {
-  font-size: 11px;
+  font-size: 13px;
   cursor: help;
   opacity: 0.8;
 }
 .flow-badge.automated { opacity: 0.7; }
 .flow-badge.manual { opacity: 0.9; }
 .spec-to-sdk {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--teal);
   opacity: 0.85;
   cursor: help;

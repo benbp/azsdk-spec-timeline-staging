@@ -1083,6 +1083,14 @@ header {
   margin-top: 4px;
 }
 
+.generated-date {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 12px;
+  font-style: italic;
+  opacity: 0.7;
+}
+
 .skill-instructions {
   margin-top: 20px;
   padding: 20px 24px;

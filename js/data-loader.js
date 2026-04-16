@@ -103,6 +103,31 @@ const DataLoader = (() => {
   }
 
   async function loadFromUrl(url) {
+    // fetch() doesn't work with file:// protocol; fall back to XMLHttpRequest
+    if (window.location.protocol === 'file:') {
+      return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onload = () => {
+          if (xhr.status === 0 || xhr.status === 200) {
+            try {
+              const data = JSON.parse(xhr.responseText);
+              const errors = validate(data);
+              if (errors.length) return reject(new Error(`Validation errors:\n${errors.join('\n')}`));
+              resolve(data);
+            } catch (e) { reject(e); }
+          } else {
+            reject(new Error(`Failed to load: ${xhr.status}`));
+          }
+        };
+        xhr.onerror = () => reject(new Error(
+          'Cannot load data files from file:// protocol.\n\n' +
+          'Run a local server:\n  python3 -m http.server 8080\n\n' +
+          'Then open http://localhost:8080'
+        ));
+        xhr.send();
+      });
+    }
     const response = await fetch(url);
     if (!response.ok) throw new Error(`Failed to fetch: ${response.status}`);
     const data = await response.json();

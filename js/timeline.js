@@ -41,12 +41,16 @@ const Timeline = (() => {
 
   function renderHeader() {
     document.getElementById('timeline-title').textContent = data.title;
-    document.getElementById('meta-owner').textContent = `👤 ${data.owner}`;
+    const ownerEl = document.getElementById('meta-owner');
+    ownerEl.textContent = `👤 ${data.owner}`;
     const days = data.summary?.totalDurationDays ||
       DataLoader.computeDurationDays(data.startDate, data.endDate);
     document.getElementById('meta-duration').textContent = `⏱ ${days} days`;
-    document.getElementById('meta-dates').textContent =
-      `📅 ${DataLoader.formatDate(data.startDate)} → ${DataLoader.formatDate(data.endDate)}`;
+    const specLink = data.specPR?.url
+      ? ` · <a href="${data.specPR.url}" target="_blank" class="header-spec-link" title="View spec PR on GitHub">#${data.specPR.number}</a>`
+      : '';
+    document.getElementById('meta-dates').innerHTML =
+      `📅 ${DataLoader.formatDate(data.startDate)} → ${DataLoader.formatDate(data.endDate)}${specLink}`;
   }
 
   function renderSummaryCards() {
@@ -136,11 +140,11 @@ const Timeline = (() => {
     container.innerHTML = '';
 
     const types = [
-      'pr_created', 'pr_merged', 'review_approved', 'review_comment',
-      'issue_comment', 'author_nag', 'manual_fix', 'commit_pushed',
-      'bot_comment', 'label_added', 'idle_gap',
-      'release_pipeline_started', 'release_pipeline_completed', 'release_pending',
-      'tool_call'
+      'pr_created', 'pr_merged', 'review_approved', 'review_changes_requested',
+      'review_comment', 'issue_comment', 'author_nag', 'manual_fix',
+      'commit_pushed', 'bot_comment', 'ci_status', 'idle_gap',
+      'release_pipeline_started', 'release_pipeline_completed',
+      'release_pipeline_failed', 'release_pending', 'tool_call'
     ];
 
     // Toggle all button
@@ -762,11 +766,22 @@ const Timeline = (() => {
     for (const insight of data.insights) {
       const item = document.createElement('div');
       item.className = `insight-item ${insight.severity || 'info'}`;
+      // Convert prRef like "Azure/azure-rest-api-specs#39908" to a clickable link
+      let refHtml = '';
+      if (insight.prRef) {
+        const match = insight.prRef.match(/^(.+?)#(\d+)$/);
+        if (match) {
+          const url = `https://github.com/${match[1]}/pull/${match[2]}`;
+          refHtml = `<div class="insight-pr-ref"><a href="${url}" target="_blank">${escapeHtml(insight.prRef)}</a>${insight.durationDays ? ` · ${insight.durationDays}d` : ''}</div>`;
+        } else {
+          refHtml = `<div class="insight-pr-ref">${escapeHtml(insight.prRef)}${insight.durationDays ? ` · ${insight.durationDays}d` : ''}</div>`;
+        }
+      }
       item.innerHTML = `
         <span class="insight-icon">${iconMap[insight.type] || '💡'}</span>
         <div>
           <div class="insight-text">${escapeHtml(insight.description)}</div>
-          ${insight.prRef ? `<div class="insight-pr-ref">${escapeHtml(insight.prRef)}${insight.durationDays ? ` · ${insight.durationDays}d` : ''}</div>` : ''}
+          ${refHtml}
         </div>
       `;
       list.appendChild(item);

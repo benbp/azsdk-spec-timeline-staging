@@ -1183,7 +1183,7 @@
           }
         }
       ],
-      "language": "JS",
+      "language": "JavaScript",
       "release": {
         "packageName": "@azure/arm-nginx",
         "packageVersion": "4.0.0",

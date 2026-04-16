@@ -635,7 +635,7 @@
     },
     {
       "repo": "Azure/azure-sdk-for-js",
-      "language": "JS",
+      "language": "JavaScript",
       "number": 37688,
       "url": "https://github.com/Azure/azure-sdk-for-js/pull/37688",
       "title": "[AutoPR @azure-arm-keyvault]-generated-from-SDK Generation - JS-6022783",
@@ -928,7 +928,7 @@
       "days": 1.28
     },
     "slowestSDKPR": {
-      "language": "JS",
+      "language": "JavaScript",
       "days": 2.36
     },
     "totalUniqueReviewers": 10,

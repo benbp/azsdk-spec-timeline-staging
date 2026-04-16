@@ -232,6 +232,10 @@ const UI = (() => {
         </div>`
       : '';
 
+    const linkHtml = event.details?.url
+      ? `<div class="tooltip-link">🔗 click for details + GitHub link</div>`
+      : '';
+
     tip.innerHTML = `
       <div class="tooltip-type">${info.icon} ${info.label}</div>
       <div class="tooltip-desc">${Timeline.escapeHtml(event.description)}</div>
@@ -241,6 +245,7 @@ const UI = (() => {
       </div>
       ${toolMeta}
       ${event.details?.durationHours ? `<div class="tooltip-meta"><span>⏱ Duration: ${DataLoader.formatDuration(event.details.durationHours)}</span></div>` : ''}
+      ${linkHtml}
     `;
 
     tip.classList.remove('hidden');

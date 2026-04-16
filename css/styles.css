@@ -876,6 +876,13 @@ header {
   gap: 8px;
 }
 
+.tooltip .tooltip-link {
+  font-size: 10px;
+  color: var(--accent);
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
 /* Detail Panel */
 .detail-panel {
   position: fixed;
@@ -1046,6 +1053,25 @@ header {
   font-size: 11px;
   color: var(--text-secondary);
   margin-top: 2px;
+}
+
+.insight-pr-ref a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.insight-pr-ref a:hover {
+  text-decoration: underline;
+}
+
+.header-spec-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header-spec-link:hover {
+  text-decoration: underline;
 }
 
 /* Empty State */

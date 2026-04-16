@@ -119,7 +119,7 @@ const Timeline = (() => {
       // Compute active time: sum of (readyForReview or created) → (merged or now) per PR
       const activeDays = computeActiveDays(data);
       const totalDays = s.totalDurationDays || DataLoader.computeDurationDays(data.startDate, data.endDate);
-      if (activeDays != null && activeDays !== totalDays) {
+      if (activeDays != null && Math.abs(activeDays - totalDays) >= 1) {
         cards.splice(5, 0, {
           label: 'Active Time',
           value: fmt(activeDays),

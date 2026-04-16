@@ -591,6 +591,22 @@ header {
   background: var(--green-bg);
   border-color: var(--green);
 }
+.pr-bar.open {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--teal-bg, rgba(63, 185, 80, 0.15)),
+    var(--teal-bg, rgba(63, 185, 80, 0.15)) 6px,
+    transparent 6px,
+    transparent 10px
+  );
+  border-color: var(--teal);
+  border-style: dashed;
+}
+.pr-bar.closed {
+  background: var(--red-bg, rgba(248, 81, 73, 0.15));
+  border-color: var(--red);
+  opacity: 0.7;
+}
 
 /* Release segment: extends PR bar from merge to release */
 .release-bar {
@@ -1180,6 +1196,15 @@ header {
 .sample-btn.has-tooling:hover {
   border-color: var(--green);
   background: rgba(63, 185, 80, 0.1);
+}
+.sample-btn.in-flight {
+  border-color: var(--orange);
+  background: rgba(227, 179, 65, 0.04);
+  border-style: dashed;
+}
+.sample-btn.in-flight:hover {
+  border-color: var(--orange);
+  background: rgba(227, 179, 65, 0.1);
 }
 
 .sample-btn .sample-name {

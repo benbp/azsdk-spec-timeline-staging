@@ -14,21 +14,9 @@ const UI = (() => {
       hasTooling: true
     },
     {
-      file: 'data/sample-computeschedule.json',
-      name: 'ComputeSchedule',
-      meta: 'hardikginwala · 28d · 21 tool calls · 14 manual .NET commits',
-      hasTooling: true
-    },
-    {
       file: 'data/sample-containerservice.json',
       name: 'ContainerService (AKS)',
       meta: 'FumingZhang · 47d · 33 tool calls · 12 SDK PRs · 2 nags',
-      hasTooling: true
-    },
-    {
-      file: 'data/sample-storage.json',
-      name: 'Storage (AdvancedPlatformMetrics)',
-      meta: 'jwfeshuk · 17d · 18 tool calls · no SDK PRs yet',
       hasTooling: true
     },
     {
@@ -36,6 +24,20 @@ const UI = (() => {
       name: 'AzureSearch',
       meta: 'yangylu91 · 53d · 25 tool calls · 42d spec review',
       hasTooling: true
+    },
+    {
+      file: 'data/sample-computeschedule.json',
+      name: 'ComputeSchedule',
+      meta: 'hardikginwala · 21 tool calls · 1/5 merged · 3 open PRs',
+      hasTooling: true,
+      inFlight: true
+    },
+    {
+      file: 'data/sample-storage.json',
+      name: 'Storage (AdvancedPlatformMetrics)',
+      meta: 'jwfeshuk · 18 tool calls · spec merged · no SDK PRs yet',
+      hasTooling: true,
+      inFlight: true
     },
     {
       file: 'data/sample-durabletask.json',
@@ -141,30 +143,25 @@ const UI = (() => {
     if (!container) return;
     container.innerHTML = '';
 
-    const toolingSamples = SAMPLES.filter(s => s.hasTooling);
-    const standardSamples = SAMPLES.filter(s => !s.hasTooling);
+    const toolingSamples = SAMPLES.filter(s => s.hasTooling && !s.inFlight);
+    const inFlightSamples = SAMPLES.filter(s => s.inFlight);
+    const standardSamples = SAMPLES.filter(s => !s.hasTooling && !s.inFlight);
 
-    if (toolingSamples.length > 0) {
+    const sections = [
+      { items: toolingSamples, icon: '⚙️', label: 'With Agent Tooling' },
+      { items: inFlightSamples, icon: '🚧', label: 'In Flight' },
+      { items: standardSamples, icon: '📋', label: 'Standard Flows' }
+    ];
+
+    for (const section of sections) {
+      if (section.items.length === 0) continue;
       const heading = document.createElement('div');
       heading.className = 'sample-section-heading';
-      heading.innerHTML = '⚙️ With Agent Tooling';
+      heading.innerHTML = `${section.icon} ${section.label}`;
       container.appendChild(heading);
       const grid = document.createElement('div');
       grid.className = 'sample-grid';
-      for (const sample of toolingSamples) {
-        grid.appendChild(createSampleBtn(sample));
-      }
-      container.appendChild(grid);
-    }
-
-    if (standardSamples.length > 0) {
-      const heading = document.createElement('div');
-      heading.className = 'sample-section-heading';
-      heading.innerHTML = '📋 Standard Flows';
-      container.appendChild(heading);
-      const grid = document.createElement('div');
-      grid.className = 'sample-grid';
-      for (const sample of standardSamples) {
+      for (const sample of section.items) {
         grid.appendChild(createSampleBtn(sample));
       }
       container.appendChild(grid);
@@ -173,7 +170,7 @@ const UI = (() => {
 
   function createSampleBtn(sample) {
     const btn = document.createElement('button');
-    btn.className = `sample-btn ${sample.hasTooling ? 'has-tooling' : ''}`;
+    btn.className = `sample-btn ${sample.hasTooling ? 'has-tooling' : ''} ${sample.inFlight ? 'in-flight' : ''}`;
     btn.innerHTML = `
       <div class="sample-name">${sample.name}</div>
       <div class="sample-meta">${sample.meta}</div>

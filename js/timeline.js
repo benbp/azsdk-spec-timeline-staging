@@ -69,29 +69,31 @@ const Timeline = (() => {
       }
     }
 
+    const fmt = (v, suffix = 'd') => v != null ? `${v}${suffix}` : '—';
+
     const cards = [
-      { label: 'Spec PR', value: `${s.specPRDays || '—'}d`, sub: 'API review', cls: 'info' },
-      { label: 'Pipeline Gap', value: `${s.pipelineGapDays || '—'}d`, sub: 'Merge → SDK PRs', cls: s.pipelineGapDays > 7 ? 'critical' : 'warning' },
-      { label: 'Slowest SDK', value: `${s.slowestSDKPR?.days || '—'}d`, sub: s.slowestSDKPR?.language || '', cls: 'warning' },
-      { label: 'Fastest SDK', value: `${s.fastestSDKPR?.days || '—'}d`, sub: s.fastestSDKPR?.language || '', cls: 'positive' },
-      { label: 'Total', value: `${s.totalDurationDays || DataLoader.computeDurationDays(data.startDate, data.endDate) || '—'}d`, sub: 'End to end', cls: 'info' },
+      { label: 'Spec PR', value: fmt(s.specPRDays), sub: 'API review', cls: 'info' },
+      { label: 'Pipeline Gap', value: fmt(s.pipelineGapDays), sub: 'Merge → SDK PRs', cls: s.pipelineGapDays > 7 ? 'critical' : 'warning' },
+      { label: 'Slowest SDK', value: fmt(s.slowestSDKPR?.days), sub: s.slowestSDKPR?.language || '', cls: 'warning' },
+      { label: 'Fastest SDK', value: fmt(s.fastestSDKPR?.days), sub: s.fastestSDKPR?.language || '', cls: 'positive' },
+      { label: 'Total', value: fmt(s.totalDurationDays || DataLoader.computeDurationDays(data.startDate, data.endDate)), sub: 'End to end', cls: 'info' },
       { label: 'Nags', value: `${s.totalNags || 0}`, sub: 'Author nudges', cls: s.totalNags > 0 ? 'warning' : 'positive' },
       { label: 'Manual Fixes', value: `${s.totalManualFixes || 0}`, sub: 'On auto PRs', cls: s.totalManualFixes > 0 ? 'warning' : 'positive' },
       { label: 'PR Edits', value: `${s.totalPREdits || 0}`, sub: 'On manual PRs', cls: s.totalPREdits > 0 ? 'warning' : 'positive' },
-      { label: 'Reviewers', value: `${s.totalUniqueReviewers || '—'}`, sub: 'Unique people', cls: 'info' },
+      { label: 'Reviewers', value: `${s.totalUniqueReviewers != null ? s.totalUniqueReviewers : '—'}`, sub: 'Unique people', cls: 'info' },
     ];
 
     // Add release cards if release data exists
-    if (s.avgReleaseGapDays !== undefined || s.pendingReleases !== undefined) {
-      if (s.avgReleaseGapDays !== undefined) {
+    if (s.avgReleaseGapDays != null || s.pendingReleases != null) {
+      if (s.avgReleaseGapDays != null) {
         cards.push({
           label: 'Release Gap',
-          value: `${s.avgReleaseGapDays}d`,
+          value: fmt(s.avgReleaseGapDays),
           sub: 'Avg merge → publish',
           cls: s.avgReleaseGapDays > 3 ? 'warning' : 'positive'
         });
       }
-      if (s.pendingReleases !== undefined && s.pendingReleases > 0) {
+      if (s.pendingReleases != null && s.pendingReleases > 0) {
         cards.push({
           label: 'Pending',
           value: `${s.pendingReleases}`,
@@ -484,11 +486,12 @@ const Timeline = (() => {
 
     const prDays = pr.mergedAt
       ? DataLoader.computeDurationDays(pr.createdAt, pr.mergedAt)
-      : '—';
+      : null;
+    const prDaysDisplay = prDays != null ? `${prDays}d` : (pr.state === 'open' ? '⏳ open' : pr.state === 'closed' ? '✖ closed' : '—');
     // Tooltip for the duration label showing created/merged dates
     const durationTooltip = pr.mergedAt
       ? `PR open ${prDays} days (${DataLoader.formatDate(pr.createdAt)} → ${DataLoader.formatDate(pr.mergedAt)})`
-      : 'PR not yet merged';
+      : pr.state === 'open' ? `PR still open (since ${DataLoader.formatDate(pr.createdAt)})` : 'PR not merged';
     // For spec PR: compute time to first SDK PR opening
     let specToSdkHtml = '';
     if (isSpec && data.sdkPRs && data.sdkPRs.length > 0) {
@@ -526,7 +529,7 @@ const Timeline = (() => {
       <div class="lane-meta">
         <span class="lane-language ${langClass}">${langText}</span>
         ${flowIcon}
-        <span title="${durationTooltip}">${prDays}d</span>
+        <span title="${durationTooltip}">${prDaysDisplay}</span>
         ${specToSdkHtml}
         ${releaseStatus}
       </div>
@@ -553,7 +556,7 @@ const Timeline = (() => {
     const barStart = timeToX(pr.createdAt);
     const barEnd = timeToX(pr.mergedAt || pr.closedAt || data.endDate);
     const bar = document.createElement('div');
-    bar.className = `pr-bar ${pr.state === 'merged' ? 'merged' : ''}`;
+    bar.className = `pr-bar ${pr.state === 'merged' ? 'merged' : ''} ${pr.state === 'open' ? 'open' : ''} ${pr.state === 'closed' && !pr.mergedAt ? 'closed' : ''}`;
     bar.style.left = barStart + 'px';
     bar.style.width = Math.max(barEnd - barStart, 4) + 'px';
     content.appendChild(bar);

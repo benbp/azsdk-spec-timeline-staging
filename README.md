@@ -39,7 +39,7 @@ Agents use `playwright-cli` for testing.
 
 ### Dependencies
 
+- node/npm/npx
 - github cli
 - playwright-cli
-- node/npm/npx
 - azure cli with devops extension

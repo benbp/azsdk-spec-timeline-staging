@@ -267,7 +267,7 @@ const Timeline = (() => {
     container.innerHTML =
       '<span class="filters-label">Legend:</span>' +
       items.map(item =>
-        `<span class="bar-legend-item"><span class="bar-legend-swatch ${item.cls}"></span>${item.label}</span>`
+        `<span class="bar-legend-item">${item.label}<span class="bar-legend-swatch ${item.cls}"></span></span>`
       ).join('');
   }
 

@@ -375,8 +375,9 @@ header {
 }
 .bar-legend-item {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 3px;
   font-size: 11px;
   color: var(--text-secondary);
   padding: 2px 8px 2px 0;

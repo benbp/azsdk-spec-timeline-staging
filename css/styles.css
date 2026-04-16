@@ -367,8 +367,9 @@ header {
 .bar-legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 8px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
   padding: 6px 0;
   border-top: 1px solid var(--border);
 }
@@ -378,13 +379,20 @@ header {
   gap: 6px;
   font-size: 11px;
   color: var(--text-secondary);
+  padding: 2px 8px 2px 0;
 }
 .bar-legend-swatch {
   display: inline-block;
-  width: 40px;
-  height: 10px;
-  border-radius: 3px;
+  width: 48px;
+  height: 8px !important;
+  border-radius: 4px;
   flex-shrink: 0;
+  vertical-align: middle;
+  position: static !important;
+  transform: none !important;
+  top: auto !important;
+  z-index: auto !important;
+  opacity: 1;
 }
 .bar-legend-swatch.pr-bar.merged {
   background: var(--green-bg);
@@ -403,7 +411,7 @@ header {
 .bar-legend-swatch.pr-bar.closed {
   background: var(--red-bg, rgba(248, 81, 73, 0.15));
   border: 1px solid var(--red);
-  opacity: 0.7;
+  opacity: 1;
 }
 .bar-legend-swatch.pr-bar-draft {
   background: repeating-linear-gradient(
@@ -433,8 +441,9 @@ header {
     transparent 3px,
     transparent 6px
   );
-  opacity: 0.5;
+  opacity: 0.7;
   height: 14px;
+  border-radius: 2px;
 }
 
 /* Timeline Container */

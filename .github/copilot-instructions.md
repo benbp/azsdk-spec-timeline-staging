@@ -71,6 +71,7 @@ No build step needed — edit files and reload.
 
 - **Never git push** — you may commit freely, but the user handles pushing.
 - **Testing**: Always use the `playwright-cli` skill for browser testing. Do not use raw Playwright APIs or install Playwright separately.
+  - Save screenshots from playwright testing to the `screenshots/` directory, so they get ignored by git
 - **No new dependencies** — this is a zero-dependency frontend. Scripts use Node.js built-ins and `gh` CLI.
 
 ## Approach to Making Changes

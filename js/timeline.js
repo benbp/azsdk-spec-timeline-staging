@@ -264,9 +264,11 @@ const Timeline = (() => {
       { cls: 'release-bar released', label: 'Release' },
       { cls: 'idle-gap warning', label: 'Idle gap' },
     ];
-    container.innerHTML = items.map(item =>
-      `<span class="bar-legend-item"><span class="bar-legend-swatch ${item.cls}"></span>${item.label}</span>`
-    ).join('');
+    container.innerHTML =
+      '<span class="filters-label">Legend:</span>' +
+      items.map(item =>
+        `<span class="bar-legend-item"><span class="bar-legend-swatch ${item.cls}"></span>${item.label}</span>`
+      ).join('');
   }
 
   function toggleFilter(type, btn) {

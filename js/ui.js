@@ -68,6 +68,20 @@ const UI = (() => {
       name: 'Nginx.NginxPlus',
       meta: 'Jan 26 – Mar 23 · briantkim93 · 52d · 31d pipeline gap · 3 nags',
       hasTooling: false
+    },
+    {
+      file: 'data/sample-containerregistry.json',
+      name: 'ContainerRegistry',
+      meta: 'Mar 11 – Apr 7 · live1206 · 27d · 21d spec review · 2 PRs still open',
+      hasTooling: false,
+      inFlight: true
+    },
+    {
+      file: 'data/sample-servicegroups.json',
+      name: 'ServiceGroups',
+      meta: 'Mar 27 – Apr 1 · Copilot · 4d · no .NET PR · 2 PRs still open',
+      hasTooling: false,
+      inFlight: true
     }
   ];
 

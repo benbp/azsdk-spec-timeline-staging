@@ -320,7 +320,8 @@ header {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   margin-bottom: 20px;
 }
 
@@ -345,6 +346,10 @@ header {
   min-width: var(--label-width);
   max-width: var(--label-width);
   border-right: 1px solid var(--border);
+  position: sticky;
+  left: 0;
+  z-index: 6;
+  background: var(--bg-tertiary);
 }
 
 .time-axis {
@@ -374,8 +379,6 @@ header {
 /* Lanes */
 .lanes {
   position: relative;
-  overflow-x: auto;
-  overflow-y: hidden;
 }
 
 .lane {
@@ -392,16 +395,28 @@ header {
 .lane:hover {
   background: var(--bg-tertiary);
 }
+.lane:hover .lane-label {
+  background: var(--bg-tertiary);
+}
 
 .lane.spec-lane {
   border-bottom: 2px solid var(--border);
+  background: rgba(88, 166, 255, 0.03);
+}
+.lane.spec-lane .lane-label {
   background: rgba(88, 166, 255, 0.03);
 }
 
 .lane.released {
   background: rgba(63, 185, 80, 0.04);
 }
+.lane.released .lane-label {
+  background: rgba(63, 185, 80, 0.04);
+}
 .lane.released:hover {
+  background: rgba(63, 185, 80, 0.08);
+}
+.lane.released:hover .lane-label {
   background: rgba(63, 185, 80, 0.08);
 }
 .lane.missing-lane {
@@ -443,6 +458,10 @@ header {
   flex-direction: column;
   justify-content: center;
   gap: 2px;
+  position: sticky;
+  left: 0;
+  z-index: 6;
+  background: var(--bg-secondary);
 }
 
 .lane-label .lane-repo {
@@ -466,8 +485,9 @@ header {
   font-size: 11px;
   color: var(--text-muted);
   display: flex;
-  gap: 8px;
+  gap: 4px 8px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .lane-label .lane-language {
@@ -497,6 +517,7 @@ header {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .flow-badge {

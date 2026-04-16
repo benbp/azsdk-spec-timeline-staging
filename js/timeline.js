@@ -544,18 +544,13 @@ const Timeline = (() => {
     content.appendChild(bar);
 
     // Release segment bar (extends from merge to release)
-    if (pr.release && pr.mergedAt) {
+    if (pr.release && pr.mergedAt && pr.release.releasedAt) {
       const mergeX = timeToX(pr.mergedAt);
-      let releaseEnd;
-      const status = pr.release.status || 'pending';
+      let releaseEnd = timeToX(pr.release.releasedAt);
+      const status = pr.release.status || 'released';
 
-      if (pr.release.releasedAt) {
-        releaseEnd = timeToX(pr.release.releasedAt);
-        // Clamp: release can't render before merge (CSV dates are midnight approx)
-        if (releaseEnd <= mergeX) releaseEnd = mergeX + 8;
-      } else {
-        releaseEnd = timeToX(data.endDate);
-      }
+      // Clamp: release can't render before merge (CSV dates are midnight approx)
+      if (releaseEnd <= mergeX) releaseEnd = mergeX + 8;
 
       const barWidth = Math.max(releaseEnd - mergeX, 4);
       const releaseBar = document.createElement('div');
@@ -564,9 +559,7 @@ const Timeline = (() => {
       releaseBar.style.width = barWidth + 'px';
       releaseBar.title = status === 'released'
         ? `Released ${DataLoader.formatDate(pr.release.releasedAt)} (${pr.release.releaseGapDays != null ? pr.release.releaseGapDays + 'd' : 'same day'} after merge)`
-        : status === 'pending'
-          ? `⚠ Release pending — merged but not yet published`
-          : `❌ Release pipeline failed`;
+        : `❌ Release pipeline failed`;
       content.appendChild(releaseBar);
     }
 

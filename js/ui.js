@@ -10,63 +10,63 @@ const UI = (() => {
     {
       file: 'data/sample-netapp.json',
       name: 'NetApp',
-      meta: 'audunn · 39d · 👤 manual .NET + 🤖 automated · all released',
+      meta: 'Jan 26 – Mar 25 · audunn · 39d · 👤 manual .NET + 🤖 automated · all released',
       hasTooling: true
     },
     {
       file: 'data/sample-containerservice.json',
       name: 'ContainerService (AKS)',
-      meta: 'FumingZhang · 47d · 33 tool calls · 12 SDK PRs · 2 nags',
+      meta: 'Feb 19 – Apr 7 · FumingZhang · 47d · 33 tool calls · 12 SDK PRs · 2 nags',
       hasTooling: true
     },
     {
       file: 'data/sample-search.json',
       name: 'AzureSearch',
-      meta: 'yangylu91 · 53d · 25 tool calls · 42d spec review',
+      meta: 'Feb 13 – Apr 6 · yangylu91 · 53d · 25 tool calls · 42d spec review',
       hasTooling: true
     },
     {
       file: 'data/sample-computeschedule.json',
       name: 'ComputeSchedule',
-      meta: 'hardikginwala · 21 tool calls · 1/5 merged · 3 open PRs',
+      meta: 'Mar 12 – ongoing · hardikginwala · 21 tool calls · 1/5 merged · 3 open PRs',
       hasTooling: true,
       inFlight: true
     },
     {
       file: 'data/sample-storage.json',
       name: 'Storage (AdvancedPlatformMetrics)',
-      meta: 'jwfeshuk · 18 tool calls · spec merged · no SDK PRs yet',
+      meta: 'Mar 16 – ongoing · jwfeshuk · 18 tool calls · spec merged · no SDK PRs yet',
       hasTooling: true,
       inFlight: true
     },
     {
       file: 'data/sample-durabletask.json',
       name: 'DurableTask',
-      meta: 'berndverst · 31d · 4 nags · 1 manual fix',
+      meta: 'Feb 10 – Mar 13 · berndverst · 31d · 4 nags · 1 manual fix',
       hasTooling: false
     },
     {
       file: 'data/sample-playwright.json',
       name: 'Playwright Testing',
-      meta: 'mjmadhu · 57d · 49d pipeline gap',
+      meta: 'Feb 4 – Apr 2 · mjmadhu · 57d · 49d pipeline gap',
       hasTooling: false
     },
     {
       file: 'data/sample-appnetwork.json',
       name: 'AppNetwork (AppLink)',
-      meta: 'deveshdama · 27d · new RP onboarding',
+      meta: 'Feb 28 – Mar 27 · deveshdama · 27d · new RP onboarding',
       hasTooling: false
     },
     {
       file: 'data/sample-keyvault.json',
       name: 'Key Vault',
-      meta: 'melissamserv · 30d · 22d pipeline gap · 3 nags',
+      meta: 'Feb 17 – Mar 30 · melissamserv · 30d · 22d pipeline gap · 3 nags',
       hasTooling: false
     },
     {
       file: 'data/sample-nginx.json',
       name: 'Nginx.NginxPlus',
-      meta: 'briantkim93 · 52d · 31d pipeline gap · 3 nags',
+      meta: 'Jan 26 – Mar 23 · briantkim93 · 52d · 31d pipeline gap · 3 nags',
       hasTooling: false
     }
   ];

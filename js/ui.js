@@ -273,6 +273,18 @@ const UI = (() => {
     tooltip().classList.add('hidden');
   }
 
+  function githubUserLink(username) {
+    const safe = Timeline.escapeHtml(username);
+    return `<a href="https://github.com/${safe}" target="_blank" class="github-user-link">@${safe}</a>`;
+  }
+
+  function linkifyUrls(text) {
+    return text.replace(
+      /(https?:\/\/[^\s<>"')\]]+)/g,
+      '<a href="$1" target="_blank" class="auto-link">$1</a>'
+    );
+  }
+
   function showDetail(event, pr) {
     const panel = detailPanel();
     const info = DataLoader.getEventTypeInfo(event.type);
@@ -285,8 +297,9 @@ const UI = (() => {
     // Description
     addDetailField(body, 'Description', event.description);
 
-    // Actor
-    addDetailField(body, 'Actor', `${event.actor} (${event.actorRole || 'unknown'})`);
+    // Actor — linked to GitHub profile
+    const actorLink = githubUserLink(event.actor);
+    addDetailField(body, 'Actor', `${actorLink} (${event.actorRole || 'unknown'})`);
 
     // Timestamp
     addDetailField(body, 'Timestamp', DataLoader.formatDateTime(event.timestamp));
@@ -309,9 +322,9 @@ const UI = (() => {
       addDetailField(body, 'Duration', DataLoader.formatDuration(event.details.durationHours));
     }
 
-    // Target user
+    // Target user — linked to GitHub profile
     if (event.details?.targetUser) {
-      addDetailField(body, 'Target User', `@${event.details.targetUser}`);
+      addDetailField(body, 'Target User', githubUserLink(event.details.targetUser));
     }
 
     // GitHub / pipeline link
@@ -362,13 +375,18 @@ const UI = (() => {
       if (d.packageType) addDetailField(body, 'Package Type', d.packageType);
     }
 
-    // Comment body
+    // Comment body — expandable with linkified URLs
     if (event.details?.body) {
+      const escapedBody = Timeline.escapeHtml(event.details.body);
+      const linkedBody = linkifyUrls(escapedBody);
       const bodyField = document.createElement('div');
       bodyField.className = 'detail-field';
       bodyField.innerHTML = `
         <div class="detail-label">Comment Body</div>
-        <div class="detail-comment">${Timeline.escapeHtml(event.details.body)}</div>
+        <div class="detail-comment collapsed" onclick="this.classList.toggle('collapsed')">
+          ${linkedBody}
+          <div class="comment-expand-hint">Click to expand ↓</div>
+        </div>
       `;
       body.appendChild(bodyField);
     }

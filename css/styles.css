@@ -977,8 +977,52 @@ header {
   white-space: pre-wrap;
   word-break: break-word;
   color: var(--text-primary);
-  max-height: 300px;
+  max-height: 400px;
   overflow-y: auto;
+  cursor: pointer;
+  position: relative;
+}
+
+.detail-body .detail-comment.collapsed {
+  max-height: 4.8em;
+  overflow: hidden;
+}
+
+.detail-body .detail-comment.collapsed .comment-expand-hint {
+  display: block;
+}
+
+.comment-expand-hint {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 4px 0;
+  font-size: 11px;
+  color: var(--accent);
+  background: linear-gradient(transparent, var(--bg-tertiary) 40%);
+}
+
+.github-user-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.github-user-link:hover {
+  text-decoration: underline;
+}
+
+.auto-link {
+  color: var(--accent);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.auto-link:hover {
+  text-decoration: underline;
 }
 
 .detail-body .sentiment-badge {

@@ -68,6 +68,68 @@ function stripQuotedDescription(body) {
   return text.trim().slice(0, 100).replace(/\n/g, ' ');
 }
 
+// Compute total time waiting for reviewer response.
+// A wait cycle starts at PR creation (or ready_for_review if draft) or after an author action,
+// and ends when a non-bot reviewer responds.
+const REVIEW_WAIT_SKIP_TYPES = new Set([
+  'idle_gap', 'bot_comment', 'label_added', 'ci_status',
+  'release_pipeline_started', 'release_pipeline_completed', 'release_pipeline_failed',
+  'release_pending', 'convert_to_draft'
+]);
+
+function computeReviewWaitDays(events, readyForReviewAt) {
+  let totalMs = 0;
+  let cycleCount = 0;
+  let waitStart = null;
+
+  // If there's a ready_for_review event, skip all events before it
+  const startAfter = readyForReviewAt ? new Date(readyForReviewAt).getTime() : 0;
+
+  for (const e of events) {
+    if (REVIEW_WAIT_SKIP_TYPES.has(e.type)) continue;
+
+    const ts = new Date(e.timestamp).getTime();
+
+    // Skip events before ready_for_review for draft PRs
+    if (ts < startAfter) continue;
+
+    if (e.type === 'ready_for_review') {
+      // Draft PR becoming ready — start waiting for review
+      waitStart = ts;
+      continue;
+    }
+
+    if (e.type === 'pr_created') {
+      // Non-draft PR creation or fallback — start waiting
+      if (!readyForReviewAt) {
+        waitStart = ts;
+      }
+      continue;
+    }
+
+    if (e.actorRole === 'reviewer') {
+      // Reviewer responded — end this wait cycle
+      if (waitStart !== null) {
+        totalMs += ts - waitStart;
+        cycleCount++;
+        waitStart = null;
+      }
+      continue;
+    }
+
+    // Author/bot/copilot action — if no wait in progress, start one
+    if (e.actorRole === 'author' || e.actorRole === 'bot' || e.actorRole === 'copilot') {
+      if (waitStart === null) {
+        waitStart = ts;
+      }
+      // If wait already in progress, author actions just keep the clock running
+    }
+  }
+
+  const totalDays = totalMs > 0 ? Math.round((totalMs / 86400000) * 100) / 100 : 0;
+  return { reviewWaitDays: totalDays, reviewWaitCycles: cycleCount };
+}
+
 function processEvents(prData, owner) {
   const events = [];
   const raw = prData._raw || {};
@@ -216,6 +278,30 @@ function processEvents(prData, owner) {
       sentiment: user !== owner ? 'blocking' : 'neutral',
       details: { body: body ? body.slice(0, 500) : null, url: c.html_url || '' }
     });
+  }
+
+  // Draft lifecycle events (ready_for_review, convert_to_draft)
+  for (const e of (raw.issueEvents || [])) {
+    if (e.event === 'ready_for_review' && e.created_at) {
+      const user = (e.actor && e.actor.login) || 'unknown';
+      events.push({
+        type: 'ready_for_review', timestamp: e.created_at,
+        actor: user, actorRole: makeActorRole(user, owner),
+        description: `PR marked ready for review`,
+        sentiment: 'positive',
+        details: { url: prData.url }
+      });
+    }
+    if (e.event === 'convert_to_draft' && e.created_at) {
+      const user = (e.actor && e.actor.login) || 'unknown';
+      events.push({
+        type: 'convert_to_draft', timestamp: e.created_at,
+        actor: user, actorRole: makeActorRole(user, owner),
+        description: `PR converted to draft`,
+        sentiment: 'neutral',
+        details: { url: prData.url }
+      });
+    }
   }
 
   // Sort by timestamp
@@ -367,11 +453,19 @@ function main() {
   delete specOut._raw;
   specOut.events = processEvents(spec, owner);
 
+  // Compute review wait for spec PR
+  const specWait = computeReviewWaitDays(specOut.events, specOut.readyForReviewAt || null);
+  specOut.reviewWaitDays = specWait.reviewWaitDays;
+  specOut.reviewWaitCycles = specWait.reviewWaitCycles;
+
   // Process SDK PR events
   const sdkOuts = sdks.map(pr => {
     const out = { ...pr };
     delete out._raw;
     out.events = processEvents(pr, owner);
+    const w = computeReviewWaitDays(out.events, out.readyForReviewAt || null);
+    out.reviewWaitDays = w.reviewWaitDays;
+    out.reviewWaitCycles = w.reviewWaitCycles;
     return out;
   });
 
@@ -417,6 +511,16 @@ function main() {
     }
   }
 
+  // Aggregate review wait across all PRs
+  const allPRsForWait = [specOut, ...sdkOuts.filter(p => p.state !== 'missing')];
+  const totalReviewWaitDays = allPRsForWait.reduce((sum, pr) => sum + (pr.reviewWaitDays || 0), 0);
+  const totalReviewWaitCycles = allPRsForWait.reduce((sum, pr) => sum + (pr.reviewWaitCycles || 0), 0);
+
+  // Check if any PRs had draft phases (ready_for_review events exist)
+  const hasDraftPRs = allPRsForWait.some(pr =>
+    pr.readyForReviewAt || pr.events.some(e => e.type === 'ready_for_review')
+  );
+
   const totalDays = daysBetween(startDate, endDate);
 
   const output = {
@@ -434,7 +538,10 @@ function main() {
       totalUniqueReviewers: reviewers.size,
       totalNags: nags,
       totalManualFixes: manuals,
-      totalPREdits: 0
+      totalPREdits: 0,
+      totalReviewWaitDays: Math.round(totalReviewWaitDays * 100) / 100,
+      totalReviewWaitCycles,
+      hasDraftPRs
     }
   };
 

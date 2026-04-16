@@ -16,7 +16,7 @@ const Timeline = (() => {
   // High-signal event types for Smart View preset
   const SMART_VIEW_TYPES = new Set([
     'review_changes_requested', 'author_nag', 'manual_fix', 'idle_gap',
-    'review_approved', 'pr_created', 'pr_merged',
+    'review_approved', 'pr_created', 'pr_merged', 'ready_for_review',
     'release_pipeline_completed', 'release_pipeline_failed', 'release_pending'
   ]);
 
@@ -63,6 +63,22 @@ const Timeline = (() => {
       `📅 ${DataLoader.formatDate(data.startDate)} → ${DataLoader.formatDate(data.endDate)}${specLink}`;
   }
 
+  // Compute total active time excluding draft phases
+  function computeActiveDays(d) {
+    const allPRs = [d.specPR, ...(d.sdkPRs || [])].filter(p => p && p.createdAt && p.state !== 'missing');
+    let earliest = Infinity, latest = 0;
+    for (const pr of allPRs) {
+      const start = pr.readyForReviewAt || pr.createdAt;
+      const end = pr.mergedAt || pr.closedAt || d.endDate;
+      const s = new Date(start).getTime();
+      const e = new Date(end).getTime();
+      if (s < earliest) earliest = s;
+      if (e > latest) latest = e;
+    }
+    if (earliest === Infinity || latest === 0) return null;
+    return Math.round(((latest - earliest) / 86400000) * 100) / 100;
+  }
+
   function renderSummaryCards() {
     const container = document.getElementById('summary-cards');
     container.innerHTML = '';
@@ -91,11 +107,27 @@ const Timeline = (() => {
       { label: 'Slowest SDK', value: fmt(s.slowestSDKPR?.days), sub: s.slowestSDKPR?.language || '', cls: 'warning' },
       { label: 'Fastest SDK', value: fmt(s.fastestSDKPR?.days), sub: s.fastestSDKPR?.language || '', cls: 'positive' },
       { label: 'Total', value: fmt(s.totalDurationDays || DataLoader.computeDurationDays(data.startDate, data.endDate)), sub: 'End to end', cls: 'info' },
+      { label: 'Review Wait', value: fmt(s.totalReviewWaitDays), sub: `${s.totalReviewWaitCycles || 0} wait cycles`, cls: s.totalReviewWaitDays > 7 ? 'critical' : s.totalReviewWaitDays > 3 ? 'warning' : 'info' },
       { label: 'Nags', value: `${s.totalNags || 0}`, sub: 'Author nudges', cls: s.totalNags > 0 ? 'warning' : 'positive' },
       { label: 'Manual Fixes', value: `${s.totalManualFixes || 0}`, sub: 'On auto PRs', cls: s.totalManualFixes > 0 ? 'warning' : 'positive' },
       { label: 'PR Edits', value: `${s.totalPREdits || 0}`, sub: 'On manual PRs', cls: s.totalPREdits > 0 ? 'warning' : 'positive' },
       { label: 'Reviewers', value: `${s.totalUniqueReviewers != null ? s.totalUniqueReviewers : '—'}`, sub: 'Unique people', cls: 'info' },
     ];
+
+    // Show Active Time card only if any PRs had draft phases
+    if (s.hasDraftPRs) {
+      // Compute active time: sum of (readyForReview or created) → (merged or now) per PR
+      const activeDays = computeActiveDays(data);
+      const totalDays = s.totalDurationDays || DataLoader.computeDurationDays(data.startDate, data.endDate);
+      if (activeDays != null && activeDays !== totalDays) {
+        cards.splice(5, 0, {
+          label: 'Active Time',
+          value: fmt(activeDays),
+          sub: 'Excl. draft phases',
+          cls: 'info'
+        });
+      }
+    }
 
     // Add release cards if release data exists
     if (s.avgReleaseGapDays != null || s.pendingReleases != null) {
@@ -150,7 +182,7 @@ const Timeline = (() => {
     container.innerHTML = '';
 
     const types = [
-      'pr_created', 'pr_merged', 'review_approved', 'review_changes_requested',
+      'pr_created', 'pr_merged', 'ready_for_review', 'review_approved', 'review_changes_requested',
       'review_comment', 'issue_comment', 'author_nag', 'manual_fix',
       'commit_pushed', 'bot_comment', 'ci_status', 'idle_gap',
       'release_pipeline_started', 'release_pipeline_completed',
@@ -682,6 +714,10 @@ const Timeline = (() => {
     const draftBadge = pr.isDraft
       ? '<span class="draft-badge" title="Draft PR — not yet ready for review">draft</span>'
       : '';
+    // Review wait per PR
+    const reviewWaitHtml = pr.reviewWaitDays != null && pr.reviewWaitDays > 0
+      ? `<span class="review-wait-badge" title="Time waiting for reviewer response (${pr.reviewWaitCycles || 0} cycles)">⏳ ${pr.reviewWaitDays}d wait</span>`
+      : '';
     label.innerHTML = `
       <div class="lane-repo">
         <a href="${pr.url}" target="_blank" title="${pr.repo}#${pr.number}">#${pr.number}</a>${releaseLinkHtml}
@@ -691,6 +727,7 @@ const Timeline = (() => {
         <span class="lane-language ${langClass}">${langText}</span>
         ${flowIcon}
         <span title="${durationTooltip}">${prDaysDisplay}</span>
+        ${reviewWaitHtml}
         ${specToSdkHtml}
         ${releaseStatus}
       </div>
@@ -721,6 +758,28 @@ const Timeline = (() => {
     bar.style.left = barStart + 'px';
     bar.style.width = Math.max(barEnd - barStart, 4) + 'px';
     content.appendChild(bar);
+
+    // Draft phase hatching overlay (from pr_created to ready_for_review)
+    if (pr.readyForReviewAt) {
+      const draftEnd = timeToX(pr.readyForReviewAt);
+      const draftWidth = Math.max(draftEnd - barStart, 0);
+      if (draftWidth > 0) {
+        const draftBar = document.createElement('div');
+        draftBar.className = 'pr-bar-draft';
+        draftBar.style.left = barStart + 'px';
+        draftBar.style.width = draftWidth + 'px';
+        draftBar.title = `Draft phase: ${DataLoader.formatDate(pr.createdAt)} → ${DataLoader.formatDate(pr.readyForReviewAt)}`;
+        content.appendChild(draftBar);
+      }
+    } else if (pr.isDraft) {
+      // Currently still a draft — entire bar is draft
+      const draftBar = document.createElement('div');
+      draftBar.className = 'pr-bar-draft';
+      draftBar.style.left = barStart + 'px';
+      draftBar.style.width = Math.max(barEnd - barStart, 4) + 'px';
+      draftBar.title = 'PR is still in draft state';
+      content.appendChild(draftBar);
+    }
 
     // Release segment bar (extends from merge to release)
     if (pr.release && pr.mergedAt && pr.release.releasedAt) {

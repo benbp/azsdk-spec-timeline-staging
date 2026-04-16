@@ -46,7 +46,7 @@
         "timestamp": "2026-02-17T21:17:40Z",
         "actor": "github-actions[bot]",
         "actorRole": "bot",
-        "description": "github-actions[bot]: <h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merged, see <a href=\"http",
+        "description": "github-actions[bot]: <h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"http",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40486#issuecomment-3917135037"
@@ -118,7 +118,10 @@
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40486"
         }
       }
-    ]
+    ],
+    "readyForReviewAt": null,
+    "reviewWaitDays": 5.91,
+    "reviewWaitCycles": 1
   },
   "sdkPRs": [
     {
@@ -146,6 +149,17 @@
           "actorRole": "bot",
           "description": "PR #26294 opened: [AutoPR sdk-resourcemanager/keyvault/armkeyvault]-generated-from-SDK Generation ",
           "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26294"
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-18T06:03:03Z",
+          "actor": "melissamserv",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26294"
           }
@@ -184,6 +198,17 @@
           }
         },
         {
+          "type": "pr_merged",
+          "timestamp": "2026-03-19T00:38:52Z",
+          "actor": "FRL200",
+          "actorRole": "reviewer",
+          "description": "PR #26294 merged by FRL200",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26294"
+          }
+        },
+        {
           "type": "release_pipeline_completed",
           "timestamp": "2026-03-19T23:59:59Z",
           "actor": "azure-sdk",
@@ -194,17 +219,6 @@
             "packageVersion": "2.0.2",
             "pipelineName": "go - armkeyvault"
           }
-        },
-        {
-          "type": "pr_merged",
-          "timestamp": "2026-03-19T00:38:52Z",
-          "actor": "FRL200",
-          "actorRole": "reviewer",
-          "description": "PR #26294 merged by FRL200",
-          "sentiment": "positive",
-          "details": {
-            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26294"
-          }
         }
       ],
       "release": {
@@ -214,10 +228,13 @@
         "pipelineUrl": null,
         "buildId": null,
         "releasedAt": "2026-03-19T23:59:59Z",
-        "releaseGapDays": 1.0,
+        "releaseGapDays": 1,
         "status": "released"
       },
-      "generationFlow": "automated"
+      "generationFlow": "automated",
+      "readyForReviewAt": "2026-03-18T06:03:03Z",
+      "reviewWaitDays": 0.77,
+      "reviewWaitCycles": 2
     },
     {
       "repo": "Azure/azure-sdk-for-net",
@@ -253,22 +270,21 @@
           "timestamp": "2026-03-18T08:10:52Z",
           "actor": "live1206",
           "actorRole": "reviewer",
-          "description": "live1206: ## \ud83d\udd0d CI Failure Analysis for PR #57181  ### Check Status Summary  | Check | Status | |-------|--------| | Build Analyze ",
+          "description": "live1206: ## 🔍 CI Failure Analysis for PR #57181  ### Check Status Summary  | Check | Status | |-------|--------| | Build Analyze ",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57181#issuecomment-4080519105"
           }
         },
         {
-          "type": "release_pipeline_completed",
-          "timestamp": "2026-03-19T23:59:59Z",
-          "actor": "azure-sdk",
-          "actorRole": "bot",
-          "description": "Package Azure.ResourceManager.KeyVault v1.4.0 published",
+          "type": "ready_for_review",
+          "timestamp": "2026-03-19T00:23:35Z",
+          "actor": "melissamserv",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
           "sentiment": "positive",
           "details": {
-            "packageVersion": "1.4.0",
-            "pipelineName": "net - keyvault - mgmt"
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57181"
           }
         },
         {
@@ -287,7 +303,7 @@
           "timestamp": "2026-03-19T03:35:53Z",
           "actor": "live1206",
           "actorRole": "reviewer",
-          "description": "live1206 approved PR #57181: ## Mgmt SDK PR Review \u2014 Azure.ResourceManager.KeyVault #57181\n\n### Phase 1: Vers",
+          "description": "live1206 approved PR #57181: ## Mgmt SDK PR Review — Azure.ResourceManager.KeyVault #57181\n\n### Phase 1: Vers",
           "sentiment": "positive",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57181#pullrequestreview-3972623252"
@@ -303,6 +319,18 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57181"
           }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-19T23:59:59Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Package Azure.ResourceManager.KeyVault v1.4.0 published",
+          "sentiment": "positive",
+          "details": {
+            "packageVersion": "1.4.0",
+            "pipelineName": "net - keyvault - mgmt"
+          }
         }
       ],
       "release": {
@@ -315,7 +343,10 @@
         "releaseGapDays": 0.8,
         "status": "released"
       },
-      "generationFlow": "automated"
+      "generationFlow": "automated",
+      "readyForReviewAt": "2026-03-19T00:23:35Z",
+      "reviewWaitDays": 0.13,
+      "reviewWaitCycles": 1
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -356,6 +387,17 @@
           "sentiment": "positive",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446#pullrequestreview-3964661424"
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-19T00:39:28Z",
+          "actor": "melissamserv",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446"
           }
         },
         {
@@ -480,7 +522,10 @@
         "releaseGapDays": 11.7,
         "status": "released"
       },
-      "generationFlow": "automated"
+      "generationFlow": "automated",
+      "readyForReviewAt": "2026-03-19T00:39:28Z",
+      "reviewWaitDays": 0.07,
+      "reviewWaitCycles": 1
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -505,6 +550,17 @@
           "actorRole": "bot",
           "description": "PR #45750 opened: [AutoPR azure-mgmt-keyvault]-generated-from-SDK Generation - Python-6022787",
           "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750"
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-17T21:24:21Z",
+          "actor": "melissamserv",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750"
           }
@@ -536,7 +592,7 @@
           "timestamp": "2026-03-17T21:28:02Z",
           "actor": "Copilot",
           "actorRole": "copilot",
-          "description": "Copilot inline comment: The 14.0.0 entry doesn\u2019t mention that the SDK was regenerated for API version 2026-02-01 (and the default `api_version` ",
+          "description": "Copilot inline comment: The 14.0.0 entry doesn’t mention that the SDK was regenerated for API version 2026-02-01 (and the default `api_version` ",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750#discussion_r2949657831"
@@ -631,7 +687,10 @@
         "releaseGapDays": 8.3,
         "status": "released"
       },
-      "generationFlow": "automated"
+      "generationFlow": "automated",
+      "readyForReviewAt": "2026-03-17T21:24:21Z",
+      "reviewWaitDays": 0.21,
+      "reviewWaitCycles": 1
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -700,6 +759,17 @@
           }
         },
         {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-19T21:49:35Z",
+          "actor": "melissamserv",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37688"
+          }
+        },
+        {
           "type": "review_comment",
           "timestamp": "2026-03-19T21:51:37Z",
           "actor": "Copilot",
@@ -737,22 +807,10 @@
           "timestamp": "2026-03-19T21:51:38Z",
           "actor": "Copilot",
           "actorRole": "copilot",
-          "description": "Copilot inline comment: The phrase \u201cdemonstrates how to the List operation gets\u2026\u201d is grammatically incorrect and appears to be a generation arti",
+          "description": "Copilot inline comment: The phrase “demonstrates how to the List operation gets…” is grammatically incorrect and appears to be a generation arti",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37688#discussion_r2962898809"
-          }
-        },
-        {
-          "type": "release_pipeline_completed",
-          "timestamp": "2026-03-20T23:59:59Z",
-          "actor": "azure-sdk",
-          "actorRole": "bot",
-          "description": "Package @azure/arm-keyvault v5.0.0 published",
-          "sentiment": "positive",
-          "details": {
-            "packageVersion": "5.0.0",
-            "pipelineName": "js - keyvault - mgmt"
           }
         },
         {
@@ -787,6 +845,18 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37688"
           }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-20T23:59:59Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Package @azure/arm-keyvault v5.0.0 published",
+          "sentiment": "positive",
+          "details": {
+            "packageVersion": "5.0.0",
+            "pipelineName": "js - keyvault - mgmt"
+          }
         }
       ],
       "release": {
@@ -799,7 +869,10 @@
         "releaseGapDays": 0.9,
         "status": "released"
       },
-      "generationFlow": "automated"
+      "generationFlow": "automated",
+      "readyForReviewAt": "2026-03-19T21:49:35Z",
+      "reviewWaitDays": 0.17,
+      "reviewWaitCycles": 1
     }
   ],
   "insights": [
@@ -936,6 +1009,9 @@
     "totalManualFixes": 3,
     "totalDurationDays": 40.1,
     "avgReleaseGapDays": 4.5,
-    "maxReleaseGapDays": 11.7
+    "maxReleaseGapDays": 11.7,
+    "totalReviewWaitDays": 7.26,
+    "totalReviewWaitCycles": 7,
+    "hasDraftPRs": true
   }
 }

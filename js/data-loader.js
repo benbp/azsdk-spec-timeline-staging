@@ -73,7 +73,9 @@ const DataLoader = (() => {
       release_pipeline_completed:{ icon: '📦', label: 'Released',              color: 'teal' },
       release_pipeline_failed:   { icon: '❌', label: 'Release Failed',        color: 'red' },
       release_pending:           { icon: '⏳', label: 'Release Pending',       color: 'orange' },
-      tool_call:                 { icon: '⚙️', label: 'Tool Call',             color: 'cyan' }
+      tool_call:                 { icon: '⚙️', label: 'Tool Call',             color: 'cyan' },
+      ready_for_review:          { icon: '🚀', label: 'Ready for Review',     color: 'green' },
+      convert_to_draft:          { icon: '📝', label: 'Converted to Draft',   color: 'gray' }
     };
     return info[type] || { icon: '❓', label: type, color: 'gray' };
   }

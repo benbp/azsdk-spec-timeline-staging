@@ -118,7 +118,12 @@ function fetchCommits(repo, number) {
 
 function fetchTimelineEvents(repo, number) {
   console.error(`  Fetching timeline events: ${repo}#${number}`);
-  return ghJson(`api repos/${repo}/issues/${number}/timeline --paginate -H "Accept: application/vnd.github.mockingbird-preview+json"`) || [];
+  return ghJson(`api repos/${repo}/issues/${number}/timeline --paginate -H "Accept: application/vnd.github+json"`) || [];
+}
+
+function fetchIssueEvents(repo, number) {
+  console.error(`  Fetching issue events: ${repo}#${number}`);
+  return ghJson(`api repos/${repo}/issues/${number}/events --paginate`) || [];
 }
 
 /* ── Azure DevOps Release Pipeline Helpers ──────────────── */
@@ -449,6 +454,14 @@ function fetchFullPRData(repo, number) {
   const reviews = fetchReviews(repo, number);
   const reviewComments = fetchReviewComments(repo, number);
   const commits = fetchCommits(repo, number);
+  const issueEvents = fetchIssueEvents(repo, number);
+
+  // Extract draft lifecycle events
+  const draftEvents = (issueEvents || []).filter(e =>
+    e.event === 'ready_for_review' || e.event === 'convert_to_draft'
+  );
+  const readyForReviewEvent = draftEvents.find(e => e.event === 'ready_for_review');
+  const readyForReviewAt = readyForReviewEvent ? readyForReviewEvent.created_at : null;
 
   const repoShort = repo.split('/')[1];
   const language = LANG_MAP[repoShort] || null;
@@ -466,6 +479,7 @@ function fetchFullPRData(repo, number) {
     mergedBy: pr.merged_by?.login,
     state: pr.merged ? 'merged' : pr.state,
     isDraft: pr.draft || false,
+    readyForReviewAt,
     generationFlow: detectGenerationFlow(pr),
     labels: (pr.labels || []).map(l => l.name),
     reviewers: [
@@ -477,7 +491,8 @@ function fetchFullPRData(repo, number) {
       comments,
       reviews,
       reviewComments,
-      commits
+      commits,
+      issueEvents: draftEvents
     }
   };
 }

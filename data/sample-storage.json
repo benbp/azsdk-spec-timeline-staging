@@ -96,7 +96,10 @@
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/41489"
         }
       }
-    ]
+    ],
+    "readyForReviewAt": null,
+    "reviewWaitDays": 0,
+    "reviewWaitCycles": 0
   },
   "sdkPRs": [
     {
@@ -385,7 +388,10 @@
           }
         }
       ],
-      "release": null
+      "release": null,
+      "reviewWaitDays": 0,
+      "reviewWaitCycles": 0,
+      "readyForReviewAt": null
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -402,7 +408,10 @@
       "labels": [],
       "reviewers": [],
       "events": [],
-      "release": null
+      "release": null,
+      "reviewWaitDays": 0,
+      "reviewWaitCycles": 0,
+      "readyForReviewAt": null
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -419,7 +428,10 @@
       "labels": [],
       "reviewers": [],
       "events": [],
-      "release": null
+      "release": null,
+      "reviewWaitDays": 0,
+      "reviewWaitCycles": 0,
+      "readyForReviewAt": null
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -436,7 +448,10 @@
       "labels": [],
       "reviewers": [],
       "events": [],
-      "release": null
+      "release": null,
+      "reviewWaitDays": 0,
+      "reviewWaitCycles": 0,
+      "readyForReviewAt": null
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -453,24 +468,27 @@
       "labels": [],
       "reviewers": [],
       "events": [],
-      "release": null
+      "release": null,
+      "reviewWaitDays": 0,
+      "reviewWaitCycles": 0,
+      "readyForReviewAt": null
     }
   ],
   "insights": [
     {
       "type": "observation",
       "severity": "info",
-      "description": "Spec PR was open for 13.8 days (created Mar 17, merged Mar 31) \u2014 merged into a feature branch, not main"
+      "description": "Spec PR was open for 13.8 days (created Mar 17, merged Mar 31) — merged into a feature branch, not main"
     },
     {
       "type": "observation",
       "severity": "warning",
-      "description": "No human reviews on spec PR \u2014 0 reviews recorded despite 2 requested reviewers (blueww, yifanz7). PR was self-merged by author jwfeshuk"
+      "description": "No human reviews on spec PR — 0 reviews recorded despite 2 requested reviewers (blueww, yifanz7). PR was self-merged by author jwfeshuk"
     },
     {
       "type": "idle",
       "severity": "warning",
-      "description": "13.8-day wait for spec PR merge with no reviewer engagement \u2014 potential bottleneck in review process",
+      "description": "13.8-day wait for spec PR merge with no reviewer engagement — potential bottleneck in review process",
       "startDate": "2026-03-17T20:24:17Z",
       "endDate": "2026-03-31T16:08:12Z",
       "durationDays": 13.82,
@@ -479,7 +497,7 @@
     {
       "type": "summary",
       "severity": "warning",
-      "description": "No SDK PRs generated yet for any language \u2014 spec PR merged into feature branch (personal/johnfeshuk/storage-2026-04-01), not main. SDK AutoPR generation requires merge to main branch."
+      "description": "No SDK PRs generated yet for any language — spec PR merged into feature branch (personal/johnfeshuk/storage-2026-04-01), not main. SDK AutoPR generation requires merge to main branch."
     },
     {
       "type": "observation",
@@ -489,17 +507,17 @@
     {
       "type": "tool_usage",
       "severity": "info",
-      "description": "18 MCP tool calls tracked for .NET SDK development \u2014 9 succeeded, 9 failed. All from github-copilot-developer agent. Build failures suggest codegen compatibility issues being resolved iteratively."
+      "description": "18 MCP tool calls tracked for .NET SDK development — 9 succeeded, 9 failed. All from github-copilot-developer agent. Build failures suggest codegen compatibility issues being resolved iteratively."
     },
     {
       "type": "observation",
       "severity": "info",
-      "description": "Tool call activity spans Mar 16 to Apr 2 \u2014 .NET SDK build/test cycles occurred before and after spec PR merge, indicating pre-merge development work"
+      "description": "Tool call activity spans Mar 16 to Apr 2 — .NET SDK build/test cycles occurred before and after spec PR merge, indicating pre-merge development work"
     },
     {
       "type": "observation",
       "severity": "warning",
-      "description": "Multiple consecutive build failures (9 of 18 tool calls failed) \u2014 CS0117 and CS0121 errors indicate generated code incompatibilities with existing customizations"
+      "description": "Multiple consecutive build failures (9 of 18 tool calls failed) — CS0117 and CS0121 errors indicate generated code incompatibilities with existing customizations"
     }
   ],
   "summary": {
@@ -514,6 +532,9 @@
     "totalManualFixes": 0,
     "avgReleaseGapDays": null,
     "maxReleaseGapDays": null,
-    "pendingReleases": 5
+    "pendingReleases": 5,
+    "totalReviewWaitDays": 0,
+    "totalReviewWaitCycles": 0,
+    "hasDraftPRs": false
   }
 }

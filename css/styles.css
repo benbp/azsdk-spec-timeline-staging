@@ -613,6 +613,36 @@ header {
   margin-left: 4px;
 }
 
+.review-wait-badge {
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 8px;
+  background: rgba(210, 153, 34, 0.15);
+  color: var(--orange);
+  cursor: help;
+  white-space: nowrap;
+}
+
+/* Draft phase hatching overlay on PR bar */
+.pr-bar-draft {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 6px;
+  border-radius: 3px;
+  z-index: 2;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(210, 153, 34, 0.3),
+    rgba(210, 153, 34, 0.3) 3px,
+    transparent 3px,
+    transparent 7px
+  );
+  border: 1px dashed var(--orange);
+  pointer-events: auto;
+  cursor: help;
+}
+
 .spec-to-sdk {
   font-size: 12px;
   color: var(--teal);
@@ -833,6 +863,8 @@ header {
 .event-marker.tool_call.tool-fail { background: #f85149; border-color: #da3633; }
 .event-marker.tool_call.tool-agent { box-shadow: 0 0 0 3px var(--purple); }
 .event-marker.tool_call:hover { transform: translate(-50%, -50%) rotate(45deg) scale(1.4); }
+.event-marker.ready_for_review { background: var(--green); width: 22px; height: 22px; border: 3px solid var(--teal); box-shadow: 0 0 8px var(--green); border-radius: 4px; }
+.event-marker.convert_to_draft { background: var(--orange); width: 14px; height: 14px; border: 2px dashed var(--text-muted); opacity: 0.7; }
 
 @keyframes pulse-pending {
   0%, 100% { opacity: 1; }

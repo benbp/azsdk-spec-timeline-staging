@@ -99,6 +99,17 @@
         }
       },
       {
+        "type": "ready_for_review",
+        "timestamp": "2026-03-27T19:58:19Z",
+        "actor": "Copilot",
+        "actorRole": "author",
+        "description": "PR marked ready for review",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/41848"
+        }
+      },
+      {
         "type": "commit_pushed",
         "timestamp": "2026-03-30T14:36:11Z",
         "actor": "meghanagupta95",
@@ -177,7 +188,10 @@
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/41848"
         }
       }
-    ]
+    ],
+    "readyForReviewAt": "2026-03-27T19:58:19Z",
+    "reviewWaitDays": 2.78,
+    "reviewWaitCycles": 1
   },
   "sdkPRs": [
     {
@@ -247,6 +261,17 @@
           "sentiment": "neutral",
           "details": {
             "durationHours": 67.1
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-30T14:36:53Z",
+          "actor": "Copilot",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48613"
           }
         },
         {
@@ -380,7 +405,10 @@
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48613"
           }
         }
-      ]
+      ],
+      "readyForReviewAt": "2026-03-30T14:36:53Z",
+      "reviewWaitDays": 0.49,
+      "reviewWaitCycles": 1
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -434,7 +462,10 @@
           }
         }
       ],
-      "isDraft": true
+      "isDraft": true,
+      "readyForReviewAt": null,
+      "reviewWaitDays": 0,
+      "reviewWaitCycles": 0
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -502,6 +533,17 @@
           "sentiment": "neutral",
           "details": {
             "durationHours": 67.2
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-30T14:36:41Z",
+          "actor": "Copilot",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26438"
           }
         },
         {
@@ -646,7 +688,10 @@
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26438"
           }
         }
-      ]
+      ],
+      "readyForReviewAt": "2026-03-30T14:36:41Z",
+      "reviewWaitDays": 0.52,
+      "reviewWaitCycles": 1
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -686,7 +731,10 @@
           }
         }
       ],
-      "isDraft": true
+      "isDraft": true,
+      "readyForReviewAt": null,
+      "reviewWaitDays": 0,
+      "reviewWaitCycles": 0
     },
     {
       "repo": "Azure/azure-sdk-for-net",
@@ -699,7 +747,10 @@
       "mergedAt": null,
       "state": "missing",
       "generationFlow": null,
-      "events": []
+      "events": [],
+      "reviewWaitDays": 0,
+      "reviewWaitCycles": 0,
+      "readyForReviewAt": null
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -783,6 +834,17 @@
           "sentiment": "neutral",
           "details": {
             "durationHours": 67.1
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-30T14:37:02Z",
+          "actor": "Copilot",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37879"
           }
         },
         {
@@ -926,7 +988,10 @@
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37879"
           }
         }
-      ]
+      ],
+      "readyForReviewAt": "2026-03-30T14:37:02Z",
+      "reviewWaitDays": 0.81,
+      "reviewWaitCycles": 3
     }
   ],
   "insights": [
@@ -969,6 +1034,9 @@
     "totalUniqueReviewers": 9,
     "totalNags": 0,
     "totalManualFixes": 0,
-    "totalPREdits": 0
+    "totalPREdits": 0,
+    "totalReviewWaitDays": 4.6,
+    "totalReviewWaitCycles": 6,
+    "hasDraftPRs": true
   }
 }

@@ -402,7 +402,10 @@
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908"
         }
       }
-    ]
+    ],
+    "readyForReviewAt": null,
+    "reviewWaitDays": 10.79,
+    "reviewWaitCycles": 5
   },
   "sdkPRs": [
     {
@@ -1436,7 +1439,10 @@
         "releasedAt": "2026-03-25T14:09:31Z",
         "releaseGapDays": 19.3,
         "status": "released"
-      }
+      },
+      "readyForReviewAt": null,
+      "reviewWaitDays": 11.28,
+      "reviewWaitCycles": 5
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -1546,6 +1552,17 @@
           "sentiment": "blocking",
           "details": {
             "durationHours": 231.5
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-02-26T02:17:48Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995"
           }
         },
         {
@@ -1735,7 +1752,10 @@
         "releasedAt": "2026-03-22T12:20:11Z",
         "releaseGapDays": 22.4,
         "status": "released"
-      }
+      },
+      "readyForReviewAt": "2026-02-26T02:17:48Z",
+      "reviewWaitDays": 0.74,
+      "reviewWaitCycles": 4
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -1796,6 +1816,17 @@
           "sentiment": "blocking",
           "details": {
             "durationHours": 92.7
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-02-16T14:04:52Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020"
           }
         },
         {
@@ -1971,7 +2002,10 @@
         "releasedAt": "2026-03-25T08:58:58Z",
         "releaseGapDays": 26,
         "status": "released"
-      }
+      },
+      "readyForReviewAt": "2026-02-16T14:04:52Z",
+      "reviewWaitDays": 8.45,
+      "reviewWaitCycles": 2
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -2030,6 +2064,17 @@
           "actorRole": "reviewer",
           "description": "Pushed commit: update assets.json after live tests are run",
           "sentiment": "neutral"
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-02-20T13:49:52Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45164"
+          }
         },
         {
           "type": "bot_comment",
@@ -2176,7 +2221,10 @@
         "releasedAt": "2026-03-22T12:06:40Z",
         "releaseGapDays": 23.1,
         "status": "released"
-      }
+      },
+      "readyForReviewAt": "2026-02-20T13:49:52Z",
+      "reviewWaitDays": 6.72,
+      "reviewWaitCycles": 1
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -2247,6 +2295,17 @@
           "sentiment": "blocking",
           "details": {
             "durationHours": 72.1
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-02-16T14:05:32Z",
+          "actor": "audunn",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37299"
           }
         },
         {
@@ -2382,7 +2441,10 @@
         "releasedAt": "2026-03-22T11:48:07Z",
         "releaseGapDays": 19.9,
         "status": "released"
-      }
+      },
+      "readyForReviewAt": "2026-02-16T14:05:32Z",
+      "reviewWaitDays": 9.56,
+      "reviewWaitCycles": 2
     }
   ],
   "insights": [
@@ -2455,6 +2517,9 @@
     "totalManualFixes": 0,
     "avgReleaseGapDays": 22.1,
     "maxReleaseGapDays": 26,
-    "pendingReleases": 0
+    "pendingReleases": 0,
+    "totalReviewWaitDays": 47.54,
+    "totalReviewWaitCycles": 19,
+    "hasDraftPRs": true
   }
 }

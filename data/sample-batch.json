@@ -729,7 +729,10 @@
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/39481"
         }
       }
-    ]
+    ],
+    "readyForReviewAt": null,
+    "reviewWaitDays": 15.57,
+    "reviewWaitCycles": 7
   },
   "sdkPRs": [
     {
@@ -857,6 +860,17 @@
           "sentiment": "neutral",
           "details": {
             "durationHours": 38.4
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-17T16:13:10Z",
+          "actor": "wiboris",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47973"
           }
         },
         {
@@ -1001,7 +1015,10 @@
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/47973"
           }
         }
-      ]
+      ],
+      "readyForReviewAt": "2026-03-17T16:13:10Z",
+      "reviewWaitDays": 0.37,
+      "reviewWaitCycles": 2
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -1081,6 +1098,17 @@
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/commit/5957551333ae9e2ede6e6deb2c20e4dc00c03291"
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-02-21T00:16:59Z",
+          "actor": "wiboris",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26008"
           }
         },
         {
@@ -1190,7 +1218,10 @@
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26008"
           }
         }
-      ]
+      ],
+      "readyForReviewAt": "2026-02-21T00:16:59Z",
+      "reviewWaitDays": 3.13,
+      "reviewWaitCycles": 1
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -1243,6 +1274,17 @@
           "sentiment": "blocking",
           "details": {
             "durationHours": 381.5
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-02-26T22:04:54Z",
+          "actor": "wiboris",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45119"
           }
         },
         {
@@ -1363,7 +1405,10 @@
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45119"
           }
         }
-      ]
+      ],
+      "readyForReviewAt": "2026-02-26T22:04:54Z",
+      "reviewWaitDays": 0.24,
+      "reviewWaitCycles": 1
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -1419,7 +1464,10 @@
           }
         }
       ],
-      "isDraft": true
+      "isDraft": true,
+      "readyForReviewAt": null,
+      "reviewWaitDays": 0,
+      "reviewWaitCycles": 0
     },
     {
       "repo": "Azure/azure-sdk-for-net",
@@ -1432,7 +1480,10 @@
       "mergedAt": null,
       "state": "missing",
       "generationFlow": null,
-      "events": []
+      "events": [],
+      "reviewWaitDays": 0,
+      "reviewWaitCycles": 0,
+      "readyForReviewAt": null
     }
   ],
   "insights": [
@@ -1491,6 +1542,9 @@
     "totalUniqueReviewers": 14,
     "totalNags": 0,
     "totalManualFixes": 0,
-    "totalPREdits": 0
+    "totalPREdits": 0,
+    "totalReviewWaitDays": 19.31,
+    "totalReviewWaitCycles": 11,
+    "hasDraftPRs": true
   }
 }

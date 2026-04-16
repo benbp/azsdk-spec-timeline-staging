@@ -196,6 +196,17 @@
         "sentiment": "neutral"
       },
       {
+        "type": "ready_for_review",
+        "timestamp": "2026-03-12T07:24:28Z",
+        "actor": "mzhongl524",
+        "actorRole": "author",
+        "description": "PR marked ready for review",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/39519"
+        }
+      },
+      {
         "type": "commit_pushed",
         "timestamp": "2026-03-12T07:25:44Z",
         "actor": "ArcturusZhang",
@@ -222,7 +233,10 @@
         "description": "PR merged by live1206",
         "sentiment": "positive"
       }
-    ]
+    ],
+    "readyForReviewAt": "2026-03-12T07:24:28Z",
+    "reviewWaitDays": 0,
+    "reviewWaitCycles": 1
   },
   "sdkPRs": [
     {
@@ -682,6 +696,17 @@
           "sentiment": "neutral"
         },
         {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-12T06:21:08Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889"
+          }
+        },
+        {
           "type": "review_comment",
           "timestamp": "2026-03-12T06:26:50Z",
           "actor": "Copilot",
@@ -871,7 +896,10 @@
             "language": ".NET"
           }
         }
-      ]
+      ],
+      "readyForReviewAt": "2026-03-12T06:21:08Z",
+      "reviewWaitDays": 0,
+      "reviewWaitCycles": 1
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -937,6 +965,17 @@
           "sentiment": "blocking",
           "details": {
             "durationHours": 189.1
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-02-18T02:55:57Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/47954"
           }
         },
         {
@@ -1044,7 +1083,10 @@
             "language": "Java"
           }
         }
-      ]
+      ],
+      "readyForReviewAt": "2026-02-18T02:55:57Z",
+      "reviewWaitDays": 3.02,
+      "reviewWaitCycles": 1
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -1094,6 +1136,17 @@
           "sentiment": "blocking",
           "details": {
             "durationHours": 189.9
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-02-18T02:56:06Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45102"
           }
         },
         {
@@ -1366,7 +1419,10 @@
             "language": "Python"
           }
         }
-      ]
+      ],
+      "readyForReviewAt": "2026-02-18T02:56:06Z",
+      "reviewWaitDays": 1.81,
+      "reviewWaitCycles": 2
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -1424,6 +1480,17 @@
           "sentiment": "blocking",
           "details": {
             "durationHours": 189.8
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-02-18T02:55:44Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26002"
           }
         },
         {
@@ -1553,7 +1620,10 @@
             "language": "Go"
           }
         }
-      ]
+      ],
+      "readyForReviewAt": "2026-02-18T02:55:44Z",
+      "reviewWaitDays": 6.01,
+      "reviewWaitCycles": 1
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -1615,6 +1685,17 @@
           "sentiment": "blocking",
           "details": {
             "durationHours": 189.7
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-02-18T02:55:51Z",
+          "actor": "mzhongl524",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37273"
           }
         },
         {
@@ -1888,7 +1969,10 @@
             "language": "JavaScript"
           }
         }
-      ]
+      ],
+      "readyForReviewAt": "2026-02-18T02:55:51Z",
+      "reviewWaitDays": 6.01,
+      "reviewWaitCycles": 4
     }
   ],
   "insights": [
@@ -1954,6 +2038,9 @@
     "totalNags": 0,
     "totalManualFixes": 0,
     "totalPREdits": 3,
-    "pendingReleases": 5
+    "pendingReleases": 5,
+    "totalReviewWaitDays": 16.85,
+    "totalReviewWaitCycles": 10,
+    "hasDraftPRs": true
   }
 }

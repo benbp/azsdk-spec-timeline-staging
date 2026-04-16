@@ -20,12 +20,6 @@ const UI = (() => {
       hasTooling: true
     },
     {
-      file: 'data/sample-confluent.json',
-      name: 'Confluent',
-      meta: 'mzhongl524 · 84d · 32 tool calls · 👤 manual .NET',
-      hasTooling: true
-    },
-    {
       file: 'data/sample-containerservice.json',
       name: 'ContainerService (AKS)',
       meta: 'FumingZhang · 47d · 33 tool calls · 12 SDK PRs · 2 nags',

@@ -346,20 +346,85 @@ function fetchReleaseData(language, prTitle, mergedAt, releaseCsvDir) {
 function discoverSDKPRs(specRepo, specNumber) {
   console.error(`Discovering SDK PRs linked to ${specRepo}#${specNumber}...`);
   const results = [];
+  const seen = new Set();
 
+  // Strategy 1: Search for spec PR URL in SDK PR bodies
   for (const repo of SDK_REPOS) {
-    console.error(`  Searching ${repo}...`);
+    console.error(`  Searching ${repo} for spec PR reference...`);
     const searchResult = ghJson(
       `api "search/issues?q=repo:${repo}+${specRepo}/pull/${specNumber}+is:pr&per_page=5"`
     );
 
     if (searchResult?.items?.length) {
       for (const item of searchResult.items) {
-        results.push({
-          repo,
-          number: item.number,
-          url: item.html_url
-        });
+        const key = `${repo}#${item.number}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          results.push({ repo, number: item.number, url: item.html_url });
+        }
+      }
+    }
+  }
+
+  // Strategy 2: If few results, also search by merge commit SHA
+  // (newer AutoPR PRs include the commit SHA but not the spec PR URL)
+  if (results.length < SDK_REPOS.length) {
+    const specPR = ghJson(`api repos/${specRepo}/pulls/${specNumber}`);
+    const mergeCommitSha = specPR?.merge_commit_sha;
+    if (mergeCommitSha) {
+      const shortSha = mergeCommitSha.substring(0, 12);
+      for (const repo of SDK_REPOS) {
+        console.error(`  Searching ${repo} for commit SHA ${shortSha}...`);
+        const searchResult = ghJson(
+          `api "search/issues?q=repo:${repo}+${shortSha}+is:pr&per_page=5"`
+        );
+        if (searchResult?.items?.length) {
+          for (const item of searchResult.items) {
+            const key = `${repo}#${item.number}`;
+            if (!seen.has(key)) {
+              seen.add(key);
+              results.push({ repo, number: item.number, url: item.html_url });
+              console.error(`    Found via commit SHA: ${repo}#${item.number}`);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Strategy 3: Search by tspconfig path from spec PR files
+  if (results.length < SDK_REPOS.length) {
+    const files = ghJson(`api "repos/${specRepo}/pulls/${specNumber}/files?per_page=100"`);
+    if (files?.length) {
+      // Extract service name from tspconfig path like specification/confluent/Confluent.Management/tspconfig.yaml
+      const tspFile = files.find(f => f.filename?.endsWith('tspconfig.yaml'));
+      if (tspFile) {
+        const parts = tspFile.filename.split('/');
+        const serviceName = parts[1]; // e.g. "confluent", "computeschedule"
+        if (serviceName) {
+          for (const repo of SDK_REPOS) {
+            const repoShort = repo.split('/')[1];
+            const lang = LANG_MAP[repoShort];
+            if (!lang) continue;
+            // Check if we already found a PR for this repo
+            if (results.some(r => r.repo === repo)) continue;
+
+            console.error(`  Searching ${repo} for service name "${serviceName}"...`);
+            const searchResult = ghJson(
+              `api "search/issues?q=repo:${repo}+${serviceName}+is:pr+author:azure-sdk&per_page=5&sort=created&order=desc"`
+            );
+            if (searchResult?.items?.length) {
+              for (const item of searchResult.items) {
+                const key = `${repo}#${item.number}`;
+                if (!seen.has(key)) {
+                  seen.add(key);
+                  results.push({ repo, number: item.number, url: item.html_url });
+                  console.error(`    Found via service name: ${repo}#${item.number}`);
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

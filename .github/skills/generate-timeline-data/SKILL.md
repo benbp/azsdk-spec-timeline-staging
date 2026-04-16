@@ -55,9 +55,9 @@ gh api repos/Azure/azure-rest-api-specs/pulls/{number}/commits --paginate
 
 ### Step 3: Discover SDK PRs
 
-SDK PRs can be found by:
+SDK PRs can be found using multiple strategies (try in order):
 
-1. **Search SDK repos for the spec PR URL in PR bodies** — this works for BOTH automated (AutoPR bot) and manual (human-authored) flows:
+1. **Search by spec PR URL in PR bodies** — this works for BOTH automated (AutoPR bot) and manual (human-authored) flows:
 ```bash
 gh api "search/issues?q=repo:Azure/azure-sdk-for-java+azure-rest-api-specs/pull/{number}+is:pr&per_page=5"
 gh api "search/issues?q=repo:Azure/azure-sdk-for-go+azure-rest-api-specs/pull/{number}+is:pr&per_page=5"
@@ -66,14 +66,29 @@ gh api "search/issues?q=repo:Azure/azure-sdk-for-net+azure-rest-api-specs/pull/{
 gh api "search/issues?q=repo:Azure/azure-sdk-for-js+azure-rest-api-specs/pull/{number}+is:pr&per_page=5"
 ```
 
-2. **The user may also provide SDK PR URLs directly** — use those if given.
+2. **Search by merge commit SHA** — newer AutoPR PRs include `CommitSHA: '{sha}'` in their body instead of the spec PR URL. First get the spec PR merge commit SHA, then search for it:
+```bash
+# Get spec PR merge commit SHA
+gh api repos/Azure/azure-rest-api-specs/pulls/{number} --jq '.merge_commit_sha'
+# Search for it in SDK PR bodies
+gh api "search/issues?q=repo:Azure/azure-sdk-for-java+{sha}+is:pr&per_page=5"
+```
 
-3. **Detect generation flow type** — for each discovered SDK PR:
+3. **Search by service name** — use the tspconfig path from the spec PR to derive the service name, then search for AutoPR titles or body content:
+```bash
+gh api "search/issues?q=repo:Azure/azure-sdk-for-java+{serviceName}+author:azure-sdk+is:pr&per_page=5"
+```
+
+4. **The user may also provide SDK PR URLs directly** — use those if given. This is the most reliable method when available.
+
+**IMPORTANT**: When results are found via strategy 2 or 3, always verify the SDK PR actually references the correct spec PR. Check the body for matching commit SHAs, build IDs, or spec PR URLs. Newer AutoPR PRs may reference builds (e.g. `Created based on https://dev.azure.com/...builds?buildId=NNNNNN`) instead of spec PR URLs.
+
+5. **Detect generation flow type** — for each discovered SDK PR:
    - If the title starts with `[AutoPR ` or the author is `azure-sdk` → `generationFlow: "automated"`
    - Otherwise → `generationFlow: "manual"` (human-authored PR)
    - This distinction is important: some flows are mixed (e.g., automated for most languages but manual for one)
 
-4. **If a language has no SDK PR**, include an empty placeholder in the output:
+6. **If a language has no SDK PR**, include an empty placeholder in the output:
 ```json
 {
   "repo": "Azure/azure-sdk-for-net",
@@ -91,6 +106,8 @@ gh api "search/issues?q=repo:Azure/azure-sdk-for-js+azure-rest-api-specs/pull/{n
 ```
 
 For each discovered SDK PR, fetch the same data (metadata, comments, reviews, review comments, commits).
+
+**IMPORTANT**: Include closed (not merged) SDK PRs too — they tell an important story. For example, AutoPR may generate PRs that are later closed without merge (superseded by manual PRs or newer generation runs). These show up as `state: "closed"` and should have `pr_closed` events. Including them helps visualize the full picture of what happened.
 
 ### Step 4: Classify Events
 

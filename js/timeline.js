@@ -249,8 +249,13 @@ const Timeline = (() => {
   }
 
   function renderBarLegend() {
-    const container = document.getElementById('bar-legend');
+    let container = document.getElementById('bar-legend');
     if (!container) return;
+    // Ensure bar-legend is after actor-filters if it exists
+    const actorSection = document.getElementById('actor-filters');
+    if (actorSection && actorSection.nextSibling !== container) {
+      actorSection.parentNode.insertBefore(container, actorSection.nextSibling);
+    }
     const items = [
       { cls: 'pr-bar merged', label: 'Merged PR' },
       { cls: 'pr-bar open', label: 'Open PR' },

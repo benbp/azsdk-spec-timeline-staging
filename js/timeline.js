@@ -870,28 +870,68 @@ const Timeline = (() => {
       observation: '💡'
     };
 
+    // Group by severity: critical → warning → info
+    const severityOrder = { critical: 0, warning: 1, info: 2 };
+    const grouped = { critical: [], warning: [], info: [] };
     for (const insight of data.insights) {
-      const item = document.createElement('div');
-      item.className = `insight-item ${insight.severity || 'info'}`;
-      // Convert prRef like "Azure/azure-rest-api-specs#39908" to a clickable link
-      let refHtml = '';
-      if (insight.prRef) {
-        const match = insight.prRef.match(/^(.+?)#(\d+)$/);
-        if (match) {
-          const url = `https://github.com/${match[1]}/pull/${match[2]}`;
-          refHtml = `<div class="insight-pr-ref"><a href="${url}" target="_blank">${escapeHtml(insight.prRef)}</a>${insight.durationDays ? ` · ${insight.durationDays}d` : ''}</div>`;
-        } else {
-          refHtml = `<div class="insight-pr-ref">${escapeHtml(insight.prRef)}${insight.durationDays ? ` · ${insight.durationDays}d` : ''}</div>`;
+      const sev = insight.severity || 'info';
+      (grouped[sev] || grouped.info).push(insight);
+    }
+
+    const severityLabels = {
+      critical: '🚨 Blocking Issues',
+      warning: '⚠️ Warnings',
+      info: 'ℹ️ Observations'
+    };
+
+    for (const sev of ['critical', 'warning', 'info']) {
+      const items = grouped[sev];
+      if (!items.length) continue;
+
+      const groupHeader = document.createElement('div');
+      groupHeader.className = `insight-group-header ${sev}`;
+      groupHeader.textContent = `${severityLabels[sev]} (${items.length})`;
+      list.appendChild(groupHeader);
+
+      for (const insight of items) {
+        const item = document.createElement('div');
+        item.className = `insight-item ${sev}`;
+
+        let refHtml = '';
+        if (insight.prRef) {
+          const match = insight.prRef.match(/^(.+?)#(\d+)$/);
+          if (match) {
+            const url = `https://github.com/${match[1]}/pull/${match[2]}`;
+            refHtml = `<a href="${url}" target="_blank">${escapeHtml(insight.prRef)}</a>`;
+          } else {
+            refHtml = escapeHtml(insight.prRef);
+          }
         }
+
+        // Build metadata line: timestamp + prRef + duration
+        const metaParts = [];
+        if (insight.startDate) {
+          const dateStr = insight.endDate
+            ? `${DataLoader.formatDate(insight.startDate)} → ${DataLoader.formatDate(insight.endDate)}`
+            : DataLoader.formatDate(insight.startDate);
+          metaParts.push(`🕐 ${dateStr}`);
+        }
+        if (refHtml) metaParts.push(refHtml);
+        if (insight.durationDays) metaParts.push(`${insight.durationDays}d`);
+
+        const metaHtml = metaParts.length
+          ? `<div class="insight-meta">${metaParts.join(' · ')}</div>`
+          : '';
+
+        item.innerHTML = `
+          <span class="insight-icon">${iconMap[insight.type] || '💡'}</span>
+          <div>
+            <div class="insight-text">${escapeHtml(insight.description)}</div>
+            ${metaHtml}
+          </div>
+        `;
+        list.appendChild(item);
       }
-      item.innerHTML = `
-        <span class="insight-icon">${iconMap[insight.type] || '💡'}</span>
-        <div>
-          <div class="insight-text">${escapeHtml(insight.description)}</div>
-          ${refHtml}
-        </div>
-      `;
-      list.appendChild(item);
     }
   }
 

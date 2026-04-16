@@ -104,6 +104,11 @@ const UI = (() => {
       file: 'data/service-durabletask.json',
       name: 'DurableTask',
       meta: '15 spec PRs · 125 SDK PRs · 5 languages · 15 release windows · 1yr lookback'
+    },
+    {
+      file: 'data/service-netapp.json',
+      name: 'NetApp',
+      meta: '26 spec PRs · 117 SDK PRs · 4 languages · 26 release windows · 1yr lookback'
     }
   ];
 

@@ -99,6 +99,14 @@ const UI = (() => {
     }
   ];
 
+  const SERVICE_SAMPLES = [
+    {
+      file: 'data/service-durabletask.json',
+      name: 'DurableTask',
+      meta: '15 spec PRs · 125 SDK PRs · 5 languages · 15 release windows · 1yr lookback'
+    }
+  ];
+
   function init() {
     // Theme toggle
     document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
@@ -153,7 +161,13 @@ const UI = (() => {
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
-        if (window._timelineData) Timeline.render(window._timelineData);
+        if (window._timelineData) {
+          if (DataLoader.isServiceTimeline(window._timelineData)) {
+            ServiceTimeline.render(window._timelineData);
+          } else {
+            Timeline.render(window._timelineData);
+          }
+        }
       }, 250);
     });
   }
@@ -170,6 +184,27 @@ const UI = (() => {
     const container = document.getElementById('sample-buttons');
     if (!container) return;
     container.innerHTML = '';
+
+    // Service timeline samples
+    if (SERVICE_SAMPLES.length > 0) {
+      const heading = document.createElement('div');
+      heading.className = 'sample-section-heading';
+      heading.innerHTML = '🔄 Full Service Timelines';
+      container.appendChild(heading);
+      const grid = document.createElement('div');
+      grid.className = 'sample-grid';
+      for (const sample of SERVICE_SAMPLES) {
+        const btn = document.createElement('button');
+        btn.className = 'sample-btn service-sample';
+        btn.innerHTML = `
+          <div class="sample-name">${sample.name}</div>
+          <div class="sample-meta">${sample.meta}</div>
+        `;
+        btn.addEventListener('click', () => loadSample(sample.file));
+        grid.appendChild(btn);
+      }
+      container.appendChild(grid);
+    }
 
     const toolingSamples = SAMPLES.filter(s => s.hasTooling && !s.inFlight);
     const inFlightSamples = SAMPLES.filter(s => s.inFlight);
@@ -209,7 +244,7 @@ const UI = (() => {
 
   function showHome() {
     window._timelineData = null;
-    for (const id of ['header-info', 'summary-cards', 'filters', 'timeline-container', 'insights-panel', 'actor-filters', 'bar-legend']) {
+    for (const id of ['header-info', 'service-header', 'service-window-selector', 'summary-cards', 'filters', 'timeline-container', 'insights-panel', 'actor-filters', 'bar-legend']) {
       const el = document.getElementById(id);
       if (el) el.classList.add('hidden');
     }
@@ -229,7 +264,11 @@ const UI = (() => {
       try {
         const data = DataLoader.loadFromString(e.target.result);
         window._timelineData = data;
-        Timeline.render(data);
+        if (DataLoader.isServiceTimeline(data)) {
+          ServiceTimeline.render(data);
+        } else {
+          Timeline.render(data);
+        }
         document.getElementById('back-btn')?.classList.remove('hidden');
       } catch (err) {
         alert('Error loading file: ' + err.message);
@@ -242,7 +281,11 @@ const UI = (() => {
     try {
       const data = await DataLoader.loadFromUrl(file || 'data/sample-durabletask.json');
       window._timelineData = data;
-      Timeline.render(data);
+      if (DataLoader.isServiceTimeline(data)) {
+        ServiceTimeline.render(data);
+      } else {
+        Timeline.render(data);
+      }
       document.getElementById('back-btn')?.classList.remove('hidden');
     } catch (err) {
       alert('Error loading sample data: ' + err.message);

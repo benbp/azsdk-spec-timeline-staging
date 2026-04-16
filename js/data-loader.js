@@ -1,9 +1,10 @@
 /**
  * data-loader.js
- * Loads and validates timeline JSON data.
+ * Loads and validates timeline JSON data (per-release and service-timeline formats).
  */
 const DataLoader = (() => {
   const REQUIRED_FIELDS = ['title', 'owner', 'startDate', 'endDate', 'specPR', 'sdkPRs'];
+  const SERVICE_REQUIRED_FIELDS = ['type', 'service', 'startDate', 'endDate', 'specPRs', 'sdkPRs'];
   const VALID_EVENT_TYPES = [
     'pr_created', 'pr_merged', 'pr_closed', 'commit_pushed',
     'review_approved', 'review_changes_requested', 'review_comment',
@@ -14,23 +15,32 @@ const DataLoader = (() => {
     'tool_call'
   ];
 
+  function isServiceTimeline(data) {
+    return data.type === 'service-timeline';
+  }
+
   function validate(data) {
     const errors = [];
-    for (const field of REQUIRED_FIELDS) {
-      if (!(field in data)) {
-        errors.push(`Missing required field: ${field}`);
+    if (isServiceTimeline(data)) {
+      for (const field of SERVICE_REQUIRED_FIELDS) {
+        if (!(field in data)) errors.push(`Missing required field: ${field}`);
       }
-    }
-    if (data.specPR && !data.specPR.events) {
-      errors.push('specPR must have an events array');
-    }
-    if (data.sdkPRs && !Array.isArray(data.sdkPRs)) {
-      errors.push('sdkPRs must be an array');
+      if (!Array.isArray(data.specPRs)) errors.push('specPRs must be an array');
+      if (typeof data.sdkPRs !== 'object') errors.push('sdkPRs must be an object');
+    } else {
+      for (const field of REQUIRED_FIELDS) {
+        if (!(field in data)) errors.push(`Missing required field: ${field}`);
+      }
+      if (data.specPR && !data.specPR.events) errors.push('specPR must have an events array');
+      if (data.sdkPRs && !Array.isArray(data.sdkPRs)) errors.push('sdkPRs must be an array');
     }
     return errors;
   }
 
   function getAllPRs(data) {
+    if (isServiceTimeline(data)) {
+      return [...data.specPRs, ...Object.values(data.sdkPRs).flat()];
+    }
     return [data.specPR, ...data.sdkPRs];
   }
 
@@ -38,7 +48,7 @@ const DataLoader = (() => {
     const prs = getAllPRs(data);
     const events = [];
     for (const pr of prs) {
-      for (const event of pr.events) {
+      for (const event of (pr.events || [])) {
         events.push({ ...event, pr });
       }
     }
@@ -147,6 +157,7 @@ const DataLoader = (() => {
 
   return {
     validate,
+    isServiceTimeline,
     getAllPRs,
     getAllEvents,
     getTimeRange,

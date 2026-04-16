@@ -1565,3 +1565,141 @@ body.drag-over::after {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
+
+/* ── Service Timeline ────────────────────────────────────── */
+
+.service-header {
+  padding: 8px 20px;
+}
+.service-header h2 {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  color: var(--text-primary);
+}
+.service-header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.generated-stamp {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Window selector */
+.service-window-selector {
+  padding: 6px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+.window-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 4px 0;
+}
+.window-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  line-height: 1.3;
+}
+.window-pill:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+.window-pill.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.pill-label {
+  font-weight: 600;
+}
+.pill-sub {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+/* Service lane labels */
+.service-lane-label .lane-repo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.service-lane-label .lane-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.pr-counts {
+  font-size: 10px;
+}
+
+/* Multi-PR bars */
+.pr-bar-multi {
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.pr-bar-multi.dimmed {
+  opacity: 0.15;
+}
+.pr-bar-label {
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 8px);
+}
+
+/* Window highlight overlay */
+.window-highlight {
+  position: absolute;
+  top: 0;
+  background: rgba(88, 166, 255, 0.06);
+  border-left: 2px solid rgba(88, 166, 255, 0.3);
+  border-right: 2px solid rgba(88, 166, 255, 0.3);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Service sample button */
+.sample-btn.service-sample {
+  border-left: 3px solid var(--accent);
+}
+.sample-btn.service-sample .sample-name::before {
+  content: '🔄 ';
+}
+
+/* Expand button */
+.filter-btn.expand-btn {
+  font-style: italic;
+  opacity: 0.7;
+  border-style: dashed;
+}
+.filter-btn.expand-btn:hover {
+  opacity: 1;
+}
+
+/* Service lane (multi-PR) height adjustment */
+.service-lane .lane-content {
+  min-height: 60px;
+}

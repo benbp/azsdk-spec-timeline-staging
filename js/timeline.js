@@ -40,6 +40,8 @@ const Timeline = (() => {
     renderInsights();
 
     show('header-info');
+    hide('service-header');
+    hide('service-window-selector');
     show('summary-cards');
     show('filters');
     show('timeline-container');

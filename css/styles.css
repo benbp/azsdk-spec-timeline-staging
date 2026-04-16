@@ -381,8 +381,8 @@ header {
 }
 .bar-legend-swatch {
   display: inline-block;
-  width: 28px;
-  height: 6px;
+  width: 40px;
+  height: 10px;
   border-radius: 3px;
   flex-shrink: 0;
 }
@@ -416,12 +416,25 @@ header {
   border: 1px dashed var(--orange);
 }
 .bar-legend-swatch.release-bar.released {
-  background: var(--teal-bg, rgba(63, 185, 80, 0.15));
+  background: repeating-linear-gradient(
+    90deg,
+    var(--teal) 0px,
+    var(--teal) 4px,
+    transparent 4px,
+    transparent 8px
+  );
   border: 1px solid var(--teal);
 }
 .bar-legend-swatch.idle-gap.warning {
-  background: var(--red-bg, rgba(248, 81, 73, 0.1));
-  border: 1px solid var(--orange);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--orange) 0px,
+    var(--orange) 3px,
+    transparent 3px,
+    transparent 6px
+  );
+  opacity: 0.5;
+  height: 14px;
 }
 
 /* Timeline Container */

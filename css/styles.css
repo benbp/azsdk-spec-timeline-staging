@@ -271,6 +271,17 @@ header {
   border-color: var(--accent);
 }
 
+.filter-btn.toggle-all {
+  font-weight: 600;
+  border-style: dashed;
+}
+.filter-btn.toggle-all.active {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--accent);
+  border-style: dashed;
+}
+
 .filter-btn .filter-icon {
   font-size: 12px;
 }

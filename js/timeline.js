@@ -141,15 +141,40 @@ const Timeline = (() => {
       'tool_call'
     ];
 
+    // Toggle all button
+    const allBtn = document.createElement('button');
+    const allOn = hiddenEventTypes.size === 0;
+    allBtn.className = `filter-btn toggle-all ${allOn ? 'active' : ''}`;
+    allBtn.textContent = allOn ? 'Hide All' : 'Show All';
+    allBtn.addEventListener('click', () => {
+      const nowAllOn = hiddenEventTypes.size === 0;
+      if (nowAllOn) {
+        types.forEach(t => hiddenEventTypes.add(t));
+      } else {
+        hiddenEventTypes.clear();
+      }
+      updateEventVisibility();
+      renderFilters();
+    });
+    container.appendChild(allBtn);
+
     for (const type of types) {
       const info = DataLoader.getEventTypeInfo(type);
       const btn = document.createElement('button');
       btn.className = `filter-btn ${hiddenEventTypes.has(type) ? '' : 'active'}`;
       btn.dataset.type = type;
-      // Legend swatch: a mini marker using the same CSS classes as real event markers
       const swatch = `<span class="legend-swatch"><span class="event-marker ${type}"></span></span>`;
       btn.innerHTML = `${swatch} ${info.label}`;
-      btn.addEventListener('click', () => toggleFilter(type, btn));
+      btn.addEventListener('click', () => {
+        toggleFilter(type, btn);
+        // Update toggle-all button text
+        const toggleBtn = container.querySelector('.toggle-all');
+        if (toggleBtn) {
+          const nowAll = hiddenEventTypes.size === 0;
+          toggleBtn.className = `filter-btn toggle-all ${nowAll ? 'active' : ''}`;
+          toggleBtn.textContent = nowAll ? 'Hide All' : 'Show All';
+        }
+      });
       container.appendChild(btn);
     }
   }

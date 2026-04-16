@@ -433,7 +433,8 @@
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48614#issuecomment-4144854552"
           }
         }
-      ]
+      ],
+      "isDraft": true
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -684,7 +685,8 @@
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45968"
           }
         }
-      ]
+      ],
+      "isDraft": true
     },
     {
       "repo": "Azure/azure-sdk-for-net",

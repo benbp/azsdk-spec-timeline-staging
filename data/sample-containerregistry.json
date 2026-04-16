@@ -707,7 +707,8 @@
             "url": "https://github.com/Azure/azure-sdk-for-java/commit/e8c877fa3c3dc60bb94856e08fdc575548cfc853"
           }
         }
-      ]
+      ],
+      "isDraft": true
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -1084,7 +1085,8 @@
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/56982"
           }
         }
-      ]
+      ],
+      "isDraft": true
     },
     {
       "repo": "Azure/azure-sdk-for-js",

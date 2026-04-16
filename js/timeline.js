@@ -508,11 +508,11 @@ const Timeline = (() => {
     const availWidth = scrollEl.clientWidth;
     contentWidth = Math.max(availWidth * zoomLevel, 600);
 
-    // Ensure lanes container stretches to full content width for background shading
-    lanesContainer.style.minWidth = contentWidth + 'px';
-
-    // Build segments for gap compaction
+    // Build segments for gap compaction (this updates contentWidth)
     buildSegments();
+
+    // Now set lanes container width to the final content width
+    lanesContainer.style.minWidth = contentWidth + 'px';
 
     // Zoom controls
     renderZoomControls();

@@ -1591,7 +1591,8 @@
             "commitSha": "d9e1166"
           }
         }
-      ]
+      ],
+      "isDraft": true
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -1887,7 +1888,8 @@
             "commitSha": "a55ad97"
           }
         }
-      ]
+      ],
+      "isDraft": true
     },
     {
       "repo": "Azure/azure-sdk-for-js",

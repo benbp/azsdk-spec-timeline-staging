@@ -465,6 +465,7 @@ function fetchFullPRData(repo, number) {
     closedAt: pr.closed_at,
     mergedBy: pr.merged_by?.login,
     state: pr.merged ? 'merged' : pr.state,
+    isDraft: pr.draft || false,
     generationFlow: detectGenerationFlow(pr),
     labels: (pr.labels || []).map(l => l.name),
     reviewers: [

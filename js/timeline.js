@@ -269,6 +269,7 @@ const Timeline = (() => {
       items.map(item =>
         `<span class="bar-legend-item">${item.label}<span class="bar-legend-swatch ${item.cls}"></span></span>`
       ).join('');
+    container.classList.remove('hidden');
   }
 
   function toggleFilter(type, btn) {

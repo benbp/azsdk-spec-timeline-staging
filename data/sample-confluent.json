@@ -44,7 +44,7 @@
         "timestamp": "2026-01-08T07:59:31Z",
         "actor": "github-actions[bot]",
         "actorRole": "bot",
-        "description": "Bot: <h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merged, see <a href=\"http",
+        "description": "Bot: <h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"http",
         "sentiment": "neutral"
       },
       {
@@ -394,10 +394,10 @@
           "timestamp": "2026-03-11T09:39:46Z",
           "actor": "ArcturusZhang",
           "actorRole": "reviewer",
-          "description": "ArcturusZhang commented on review",
+          "description": "## MPG Migration Review — Azure.ResourceManager.Confluent",
           "sentiment": "neutral",
           "details": {
-            "body": "## MPG Migration Review \u2014 Azure.ResourceManager.Confluent\n\n### Phase 1: Versioning \u2705\n- Version `1.3.0-beta.1` \u2014 appropriate for new features\n- `ApiCompatVersion: 1.2.1` \u2014 preserved\n- No `ApiCompatBase",
+            "body": "## MPG Migration Review — Azure.ResourceManager.Confluent\n\n### Phase 1: Versioning ✅\n- Version `1.3.0-beta.1` — appropriate for new features\n- `ApiCompatVersion: 1.2.1` — preserved\n- No `ApiCompatBase",
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#pullrequestreview-3928207986"
           }
         },
@@ -406,10 +406,10 @@
           "timestamp": "2026-03-11T09:39:47Z",
           "actor": "ArcturusZhang",
           "actorRole": "reviewer",
-          "description": "ArcturusZhang left inline comment",
+          "description": "🔴 All new extensible enum types use ALL_UPPERCASE member names. This violates .NET naming conventio",
           "sentiment": "neutral",
           "details": {
-            "body": "\ud83d\udd34 All new extensible enum types use ALL_UPPERCASE member names. This violates .NET naming conventions \u2014 enum members should be PascalCase.\n\nAffected enums and their members:\n- `AuthType`: `KAFKAAPIKEY",
+            "body": "🔴 All new extensible enum types use ALL_UPPERCASE member names. This violates .NET naming conventions — enum members should be PascalCase.\n\nAffected enums and their members:\n- `AuthType`: `KAFKAAPIKEY",
             "path": "sdk/confluent/Azure.ResourceManager.Confluent/api/Azure.ResourceManager.Confluent.net10.0.cs",
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#discussion_r2917104577"
           }
@@ -419,10 +419,10 @@
           "timestamp": "2026-03-11T09:39:47Z",
           "actor": "ArcturusZhang",
           "actorRole": "reviewer",
-          "description": "ArcturusZhang left inline comment",
+          "description": "🟡 `Package` is an extremely generic name for an extensible enum — it provides no indication of whic",
           "sentiment": "neutral",
           "details": {
-            "body": "\ud83d\udfe1 `Package` is an extremely generic name for an extensible enum \u2014 it provides no indication of which service or concept it belongs to. Same applies to `AuthType` (line 781) and `DataFormatType` (line ",
+            "body": "🟡 `Package` is an extremely generic name for an extensible enum — it provides no indication of which service or concept it belongs to. Same applies to `AuthType` (line 781) and `DataFormatType` (line ",
             "path": "sdk/confluent/Azure.ResourceManager.Confluent/api/Azure.ResourceManager.Confluent.net10.0.cs",
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#discussion_r2917104582"
           }
@@ -432,10 +432,10 @@
           "timestamp": "2026-03-11T09:39:47Z",
           "actor": "ArcturusZhang",
           "actorRole": "reviewer",
-          "description": "ArcturusZhang left inline comment",
+          "description": "🟡 The `data` parameter for PUT operations should be **required**, not optional (`= null`). This app",
           "sentiment": "neutral",
           "details": {
-            "body": "\ud83d\udfe1 The `data` parameter for PUT operations should be **required**, not optional (`= null`). This applies to all new resource `CreateOrUpdate`/`Update` methods:\n- `ConnectorResourceCollection.CreateOrUp",
+            "body": "🟡 The `data` parameter for PUT operations should be **required**, not optional (`= null`). This applies to all new resource `CreateOrUpdate`/`Update` methods:\n- `ConnectorResourceCollection.CreateOrUp",
             "path": "sdk/confluent/Azure.ResourceManager.Confluent/api/Azure.ResourceManager.Confluent.net10.0.cs",
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#discussion_r2917104591"
           }
@@ -445,10 +445,10 @@
           "timestamp": "2026-03-11T09:39:47Z",
           "actor": "ArcturusZhang",
           "actorRole": "reviewer",
-          "description": "ArcturusZhang left inline comment",
+          "description": "🟡 The name `ConnectorResourceData` (and `ConnectorResourceCollection`) has \"\"Resource\"\" in the midd",
           "sentiment": "neutral",
           "details": {
-            "body": "\ud83d\udfe1 The name `ConnectorResourceData` (and `ConnectorResourceCollection`) has \"\"Resource\"\" in the middle, which is unusual for Data/Collection types. This happens because the TypeSpec resource is named `",
+            "body": "🟡 The name `ConnectorResourceData` (and `ConnectorResourceCollection`) has \"\"Resource\"\" in the middle, which is unusual for Data/Collection types. This happens because the TypeSpec resource is named `",
             "path": "sdk/confluent/Azure.ResourceManager.Confluent/api/Azure.ResourceManager.Confluent.net10.0.cs",
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/54889#discussion_r2917104597"
           }
@@ -458,7 +458,7 @@
           "timestamp": "2026-03-11T10:12:47Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (32.1s)",
+          "description": "azsdk_package_build_code — Succeeded (32.1s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -491,7 +491,7 @@
           "timestamp": "2026-03-12T03:43:22Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (52.7s)",
+          "description": "azsdk_package_build_code — Succeeded (52.7s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -508,7 +508,7 @@
           "timestamp": "2026-03-12T03:44:21Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_run_check \u2014 Succeeded (125.5s)",
+          "description": "azsdk_package_run_check — Succeeded (125.5s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_run_check",
@@ -525,7 +525,7 @@
           "timestamp": "2026-03-12T03:46:38Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_run_check \u2014 Succeeded (90.5s)",
+          "description": "azsdk_package_run_check — Succeeded (90.5s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_run_check",
@@ -542,7 +542,7 @@
           "timestamp": "2026-03-12T03:46:38Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_run_check \u2014 Succeeded (5.3s)",
+          "description": "azsdk_package_run_check — Succeeded (5.3s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_run_check",
@@ -559,7 +559,7 @@
           "timestamp": "2026-03-12T03:46:38Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_run_check \u2014 Succeeded (5.1s)",
+          "description": "azsdk_package_run_check — Succeeded (5.1s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_run_check",
@@ -576,7 +576,7 @@
           "timestamp": "2026-03-12T03:48:13Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_run_check \u2014 Succeeded (37.2s)",
+          "description": "azsdk_package_run_check — Succeeded (37.2s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_run_check",
@@ -593,7 +593,7 @@
           "timestamp": "2026-03-12T03:48:13Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_run_check \u2014 Succeeded (2.3s)",
+          "description": "azsdk_package_run_check — Succeeded (2.3s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_run_check",
@@ -610,7 +610,7 @@
           "timestamp": "2026-03-12T03:56:53Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (19.6s)",
+          "description": "azsdk_package_build_code — Succeeded (19.6s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -627,7 +627,7 @@
           "timestamp": "2026-03-12T05:46:04Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (36.1s)",
+          "description": "azsdk_package_build_code — Succeeded (36.1s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -644,7 +644,7 @@
           "timestamp": "2026-03-12T05:49:29Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (10.1s)",
+          "description": "azsdk_package_build_code — Succeeded (10.1s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -661,7 +661,7 @@
           "timestamp": "2026-03-12T05:50:14Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (10.0s)",
+          "description": "azsdk_package_build_code — Succeeded (10.0s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -686,7 +686,7 @@
           "timestamp": "2026-03-12T06:26:50Z",
           "actor": "Copilot",
           "actorRole": "reviewer",
-          "description": "Copilot left inline comment",
+          "description": "The XML summary for Id is incorrect ('Type of cluster'). This is a backward-compat shim type meant f",
           "sentiment": "neutral",
           "details": {
             "body": "The XML summary for Id is incorrect ('Type of cluster'). This is a backward-compat shim type meant for end users; please correct the summary to something like 'Cluster id.' to avoid confusing API docu",
@@ -710,7 +710,7 @@
           "timestamp": "2026-03-12T06:26:51Z",
           "actor": "Copilot",
           "actorRole": "reviewer",
-          "description": "Copilot left inline comment",
+          "description": "System.Runtime.CompilerServices and System.Threading are not used in this file. Removing unused usin",
           "sentiment": "neutral",
           "details": {
             "body": "System.Runtime.CompilerServices and System.Threading are not used in this file. Removing unused using directives reduces noise and avoids potential analyzer warnings.\n```suggestion\n\n```",
@@ -723,7 +723,7 @@
           "timestamp": "2026-03-12T06:52:17Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (55.7s)",
+          "description": "azsdk_package_build_code — Succeeded (55.7s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -740,7 +740,7 @@
           "timestamp": "2026-03-12T06:54:11Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (26.8s)",
+          "description": "azsdk_package_build_code — Succeeded (26.8s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -808,7 +808,7 @@
           "timestamp": "2026-03-18T08:04:34Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_package_update_version \u2014 Succeeded (2.6s)",
+          "description": "azsdk_package_update_version — Succeeded (2.6s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_update_version",
@@ -825,7 +825,7 @@
           "timestamp": "2026-03-19T08:36:24Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "release-plan.update-release-status \u2014 Succeeded (2.7s)",
+          "description": "release-plan.update-release-status — Succeeded (2.7s)",
           "sentiment": "positive",
           "details": {
             "toolName": "release-plan.update-release-status",
@@ -842,7 +842,7 @@
           "timestamp": "2026-04-02T05:53:22Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (1.7s)",
+          "description": "azsdk_release_sdk — Succeeded (1.7s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -859,7 +859,7 @@
           "timestamp": "2026-04-02T05:56:03Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (12.0s)",
+          "description": "azsdk_release_sdk — Succeeded (12.0s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -998,7 +998,7 @@
           "timestamp": "2026-04-02T05:53:30Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (1.7s)",
+          "description": "azsdk_release_sdk — Succeeded (1.7s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -1015,7 +1015,7 @@
           "timestamp": "2026-04-02T05:56:23Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (14.2s)",
+          "description": "azsdk_release_sdk — Succeeded (14.2s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -1032,7 +1032,7 @@
           "timestamp": "2026-04-02T07:26:51Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "release-plan.update-release-status \u2014 Succeeded (3.2s)",
+          "description": "release-plan.update-release-status — Succeeded (3.2s)",
           "sentiment": "positive",
           "details": {
             "toolName": "release-plan.update-release-status",
@@ -1152,7 +1152,7 @@
           "timestamp": "2026-02-24T20:24:13Z",
           "actor": "Shekar2004",
           "actorRole": "reviewer",
-          "description": "Shekar2004 commented",
+          "description": "@msyyc, @ChenxiJiang333 can you please Review this PR",
           "sentiment": "neutral",
           "details": {
             "body": "@msyyc, @ChenxiJiang333 can you please Review this PR"
@@ -1175,7 +1175,7 @@
           "timestamp": "2026-02-26T07:56:20Z",
           "actor": "msyyc",
           "actorRole": "reviewer",
-          "description": "msyyc commented",
+          "description": "Hi @Shekar2004 Pls create a release plan instead of trigger pipeline to generate SDK pr directly. If",
           "sentiment": "neutral",
           "details": {
             "body": "Hi @Shekar2004 Pls create a release plan instead of trigger pipeline to generate SDK pr directly. If you don't know how to make release plan, you could seek help in teams channel https://teams.microso"
@@ -1198,7 +1198,7 @@
           "timestamp": "2026-03-11T05:02:38Z",
           "actor": "Shekar2004",
           "actorRole": "reviewer",
-          "description": "Shekar2004 commented",
+          "description": "We have already created the release plan: https://apps.powerapps.com/play/e/ed2ffefd-774d-40dd-ab23-",
           "sentiment": "neutral",
           "details": {
             "body": "We have already created the release plan: https://apps.powerapps.com/play/e/ed2ffefd-774d-40dd-ab23-7fff01aeec9f/a/821ab569-ae60-420d-8264-d7b5d5ef734c?release-plan-id=946c92ae-4506-f111-8406-000d3a59"
@@ -1209,7 +1209,7 @@
           "timestamp": "2026-03-11T05:34:51Z",
           "actor": "ChenxiJiang333",
           "actorRole": "reviewer",
-          "description": "ChenxiJiang333 commented",
+          "description": "Hi @Shekar2004, it looks like the prerequisite's checks of sdk release haven't be finished for this ",
           "sentiment": "neutral",
           "details": {
             "body": "Hi @Shekar2004, it looks like the prerequisite's checks of sdk release haven't be finished for this release plan.\r\n<img width=\"1534\" height=\"781\" alt=\"image\" src=\"https://github.com/user-attachments/a"
@@ -1232,7 +1232,7 @@
           "timestamp": "2026-03-15T14:49:47Z",
           "actor": "Shekar2004",
           "actorRole": "reviewer",
-          "description": "Shekar2004 commented",
+          "description": "Thank you for pointing out the gap in release plan @ChenxiJiang333, Updated the release plan to comp",
           "sentiment": "neutral",
           "details": {
             "body": "Thank you for pointing out the gap in release plan @ChenxiJiang333, Updated the release plan to complete the Prequisite checks. Please let me know if anything else need to be done too??"
@@ -1289,7 +1289,7 @@
           "timestamp": "2026-03-16T07:58:31Z",
           "actor": "ChenxiJiang333",
           "actorRole": "reviewer",
-          "description": "ChenxiJiang333 commented",
+          "description": "@Shekar2004, pr ready, feel free to merge and release",
           "sentiment": "neutral",
           "details": {
             "body": "@Shekar2004, pr ready, feel free to merge and release\r\n"
@@ -1320,7 +1320,7 @@
           "timestamp": "2026-04-02T05:53:12Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (4.5s)",
+          "description": "azsdk_release_sdk — Succeeded (4.5s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -1337,7 +1337,7 @@
           "timestamp": "2026-04-02T05:54:59Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (13.8s)",
+          "description": "azsdk_release_sdk — Succeeded (13.8s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -1354,7 +1354,7 @@
           "timestamp": "2026-04-02T07:19:01Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "release-plan.update-release-status \u2014 Succeeded (3.1s)",
+          "description": "release-plan.update-release-status — Succeeded (3.1s)",
           "sentiment": "positive",
           "details": {
             "toolName": "release-plan.update-release-status",
@@ -1473,7 +1473,7 @@
           "timestamp": "2026-04-02T05:53:50Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (1.8s)",
+          "description": "azsdk_release_sdk — Succeeded (1.8s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -1490,7 +1490,7 @@
           "timestamp": "2026-04-02T05:56:59Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (4.4s)",
+          "description": "azsdk_release_sdk — Succeeded (4.4s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -1507,7 +1507,7 @@
           "timestamp": "2026-04-02T05:58:17Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (3.4s)",
+          "description": "azsdk_release_sdk — Succeeded (3.4s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -1524,7 +1524,7 @@
           "timestamp": "2026-04-02T05:58:24Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (1.5s)",
+          "description": "azsdk_release_sdk — Succeeded (1.5s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -1541,7 +1541,7 @@
           "timestamp": "2026-04-02T06:46:03Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "release-plan.update-release-status \u2014 Succeeded (2.9s)",
+          "description": "release-plan.update-release-status — Succeeded (2.9s)",
           "sentiment": "positive",
           "details": {
             "toolName": "release-plan.update-release-status",
@@ -1673,7 +1673,7 @@
           "timestamp": "2026-02-24T20:30:38Z",
           "actor": "Shekar2004",
           "actorRole": "reviewer",
-          "description": "Shekar2004 commented",
+          "description": "@qiaozha, @MaryGao, @JialinHuang803 , @Azure/azure-sdk-js-dev , @Azure/azure-sdk-for-js-core , @jere",
           "sentiment": "neutral",
           "details": {
             "body": "@qiaozha, @MaryGao, @JialinHuang803 , @Azure/azure-sdk-js-dev , @Azure/azure-sdk-for-js-core , @jeremymeng Request to please review this PR changes"
@@ -1696,7 +1696,7 @@
           "timestamp": "2026-03-02T02:50:12Z",
           "actor": "kazrael2119",
           "actorRole": "reviewer",
-          "description": "kazrael2119 left inline comment",
+          "description": "need revert these breakings",
           "sentiment": "neutral",
           "details": {
             "body": "need revert these breakings\npr: https://github.com/Azure/azure-rest-api-specs/pull/40840",
@@ -1757,7 +1757,7 @@
           "timestamp": "2026-03-05T06:48:22Z",
           "actor": "kazrael2119",
           "actorRole": "reviewer",
-          "description": "kazrael2119 left inline comment",
+          "description": "https://github.com/Azure/azure-rest-api-specs/pull/41032",
           "sentiment": "neutral",
           "details": {
             "body": "https://github.com/Azure/azure-rest-api-specs/pull/41032",
@@ -1802,7 +1802,7 @@
           "timestamp": "2026-03-05T08:36:49Z",
           "actor": "kazrael2119",
           "actorRole": "reviewer",
-          "description": "kazrael2119 left inline comment",
+          "description": "```suggestion",
           "sentiment": "neutral",
           "details": {
             "body": "```suggestion\n  const userAgentInfo = `azsdk-js-arm-confluent/4.0.0-beta.1`;\n```",
@@ -1842,7 +1842,7 @@
           "timestamp": "2026-04-02T05:53:39Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (1.6s)",
+          "description": "azsdk_release_sdk — Succeeded (1.6s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -1859,7 +1859,7 @@
           "timestamp": "2026-04-02T05:56:43Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (10.2s)",
+          "description": "azsdk_release_sdk — Succeeded (10.2s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -1876,7 +1876,7 @@
           "timestamp": "2026-04-02T06:55:35Z",
           "actor": "unknown",
           "actorRole": "tool",
-          "description": "release-plan.update-release-status \u2014 Succeeded (3.0s)",
+          "description": "release-plan.update-release-status — Succeeded (3.0s)",
           "sentiment": "positive",
           "details": {
             "toolName": "release-plan.update-release-status",
@@ -1895,7 +1895,7 @@
     {
       "type": "summary",
       "severity": "info",
-      "description": "SDK PRs were auto-generated 63.0 days BEFORE spec merge \u2014 pipeline ran on spec commits pre-merge",
+      "description": "SDK PRs were auto-generated 63.0 days BEFORE spec merge — pipeline ran on spec commits pre-merge",
       "startDate": "2026-01-08T08:00:26Z",
       "endDate": "2026-03-12T08:38:26Z",
       "durationDays": 63.03
@@ -1912,7 +1912,7 @@
     {
       "type": "bottleneck",
       "severity": "warning",
-      "description": ".NET SDK PR was manually authored (by mzhongl524), took 63.11 days \u2014 manual flow vs automated for other languages",
+      "description": ".NET SDK PR was manually authored (by mzhongl524), took 63.11 days — manual flow vs automated for other languages",
       "durationDays": 63.11,
       "prRef": "Azure/azure-sdk-for-net#54889"
     },
@@ -1924,7 +1924,7 @@
     {
       "type": "summary",
       "severity": "info",
-      "description": "32 MCP tool calls tracked across SDKs \u2014 32 succeeded, 0 failed. .NET: 18 calls (18 ok); Go: 5 calls (5 ok); Java: 3 calls (3 ok); JavaScript: 3 calls (3 ok); Python: 3 calls (3 ok)."
+      "description": "32 MCP tool calls tracked across SDKs — 32 succeeded, 0 failed. .NET: 18 calls (18 ok); Go: 5 calls (5 ok); Java: 3 calls (3 ok); JavaScript: 3 calls (3 ok); Python: 3 calls (3 ok)."
     },
     {
       "type": "bottleneck",
@@ -1938,7 +1938,7 @@
     }
   ],
   "summary": {
-    "totalDurationDays": 84.0,
+    "totalDurationDays": 84,
     "specPRDays": 63.03,
     "pipelineGapDays": 0,
     "sdkPRMaxDays": 63.11,

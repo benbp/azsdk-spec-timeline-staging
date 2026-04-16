@@ -81,7 +81,7 @@
         "timestamp": "2026-02-04T08:43:59Z",
         "actor": "github-actions[bot]",
         "actorRole": "bot",
-        "description": "API Change Check \u2014 ApiView links generated for all languages",
+        "description": "API Change Check — ApiView links generated for all languages",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40148#issuecomment-3846111141"
@@ -92,7 +92,7 @@
         "timestamp": "2026-02-04T08:52:17Z",
         "actor": "mjmadhu",
         "actorRole": "author",
-        "description": "Author noted this version was merged yesterday and not yet live to users",
+        "description": "This version was merged yesterday only and not yet live to the users.",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40148#issuecomment-3846145562",
@@ -105,7 +105,7 @@
         "endTimestamp": "2026-02-11T17:45:03Z",
         "actor": "system",
         "actorRole": "bot",
-        "description": "7-day wait after approval before merge \u2014 likely versioning review process",
+        "description": "7-day wait after approval before merge — likely versioning review process",
         "sentiment": "blocking",
         "details": {
           "durationHours": 176.9
@@ -163,7 +163,7 @@
           "timestamp": "2026-04-01T10:37:45Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "API Change Check \u2014 ApiView link generated for Java SDK",
+          "description": "API Change Check — ApiView link generated for Java SDK",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48660#issuecomment-4169143056"
@@ -174,7 +174,7 @@
           "timestamp": "2026-04-01T11:37:01Z",
           "actor": "kashish2508",
           "actorRole": "reviewer",
-          "description": "kashish2508 ran /check-enforcer override to unblock CI",
+          "description": "/check-enforcer override",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48660#issuecomment-4169451693",
@@ -186,7 +186,7 @@
           "timestamp": "2026-04-01T11:44:03Z",
           "actor": "copilot-pull-request-reviewer[bot]",
           "actorRole": "copilot",
-          "description": "Copilot code review \u2014 generated 4 comments about Javadoc wording and punctuation",
+          "description": "Copilot code review — generated 4 comments about Javadoc wording and punctuation",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48660#pullrequestreview-4043598212",
@@ -221,7 +221,7 @@
           "timestamp": "2026-04-02T11:02:36Z",
           "actor": "system",
           "actorRole": "bot",
-          "description": "\u26a0 Package azure-resourcemanager-playwright merged but not yet released",
+          "description": "⚠ Package azure-resourcemanager-playwright merged but not yet released",
           "sentiment": "blocking",
           "details": {}
         }
@@ -275,7 +275,7 @@
           "timestamp": "2026-04-01T10:33:51Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "API Change Check \u2014 ApiView link generated for Go SDK",
+          "description": "API Change Check — ApiView link generated for Go SDK",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26469#issuecomment-4169123681"
@@ -286,7 +286,7 @@
           "timestamp": "2026-04-01T11:42:14Z",
           "actor": "copilot-pull-request-reviewer[bot]",
           "actorRole": "copilot",
-          "description": "Copilot code review \u2014 generated 2 comments about doc wording (boolean vs enum)",
+          "description": "Copilot code review — generated 2 comments about doc wording (boolean vs enum)",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26469#pullrequestreview-4043583160",
@@ -321,7 +321,7 @@
           "timestamp": "2026-04-02T11:02:36Z",
           "actor": "system",
           "actorRole": "bot",
-          "description": "\u26a0 Package sdk/resourcemanager/playwright/armplaywright merged but not yet released",
+          "description": "⚠ Package sdk/resourcemanager/playwright/armplaywright merged but not yet released",
           "sentiment": "blocking",
           "details": {}
         }
@@ -372,7 +372,7 @@
           "timestamp": "2026-04-01T11:43:16Z",
           "actor": "copilot-pull-request-reviewer[bot]",
           "actorRole": "copilot",
-          "description": "Copilot code review \u2014 no comments generated, clean review",
+          "description": "Copilot code review — no comments generated, clean review",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/46051#pullrequestreview-4043592297",
@@ -407,7 +407,7 @@
           "timestamp": "2026-04-02T11:02:36Z",
           "actor": "system",
           "actorRole": "bot",
-          "description": "\u26a0 Package azure-mgmt-playwright merged but not yet released",
+          "description": "⚠ Package azure-mgmt-playwright merged but not yet released",
           "sentiment": "blocking",
           "details": {}
         }
@@ -460,7 +460,7 @@
           "timestamp": "2026-04-01T10:42:02Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "API Change Check \u2014 ApiView link generated for .NET SDK",
+          "description": "API Change Check — ApiView link generated for .NET SDK",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57661#issuecomment-4169164755"
@@ -471,7 +471,7 @@
           "timestamp": "2026-04-01T11:43:25Z",
           "actor": "copilot-pull-request-reviewer[bot]",
           "actorRole": "copilot",
-          "description": "Copilot code review \u2014 generated 2 comments about StorageUri serialization safety",
+          "description": "Copilot code review — generated 2 comments about StorageUri serialization safety",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57661#pullrequestreview-4043593517",
@@ -483,7 +483,7 @@
           "timestamp": "2026-04-02T01:42:31Z",
           "actor": "ArthurMa1978",
           "actorRole": "reviewer",
-          "description": "ArthurMa1978 requested changes \u2014 update changelog.md with released date",
+          "description": "ArthurMa1978 requested changes — update changelog.md with released date",
           "sentiment": "blocking",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57661#pullrequestreview-4047904698",
@@ -519,7 +519,7 @@
           "timestamp": "2026-04-02T11:02:36Z",
           "actor": "system",
           "actorRole": "bot",
-          "description": "\u26a0 Package Azure.ResourceManager.Playwright merged but not yet released",
+          "description": "⚠ Package Azure.ResourceManager.Playwright merged but not yet released",
           "sentiment": "blocking",
           "details": {}
         }
@@ -576,7 +576,7 @@
           "timestamp": "2026-04-01T10:34:47Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "API Change Check \u2014 ApiView link generated for JS SDK",
+          "description": "API Change Check — ApiView link generated for JS SDK",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926#issuecomment-4169128347"
@@ -587,7 +587,7 @@
           "timestamp": "2026-04-01T11:45:23Z",
           "actor": "copilot-pull-request-reviewer[bot]",
           "actorRole": "copilot",
-          "description": "Copilot code review \u2014 no blocking comments, 2 low-confidence suggestions suppressed",
+          "description": "Copilot code review — no blocking comments, 2 low-confidence suggestions suppressed",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926#pullrequestreview-4043607602",
@@ -599,7 +599,7 @@
           "timestamp": "2026-04-02T09:10:31Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "CI bot posted Next Steps to Merge \u2014 all checks passed, pending reviewer approvals",
+          "description": "CI bot posted Next Steps to Merge — all checks passed, pending reviewer approvals",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926#issuecomment-4175816628"
@@ -610,7 +610,7 @@
           "timestamp": "2026-04-02T09:10:32Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "Management Release Assistant review \u2014 no API design issues found, clean report",
+          "description": "Management Release Assistant review — no API design issues found, clean report",
           "sentiment": "positive",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926#pullrequestreview-4049369159"
@@ -621,7 +621,7 @@
           "timestamp": "2026-04-02T09:18:32Z",
           "actor": "kazrael2119",
           "actorRole": "reviewer",
-          "description": "kazrael2119 commented LGTM, cc'd JialinHuang803",
+          "description": "LGTM",
           "sentiment": "positive",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926#issuecomment-4175863032",
@@ -657,7 +657,7 @@
           "timestamp": "2026-04-02T11:02:36Z",
           "actor": "system",
           "actorRole": "bot",
-          "description": "\u26a0 Package @azure/arm-playwright merged but not yet released",
+          "description": "⚠ Package @azure/arm-playwright merged but not yet released",
           "sentiment": "blocking",
           "details": {}
         }
@@ -679,7 +679,7 @@
     {
       "type": "bottleneck",
       "severity": "critical",
-      "description": "49-day gap between spec PR merge (Feb 11) and SDK PR creation (Apr 1) \u2014 massive pipeline/scheduling latency",
+      "description": "49-day gap between spec PR merge (Feb 11) and SDK PR creation (Apr 1) — massive pipeline/scheduling latency",
       "startDate": "2026-02-11T17:45:03Z",
       "endDate": "2026-04-01T10:21:46Z",
       "durationDays": 48.69
@@ -687,7 +687,7 @@
     {
       "type": "idle",
       "severity": "critical",
-      "description": "7-day wait on spec PR after dual approval before merge \u2014 likely versioning review process (VersioningReviewRequired label)",
+      "description": "7-day wait on spec PR after dual approval before merge — likely versioning review process (VersioningReviewRequired label)",
       "startDate": "2026-02-04T08:52:17Z",
       "endDate": "2026-02-11T17:45:03Z",
       "durationDays": 7.37,
@@ -696,7 +696,7 @@
     {
       "type": "bottleneck",
       "severity": "warning",
-      "description": ".NET PR had changes requested by ArthurMa1978 \u2014 changelog.md missing released date, delayed merge by ~8 hours vs other SDK PRs",
+      "description": ".NET PR had changes requested by ArthurMa1978 — changelog.md missing released date, delayed merge by ~8 hours vs other SDK PRs",
       "startDate": "2026-04-02T01:42:31Z",
       "endDate": "2026-04-02T09:30:25Z",
       "durationDays": 0.32,
@@ -705,17 +705,17 @@
     {
       "type": "positive",
       "severity": "info",
-      "description": "All 5 SDK PRs merged within ~25 hours of creation \u2014 very fast turnaround once the pipeline triggered"
+      "description": "All 5 SDK PRs merged within ~25 hours of creation — very fast turnaround once the pipeline triggered"
     },
     {
       "type": "positive",
       "severity": "info",
-      "description": "No author nags needed \u2014 reviewers responded without being prompted by the spec PR author"
+      "description": "No author nags needed — reviewers responded without being prompted by the spec PR author"
     },
     {
       "type": "positive",
       "severity": "info",
-      "description": "No manual fixes needed \u2014 all auto-generated SDK PRs passed without manual code intervention"
+      "description": "No manual fixes needed — all auto-generated SDK PRs passed without manual code intervention"
     },
     {
       "type": "positive",
@@ -726,7 +726,7 @@
     {
       "type": "positive",
       "severity": "info",
-      "description": "Java SDK PR was the fastest \u2014 merged in ~21.3 hours after creation",
+      "description": "Java SDK PR was the fastest — merged in ~21.3 hours after creation",
       "prRef": "Azure/azure-sdk-for-java#48660"
     },
     {
@@ -737,7 +737,7 @@
     {
       "type": "release_pending",
       "severity": "critical",
-      "description": "5 SDK package(s) merged but not yet released \u2014 potential limbo"
+      "description": "5 SDK package(s) merged but not yet released — potential limbo"
     }
   ],
   "summary": {

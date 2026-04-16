@@ -139,7 +139,7 @@
         "timestamp": "2026-01-28T13:24:36Z",
         "actor": "audunn",
         "actorRole": "author",
-        "description": "BugFix breaking change, applying `@secret` to properties in a POST operation `Bu",
+        "description": "BugFix breaking change, applying `@secret`  to properties in a POST operation `Buckets_GenerateCrede",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3811296652",
@@ -183,7 +183,7 @@
         "timestamp": "2026-01-30T13:16:48Z",
         "actor": "razvanbadea-msft",
         "actorRole": "reviewer",
-        "description": "> * ClientId of the multi-tenant AAD Application. Used to access cross-tenant ke",
+        "description": "change it to Entra Id to by in sync with other descriptions",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3823701485",
@@ -286,7 +286,7 @@
         "timestamp": "2026-02-04T22:40:38Z",
         "actor": "sandipsh",
         "actorRole": "reviewer",
-        "description": "> size: int64; is not needed to be renamed? --- Refers to: specification/netapp/",
+        "description": "is not needed to be renamed?",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3850101747",
@@ -310,7 +310,7 @@
         "timestamp": "2026-02-05T10:43:26Z",
         "actor": "audunn",
         "actorRole": "author",
-        "description": "> is not needed to be renamed? No, this should be `size`",
+        "description": "No, this should be `size`",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3852711850",
@@ -334,7 +334,7 @@
         "timestamp": "2026-02-06T19:29:25Z",
         "actor": "sandipsh",
         "actorRole": "reviewer",
-        "description": "PR intake form says it is new version, but I still don't see readme.md file to i",
+        "description": "PR intake form says it is new version, but I still don't see readme.md file to include new version.",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/39908#issuecomment-3862204176",
@@ -457,7 +457,7 @@
           "timestamp": "2026-02-20T06:14:20Z",
           "actor": "nandakus2",
           "actorRole": "author",
-          "description": "Inline comment on NetAppResource_Tests.cs: fixed",
+          "description": "fixed",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2831564361",
@@ -492,7 +492,7 @@
           "timestamp": "2026-02-23T15:19:37Z",
           "actor": "audunn",
           "actorRole": "author",
-          "description": "Inline comment on autorest.md: This `Type` was renamed from the old name in API specs `Type",
+          "description": "This `Type`  was renamed from the old name in API specs `Type` to `NetAppVolumeQuotaType` in previou",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2841440627",
@@ -504,7 +504,7 @@
           "timestamp": "2026-02-23T17:26:56Z",
           "actor": "nandakus2",
           "actorRole": "author",
-          "description": "Inline comment on autorest.md: updated",
+          "description": "updated",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2842122757",
@@ -548,7 +548,7 @@
           "timestamp": "2026-02-28T02:50:49Z",
           "actor": "ArthurMa1978",
           "actorRole": "reviewer",
-          "description": "Inline comment on ApiCompatBaseline.txt: should not use compatbaseline file to mitigate breaking chan",
+          "description": "should not use compatbaseline file to mitigate breaking changes",
           "sentiment": "blocking",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2866956138",
@@ -580,7 +580,7 @@
           "timestamp": "2026-03-02T16:57:11Z",
           "actor": "nandakus2",
           "actorRole": "author",
-          "description": "Inline comment on ApiCompatBaseline.txt: @ArthurMa1978 Have reverted this.",
+          "description": "@ArthurMa1978 Have reverted this.",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2873546995",
@@ -905,7 +905,7 @@
           "timestamp": "2026-03-04T05:38:57Z",
           "actor": "nandakus2",
           "actorRole": "author",
-          "description": "Inline comment on Exclude.cs: Renamned from Exclude to ExcludeReplicationsFilter",
+          "description": "Renamned from Exclude to ExcludeReplicationsFilter",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2881938652",
@@ -925,7 +925,7 @@
           "timestamp": "2026-03-04T06:48:20Z",
           "actor": "ArthurMa1978",
           "actorRole": "reviewer",
-          "description": "Inline comment on CHANGELOG.md: The version should be updated to 1.15.0, as the API version ",
+          "description": "The version should be updated to 1.15.0, as the API version is now stable. The same change should al",
           "sentiment": "blocking",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2882126748",
@@ -961,7 +961,7 @@
           "timestamp": "2026-03-05T09:38:09Z",
           "actor": "ArthurMa1978",
           "actorRole": "reviewer",
-          "description": "Inline comment on autorest.md: `QuotaItem` is too generic, please rename it to a more descr",
+          "description": "`QuotaItem` is too generic,  please rename it to a more described name",
           "sentiment": "blocking",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2888832199",
@@ -973,7 +973,7 @@
           "timestamp": "2026-03-05T12:59:30Z",
           "actor": "nandakus2",
           "actorRole": "author",
-          "description": "Inline comment on autorest.md: Have renamed back QuotaItem: NetAppSubscriptionQuotaItem by ",
+          "description": "Have renamed back QuotaItem: NetAppSubscriptionQuotaItem by migrating the custom adapters to new gen",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/56362#discussion_r2889840171",
@@ -1505,7 +1505,7 @@
           "timestamp": "2026-02-14T01:55:22Z",
           "actor": "weidongxu-microsoft",
           "actorRole": "reviewer",
-          "description": "Inline comment on CHANGELOG.md: Can we rename it back to `Type` in \"client.tsp\" to avoid bre",
+          "description": "Can we rename it back to `Type` in \"client.tsp\" to avoid break?",
           "sentiment": "blocking",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#discussion_r2806779425",
@@ -1529,7 +1529,7 @@
           "timestamp": "2026-02-16T10:50:34Z",
           "actor": "audunn",
           "actorRole": "author",
-          "description": "Inline comment on CHANGELOG.md: This `Type` comes from the previous preview version (beta). ",
+          "description": "This `Type` comes from the previous preview version (beta). Would prefere to rename to `QuotaType` i",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#discussion_r2811800516",
@@ -1607,7 +1607,7 @@
           "timestamp": "2026-02-26T10:12:07Z",
           "actor": "audunn",
           "actorRole": "author",
-          "description": "Regenerated to incorportate TypeSpec fix https://github.com/Azure/azure-rest-api",
+          "description": "Regenerated to incorportate TypeSpec fix https://github.com/Azure/azure-rest-api-specs/pull/40743",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#issuecomment-3965582190",
@@ -1670,7 +1670,7 @@
           "timestamp": "2026-02-27T10:37:24Z",
           "actor": "weidongxu-microsoft",
           "actorRole": "reviewer",
-          "description": "@XiaofeiCao for review service is ready to merge",
+          "description": "@XiaofeiCao for review",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995#issuecomment-3972123000",
@@ -1861,7 +1861,7 @@
           "timestamp": "2026-02-24T09:10:31Z",
           "actor": "JiaqiZhang-Dev",
           "actorRole": "reviewer",
-          "description": "Inline comment on CHANGELOG.md: came from this PR: https://github.com/Azure/azure-rest-api-s",
+          "description": "came from this PR: https://github.com/Azure/azure-rest-api-specs/pull/39908",
           "sentiment": "blocking",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020#discussion_r2845508687",
@@ -2099,7 +2099,7 @@
           "timestamp": "2026-02-27T07:29:57Z",
           "actor": "msyyc",
           "actorRole": "reviewer",
-          "description": "Inline comment on CHANGELOG.md: Operation group instead of model",
+          "description": "Operation group instead of model",
           "sentiment": "blocking",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45164#discussion_r2862959050",
@@ -2277,7 +2277,7 @@
           "timestamp": "2026-02-25T07:22:44Z",
           "actor": "kazrael2119",
           "actorRole": "reviewer",
-          "description": "LGTM cc @JialinHuang803",
+          "description": "LGTM",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37299#issuecomment-3957335981",

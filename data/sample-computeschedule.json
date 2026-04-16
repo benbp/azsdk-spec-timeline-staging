@@ -56,7 +56,7 @@
         "timestamp": "2026-03-12T04:51:58Z",
         "actor": "github-actions[bot]",
         "actorRole": "bot",
-        "description": "github-actions[bot]: <h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! ",
+        "description": "github-actions[bot]: <h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! ",
         "sentiment": "neutral"
       },
       {
@@ -171,7 +171,7 @@
         "timestamp": "2026-03-13T19:15:30Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -182,7 +182,7 @@
         "timestamp": "2026-03-13T19:15:38Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -193,7 +193,7 @@
         "timestamp": "2026-03-13T19:15:44Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -204,7 +204,7 @@
         "timestamp": "2026-03-13T19:15:49Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -215,7 +215,7 @@
         "timestamp": "2026-03-13T19:15:54Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -226,7 +226,7 @@
         "timestamp": "2026-03-13T19:16:10Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -237,7 +237,7 @@
         "timestamp": "2026-03-13T19:16:16Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -248,7 +248,7 @@
         "timestamp": "2026-03-13T19:16:19Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -259,7 +259,7 @@
         "timestamp": "2026-03-13T19:16:23Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -270,7 +270,7 @@
         "timestamp": "2026-03-13T19:16:29Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -281,7 +281,7 @@
         "timestamp": "2026-03-13T19:16:36Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -292,7 +292,7 @@
         "timestamp": "2026-03-13T19:16:41Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -303,7 +303,7 @@
         "timestamp": "2026-03-13T19:16:44Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -314,7 +314,7 @@
         "timestamp": "2026-03-13T19:16:55Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: changed to azureLocation",
+        "description": "changed to azureLocation",
         "sentiment": "neutral",
         "details": {
           "body": "changed to azureLocation"
@@ -325,7 +325,7 @@
         "timestamp": "2026-03-13T19:16:59Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -336,7 +336,7 @@
         "timestamp": "2026-03-13T19:17:04Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -347,7 +347,7 @@
         "timestamp": "2026-03-13T19:17:08Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -358,7 +358,7 @@
         "timestamp": "2026-03-13T19:17:13Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -369,7 +369,7 @@
         "timestamp": "2026-03-13T19:17:18Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -413,7 +413,7 @@
         "timestamp": "2026-03-13T21:10:56Z",
         "actor": "NneOkeke",
         "actorRole": "reviewer",
-        "description": "NneOkeke: The type here wouldn't be vm, need to confirm, but you can r",
+        "description": "The type here wouldn't be vm, need to confirm, but you can rename to random string",
         "sentiment": "neutral",
         "details": {
           "body": "The type here wouldn't be vm, need to confirm, but you can rename to random string"
@@ -424,7 +424,7 @@
         "timestamp": "2026-03-13T21:11:46Z",
         "actor": "NneOkeke",
         "actorRole": "reviewer",
-        "description": "NneOkeke: same as other comment, type wouldn't be microsoft.compute/vm",
+        "description": "same as other comment, type wouldn't be microsoft.compute/vm",
         "sentiment": "neutral",
         "details": {
           "body": "same as other comment, type wouldn't be microsoft.compute/vm"
@@ -435,7 +435,7 @@
         "timestamp": "2026-03-13T21:12:38Z",
         "actor": "NneOkeke",
         "actorRole": "reviewer",
-        "description": "NneOkeke: same `type` comment",
+        "description": "same `type` comment",
         "sentiment": "neutral",
         "details": {
           "body": "same `type` comment"
@@ -446,7 +446,7 @@
         "timestamp": "2026-03-13T21:15:03Z",
         "actor": "NneOkeke",
         "actorRole": "reviewer",
-        "description": "NneOkeke: same `type` comment",
+        "description": "same `type` comment",
         "sentiment": "neutral",
         "details": {
           "body": "same `type` comment"
@@ -457,7 +457,7 @@
         "timestamp": "2026-03-13T21:15:31Z",
         "actor": "NneOkeke",
         "actorRole": "reviewer",
-        "description": "NneOkeke: same `type` comment",
+        "description": "same `type` comment",
         "sentiment": "neutral",
         "details": {
           "body": "same `type` comment"
@@ -468,7 +468,7 @@
         "timestamp": "2026-03-13T21:15:53Z",
         "actor": "NneOkeke",
         "actorRole": "reviewer",
-        "description": "NneOkeke: same `type` comment",
+        "description": "same `type` comment",
         "sentiment": "neutral",
         "details": {
           "body": "same `type` comment"
@@ -490,7 +490,7 @@
         "timestamp": "2026-03-13T21:33:46Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -501,7 +501,7 @@
         "timestamp": "2026-03-13T21:33:50Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -512,7 +512,7 @@
         "timestamp": "2026-03-13T21:33:56Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -523,7 +523,7 @@
         "timestamp": "2026-03-13T21:34:09Z",
         "actor": "asmdv",
         "actorRole": "reviewer",
-        "description": "asmdv: updated",
+        "description": "updated",
         "sentiment": "neutral",
         "details": {
           "body": "updated"
@@ -615,7 +615,7 @@
           "timestamp": "2026-03-19T08:49:40Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (10.8s)",
+          "description": "azsdk_package_build_code — Succeeded (10.8s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -632,7 +632,7 @@
           "timestamp": "2026-03-19T08:54:10Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (11.4s)",
+          "description": "azsdk_package_build_code — Succeeded (11.4s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -649,7 +649,7 @@
           "timestamp": "2026-03-19T08:54:40Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_run_check \u2014 Succeeded (198.4s)",
+          "description": "azsdk_package_run_check — Succeeded (198.4s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_run_check",
@@ -738,7 +738,7 @@
           "timestamp": "2026-03-23T13:25:11Z",
           "actor": "asmdv",
           "actorRole": "reviewer",
-          "description": "asmdv: @copilot open a new pull request to apply changes based on [",
+          "description": "@copilot open a new pull request to apply changes based on [this feedback](https://github.com/Azure/",
           "sentiment": "neutral",
           "details": {
             "body": "@copilot open a new pull request to apply changes based on [this feedback](https://github.com/Azure/azure-sdk-for-net/pull/57188#discussion_r2966256726)"
@@ -813,7 +813,7 @@
           "timestamp": "2026-03-26T20:47:54Z",
           "actor": "asmdv",
           "actorRole": "reviewer",
-          "description": "asmdv: updated",
+          "description": "updated",
           "sentiment": "neutral",
           "details": {
             "body": "updated"
@@ -824,7 +824,7 @@
           "timestamp": "2026-03-26T20:48:27Z",
           "actor": "asmdv",
           "actorRole": "reviewer",
-          "description": "asmdv: Keeping this convention",
+          "description": "Keeping this convention",
           "sentiment": "neutral",
           "details": {
             "body": "Keeping this convention"
@@ -835,7 +835,7 @@
           "timestamp": "2026-03-26T20:48:42Z",
           "actor": "asmdv",
           "actorRole": "reviewer",
-          "description": "asmdv: Keeping this convention",
+          "description": "Keeping this convention",
           "sentiment": "neutral",
           "details": {
             "body": "Keeping this convention"
@@ -857,7 +857,7 @@
           "timestamp": "2026-03-26T21:09:40Z",
           "actor": "asmdv",
           "actorRole": "reviewer",
-          "description": "asmdv: Keeping new convention",
+          "description": "Keeping new convention",
           "sentiment": "neutral",
           "details": {
             "body": "Keeping new convention"
@@ -935,10 +935,10 @@
           "timestamp": "2026-03-30T10:12:07Z",
           "actor": "live1206",
           "actorRole": "reviewer",
-          "description": "live1206: ## \ud83d\udd0d CI Failure Analysis for PR #57188  ### Summary  | Check | Status | |-------",
+          "description": "## 🔍 CI Failure Analysis for PR #57188",
           "sentiment": "neutral",
           "details": {
-            "body": "## \ud83d\udd0d CI Failure Analysis for PR #57188\n\n### Summary\n\n| Check | Status |\n|-------|--------|\n| Build PRBatch | \u2705 Passed |\n| Analyze PRBatch | \u2705 Passed |\n| Build Compliance | \u2705 Passed |\n| SDL Sources Analysis | \u2705 Passed |\n| license/cla | \u2705 Passed |\n| Build Test (all 11 matrix jobs) | \u274c Failed |\n| net -"
+            "body": "## 🔍 CI Failure Analysis for PR #57188\n\n### Summary\n\n| Check | Status |\n|-------|--------|\n| Build PRBatch | ✅ Passed |\n| Analyze PRBatch | ✅ Passed |\n| Build Compliance | ✅ Passed |\n| SDL Sources Analysis | ✅ Passed |\n| license/cla | ✅ Passed |\n| Build Test (all 11 matrix jobs) | ❌ Failed |\n| net -"
           }
         },
         {
@@ -969,7 +969,7 @@
           "timestamp": "2026-04-03T03:45:56Z",
           "actor": "ArthurMa1978",
           "actorRole": "reviewer",
-          "description": "ArthurMa1978: **Naming: Operation method does not follow established conve",
+          "description": "**Naming: Operation method does not follow established convention.**",
           "sentiment": "neutral",
           "details": {
             "body": "**Naming: Operation method does not follow established convention.**\n\nAll existing operations in this SDK follow the `[Verb]VirtualMachine[Action]` naming pattern (e.g., `ExecuteVirtualMachineDealloca"
@@ -980,7 +980,7 @@
           "timestamp": "2026-04-03T03:45:56Z",
           "actor": "ArthurMa1978",
           "actorRole": "reviewer",
-          "description": "ArthurMa1978: **Naming: Property `Type` should be renamed to `ResourceType",
+          "description": "**Naming: Property `Type` should be renamed to `ResourceType` for consistency.**",
           "sentiment": "neutral",
           "details": {
             "body": "**Naming: Property `Type` should be renamed to `ResourceType` for consistency.**\n\nOther operation result types in this SDK rename their `.type` property to `ResourceType` via `@@clientName` in `client"
@@ -991,7 +991,7 @@
           "timestamp": "2026-04-03T03:45:56Z",
           "actor": "ArthurMa1978",
           "actorRole": "reviewer",
-          "description": "ArthurMa1978: **Naming: Multiple new types lack sufficient service-context",
+          "description": "**Naming: Multiple new types lack sufficient service-context prefix.**",
           "sentiment": "neutral",
           "details": {
             "body": "**Naming: Multiple new types lack sufficient service-context prefix.**\n\nAll existing types in this SDK follow the contextual naming convention (e.g., `ScheduledActionOperationState`, `ScheduledActionO"
@@ -1002,11 +1002,11 @@
           "timestamp": "2026-04-03T03:45:57Z",
           "actor": "ArthurMa1978",
           "actorRole": "reviewer",
-          "description": "ArthurMa1978 posted a review (dismissed)",
+          "description": "## Mgmt SDK PR Review — Azure.ResourceManager.ComputeSchedule v1.2.0-beta.2",
           "sentiment": "neutral",
           "details": {
             "reviewState": "DISMISSED",
-            "body": "## Mgmt SDK PR Review \u2014 Azure.ResourceManager.ComputeSchedule v1.2.0-beta.2\n\n### Phase 1: Versioning Review \u2705 PASS\n- Version 1.2.0-beta.2 \u2014 no major version bump.\n- `ApiCompatVersion` 1.1.0 is present and not removed.\n- No `ApiCompatBaseline.txt` changes.\n\n### Phase 2: API Review \u2014 3 issues found\n\n|"
+            "body": "## Mgmt SDK PR Review — Azure.ResourceManager.ComputeSchedule v1.2.0-beta.2\n\n### Phase 1: Versioning Review ✅ PASS\n- Version 1.2.0-beta.2 — no major version bump.\n- `ApiCompatVersion` 1.1.0 is present and not removed.\n- No `ApiCompatBaseline.txt` changes.\n\n### Phase 2: API Review — 3 issues found\n\n|"
           }
         },
         {
@@ -1036,7 +1036,7 @@
           "timestamp": "2026-04-03T05:35:07Z",
           "actor": "asmdv",
           "actorRole": "reviewer",
-          "description": "asmdv: Applied recommendation.",
+          "description": "Applied recommendation.",
           "sentiment": "neutral",
           "details": {
             "body": "Applied recommendation."
@@ -1047,7 +1047,7 @@
           "timestamp": "2026-04-03T05:35:19Z",
           "actor": "asmdv",
           "actorRole": "reviewer",
-          "description": "asmdv: Applied recommendation",
+          "description": "Applied recommendation",
           "sentiment": "neutral",
           "details": {
             "body": "Applied recommendation"
@@ -1058,7 +1058,7 @@
           "timestamp": "2026-04-03T05:35:29Z",
           "actor": "asmdv",
           "actorRole": "reviewer",
-          "description": "asmdv: Applied recommendation",
+          "description": "Applied recommendation",
           "sentiment": "neutral",
           "details": {
             "body": "Applied recommendation"
@@ -1103,7 +1103,7 @@
           "timestamp": "2026-04-06T17:18:58Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (17.9s)",
+          "description": "azsdk_package_build_code — Succeeded (17.9s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1120,7 +1120,7 @@
           "timestamp": "2026-04-06T17:19:20Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_pack \u2014 Succeeded (17.3s)",
+          "description": "azsdk_package_pack — Succeeded (17.3s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_pack",
@@ -1137,7 +1137,7 @@
           "timestamp": "2026-04-06T17:39:59Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (15.6s)",
+          "description": "azsdk_release_sdk — Succeeded (15.6s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -1154,7 +1154,7 @@
           "timestamp": "2026-04-06T17:40:23Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_release_sdk \u2014 Succeeded (4.5s)",
+          "description": "azsdk_release_sdk — Succeeded (4.5s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_release_sdk",
@@ -1183,7 +1183,7 @@
           "timestamp": "2026-04-07T20:13:43Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (35.4s)",
+          "description": "azsdk_package_build_code — Succeeded (35.4s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1200,7 +1200,7 @@
           "timestamp": "2026-04-07T20:15:09Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (13.5s)",
+          "description": "azsdk_package_build_code — Succeeded (13.5s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1217,7 +1217,7 @@
           "timestamp": "2026-04-08T02:31:13Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (17.2s)",
+          "description": "azsdk_package_build_code — Succeeded (17.2s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1234,7 +1234,7 @@
           "timestamp": "2026-04-08T02:31:52Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (14.1s)",
+          "description": "azsdk_package_build_code — Succeeded (14.1s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1251,11 +1251,11 @@
           "timestamp": "2026-04-08T03:21:15Z",
           "actor": "live1206",
           "actorRole": "reviewer",
-          "description": "live1206 commented on review: ## Mgmt SDK PR Review \u2014 Azure.ResourceManager.ComputeSchedul",
+          "description": "## Mgmt SDK PR Review — Azure.ResourceManager.ComputeSchedule 1.2.0-beta.2",
           "sentiment": "neutral",
           "details": {
             "reviewState": "COMMENTED",
-            "body": "## Mgmt SDK PR Review \u2014 Azure.ResourceManager.ComputeSchedule 1.2.0-beta.2\n\n### Phase 1: Versioning Review \u2014 \u2705 PASS\n- Version `1.2.0-beta.2` \u2014 no major version bump.\n- `ApiCompatVersion` (`1.1.0`) is present and not removed.\n- No `ApiCompatBaseline.txt` \u2014 no suppressed API compat errors.\n\n### Phase "
+            "body": "## Mgmt SDK PR Review — Azure.ResourceManager.ComputeSchedule 1.2.0-beta.2\n\n### Phase 1: Versioning Review — ✅ PASS\n- Version `1.2.0-beta.2` — no major version bump.\n- `ApiCompatVersion` (`1.1.0`) is present and not removed.\n- No `ApiCompatBaseline.txt` — no suppressed API compat errors.\n\n### Phase "
           }
         },
         {
@@ -1285,7 +1285,7 @@
           "timestamp": "2026-04-08T14:30:43Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (26.6s)",
+          "description": "azsdk_package_build_code — Succeeded (26.6s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1302,7 +1302,7 @@
           "timestamp": "2026-04-08T14:52:20Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "release-plan.update-release-status \u2014 Succeeded (3.6s)",
+          "description": "release-plan.update-release-status — Succeeded (3.6s)",
           "sentiment": "positive",
           "details": {
             "toolName": "release-plan.update-release-status",
@@ -1319,7 +1319,7 @@
           "timestamp": "2026-04-08T17:04:43Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (15.7s)",
+          "description": "azsdk_package_build_code — Succeeded (15.7s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1336,7 +1336,7 @@
           "timestamp": "2026-04-08T17:07:57Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (10.2s)",
+          "description": "azsdk_package_build_code — Succeeded (10.2s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1353,7 +1353,7 @@
           "timestamp": "2026-04-08T17:15:39Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (14.5s)",
+          "description": "azsdk_package_build_code — Succeeded (14.5s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1370,7 +1370,7 @@
           "timestamp": "2026-04-08T17:23:33Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (9.3s)",
+          "description": "azsdk_package_build_code — Succeeded (9.3s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1387,7 +1387,7 @@
           "timestamp": "2026-04-08T17:25:13Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (11.8s)",
+          "description": "azsdk_package_build_code — Succeeded (11.8s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1404,7 +1404,7 @@
           "timestamp": "2026-04-08T17:26:04Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_run_check \u2014 Succeeded (342.0s)",
+          "description": "azsdk_package_run_check — Succeeded (342.0s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_run_check",
@@ -1421,7 +1421,7 @@
           "timestamp": "2026-04-08T18:15:45Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (17.4s)",
+          "description": "azsdk_package_build_code — Succeeded (17.4s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1438,7 +1438,7 @@
           "timestamp": "2026-04-08T18:16:54Z",
           "actor": "developer",
           "actorRole": "tool",
-          "description": "azsdk_package_build_code \u2014 Succeeded (13.0s)",
+          "description": "azsdk_package_build_code — Succeeded (13.0s)",
           "sentiment": "positive",
           "details": {
             "toolName": "azsdk_package_build_code",
@@ -1554,7 +1554,7 @@
           "description": "6.5-day idle gap",
           "sentiment": "blocking",
           "details": {
-            "durationHours": 155.0
+            "durationHours": 155
           }
         },
         {
@@ -1912,7 +1912,7 @@
   "insights": [
     {
       "type": "observation",
-      "description": "3.84-day gap between spec PR merge (2026-03-13) and first SDK PR creation (Mar 17) \u2014 automated pipeline took 3.84 days to trigger.",
+      "description": "3.84-day gap between spec PR merge (2026-03-13) and first SDK PR creation (Mar 17) — automated pipeline took 3.84 days to trigger.",
       "severity": "warning",
       "startDate": "2026-03-13T23:35:00Z",
       "endDate": "2026-03-17T19:50:07Z",
@@ -1920,7 +1920,7 @@
     },
     {
       "type": "idle",
-      "description": "1.6-day wait for first human review on spec PR \u2014 hardikginwala opened 2026-03-12, first review came Mar 13.",
+      "description": "1.6-day wait for first human review on spec PR — hardikginwala opened 2026-03-12, first review came Mar 13.",
       "severity": "info",
       "startDate": "2026-03-12T04:51:34Z",
       "endDate": "2026-03-13T19:15:30Z",
@@ -1943,17 +1943,17 @@
     },
     {
       "type": "tool_usage",
-      "description": "21 MCP tool calls tracked for .NET SDK development \u2014 build/test/check cycles from Visual Studio Code.",
+      "description": "21 MCP tool calls tracked for .NET SDK development — build/test/check cycles from Visual Studio Code.",
       "severity": "info"
     },
     {
       "type": "observation",
-      "description": ".NET SDK PR had 14 human-authored commits (by Asif Mammadov, asmdv) \u2014 significant manual work on the auto-generated PR.",
+      "description": ".NET SDK PR had 14 human-authored commits (by Asif Mammadov, asmdv) — significant manual work on the auto-generated PR.",
       "severity": "info"
     },
     {
       "type": "positive",
-      "description": "Spec PR merged quickly in 1.78 days \u2014 efficient review turnaround.",
+      "description": "Spec PR merged quickly in 1.78 days — efficient review turnaround.",
       "severity": "info"
     }
   ],

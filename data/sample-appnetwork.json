@@ -57,7 +57,7 @@
         "timestamp": "2026-02-28T06:59:43Z",
         "actor": "deveshdama",
         "actorRole": "author",
-        "description": "Author noted specs already in private repo, added RPaaSException label",
+        "description": "Microsoft.AppLink specs are already present on RPSaaSMaster in the private repo. Added label RPaaSEx",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#issuecomment-3976556255",
@@ -81,7 +81,7 @@
         "timestamp": "2026-03-04T18:04:47Z",
         "actor": "copilot-pull-request-reviewer[bot]",
         "actorRole": "copilot",
-        "description": "Copilot code review \u2014 generated 6 comments about naming, grammar, and conventions",
+        "description": "Copilot code review — generated 6 comments about naming, grammar, and conventions",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#pullrequestreview-3891081956",
@@ -105,7 +105,7 @@
         "timestamp": "2026-03-10T14:27:06Z",
         "actor": "razvanbadea-msft",
         "actorRole": "reviewer",
-        "description": "Asked if AppLinkProperties only has provisioningState",
+        "description": "this model has only provisioningState as properties?",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#discussion_r2912141836",
@@ -118,7 +118,7 @@
         "timestamp": "2026-03-10T14:32:32Z",
         "actor": "razvanbadea-msft",
         "actorRole": "reviewer",
-        "description": "Suggested using armResourceIdentifier instead of string type",
+        "description": "you can use the armResourceIdentifier for this property",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#discussion_r2912185210",
@@ -131,7 +131,7 @@
         "timestamp": "2026-03-10T16:06:39Z",
         "actor": "deveshdama",
         "actorRole": "author",
-        "description": "Responded \u2014 AppLink only has provisioningState for now, will expand later",
+        "description": "yes for now, Applink object only has provisioningState. We plan to expand it in future.",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#discussion_r2912851437",
@@ -143,7 +143,7 @@
         "timestamp": "2026-03-10T16:19:23Z",
         "actor": "deveshdama",
         "actorRole": "author",
-        "description": "Responded \u2014 string type used for cross-cloud resource IDs (AWS/GCP support planned)",
+        "description": "when clusterType is not AKS in future releases, we expect resourceId to contain resource identifier ",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#discussion_r2912928295",
@@ -178,7 +178,7 @@
         "timestamp": "2026-03-13T01:59:39Z",
         "actor": "qiaozha",
         "actorRole": "reviewer",
-        "description": "Post-merge comment \u2014 asked mikeharder about folder structure v1",
+        "description": "@mikeharder how is this folder structure v1 PR get merged?",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#discussion_r2928534896",
@@ -191,7 +191,7 @@
         "timestamp": "2026-03-13T19:40:14Z",
         "actor": "mikeharder",
         "actorRole": "reviewer",
-        "description": "Responded \u2014 feature still in development, linked related PR",
+        "description": "feature is still in development. will try to get it merged in the next few days.",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#discussion_r2933393107",
@@ -236,7 +236,7 @@
           "timestamp": "2026-03-25T07:18:14Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "API Change Check \u2014 ApiView link generated",
+          "description": "API Change Check — ApiView link generated",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570#issuecomment-4124322318"
@@ -259,7 +259,7 @@
           "timestamp": "2026-03-25T07:45:41Z",
           "actor": "weidongxu-microsoft",
           "actorRole": "reviewer",
-          "description": "SDK dev approved, will merge when service dev also approves",
+          "description": "SDK dev approved. We will merge when service dev also approves the PR.",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570#issuecomment-4124450554",
@@ -271,7 +271,7 @@
           "timestamp": "2026-03-25T07:52:46Z",
           "actor": "deveshdama",
           "actorRole": "author",
-          "description": "Waiting for other languages to get approved as well",
+          "description": "Waiting for other langs to get approved as well, thanks",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570#issuecomment-4124485447",
@@ -343,7 +343,7 @@
           "timestamp": "2026-03-26T04:49:55Z",
           "actor": "weidongxu-microsoft",
           "actorRole": "reviewer",
-          "description": "Confirmed and merged",
+          "description": "Yes. Merged.",
           "sentiment": "positive",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570#issuecomment-4131645640",
@@ -355,7 +355,7 @@
           "timestamp": "2026-03-27T17:30:31Z",
           "actor": "system",
           "actorRole": "bot",
-          "description": "\u26a0 Package ? merged but not yet released",
+          "description": "⚠ Package ? merged but not yet released",
           "sentiment": "blocking",
           "details": {}
         }
@@ -407,7 +407,7 @@
           "timestamp": "2026-03-25T07:13:10Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "API Change Check \u2014 ApiView link generated",
+          "description": "API Change Check — ApiView link generated",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397#issuecomment-4124302362"
@@ -418,7 +418,7 @@
           "timestamp": "2026-03-25T07:53:00Z",
           "actor": "copilot-pull-request-reviewer[bot]",
           "actorRole": "copilot",
-          "description": "Copilot code review \u2014 no comments generated, all files reviewed",
+          "description": "Copilot code review — no comments generated, all files reviewed",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397#pullrequestreview-4004675865",
@@ -430,7 +430,7 @@
           "timestamp": "2026-03-26T03:58:45Z",
           "actor": "tadelesh",
           "actorRole": "reviewer",
-          "description": "Asked to refine the README to correct the service name",
+          "description": "Could you refine the readme to correct the service name?",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397#discussion_r2992315854",
@@ -443,7 +443,7 @@
           "timestamp": "2026-03-26T04:13:11Z",
           "actor": "deveshdama",
           "actorRole": "author",
-          "description": "Responded \u2014 updated service name to 'Azure Kubernetes Application Network'",
+          "description": "Done. Using Azure Kubernetes Application Network now.",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397#discussion_r2992351272",
@@ -489,7 +489,7 @@
           "timestamp": "2026-03-27T17:30:31Z",
           "actor": "system",
           "actorRole": "bot",
-          "description": "\u26a0 Package sdk/resourcemanager/appnetwork/armappnetwork merged but not yet released",
+          "description": "⚠ Package sdk/resourcemanager/appnetwork/armappnetwork merged but not yet released",
           "sentiment": "blocking",
           "details": {}
         }
@@ -540,7 +540,7 @@
           "timestamp": "2026-03-25T06:56:24Z",
           "actor": "copilot-pull-request-reviewer[bot]",
           "actorRole": "copilot",
-          "description": "Copilot code review \u2014 1 comment about API version mismatch in metadata",
+          "description": "Copilot code review — 1 comment about API version mismatch in metadata",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893#pullrequestreview-4004419423",
@@ -552,7 +552,7 @@
           "timestamp": "2026-03-25T18:13:35Z",
           "actor": "deveshdama",
           "actorRole": "author",
-          "description": "Author triggered CI pipeline manually: /azp run python - pullrequest",
+          "description": "/azp run python - pullrequest",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893#issuecomment-4128728864",
@@ -575,7 +575,7 @@
           "timestamp": "2026-03-26T02:58:20Z",
           "actor": "ChenxiJiang333",
           "actorRole": "reviewer",
-          "description": "Noted service is behind a feature flag, recommended public deployment before SDK release",
+          "description": "Hi @deveshdama, it seems the service is behind a feature flag, we recommend making sure the api vers",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893#issuecomment-4131242888",
@@ -587,7 +587,7 @@
           "timestamp": "2026-03-26T02:58:38Z",
           "actor": "ChenxiJiang333",
           "actorRole": "reviewer",
-          "description": "Asked @msyyc to help review",
+          "description": "@msyyc, please help review",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893#issuecomment-4131244046",
@@ -600,7 +600,7 @@
           "timestamp": "2026-03-26T03:37:17Z",
           "actor": "deveshdama",
           "actorRole": "author",
-          "description": "Responded \u2014 service only in selected regions, listed supported regions",
+          "description": "we are only in selected regions at the moment: centralus, eastus2, westus2, westus3, northeurope, so",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893#issuecomment-4131401510",
@@ -635,7 +635,7 @@
           "timestamp": "2026-03-27T17:30:31Z",
           "actor": "system",
           "actorRole": "bot",
-          "description": "\u26a0 Package azure-mgmt-appnetwork merged but not yet released",
+          "description": "⚠ Package azure-mgmt-appnetwork merged but not yet released",
           "sentiment": "blocking",
           "details": {}
         }
@@ -689,11 +689,11 @@
           "timestamp": "2026-03-25T16:07:08Z",
           "actor": "ArcturusZhang",
           "actorRole": "reviewer",
-          "description": "Detailed SDK review \u2014 flagged 8 contextual naming issues (ProvisioningState, ClusterType, etc.)",
+          "description": "Mgmt SDK PR Review — Azure.ResourceManager.AppNetwork: Phase 2 API Review flagged 8 contextual namin",
           "sentiment": "blocking",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4007943502",
-            "body": "Mgmt SDK PR Review \u2014 Azure.ResourceManager.AppNetwork: Phase 2 API Review flagged 8 contextual naming issues requiring @@clientName decorators.",
+            "body": "Mgmt SDK PR Review — Azure.ResourceManager.AppNetwork: Phase 2 API Review flagged 8 contextual naming issues requiring @@clientName decorators.",
             "reviewState": "COMMENTED"
           }
         },
@@ -702,7 +702,7 @@
           "timestamp": "2026-03-26T00:49:47Z",
           "actor": "ArcturusZhang",
           "actorRole": "reviewer",
-          "description": "Re-review \u2014 found 4 remaining naming issues after first round of fixes",
+          "description": "Re-Review: Found 4 remaining naming issues (AvailableVersion, UpgradeHistory, GetByLocation, GetByAp",
           "sentiment": "blocking",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4010768064",
@@ -715,7 +715,7 @@
           "timestamp": "2026-03-26T01:00:54Z",
           "actor": "copilot-pull-request-reviewer[bot]",
           "actorRole": "copilot",
-          "description": "Copilot code review \u2014 flagged NullReferenceException risks and config mismatches",
+          "description": "Copilot code review — flagged NullReferenceException risks and config mismatches",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4010796162",
@@ -727,7 +727,7 @@
           "timestamp": "2026-03-26T03:15:27Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "API Change Check \u2014 ApiView link generated",
+          "description": "API Change Check — ApiView link generated",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#issuecomment-4131332290"
@@ -750,7 +750,7 @@
           "timestamp": "2026-03-27T06:19:17Z",
           "actor": "ArthurMa1978",
           "actorRole": "reviewer",
-          "description": "Asked to update CHANGELOG with expected release date",
+          "description": "Please update the Unreleased with your expected release date.",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4019170327",
@@ -763,7 +763,7 @@
           "timestamp": "2026-03-27T06:31:08Z",
           "actor": "ArthurMa1978",
           "actorRole": "reviewer",
-          "description": "ArthurMa1978 requested changes \u2014 properties bags not flattened, naming issues",
+          "description": "ArthurMa1978 requested changes — properties bags not flattened, naming issues",
           "sentiment": "blocking",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4019170327",
@@ -776,7 +776,7 @@
           "timestamp": "2026-03-27T16:00:00Z",
           "actor": "deveshdama",
           "actorRole": "author",
-          "description": "Pushed commits addressing review feedback \u2014 naming fixes and property flattening",
+          "description": "Pushed commits addressing review feedback — naming fixes and property flattening",
           "sentiment": "neutral",
           "details": {
             "commitSha": "a92e522eed267024aa3a7ffb95046d5a46576eab"
@@ -834,7 +834,7 @@
           "timestamp": "2026-03-27T17:30:31Z",
           "actor": "system",
           "actorRole": "bot",
-          "description": "\u26a0 Package Azure.ResourceManager.AppNetwork merged but not yet released",
+          "description": "⚠ Package Azure.ResourceManager.AppNetwork merged but not yet released",
           "sentiment": "blocking",
           "details": {}
         }
@@ -887,7 +887,7 @@
           "timestamp": "2026-03-25T07:14:14Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "API Change Check \u2014 ApiView link generated",
+          "description": "API Change Check — ApiView link generated",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826#issuecomment-4124306477"
@@ -898,7 +898,7 @@
           "timestamp": "2026-03-25T07:51:22Z",
           "actor": "copilot-pull-request-reviewer[bot]",
           "actorRole": "copilot",
-          "description": "Copilot code review \u2014 flagged ESM/CJS packaging issue and metadata casing mismatch",
+          "description": "Copilot code review — flagged ESM/CJS packaging issue and metadata casing mismatch",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826#pullrequestreview-4004667938",
@@ -910,7 +910,7 @@
           "timestamp": "2026-03-26T04:02:35Z",
           "actor": "MaryGao",
           "actorRole": "reviewer",
-          "description": "Asked about namespace review and relationship between applink and appnetwork",
+          "description": "do we have a namespace review for package name? what is the relationship among @azure/arm-applink an",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826#discussion_r2992324053",
@@ -923,7 +923,7 @@
           "timestamp": "2026-03-26T04:06:02Z",
           "actor": "deveshdama",
           "actorRole": "author",
-          "description": "Explained naming \u2014 RP is Microsoft.AppLink, marketing name is Application Network",
+          "description": "Applink was the name we started the project with, And Application Network is what marketing approved",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826#discussion_r2992331759",
@@ -958,7 +958,7 @@
           "timestamp": "2026-03-27T17:30:31Z",
           "actor": "system",
           "actorRole": "bot",
-          "description": "\u26a0 Package ? merged but not yet released",
+          "description": "⚠ Package ? merged but not yet released",
           "sentiment": "blocking",
           "details": {}
         }
@@ -980,7 +980,7 @@
     {
       "type": "bottleneck",
       "severity": "critical",
-      "description": "13.54-day gap between spec PR merge (Mar 11) and SDK PR creation (Mar 25) \u2014 pipeline/scheduling latency",
+      "description": "13.54-day gap between spec PR merge (Mar 11) and SDK PR creation (Mar 25) — pipeline/scheduling latency",
       "startDate": "2026-03-11T17:46:56Z",
       "endDate": "2026-03-25T06:40:59Z",
       "durationDays": 13.54
@@ -988,7 +988,7 @@
     {
       "type": "idle",
       "severity": "critical",
-      "description": "4.5-day wait for first review on spec PR \u2014 no reviewer activity from Feb 28 to Mar 4 (only Copilot reviewed)",
+      "description": "4.5-day wait for first review on spec PR — no reviewer activity from Feb 28 to Mar 4 (only Copilot reviewed)",
       "startDate": "2026-02-28T06:59:43Z",
       "endDate": "2026-03-04T18:04:47Z",
       "durationDays": 4.5,
@@ -1006,7 +1006,7 @@
     {
       "type": "bottleneck",
       "severity": "warning",
-      "description": ".NET SDK PR took longest \u2014 2.4 days due to thorough naming review (CHANGES_REQUESTED by ArthurMa1978)",
+      "description": ".NET SDK PR took longest — 2.4 days due to thorough naming review (CHANGES_REQUESTED by ArthurMa1978)",
       "startDate": "2026-03-25T06:48:49Z",
       "endDate": "2026-03-27T17:30:31Z",
       "durationDays": 2.45,
@@ -1022,18 +1022,18 @@
     {
       "type": "summary",
       "severity": "info",
-      "description": "New RP (Microsoft.AppLink) required naming review iterations in .NET SDK PR \u2014 contextual naming issues typical for new resource providers"
+      "description": "New RP (Microsoft.AppLink) required naming review iterations in .NET SDK PR — contextual naming issues typical for new resource providers"
     },
     {
       "type": "positive",
       "severity": "info",
-      "description": "JavaScript SDK PR was the fastest \u2014 merged in ~0.9 days after creation",
+      "description": "JavaScript SDK PR was the fastest — merged in ~0.9 days after creation",
       "prRef": "Azure/azure-sdk-for-js#37826"
     },
     {
       "type": "positive",
       "severity": "info",
-      "description": "All 5 SDK PRs created within 11 minutes of each other \u2014 pipeline generation worked efficiently",
+      "description": "All 5 SDK PRs created within 11 minutes of each other — pipeline generation worked efficiently",
       "startDate": "2026-03-25T06:40:59Z",
       "endDate": "2026-03-25T06:51:19Z"
     },
@@ -1045,7 +1045,7 @@
     {
       "type": "release_pending",
       "severity": "critical",
-      "description": "5 SDK package(s) merged but not yet released \u2014 potential limbo"
+      "description": "5 SDK package(s) merged but not yet released — potential limbo"
     }
   ],
   "summary": {

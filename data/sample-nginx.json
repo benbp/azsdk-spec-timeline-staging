@@ -54,7 +54,7 @@
         "timestamp": "2026-01-26T14:59:19Z",
         "actor": "github-actions[bot]",
         "actorRole": "bot",
-        "description": "Bot comment by github-actions[bot]: <h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! ",
+        "description": "Bot comment by github-actions[bot]: <h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! ",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/39907#issuecomment-3800030344"
@@ -76,7 +76,7 @@
         "timestamp": "2026-01-26T15:10:37Z",
         "actor": "briantkim93",
         "actorRole": "author",
-        "description": "Comment by briantkim93: Same diff was merged in RPSaaSMaster - https://github.com/Azure/azure-rest-api-s",
+        "description": "Same diff was merged in RPSaaSMaster - https://github.com/Azure/azure-rest-api-specs-pr/pull/26257",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/39907#issuecomment-3800083728",
@@ -88,7 +88,7 @@
         "timestamp": "2026-01-26T15:10:59Z",
         "actor": "briantkim93",
         "actorRole": "author",
-        "description": "Comment by briantkim93: Breaking change has already been approved by ARM Breaking Change team",
+        "description": "Breaking change has already been approved by ARM Breaking Change team",
         "sentiment": "neutral",
         "details": {
           "url": "https://github.com/Azure/azure-rest-api-specs/pull/39907#issuecomment-3800085733",
@@ -954,7 +954,7 @@
           "timestamp": "2026-03-17T10:12:15Z",
           "actor": "tadelesh",
           "actorRole": "reviewer",
-          "description": "Comment by tadelesh: @briantkim93 You last release [PR](https://github.com/Azure/azure-sdk-for-go/pul",
+          "description": "@briantkim93 You last release [PR](https://github.com/Azure/azure-sdk-for-go/pull/26005) did not mer",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26240#issuecomment-4073801986",
@@ -1105,7 +1105,7 @@
           "timestamp": "2026-03-16T09:04:54Z",
           "actor": "Copilot",
           "actorRole": "copilot",
-          "description": "Copilot review comment: `normalizeUnreserved` claims to decode RFC 3986 \u201cunreserved\u201d characters, but the",
+          "description": "Copilot review comment: `normalizeUnreserved` claims to decode RFC 3986 “unreserved” characters, but the",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37616#discussion_r2939012493"
@@ -1128,7 +1128,7 @@
           "timestamp": "2026-03-18T02:01:49Z",
           "actor": "kazrael2119",
           "actorRole": "reviewer",
-          "description": "Comment by kazrael2119: ci failures are because of we have real test cases for this service in https://g",
+          "description": "ci failures are because of we have real test cases for this service in https://github.com/Azure/azur",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37616#issuecomment-4079126373",
@@ -1140,7 +1140,7 @@
           "timestamp": "2026-03-18T10:11:58Z",
           "actor": "briantkim93",
           "actorRole": "author",
-          "description": "Comment by briantkim93: > ci failures are because of we have real test cases for this service in https:/",
+          "description": "> ci failures are because of we have real test cases for this service in https://github.com/Azure/az",
           "sentiment": "neutral",
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37616#issuecomment-4081285859",
@@ -1201,7 +1201,7 @@
     {
       "type": "bottleneck",
       "severity": "high",
-      "description": "31.3-day gap between spec PR merge (Feb 09) and first SDK PR creation (Mar 12) \u2014 pipeline/scheduling latency",
+      "description": "31.3-day gap between spec PR merge (Feb 09) and first SDK PR creation (Mar 12) — pipeline/scheduling latency",
       "relatedPRs": [
         "Azure/azure-rest-api-specs#39907"
       ]
@@ -1209,7 +1209,7 @@
     {
       "type": "bottleneck",
       "severity": "high",
-      "description": "Spec PR took 13.7 days from creation to merge \u2014 author had to nag reviewers and fight CI pipeline issues",
+      "description": "Spec PR took 13.7 days from creation to merge — author had to nag reviewers and fight CI pipeline issues",
       "relatedPRs": [
         "Azure/azure-rest-api-specs#39907"
       ]
@@ -1217,7 +1217,7 @@
     {
       "type": "friction",
       "severity": "medium",
-      "description": "Author made 10 CI trigger attempts on spec PR \u2014 struggling with Azure Pipelines configuration",
+      "description": "Author made 10 CI trigger attempts on spec PR — struggling with Azure Pipelines configuration",
       "relatedPRs": [
         "Azure/azure-rest-api-specs#39907"
       ]
@@ -1225,7 +1225,7 @@
     {
       "type": "friction",
       "severity": "high",
-      "description": "Author had to nag 2 time(s) on spec PR \u2014 pinged qiaozha, taledesh for help",
+      "description": "Author had to nag 2 time(s) on spec PR — pinged qiaozha, taledesh for help",
       "relatedPRs": [
         "Azure/azure-rest-api-specs#39907"
       ]
@@ -1233,7 +1233,7 @@
     {
       "type": "observation",
       "severity": "low",
-      "description": "Copilot provided 13 review comments across SDK PRs \u2014 automated code review is active in the pipeline",
+      "description": "Copilot provided 13 review comments across SDK PRs — automated code review is active in the pipeline",
       "relatedPRs": [
         "Azure/azure-sdk-for-python#45661",
         "Azure/azure-sdk-for-net#57070",
@@ -1245,7 +1245,7 @@
     {
       "type": "positive",
       "severity": "low",
-      "description": "Fastest SDK PR was .NET at 4.3 days \u2014 briantkim93 merged it",
+      "description": "Fastest SDK PR was .NET at 4.3 days — briantkim93 merged it",
       "relatedPRs": [
         "Azure/azure-sdk-for-net#57070"
       ]
@@ -1261,7 +1261,7 @@
     {
       "type": "positive",
       "severity": "low",
-      "description": "All 5 SDK PRs were created within 17.0 hours of each other \u2014 pipeline triggered uniformly",
+      "description": "All 5 SDK PRs were created within 17.0 hours of each other — pipeline triggered uniformly",
       "relatedPRs": [
         "Azure/azure-sdk-for-python#45661",
         "Azure/azure-sdk-for-net#57070",
@@ -1273,7 +1273,7 @@
     {
       "type": "observation",
       "severity": "low",
-      "description": "Spec author briantkim93 merged 5 of 5 SDK PRs themselves \u2014 self-service pattern",
+      "description": "Spec author briantkim93 merged 5 of 5 SDK PRs themselves — self-service pattern",
       "relatedPRs": [
         "Azure/azure-sdk-for-python#45661",
         "Azure/azure-sdk-for-net#57070",
@@ -1285,7 +1285,7 @@
     {
       "type": "friction",
       "severity": "medium",
-      "description": "Python SDK PR had 8 comments about breaking changes \u2014 reviewer flagged backward compatibility concerns",
+      "description": "Python SDK PR had 8 comments about breaking changes — reviewer flagged backward compatibility concerns",
       "relatedPRs": [
         "Azure/azure-sdk-for-python#45661"
       ]
@@ -1293,7 +1293,7 @@
     {
       "type": "friction",
       "severity": "medium",
-      "description": "Go SDK PR was blocked because a prior release PR hadn't merged \u2014 dependency on previous release cycle",
+      "description": "Go SDK PR was blocked because a prior release PR hadn't merged — dependency on previous release cycle",
       "relatedPRs": [
         "Azure/azure-sdk-for-go#26240"
       ]
@@ -1317,7 +1317,7 @@
     {
       "type": "positive",
       "severity": "low",
-      "description": "No manual fixes needed \u2014 all auto-generated SDK PRs passed without manual code intervention",
+      "description": "No manual fixes needed — all auto-generated SDK PRs passed without manual code intervention",
       "relatedPRs": [
         "Azure/azure-sdk-for-python#45661",
         "Azure/azure-sdk-for-net#57070",

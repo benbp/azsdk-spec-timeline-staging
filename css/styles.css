@@ -595,6 +595,23 @@ header {
   cursor: help;
   white-space: nowrap;
 }
+
+/* Duration color coding */
+.duration-value { font-family: var(--font-mono); font-weight: 600; font-size: 12px; }
+.duration-value.dur-fast { color: var(--green); }
+.duration-value.dur-ok { color: var(--yellow); }
+.duration-value.dur-slow { color: var(--orange); }
+.duration-value.dur-critical { color: var(--red); }
+
+/* Pulse animation for open/pending states */
+.status-pulse {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
 .release-badge.released {
   background: rgba(63, 185, 80, 0.15);
   color: var(--teal);

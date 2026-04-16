@@ -592,7 +592,13 @@ const Timeline = (() => {
     const prDays = pr.mergedAt
       ? DataLoader.computeDurationDays(pr.createdAt, pr.mergedAt)
       : null;
-    const prDaysDisplay = prDays != null ? `${prDays}d` : (pr.state === 'open' ? '⏳ open' : pr.state === 'closed' ? '✖ closed' : '—');
+    // Color-code duration: green <3d, yellow 3-7d, orange 7-14d, red >14d
+    const durationColorClass = prDays != null
+      ? prDays < 3 ? 'dur-fast' : prDays < 7 ? 'dur-ok' : prDays < 14 ? 'dur-slow' : 'dur-critical'
+      : '';
+    const prDaysDisplay = prDays != null
+      ? `<span class="duration-value ${durationColorClass}">${prDays}d</span>`
+      : (pr.state === 'open' ? '<span class="status-pulse">⏳ open</span>' : pr.state === 'closed' ? '✖ closed' : '—');
     // Tooltip for the duration label showing created/merged dates
     const durationTooltip = pr.mergedAt
       ? `PR open ${prDays} days (${DataLoader.formatDate(pr.createdAt)} → ${DataLoader.formatDate(pr.mergedAt)})`
@@ -613,7 +619,7 @@ const Timeline = (() => {
       ? pr.release.status === 'released'
         ? `<span class="release-badge released" title="Released ${DataLoader.formatDate(pr.release.releasedAt)}">${pr.release.releaseGapDays ? '📦 ' + pr.release.releaseGapDays + 'd' : '📦 &lt;1d'}</span>`
         : pr.release.status === 'pending'
-          ? '<span class="release-badge pending" title="Release pending — merged but not published">⏳ pending</span>'
+          ? '<span class="release-badge pending status-pulse" title="Release pending — merged but not published">⏳ pending</span>'
           : '<span class="release-badge failed" title="Release pipeline failed">❌ failed</span>'
       : '';
     // Build release link for lane label

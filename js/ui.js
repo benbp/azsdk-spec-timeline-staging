@@ -181,7 +181,7 @@ const UI = (() => {
 
   function showHome() {
     window._timelineData = null;
-    for (const id of ['header-info', 'summary-cards', 'filters', 'timeline-container', 'insights-panel']) {
+    for (const id of ['header-info', 'summary-cards', 'filters', 'timeline-container', 'insights-panel', 'actor-filters']) {
       const el = document.getElementById(id);
       if (el) el.classList.add('hidden');
     }

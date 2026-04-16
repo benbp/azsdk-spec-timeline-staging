@@ -10,6 +10,15 @@ const Timeline = (() => {
   let zoomLevel = 1;
   const padding = { left: 20, right: 20 };
   let hiddenEventTypes = new Set(['bot_comment', 'label_added', 'ci_status']);
+  let hiddenActors = new Set();
+  let allActors = [];
+
+  // High-signal event types for Smart View preset
+  const SMART_VIEW_TYPES = new Set([
+    'review_changes_requested', 'author_nag', 'manual_fix', 'idle_gap',
+    'review_approved', 'pr_created', 'pr_merged',
+    'release_pipeline_completed', 'release_pipeline_failed', 'release_pending'
+  ]);
 
   // Gap compaction — compress dead periods > threshold into narrow breaks
   const GAP_THRESHOLD_MS = 2 * 86400000; // 2 days
@@ -22,6 +31,7 @@ const Timeline = (() => {
   function render(timelineData) {
     data = timelineData;
     timeRange = DataLoader.getTimeRange(data);
+    hiddenActors.clear();
 
     renderHeader();
     renderSummaryCards();
@@ -164,6 +174,21 @@ const Timeline = (() => {
     });
     container.appendChild(allBtn);
 
+    // Smart View preset button
+    const isSmartView = [...SMART_VIEW_TYPES].every(t => !hiddenEventTypes.has(t)) &&
+      types.filter(t => !SMART_VIEW_TYPES.has(t)).every(t => hiddenEventTypes.has(t));
+    const smartBtn = document.createElement('button');
+    smartBtn.className = `filter-btn preset-btn ${isSmartView ? 'active' : ''}`;
+    smartBtn.textContent = '⚡ Smart View';
+    smartBtn.title = 'Show only high-signal events: reviews, nags, fixes, releases, idle gaps';
+    smartBtn.addEventListener('click', () => {
+      hiddenEventTypes.clear();
+      types.forEach(t => { if (!SMART_VIEW_TYPES.has(t)) hiddenEventTypes.add(t); });
+      updateEventVisibility();
+      renderFilters();
+    });
+    container.appendChild(smartBtn);
+
     for (const type of types) {
       const info = DataLoader.getEventTypeInfo(type);
       const btn = document.createElement('button');
@@ -183,6 +208,9 @@ const Timeline = (() => {
       });
       container.appendChild(btn);
     }
+
+    // Actor filter section
+    renderActorFilters();
   }
 
   function toggleFilter(type, btn) {
@@ -196,10 +224,83 @@ const Timeline = (() => {
     updateEventVisibility();
   }
 
+  function renderActorFilters() {
+    let section = document.getElementById('actor-filters');
+    if (!section) {
+      section = document.createElement('section');
+      section.id = 'actor-filters';
+      section.className = 'filters actor-filters';
+      const filtersEl = document.getElementById('filters');
+      filtersEl.parentNode.insertBefore(section, filtersEl.nextSibling);
+    }
+    section.classList.remove('hidden');
+
+    // Collect all unique actors and their event counts
+    const actorCounts = {};
+    const events = DataLoader.getAllEvents(data);
+    for (const ev of events) {
+      if (!ev.actor) continue;
+      actorCounts[ev.actor] = (actorCounts[ev.actor] || 0) + 1;
+    }
+    allActors = Object.keys(actorCounts).sort((a, b) => actorCounts[b] - actorCounts[a]);
+
+    section.innerHTML = `<span class="filters-label">Actors:</span><div class="filter-buttons actor-filter-buttons"></div>`;
+    const container = section.querySelector('.actor-filter-buttons');
+
+    // Show All / Hide All
+    const allBtn = document.createElement('button');
+    const allVisible = hiddenActors.size === 0;
+    allBtn.className = `filter-btn toggle-all ${allVisible ? 'active' : ''}`;
+    allBtn.textContent = allVisible ? 'Hide All' : 'Show All';
+    allBtn.addEventListener('click', () => {
+      if (hiddenActors.size === 0) {
+        allActors.forEach(a => hiddenActors.add(a));
+      } else {
+        hiddenActors.clear();
+      }
+      updateEventVisibility();
+      renderActorFilters();
+    });
+    container.appendChild(allBtn);
+
+    // Determine the owner/author for visual highlight
+    const owner = data.owner?.toLowerCase();
+
+    for (const actor of allActors) {
+      const btn = document.createElement('button');
+      const isActive = !hiddenActors.has(actor);
+      const isOwner = actor.toLowerCase() === owner;
+      btn.className = `filter-btn actor-btn ${isActive ? 'active' : ''} ${isOwner ? 'owner' : ''}`;
+      btn.innerHTML = `${isOwner ? '👤 ' : ''}${escapeHtml(actor)} <span class="actor-count">${actorCounts[actor]}</span>`;
+      btn.title = `${actor}: ${actorCounts[actor]} events${isOwner ? ' (PR owner)' : ''}`;
+      btn.addEventListener('click', () => {
+        if (hiddenActors.has(actor)) {
+          hiddenActors.delete(actor);
+          btn.classList.add('active');
+        } else {
+          hiddenActors.add(actor);
+          btn.classList.remove('active');
+        }
+        updateEventVisibility();
+        // Update toggle button
+        const toggle = container.querySelector('.toggle-all');
+        if (toggle) {
+          const nowAll = hiddenActors.size === 0;
+          toggle.className = `filter-btn toggle-all ${nowAll ? 'active' : ''}`;
+          toggle.textContent = nowAll ? 'Hide All' : 'Show All';
+        }
+      });
+      container.appendChild(btn);
+    }
+  }
+
   function updateEventVisibility() {
     document.querySelectorAll('.event-marker').forEach(el => {
       const type = el.dataset.eventType;
-      if (hiddenEventTypes.has(type)) el.classList.add('hidden');
+      const actor = el._eventData?.actor;
+      const typeHidden = hiddenEventTypes.has(type);
+      const actorHidden = actor && hiddenActors.has(actor);
+      if (typeHidden || actorHidden) el.classList.add('hidden');
       else el.classList.remove('hidden');
     });
     document.querySelectorAll('.idle-gap').forEach(el => {

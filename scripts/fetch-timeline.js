@@ -183,14 +183,20 @@ function findReleasePipeline(language, serviceName) {
 
 function findReleaseBuilds(definitionId, afterDate) {
   console.error(`    Fetching builds for definition ${definitionId}...`);
-  const result = azDevOps('build', 'builds', {}, {
+  // Use reasonFilter=manual to only get release builds, and minFinishTime to narrow window
+  const params = {
     definitions: String(definitionId),
-    $top: '50',
-    queryOrder: 'finishTimeDescending'
-  });
+    $top: '20',
+    queryOrder: 'finishTimeDescending',
+    reasonFilter: 'manual'
+  };
+  if (afterDate) {
+    // Look for builds finishing after the PR merge date
+    params.minFinishTime = afterDate;
+  }
+  const result = azDevOps('build', 'builds', {}, params);
   
   const builds = (result?.value || []).filter(b => {
-    if (b.reason !== 'manual') return false;
     if (afterDate && b.finishTime && b.finishTime < afterDate) return false;
     return true;
   });

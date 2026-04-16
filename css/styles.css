@@ -363,6 +363,67 @@ header {
   box-shadow: none;
 }
 
+/* Bar legend — shows PR bar pattern meanings */
+.bar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 6px 0;
+  border-top: 1px solid var(--border);
+}
+.bar-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+.bar-legend-swatch {
+  display: inline-block;
+  width: 28px;
+  height: 6px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.bar-legend-swatch.pr-bar.merged {
+  background: var(--green-bg);
+  border: 1px solid var(--green);
+}
+.bar-legend-swatch.pr-bar.open {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--teal-bg, rgba(63, 185, 80, 0.15)),
+    var(--teal-bg, rgba(63, 185, 80, 0.15)) 6px,
+    transparent 6px,
+    transparent 10px
+  );
+  border: 1px dashed var(--teal);
+}
+.bar-legend-swatch.pr-bar.closed {
+  background: var(--red-bg, rgba(248, 81, 73, 0.15));
+  border: 1px solid var(--red);
+  opacity: 0.7;
+}
+.bar-legend-swatch.pr-bar-draft {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(210, 153, 34, 0.3),
+    rgba(210, 153, 34, 0.3) 3px,
+    transparent 3px,
+    transparent 7px
+  );
+  border: 1px dashed var(--orange);
+}
+.bar-legend-swatch.release-bar.released {
+  background: var(--teal-bg, rgba(63, 185, 80, 0.15));
+  border: 1px solid var(--teal);
+}
+.bar-legend-swatch.idle-gap.warning {
+  background: var(--red-bg, rgba(248, 81, 73, 0.1));
+  border: 1px solid var(--orange);
+}
+
 /* Timeline Container */
 .timeline-container {
   background: var(--bg-secondary);

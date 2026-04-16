@@ -243,6 +243,25 @@ const Timeline = (() => {
 
     // Actor filter section
     renderActorFilters();
+
+    // Bar legend
+    renderBarLegend();
+  }
+
+  function renderBarLegend() {
+    const container = document.getElementById('bar-legend');
+    if (!container) return;
+    const items = [
+      { cls: 'pr-bar merged', label: 'Merged PR' },
+      { cls: 'pr-bar open', label: 'Open PR' },
+      { cls: 'pr-bar closed', label: 'Closed PR' },
+      { cls: 'pr-bar-draft', label: 'Draft phase' },
+      { cls: 'release-bar released', label: 'Release' },
+      { cls: 'idle-gap warning', label: 'Idle gap' },
+    ];
+    container.innerHTML = items.map(item =>
+      `<span class="bar-legend-item"><span class="bar-legend-swatch ${item.cls}"></span>${item.label}</span>`
+    ).join('');
   }
 
   function toggleFilter(type, btn) {

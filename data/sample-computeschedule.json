@@ -1295,6 +1295,17 @@
           }
         },
         {
+          "type": "release_pending",
+          "timestamp": "2026-04-08T09:35:13Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Release skipped in pipeline: net - computeschedule - mgmt",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6112517"
+          }
+        },
+        {
           "type": "tool_call",
           "timestamp": "2026-04-08T14:30:43Z",
           "actor": "developer",
@@ -1467,7 +1478,16 @@
       ],
       "readyForReviewAt": "2026-03-20T14:48:35Z",
       "reviewWaitDays": 3.45,
-      "reviewWaitCycles": 3
+      "reviewWaitCycles": 3,
+      "release": {
+        "packageName": "Azure.ResourceManager.Computeschedule",
+        "pipelineName": "net - computeschedule - mgmt",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6112517",
+        "buildId": "6112517",
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -1995,6 +2015,11 @@
       "type": "positive",
       "description": "Spec PR merged quickly in 1.78 days — efficient review turnaround.",
       "severity": "info"
+    },
+    {
+      "type": "release_pending",
+      "severity": "critical",
+      "description": "1 SDK package(s) still pending release."
     }
   ],
   "summary": {

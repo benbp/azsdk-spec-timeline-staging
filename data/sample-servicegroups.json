@@ -404,11 +404,29 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48613"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-03-31T03:41:43Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Package release pending: java - servicegroups",
+          "sentiment": "neutral",
+          "details": {}
         }
       ],
       "readyForReviewAt": "2026-03-30T14:36:53Z",
       "reviewWaitDays": 0.49,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "release": {
+        "packageName": "azure-resourcemanager-servicegroups",
+        "pipelineName": "java - servicegroups",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -687,11 +705,29 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26438"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-03-31T03:40:07Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Package release pending: go - armservicegroups",
+          "sentiment": "neutral",
+          "details": {}
         }
       ],
       "readyForReviewAt": "2026-03-30T14:36:41Z",
       "reviewWaitDays": 0.52,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "release": {
+        "packageName": "sdk/resourcemanager/servicegroups/armservicegroups",
+        "pipelineName": "go - armservicegroups",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -987,11 +1023,29 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37879"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-04-01T04:55:34Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Package release pending: js - servicegroups - mgmt",
+          "sentiment": "neutral",
+          "details": {}
         }
       ],
       "readyForReviewAt": "2026-03-30T14:37:02Z",
       "reviewWaitDays": 0.81,
-      "reviewWaitCycles": 3
+      "reviewWaitCycles": 3,
+      "release": {
+        "packageName": "@azure/arm-servicegroups",
+        "pipelineName": "js - servicegroups - mgmt",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     }
   ],
   "insights": [
@@ -1016,6 +1070,11 @@
       "type": "summary",
       "severity": "info",
       "description": ".NET SDK PR not yet generated for this spec PR"
+    },
+    {
+      "type": "release_pending",
+      "severity": "critical",
+      "description": "3 SDK package(s) still pending release."
     }
   ],
   "summary": {
@@ -1037,6 +1096,7 @@
     "totalPREdits": 0,
     "totalReviewWaitDays": 4.6,
     "totalReviewWaitCycles": 6,
-    "hasDraftPRs": true
+    "hasDraftPRs": true,
+    "pendingReleases": 3
   }
 }

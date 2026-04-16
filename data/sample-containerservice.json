@@ -660,6 +660,30 @@
           }
         },
         {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-04-02T05:30:10.6766667Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Release pipeline started: net - containerservice - mgmt",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6096988",
+            "body": "Build 6096988"
+          }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-04-02T06:08:34.4666667Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Package released: Azure.ResourceManager.Containerservice",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6096988",
+            "body": "Build 6096988 succeeded"
+          }
+        },
+        {
           "type": "commit_pushed",
           "timestamp": "2026-04-06T23:39:05Z",
           "actor": "FumingZhang",
@@ -716,7 +740,17 @@
       "mergedBy": "ArcturusZhang",
       "readyForReviewAt": "2026-03-31T02:31:54Z",
       "reviewWaitDays": 2.2,
-      "reviewWaitCycles": 2
+      "reviewWaitCycles": 2,
+      "release": {
+        "packageName": "Azure.ResourceManager.Containerservice",
+        "packageVersion": null,
+        "pipelineName": "net - containerservice - mgmt",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6096988",
+        "buildId": "6096988",
+        "releasedAt": "2026-04-02T06:08:34.4666667Z",
+        "releaseGapDays": -4.9,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-net",
@@ -1114,12 +1148,46 @@
             "clientType": "agent",
             "packageName": "Azure.ResourceManager.ContainerService"
           }
+        },
+        {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-04-02T05:30:10.6766667Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Release pipeline started: net - containerservice - mgmt",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6096988",
+            "body": "Build 6096988"
+          }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-04-02T06:08:34.4666667Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Package released: Azure.ResourceManager.Containerservice",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6096988",
+            "body": "Build 6096988 succeeded"
+          }
         }
       ],
       "mergedBy": "ArcturusZhang",
       "readyForReviewAt": "2026-03-23T05:26:48Z",
       "reviewWaitDays": 2.17,
-      "reviewWaitCycles": 2
+      "reviewWaitCycles": 2,
+      "release": {
+        "packageName": "Azure.ResourceManager.Containerservice",
+        "packageVersion": null,
+        "pipelineName": "net - containerservice - mgmt",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6096988",
+        "buildId": "6096988",
+        "releasedAt": "2026-04-02T06:08:34.4666667Z",
+        "releaseGapDays": 7,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -1273,6 +1341,18 @@
           }
         },
         {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-04-02T06:24:38.06Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Release pipeline started: java - containerservice",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097120",
+            "body": "Build 6097120"
+          }
+        },
+        {
           "type": "tool_call",
           "timestamp": "2026-04-02T06:47:26Z",
           "actor": "unknown",
@@ -1286,12 +1366,34 @@
             "clientType": "agent",
             "packageName": "azure-resourcemanager-containerservice"
           }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-04-02T06:53:39.1533333Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Package released: azure-resourcemanager-containerservice",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097120",
+            "body": "Build 6097120 succeeded"
+          }
         }
       ],
       "mergedBy": "XiaofeiCao",
       "readyForReviewAt": "2026-03-31T05:50:08Z",
       "reviewWaitDays": 0.13,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "release": {
+        "packageName": "azure-resourcemanager-containerservice",
+        "packageVersion": null,
+        "pipelineName": "java - containerservice",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097120",
+        "buildId": "6097120",
+        "releasedAt": "2026-04-02T06:53:39.1533333Z",
+        "releaseGapDays": 0.2,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -1548,12 +1650,46 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/48439#pullrequestreview-4003872871"
           }
+        },
+        {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-04-02T06:24:38.06Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Release pipeline started: java - containerservice",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097120",
+            "body": "Build 6097120"
+          }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-04-02T06:53:39.1533333Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Package released: azure-resourcemanager-containerservice",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097120",
+            "body": "Build 6097120 succeeded"
+          }
         }
       ],
       "mergedBy": "weidongxu-microsoft",
       "readyForReviewAt": "2026-03-20T00:33:51Z",
       "reviewWaitDays": 0.38,
-      "reviewWaitCycles": 3
+      "reviewWaitCycles": 3,
+      "release": {
+        "packageName": "azure-resourcemanager-containerservice",
+        "packageVersion": null,
+        "pipelineName": "java - containerservice",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097120",
+        "buildId": "6097120",
+        "releasedAt": "2026-04-02T06:53:39.1533333Z",
+        "releaseGapDays": 8.2,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -1649,6 +1785,30 @@
           }
         },
         {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-03-30T23:58:21.7266667Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Release pipeline started: go - armcontainerservice",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6083040",
+            "body": "Build 6083040"
+          }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-31T00:01:35.2Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Package released: sdk/resourcemanager/containerservice/armcontainerservice",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6083040",
+            "body": "Build 6083040 succeeded"
+          }
+        },
+        {
           "type": "tool_call",
           "timestamp": "2026-03-31T00:17:11Z",
           "actor": "unknown",
@@ -1667,7 +1827,17 @@
       "mergedBy": "FumingZhang",
       "readyForReviewAt": "2026-03-30T06:20:17Z",
       "reviewWaitDays": 0.04,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "release": {
+        "packageName": "sdk/resourcemanager/containerservice/armcontainerservice",
+        "packageVersion": null,
+        "pipelineName": "go - armcontainerservice",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6083040",
+        "buildId": "6083040",
+        "releasedAt": "2026-03-31T00:01:35.2Z",
+        "releaseGapDays": 0.7,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -1952,6 +2122,17 @@
           }
         },
         {
+          "type": "release_pending",
+          "timestamp": "2026-03-16T05:03:13Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Release skipped in pipeline: python - containerservice",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6019588"
+          }
+        },
+        {
           "type": "tool_call",
           "timestamp": "2026-03-17T07:38:32Z",
           "actor": "unknown",
@@ -1970,7 +2151,16 @@
       "mergedBy": "FumingZhang",
       "readyForReviewAt": "2026-03-11T06:02:27Z",
       "reviewWaitDays": 1.89,
-      "reviewWaitCycles": 2
+      "reviewWaitCycles": 2,
+      "release": {
+        "packageName": "azure-mgmt-containerservice",
+        "pipelineName": "python - containerservice",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6019588",
+        "buildId": "6019588",
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -2333,6 +2523,17 @@
           }
         },
         {
+          "type": "release_pending",
+          "timestamp": "2026-03-19T08:11:08Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Release skipped in pipeline: js - containerservice - mgmt",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6082181"
+          }
+        },
+        {
           "type": "tool_call",
           "timestamp": "2026-03-20T03:12:17Z",
           "actor": "unknown",
@@ -2351,7 +2552,16 @@
       "mergedBy": "FumingZhang",
       "readyForReviewAt": "2026-03-17T04:58:53Z",
       "reviewWaitDays": 1.37,
-      "reviewWaitCycles": 2
+      "reviewWaitCycles": 2,
+      "release": {
+        "packageName": "@azure/arm-containerservice",
+        "pipelineName": "js - containerservice - mgmt",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6082181",
+        "buildId": "6082181",
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -2619,6 +2829,18 @@
       "type": "observation",
       "severity": "info",
       "description": "Collaborative spec PR: 11 contributors pushed commits (jaiveerk, zman-ms, snguyen64, FumingZhang, xuexu6666)"
+    },
+    {
+      "type": "release_pending",
+      "severity": "critical",
+      "description": "4 SDK package(s) still pending release."
+    },
+    {
+      "type": "release_delay",
+      "severity": "warning",
+      "description": "Java had longest release gap: 8.2d.",
+      "durationDays": 8.2,
+      "prRef": "Azure/azure-sdk-for-java#48439"
     }
   ],
   "summary": {
@@ -2629,7 +2851,7 @@
     "totalUniqueReviewers": 20,
     "totalNags": 2,
     "totalManualFixes": 0,
-    "pendingReleases": 3,
+    "pendingReleases": 4,
     "fastestSDKPR": {
       "language": "Go",
       "days": 0.09
@@ -2640,6 +2862,8 @@
     },
     "totalReviewWaitDays": 14.09,
     "totalReviewWaitCycles": 20,
-    "hasDraftPRs": true
+    "hasDraftPRs": true,
+    "avgReleaseGapDays": 2.2,
+    "maxReleaseGapDays": 8.2
   }
 }

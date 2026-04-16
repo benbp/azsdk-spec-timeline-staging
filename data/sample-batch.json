@@ -1014,11 +1014,31 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/47973"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-03-18T01:11:35Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Release skipped in pipeline: java - batch",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6038427"
+          }
         }
       ],
       "readyForReviewAt": "2026-03-17T16:13:10Z",
       "reviewWaitDays": 0.37,
-      "reviewWaitCycles": 2
+      "reviewWaitCycles": 2,
+      "release": {
+        "packageName": "azure-resourcemanager-batch",
+        "pipelineName": "java - batch",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6038427",
+        "buildId": "6038427",
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -1217,11 +1237,45 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26008"
           }
+        },
+        {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-03-04T20:29:34.9966667Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Release pipeline started: go - armbatch",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5961261",
+            "body": "Build 5961261"
+          }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-04T20:32:35.9933333Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Package released: sdk/resourcemanager/batch/armbatch",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5961261",
+            "body": "Build 5961261 succeeded"
+          }
         }
       ],
       "readyForReviewAt": "2026-02-21T00:16:59Z",
       "reviewWaitDays": 3.13,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "release": {
+        "packageName": "sdk/resourcemanager/batch/armbatch",
+        "packageVersion": null,
+        "pipelineName": "go - armbatch",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5961261",
+        "buildId": "5961261",
+        "releasedAt": "2026-03-04T20:32:35.9933333Z",
+        "releaseGapDays": 0.7,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -1524,10 +1578,15 @@
       "type": "positive",
       "severity": "info",
       "description": "Fastest SDK PR: Python (17.0d)"
+    },
+    {
+      "type": "release_pending",
+      "severity": "critical",
+      "description": "2 SDK package(s) still pending release."
     }
   ],
   "summary": {
-    "totalDurationDays": 70.06,
+    "totalDurationDays": 70.1,
     "specPRDays": 34.75,
     "pipelineGapDays": 0.24,
     "sdkPRMaxDays": 35.08,
@@ -1545,6 +1604,9 @@
     "totalPREdits": 0,
     "totalReviewWaitDays": 19.31,
     "totalReviewWaitCycles": 11,
-    "hasDraftPRs": true
+    "hasDraftPRs": true,
+    "avgReleaseGapDays": 0.7,
+    "maxReleaseGapDays": 0.7,
+    "pendingReleases": 2
   }
 }

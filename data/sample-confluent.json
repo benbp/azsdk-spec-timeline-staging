@@ -2,7 +2,7 @@
   "title": "Confluent API SDK Generation",
   "owner": "mzhongl524",
   "startDate": "2026-01-08T07:59:09Z",
-  "endDate": "2026-04-02T07:26:51Z",
+  "endDate": "2026-04-02T07:30:36.1833333Z",
   "specPR": {
     "repo": "Azure/azure-rest-api-specs",
     "number": 39519,
@@ -1067,6 +1067,18 @@
           }
         },
         {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-04-02T07:04:45.5433333Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Release pipeline started: java - confluent",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097491",
+            "body": "Build 6097491"
+          }
+        },
+        {
           "type": "tool_call",
           "timestamp": "2026-04-02T07:26:51Z",
           "actor": "unknown",
@@ -1082,11 +1094,33 @@
             "packageName": "azure-resourcemanager-confluent",
             "language": "Java"
           }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-04-02T07:30:36.1833333Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Package released: azure-resourcemanager-confluent",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097491",
+            "body": "Build 6097491 succeeded"
+          }
         }
       ],
       "readyForReviewAt": "2026-02-18T02:55:57Z",
       "reviewWaitDays": 3.02,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "release": {
+        "packageName": "azure-resourcemanager-confluent",
+        "packageVersion": null,
+        "pipelineName": "java - confluent",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097491",
+        "buildId": "6097491",
+        "releasedAt": "2026-04-02T07:30:36.1833333Z",
+        "releaseGapDays": 36.5,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -1418,11 +1452,44 @@
             "packageName": "azure-mgmt-confluent",
             "language": "Python"
           }
+        },
+        {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-04-02T09:22:50.4733333Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Release pipeline started: python - confluent",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097489",
+            "body": "Build 6097489"
+          }
+        },
+        {
+          "type": "release_pipeline_failed",
+          "timestamp": "2026-04-02T09:24:41.9433333Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Release pipeline failed: python - confluent",
+          "sentiment": "negative",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097489",
+            "body": "Build 6097489 failed"
+          }
         }
       ],
       "readyForReviewAt": "2026-02-18T02:56:06Z",
       "reviewWaitDays": 1.81,
-      "reviewWaitCycles": 2
+      "reviewWaitCycles": 2,
+      "release": {
+        "packageName": "azure-mgmt-confluent",
+        "pipelineName": "python - confluent",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097489",
+        "buildId": "6097489",
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "failed"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-go",
@@ -1604,6 +1671,30 @@
           }
         },
         {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-04-02T06:24:58.9666667Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Release pipeline started: go - armconfluent",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097534",
+            "body": "Build 6097534"
+          }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-04-02T06:27:59.6566667Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Package released: sdk/resourcemanager/confluent/armconfluent",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097534",
+            "body": "Build 6097534 succeeded"
+          }
+        },
+        {
           "type": "tool_call",
           "timestamp": "2026-04-02T06:46:03Z",
           "actor": "unknown",
@@ -1623,7 +1714,17 @@
       ],
       "readyForReviewAt": "2026-02-18T02:55:44Z",
       "reviewWaitDays": 6.01,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "release": {
+        "packageName": "sdk/resourcemanager/confluent/armconfluent",
+        "packageVersion": null,
+        "pipelineName": "go - armconfluent",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097534",
+        "buildId": "6097534",
+        "releasedAt": "2026-04-02T06:27:59.6566667Z",
+        "releaseGapDays": 36.4,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-js",
@@ -1953,6 +2054,18 @@
           }
         },
         {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-04-02T06:39:44.82Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Release pipeline started: js - confluent - mgmt",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097492",
+            "body": "Build 6097492"
+          }
+        },
+        {
           "type": "tool_call",
           "timestamp": "2026-04-02T06:55:35Z",
           "actor": "unknown",
@@ -1968,11 +2081,33 @@
             "packageName": "@azure/arm-confluent",
             "language": "JavaScript"
           }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-04-02T06:55:59.0366667Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Package released: @azure/arm-confluent",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097492",
+            "body": "Build 6097492 succeeded"
+          }
         }
       ],
       "readyForReviewAt": "2026-02-18T02:55:51Z",
       "reviewWaitDays": 6.01,
-      "reviewWaitCycles": 4
+      "reviewWaitCycles": 4,
+      "release": {
+        "packageName": "@azure/arm-confluent",
+        "packageVersion": null,
+        "pipelineName": "js - confluent - mgmt",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6097492",
+        "buildId": "6097492",
+        "releasedAt": "2026-04-02T06:55:59.0366667Z",
+        "releaseGapDays": 27.9,
+        "status": "released"
+      }
     }
   ],
   "insights": [
@@ -2019,6 +2154,18 @@
       "type": "positive",
       "severity": "info",
       "description": "All 5 SDK PRs successfully merged across 5 languages."
+    },
+    {
+      "type": "release_pending",
+      "severity": "critical",
+      "description": "1 SDK package(s) still pending release."
+    },
+    {
+      "type": "release_delay",
+      "severity": "warning",
+      "description": "Java had longest release gap: 36.5d.",
+      "durationDays": 36.5,
+      "prRef": "Azure/azure-sdk-for-java#47954"
     }
   ],
   "summary": {
@@ -2038,9 +2185,11 @@
     "totalNags": 0,
     "totalManualFixes": 0,
     "totalPREdits": 3,
-    "pendingReleases": 5,
+    "pendingReleases": 1,
     "totalReviewWaitDays": 16.85,
     "totalReviewWaitCycles": 10,
-    "hasDraftPRs": true
+    "hasDraftPRs": true,
+    "avgReleaseGapDays": 33.6,
+    "maxReleaseGapDays": 36.5
   }
 }

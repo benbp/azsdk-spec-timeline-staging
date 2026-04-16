@@ -669,6 +669,30 @@
           }
         },
         {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-03-23T17:27:00.9466667Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Release pipeline started: java - containerregistry",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6048808",
+            "body": "Build 6048808"
+          }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-23T18:07:50.2633333Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Package released: azure-resourcemanager-containerregistry",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6048808",
+            "body": "Build 6048808 succeeded"
+          }
+        },
+        {
           "type": "review_approved",
           "timestamp": "2026-03-23T18:35:11Z",
           "actor": "Ari4ka",
@@ -683,7 +707,17 @@
       ],
       "readyForReviewAt": "2026-03-20T04:27:34Z",
       "reviewWaitDays": 0.15,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "release": {
+        "packageName": "azure-resourcemanager-containerregistry",
+        "packageVersion": null,
+        "pipelineName": "java - containerregistry",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6048808",
+        "buildId": "6048808",
+        "releasedAt": "2026-03-23T18:07:50.2633333Z",
+        "releaseGapDays": 0.1,
+        "status": "released"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-java",
@@ -949,11 +983,29 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26343"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-03-20T04:37:53Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Package release pending: go - armcontainerregistry",
+          "sentiment": "neutral",
+          "details": {}
         }
       ],
       "readyForReviewAt": "2026-03-20T04:27:11Z",
       "reviewWaitDays": 0.01,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "release": {
+        "packageName": "sdk/resourcemanager/containerregistry/armcontainerregistry",
+        "pipelineName": "go - armcontainerregistry",
+        "pipelineUrl": null,
+        "buildId": null,
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-python",
@@ -1099,11 +1151,31 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45814"
           }
+        },
+        {
+          "type": "release_pending",
+          "timestamp": "2026-03-20T06:51:36Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Release skipped in pipeline: python - containerregistry",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6048779"
+          }
         }
       ],
       "readyForReviewAt": "2026-03-20T00:46:43Z",
       "reviewWaitDays": 0.13,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "release": {
+        "packageName": "azure-mgmt-containerregistry",
+        "pipelineName": "python - containerregistry",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6048779",
+        "buildId": "6048779",
+        "releasedAt": null,
+        "releaseGapDays": null,
+        "status": "pending"
+      }
     },
     {
       "repo": "Azure/azure-sdk-for-net",
@@ -1505,10 +1577,15 @@
       "type": "positive",
       "severity": "info",
       "description": "Fastest SDK PR: Go (0.2d)"
+    },
+    {
+      "type": "release_pending",
+      "severity": "critical",
+      "description": "3 SDK package(s) still pending release."
     }
   ],
   "summary": {
-    "totalDurationDays": 26.23,
+    "totalDurationDays": 26.2,
     "specPRDays": 20.98,
     "pipelineGapDays": -22.41,
     "sdkPRMaxDays": 3.66,
@@ -1526,6 +1603,9 @@
     "totalPREdits": 0,
     "totalReviewWaitDays": 0.54,
     "totalReviewWaitCycles": 8,
-    "hasDraftPRs": true
+    "hasDraftPRs": true,
+    "avgReleaseGapDays": 0.1,
+    "maxReleaseGapDays": 0.1,
+    "pendingReleases": 3
   }
 }

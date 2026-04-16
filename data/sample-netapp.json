@@ -2,7 +2,7 @@
   "title": "NetApp API SDK Generation",
   "owner": "audunn",
   "startDate": "2026-01-26T16:14:44Z",
-  "endDate": "2026-03-06T23:59:59Z",
+  "endDate": "2026-03-25T18:06:49.813Z",
   "specPR": {
     "repo": "Azure/azure-rest-api-specs",
     "number": 39908,
@@ -1343,6 +1343,30 @@
           }
         },
         {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-03-22T11:40:21Z",
+          "actor": "azure-pipelines",
+          "actorRole": "bot",
+          "description": "Release pipeline started: net - netapp - mgmt (build 6045300)",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6045300&view=results",
+            "buildId": 6045300
+          }
+        },
+        {
+          "type": "release_pipeline_failed",
+          "timestamp": "2026-03-22T11:50:19Z",
+          "actor": "azure-pipelines",
+          "actorRole": "bot",
+          "description": "❌ Release pipeline failed: net - netapp - mgmt (build 6045300)",
+          "sentiment": "negative",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6045300&view=results",
+            "buildId": 6045300
+          }
+        },
+        {
           "type": "tool_call",
           "timestamp": "2026-03-22T22:16:20.517Z",
           "actor": "developer",
@@ -1357,6 +1381,32 @@
             "clientType": "human",
             "language": "DotNet",
             "packageType": "Unknown"
+          }
+        },
+        {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-03-25T13:45:44Z",
+          "actor": "azure-pipelines",
+          "actorRole": "bot",
+          "description": "Release pipeline started: net - netapp - mgmt",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6061571&view=results",
+            "buildId": 6061571
+          }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-25T14:09:31Z",
+          "actor": "azure-pipelines",
+          "actorRole": "bot",
+          "description": "📦 Released Azure.ResourceManager.NetApp v1.15.0",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6061571&view=results",
+            "buildId": 6061571,
+            "packageVersion": "1.15.0",
+            "pipelineName": "net - netapp - mgmt"
           }
         },
         {
@@ -1380,9 +1430,12 @@
       "release": {
         "packageName": "Azure.ResourceManager.NetApp",
         "packageVersion": "1.15.0",
-        "releasedAt": "2026-03-06T23:59:59Z",
-        "status": "released",
-        "releaseGapDays": 0.68
+        "pipelineName": "net - netapp - mgmt",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6061571&view=results",
+        "buildId": 6061571,
+        "releasedAt": "2026-03-25T14:09:31Z",
+        "releaseGapDays": 19.3,
+        "status": "released"
       }
     },
     {
@@ -1645,14 +1698,43 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-java/pull/47995"
           }
+        },
+        {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-03-22T11:52:05Z",
+          "actor": "azure-pipelines",
+          "actorRole": "bot",
+          "description": "Release pipeline started: java - netapp",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6045301&view=results",
+            "buildId": 6045301
+          }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-22T12:20:11Z",
+          "actor": "azure-pipelines",
+          "actorRole": "bot",
+          "description": "📦 Released azure-resourcemanager-netapp v1.7.0",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6045301&view=results",
+            "buildId": 6045301,
+            "packageVersion": "1.7.0",
+            "pipelineName": "java - netapp"
+          }
         }
       ],
       "release": {
         "packageName": "azure-resourcemanager-netapp",
-        "packageVersion": "2.1.0",
-        "releasedAt": "2026-03-03T23:59:59Z",
-        "status": "released",
-        "releaseGapDays": 3.87
+        "packageVersion": "1.7.0",
+        "pipelineName": "java - netapp",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6045301&view=results",
+        "buildId": 6045301,
+        "releasedAt": "2026-03-22T12:20:11Z",
+        "releaseGapDays": 22.4,
+        "status": "released"
       }
     },
     {
@@ -1852,14 +1934,43 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-go/pull/26020"
           }
+        },
+        {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-03-25T08:55:37Z",
+          "actor": "azure-pipelines",
+          "actorRole": "bot",
+          "description": "Release pipeline started: go - armnetapp",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6060792&view=results",
+            "buildId": 6060792
+          }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-25T08:58:58Z",
+          "actor": "azure-pipelines",
+          "actorRole": "bot",
+          "description": "📦 Released sdk/resourcemanager/netapp/armnetapp vv7.1.0",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6060792&view=results",
+            "buildId": 6060792,
+            "packageVersion": "v7.1.0",
+            "pipelineName": "go - armnetapp"
+          }
         }
       ],
       "release": {
         "packageName": "sdk/resourcemanager/netapp/armnetapp",
-        "packageVersion": "9.0.0",
-        "releasedAt": "2026-03-03T23:59:59Z",
-        "status": "released",
-        "releaseGapDays": 4.6
+        "packageVersion": "v7.1.0",
+        "pipelineName": "go - armnetapp",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6060792&view=results",
+        "buildId": 6060792,
+        "releasedAt": "2026-03-25T08:58:58Z",
+        "releaseGapDays": 26,
+        "status": "released"
       }
     },
     {
@@ -2028,14 +2139,43 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-python/pull/45164"
           }
+        },
+        {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-03-22T11:51:47Z",
+          "actor": "azure-pipelines",
+          "actorRole": "bot",
+          "description": "Release pipeline started: python - netapp",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6045302&view=results",
+            "buildId": 6045302
+          }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-22T12:06:40Z",
+          "actor": "azure-pipelines",
+          "actorRole": "bot",
+          "description": "📦 Released azure-mgmt-netapp v14.1.0",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6045302&view=results",
+            "buildId": 6045302,
+            "packageVersion": "14.1.0",
+            "pipelineName": "python - netapp"
+          }
         }
       ],
       "release": {
         "packageName": "azure-mgmt-netapp",
-        "packageVersion": "15.0.0",
-        "releasedAt": "2026-03-03T23:59:59Z",
-        "status": "released",
-        "releaseGapDays": 4.6
+        "packageVersion": "14.1.0",
+        "pipelineName": "python - netapp",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6045302&view=results",
+        "buildId": 6045302,
+        "releasedAt": "2026-03-22T12:06:40Z",
+        "releaseGapDays": 23.1,
+        "status": "released"
       }
     },
     {
@@ -2205,14 +2345,43 @@
           "details": {
             "url": "https://github.com/Azure/azure-sdk-for-js/pull/37299"
           }
+        },
+        {
+          "type": "release_pipeline_started",
+          "timestamp": "2026-03-22T11:30:26Z",
+          "actor": "azure-pipelines",
+          "actorRole": "bot",
+          "description": "Release pipeline started: js - netapp - mgmt",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6045303&view=results",
+            "buildId": 6045303
+          }
+        },
+        {
+          "type": "release_pipeline_completed",
+          "timestamp": "2026-03-22T11:48:07Z",
+          "actor": "azure-pipelines",
+          "actorRole": "bot",
+          "description": "📦 Released @azure/arm-netapp v22.0.0",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6045303&view=results",
+            "buildId": 6045303,
+            "packageVersion": "22.0.0",
+            "pipelineName": "js - netapp - mgmt"
+          }
         }
       ],
       "release": {
         "packageName": "@azure/arm-netapp",
-        "packageVersion": "23.0.0",
-        "releasedAt": "2026-03-03T23:59:59Z",
-        "status": "released",
-        "releaseGapDays": 1.4
+        "packageVersion": "22.0.0",
+        "pipelineName": "js - netapp - mgmt",
+        "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6045303&view=results",
+        "buildId": 6045303,
+        "releasedAt": "2026-03-22T11:48:07Z",
+        "releaseGapDays": 19.9,
+        "status": "released"
       }
     }
   ],
@@ -2260,10 +2429,16 @@
       "type": "tool_usage",
       "severity": "info",
       "description": "39 MCP tool calls tracked for .NET SDK development — build/test/check cycles from both human (VS Code) and AI agent (github-copilot-developer). Multiple build failures before first success on Mar 2, followed by agent-assisted builds on Mar 10."
+    },
+    {
+      "type": "release_delay",
+      "severity": "warning",
+      "description": ".NET release pipeline failed on Mar 22 (build 6045300) before succeeding on Mar 25 (build 6061571). Total release gap: 19.3 days.",
+      "prRef": "Azure/azure-sdk-for-net#56362"
     }
   ],
   "summary": {
-    "totalDurationDays": 39.32,
+    "totalDurationDays": 58.1,
     "specPRDays": 15.76,
     "pipelineGapDays": 1.28,
     "sdkPRMaxDays": 17.87,
@@ -2278,8 +2453,8 @@
     "totalUniqueReviewers": 12,
     "totalNags": 1,
     "totalManualFixes": 0,
-    "avgReleaseGapDays": 3,
-    "maxReleaseGapDays": 4.6,
+    "avgReleaseGapDays": 22.1,
+    "maxReleaseGapDays": 26,
     "pendingReleases": 0
   }
 }

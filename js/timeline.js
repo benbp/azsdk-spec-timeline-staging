@@ -563,40 +563,9 @@ const Timeline = (() => {
 
     // Event markers
     const events = pr.events.filter(e => e.type !== 'idle_gap');
-
-    // Synthesize a release marker if release data exists but no explicit event
-    if (pr.release?.releasedAt && !events.some(e => e.type === 'release_pipeline_completed')) {
-      // Use clamped position: same logic as release bar
-      const mergeX = pr.mergedAt ? timeToX(pr.mergedAt) : 0;
-      let releaseX = timeToX(pr.release.releasedAt);
-      if (releaseX <= mergeX) releaseX = mergeX + 8;
-
-      const syntheticRelease = {
-        type: 'release_pipeline_completed',
-        timestamp: pr.release.releasedAt,
-        actor: 'release-pipeline',
-        actorRole: 'bot',
-        description: `📦 Released ${pr.release.packageName || ''} v${pr.release.packageVersion || '?'}`,
-        sentiment: 'positive',
-        details: { url: pr.release.pipelineUrl || null },
-        _syntheticX: releaseX
-      };
-      events.push(syntheticRelease);
-    } else if (pr.release && !pr.release.releasedAt && pr.mergedAt
-        && !events.some(e => e.type === 'release_pending')) {
-      events.push({
-        type: 'release_pending',
-        timestamp: pr.mergedAt,
-        actor: 'system',
-        actorRole: 'bot',
-        description: '⚠ Merged but not yet released',
-        sentiment: 'negative',
-        details: {}
-      });
-    }
     const markers = [];
     for (const event of events) {
-      const x = event._syntheticX != null ? event._syntheticX : timeToX(event.timestamp);
+      const x = timeToX(event.timestamp);
       const marker = document.createElement('div');
       marker.className = `event-marker ${event.type}`;
       if (hiddenEventTypes.has(event.type)) marker.classList.add('hidden');

@@ -224,6 +224,17 @@ const Timeline = (() => {
     updateEventVisibility();
   }
 
+  // Known bot/system actors
+  const BOT_ACTOR_NAMES = new Set([
+    'azure-sdk', 'copilot-agent', 'copilot', 'azure-pipelines', 'github-actions[bot]',
+    'copilot-pull-request-reviewer[bot]', 'azure-pipelines[bot]', 'unknown', 'system', 'developer'
+  ]);
+  function isActorBot(name) {
+    if (!name) return false;
+    const lower = name.toLowerCase();
+    return BOT_ACTOR_NAMES.has(lower) || lower.endsWith('[bot]');
+  }
+
   function renderActorFilters() {
     let section = document.getElementById('actor-filters');
     if (!section) {
@@ -244,8 +255,20 @@ const Timeline = (() => {
     }
     allActors = Object.keys(actorCounts).sort((a, b) => actorCounts[b] - actorCounts[a]);
 
-    section.innerHTML = `<span class="filters-label">Actors:</span><div class="filter-buttons actor-filter-buttons"></div>`;
-    const container = section.querySelector('.actor-filter-buttons');
+    const humanActors = allActors.filter(a => !isActorBot(a));
+    const botActors = allActors.filter(a => isActorBot(a));
+
+    section.innerHTML = '';
+
+    // People section
+    const peopleLabel = document.createElement('span');
+    peopleLabel.className = 'filters-label';
+    peopleLabel.textContent = '👤 People:';
+    section.appendChild(peopleLabel);
+
+    const peopleContainer = document.createElement('div');
+    peopleContainer.className = 'filter-buttons actor-filter-buttons';
+    section.appendChild(peopleContainer);
 
     // Show All / Hide All
     const allBtn = document.createElement('button');
@@ -261,37 +284,56 @@ const Timeline = (() => {
       updateEventVisibility();
       renderActorFilters();
     });
-    container.appendChild(allBtn);
+    peopleContainer.appendChild(allBtn);
 
-    // Determine the owner/author for visual highlight
     const owner = data.owner?.toLowerCase();
 
-    for (const actor of allActors) {
-      const btn = document.createElement('button');
-      const isActive = !hiddenActors.has(actor);
-      const isOwner = actor.toLowerCase() === owner;
-      btn.className = `filter-btn actor-btn ${isActive ? 'active' : ''} ${isOwner ? 'owner' : ''}`;
-      btn.innerHTML = `${isOwner ? '👤 ' : ''}${escapeHtml(actor)} <span class="actor-count">${actorCounts[actor]}</span>`;
-      btn.title = `${actor}: ${actorCounts[actor]} events${isOwner ? ' (PR owner)' : ''}`;
-      btn.addEventListener('click', () => {
-        if (hiddenActors.has(actor)) {
-          hiddenActors.delete(actor);
-          btn.classList.add('active');
-        } else {
-          hiddenActors.add(actor);
-          btn.classList.remove('active');
-        }
-        updateEventVisibility();
-        // Update toggle button
-        const toggle = container.querySelector('.toggle-all');
-        if (toggle) {
-          const nowAll = hiddenActors.size === 0;
-          toggle.className = `filter-btn toggle-all ${nowAll ? 'active' : ''}`;
-          toggle.textContent = nowAll ? 'Hide All' : 'Show All';
-        }
-      });
-      container.appendChild(btn);
+    for (const actor of humanActors) {
+      peopleContainer.appendChild(makeActorBtn(actor, actorCounts[actor], owner));
     }
+
+    // Bots & Systems section
+    if (botActors.length > 0) {
+      const botLabel = document.createElement('span');
+      botLabel.className = 'filters-label bot-label';
+      botLabel.textContent = '🤖 Bots & Systems:';
+      section.appendChild(botLabel);
+
+      const botContainer = document.createElement('div');
+      botContainer.className = 'filter-buttons actor-filter-buttons';
+      section.appendChild(botContainer);
+
+      for (const actor of botActors) {
+        botContainer.appendChild(makeActorBtn(actor, actorCounts[actor], owner));
+      }
+    }
+  }
+
+  function makeActorBtn(actor, count, owner) {
+    const btn = document.createElement('button');
+    const isActive = !hiddenActors.has(actor);
+    const isOwner = actor.toLowerCase() === owner;
+    btn.className = `filter-btn actor-btn ${isActive ? 'active' : ''} ${isOwner ? 'owner' : ''}`;
+    btn.innerHTML = `${isOwner ? '👤 ' : ''}${escapeHtml(actor)} <span class="actor-count">${count}</span>`;
+    btn.title = `${actor}: ${count} events${isOwner ? ' (PR owner)' : ''}`;
+    btn.addEventListener('click', () => {
+      if (hiddenActors.has(actor)) {
+        hiddenActors.delete(actor);
+        btn.classList.add('active');
+      } else {
+        hiddenActors.add(actor);
+        btn.classList.remove('active');
+      }
+      updateEventVisibility();
+      // Update toggle button
+      const toggle = document.querySelector('.actor-filters .toggle-all');
+      if (toggle) {
+        const nowAll = hiddenActors.size === 0;
+        toggle.className = `filter-btn toggle-all ${nowAll ? 'active' : ''}`;
+        toggle.textContent = nowAll ? 'Hide All' : 'Show All';
+      }
+    });
+    return btn;
   }
 
   function updateEventVisibility() {
@@ -466,6 +508,9 @@ const Timeline = (() => {
     const availWidth = scrollEl.clientWidth;
     contentWidth = Math.max(availWidth * zoomLevel, 600);
 
+    // Ensure lanes container stretches to full content width for background shading
+    lanesContainer.style.minWidth = contentWidth + 'px';
+
     // Build segments for gap compaction
     buildSegments();
 
@@ -633,9 +678,14 @@ const Timeline = (() => {
         ? '<span class="flow-badge automated" title="Automated (pipeline-generated)">🤖</span>'
         : '<span class="flow-badge manual" title="Manual (human-authored)">👤</span>'
       : '';
+    // Draft PR indicator
+    const draftBadge = pr.isDraft
+      ? '<span class="draft-badge" title="Draft PR — not yet ready for review">draft</span>'
+      : '';
     label.innerHTML = `
       <div class="lane-repo">
         <a href="${pr.url}" target="_blank" title="${pr.repo}#${pr.number}">#${pr.number}</a>${releaseLinkHtml}
+        ${draftBadge}
       </div>
       <div class="lane-meta">
         <span class="lane-language ${langClass}">${langText}</span>

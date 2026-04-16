@@ -266,9 +266,9 @@ header {
 }
 
 .filter-btn.active {
-  background: var(--accent);
+  background: #1a5fa8;
   color: #fff;
-  border-color: var(--accent);
+  border-color: #1a5fa8;
 }
 
 .filter-btn.toggle-all {
@@ -302,6 +302,16 @@ header {
 /* Actor filters */
 .actor-filters {
   margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.actor-filters .bot-label {
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid var(--border);
 }
 
 .actor-btn .actor-count {
@@ -316,8 +326,8 @@ header {
 }
 
 .filter-btn.actor-btn.owner.active {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: #1a5fa8;
+  border-color: #1a5fa8;
 }
 
 .filter-btn .filter-icon {
@@ -588,6 +598,21 @@ header {
 }
 .flow-badge.automated { opacity: 0.7; }
 .flow-badge.manual { opacity: 0.9; }
+
+.draft-badge {
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 8px;
+  background: rgba(210, 153, 34, 0.2);
+  color: var(--orange);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: help;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
 .spec-to-sdk {
   font-size: 12px;
   color: var(--teal);
@@ -1053,7 +1078,7 @@ header {
 }
 
 .detail-body .detail-comment.collapsed {
-  max-height: 4.8em;
+  max-height: 10em;
   overflow: hidden;
 }
 
@@ -1082,6 +1107,11 @@ header {
 
 .github-user-link:hover {
   text-decoration: underline;
+}
+
+.bot-actor {
+  color: var(--text-secondary);
+  font-size: 13px;
 }
 
 .auto-link {

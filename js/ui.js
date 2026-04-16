@@ -286,8 +286,24 @@ const UI = (() => {
     tooltip().classList.add('hidden');
   }
 
+  const BOT_ACTORS = new Set([
+    'azure-sdk', 'copilot-agent', 'copilot', 'azure-pipelines', 'github-actions[bot]',
+    'copilot-pull-request-reviewer[bot]', 'azure-pipelines[bot]', 'unknown', 'system', 'developer'
+  ]);
+
+  function isBot(actor) {
+    if (!actor) return false;
+    const lower = actor.toLowerCase();
+    if (BOT_ACTORS.has(lower)) return true;
+    if (lower.endsWith('[bot]')) return true;
+    return false;
+  }
+
   function githubUserLink(username) {
     const safe = Timeline.escapeHtml(username);
+    if (isBot(username)) {
+      return `<span class="bot-actor">🤖 ${safe}</span>`;
+    }
     return `<a href="https://github.com/${safe}" target="_blank" class="github-user-link">@${safe}</a>`;
   }
 
@@ -396,12 +412,19 @@ const UI = (() => {
       bodyField.className = 'detail-field';
       bodyField.innerHTML = `
         <div class="detail-label">Comment Body</div>
-        <div class="detail-comment collapsed" onclick="this.classList.toggle('collapsed')">
+        <div class="detail-comment" onclick="this.classList.toggle('collapsed')">
           ${linkedBody}
           <div class="comment-expand-hint">Click to expand ↓</div>
         </div>
       `;
       body.appendChild(bodyField);
+      // Only collapse if content actually overflows
+      requestAnimationFrame(() => {
+        const commentEl = bodyField.querySelector('.detail-comment');
+        if (commentEl && commentEl.scrollHeight > commentEl.offsetHeight + 4) {
+          commentEl.classList.add('collapsed');
+        }
+      });
     }
 
     panel.classList.remove('hidden');

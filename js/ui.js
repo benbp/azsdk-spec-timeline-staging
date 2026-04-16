@@ -232,12 +232,24 @@ const UI = (() => {
         </div>`
       : '';
 
+    const sentimentHtml = event.sentiment
+      ? `<span class="sentiment-badge ${event.sentiment}" style="font-size:10px;padding:1px 6px;margin-left:6px">${event.sentiment}</span>`
+      : '';
+
+    // Show first ~100 chars of comment body for comment events
+    let excerptHtml = '';
+    if (event.details?.body) {
+      const body = event.details.body.trim();
+      const excerpt = body.length > 100 ? body.substring(0, 100) + '…' : body;
+      excerptHtml = `<div class="tooltip-excerpt">${Timeline.escapeHtml(excerpt)}</div>`;
+    }
+
     const linkHtml = event.details?.url
       ? `<div class="tooltip-link">🔗 click for details + GitHub link</div>`
       : '';
 
     tip.innerHTML = `
-      <div class="tooltip-type">${info.icon} ${info.label}</div>
+      <div class="tooltip-type">${info.icon} ${info.label}${sentimentHtml}</div>
       <div class="tooltip-desc">${Timeline.escapeHtml(event.description)}</div>
       <div class="tooltip-meta">
         <span>👤 ${Timeline.escapeHtml(event.actor)}</span>
@@ -245,6 +257,7 @@ const UI = (() => {
       </div>
       ${toolMeta}
       ${event.details?.durationHours ? `<div class="tooltip-meta"><span>⏱ Duration: ${DataLoader.formatDuration(event.details.durationHours)}</span></div>` : ''}
+      ${excerptHtml}
       ${linkHtml}
     `;
 

@@ -1,3 +1,4 @@
 queries/
 .playwright-cli/
 screenshots/
+backfill-release-data/

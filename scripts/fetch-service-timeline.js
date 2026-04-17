@@ -22,6 +22,7 @@ const fs = require('fs');
 const path = require('path');
 
 const { resolve: resolveMetadata } = require('./lib/typespec-metadata');
+const { fetchReleaseForPR, inferServiceName: inferSvcName } = require('./lib/release-pipeline');
 
 const SPEC_REPO = 'Azure/azure-rest-api-specs';
 
@@ -479,7 +480,40 @@ function main() {
   const packageNames = Object.values(metadata.packages).map(p => p.name);
   const toolCalls = parseToolCallsCSV(toolCallsCsvPath, packageNames);
 
-  // Step 5: Output raw data
+  // Step 5: Fetch release pipeline data for merged SDK PRs
+  if (!skipReleases) {
+    console.error('\n=== Fetching release pipeline data ===');
+    // Derive service name from TypeSpec metadata (e.g. "sdk/durabletask" → "durabletask")
+    const serviceDirs = {};
+    for (const [lang, pkg] of Object.entries(metadata.packages)) {
+      const dir = pkg.serviceDir || '';
+      // serviceDir is like "sdk/durabletask" — extract the last segment
+      const segments = dir.replace(/^sdk\//, '').split('/').filter(Boolean);
+      serviceDirs[lang] = segments[segments.length - 1] || null;
+    }
+
+    for (const [lang, prs] of Object.entries(sdkPRs)) {
+      const pkgInfo = metadata.packages[lang];
+      const serviceName = serviceDirs[lang] || inferSvcName(prs[0]?.title || '');
+      const packageName = pkgInfo?.name || null;
+
+      if (!serviceName) {
+        console.error(`  ⚠ No service name for ${lang}, skipping release lookup`);
+        continue;
+      }
+
+      console.error(`\n  ${lang}: service="${serviceName}", package="${packageName}"`);
+      for (const pr of prs) {
+        if (!pr.mergedAt) continue;
+        const release = fetchReleaseForPR({ language: lang, serviceName, packageName, mergedAt: pr.mergedAt });
+        if (release) {
+          pr._release = release;
+        }
+      }
+    }
+  }
+
+  // Step 6: Output raw data
   const output = {
     _meta: {
       fetchedAt: now.toISOString(),

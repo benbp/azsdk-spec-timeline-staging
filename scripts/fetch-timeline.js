@@ -132,7 +132,7 @@ function azDevOps(area, resource, routeParams, queryParams) {
   const route = Object.entries(routeParams || {})
     .map(([k, v]) => `${k}=${v}`).join(' ');
   const query = Object.entries(queryParams || {})
-    .map(([k, v]) => `"${k}=${v}"`).join(' ');
+    .map(([k, v]) => `"${k.replace(/\$/g, '\\$')}=${v}"`).join(' ');
   const cmd = `az devops invoke --area ${area} --resource ${resource}` +
     ` --organization ${DEVOPS_ORG}` +
     ` --route-parameters project=${DEVOPS_PROJECT} ${route}` +

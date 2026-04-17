@@ -21,6 +21,8 @@ const {
   isBot
 } = require('./lib/event-processor');
 
+const { attachReleaseToPR } = require('./lib/release-pipeline');
+
 /* ── Tool Call Event Conversion ───────────────────────────── */
 
 function convertToolCalls(rawToolCalls, metadata) {
@@ -195,6 +197,8 @@ function buildWindow(spec, windowSdkPRs, sdkPRs, label) {
       if (pr) {
         if (pr.createdAt) allDates.push(pr.createdAt);
         if (pr.mergedAt) allDates.push(pr.mergedAt);
+        // Include release date to extend window end
+        if (pr.release?.releasedAt) allDates.push(pr.release.releasedAt);
       }
     }
   }
@@ -500,6 +504,13 @@ function main() {
       const w = computeReviewWaitDays(out.events, out.readyForReviewAt || null);
       out.reviewWaitDays = w.reviewWaitDays;
       out.reviewWaitCycles = w.reviewWaitCycles;
+
+      // Attach release pipeline data if present in raw fetch
+      if (pr._release) {
+        attachReleaseToPR(out, pr._release);
+        delete out._release; // clean up raw data
+      }
+
       return out;
     });
   }

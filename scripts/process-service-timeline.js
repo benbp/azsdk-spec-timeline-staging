@@ -68,22 +68,15 @@ function convertToolCalls(rawToolCalls, metadata) {
 function detectReleaseWindows(specPRs, sdkPRs) {
   const windows = [];
 
-  // Filter out mass-change spec PRs — they don't generate release windows
-  const eligibleSpecPRs = specPRs.filter(pr => !pr.massChange);
-
   // Track which SDK PRs have been claimed (one-to-one assignment)
   const claimed = {}; // lang -> Set of PR numbers
   for (const lang of Object.keys(sdkPRs)) {
     claimed[lang] = new Set();
-    // Pre-claim mass-change SDK PRs so they don't get assigned to windows
-    for (const pr of sdkPRs[lang]) {
-      if (pr.massChange) claimed[lang].add(pr.number);
-    }
   }
 
   // Pass 1: explicit matches (spec PR number or merge commit in body/title)
-  for (let i = 0; i < eligibleSpecPRs.length; i++) {
-    const spec = eligibleSpecPRs[i];
+  for (let i = 0; i < specPRs.length; i++) {
+    const spec = specPRs[i];
     const windowSdkPRs = {};
 
     for (const [lang, prs] of Object.entries(sdkPRs)) {
@@ -491,62 +484,7 @@ function main() {
     bestPR.events.sort((a, b) => a.timestamp.localeCompare(b.timestamp));
   }
 
-  // Filter out mass-change PRs from release window detection.
-  // Heuristics (any match → mass-change):
-  //   1. ≥5 distinct service dirs
-  //   2. ≥200 changed files with ≥3 service dirs
-  //   3. ≥500 changed files with ≥2 service dirs (API sampling under-counts)
-  //   4. Title matches known bulk automation patterns
-  //   5. SDK PR touches 0 standard service dirs (repo-wide infra, not service code)
-  //   6. 0 changed files but ≥2 service dirs (empty/broken PR)
-  // These PRs remain in the full timeline but are tagged and excluded from windows.
-  const MASS_DIR_THRESHOLD = 5;
-  const MASS_FILES_THRESHOLD = 200;
-  const MASS_FILES_DIR_THRESHOLD = 3;
-  const MASS_LARGE_FILES_THRESHOLD = 500;
-  const MASS_LARGE_FILES_DIR_THRESHOLD = 2;
-  const MASS_TITLE_PATTERNS = [
-    /^\[automation\] regenerate sdk\b/i,
-  ];
-  let massFilteredSpec = 0, massFilteredSdk = 0;
-
-  function isMassChange(pr, isSpec) {
-    const dirs = pr.serviceDirCount || 0;
-    const files = pr.changedFiles || 0;
-    const title = pr.title || '';
-    // Dir-count thresholds
-    if (dirs >= MASS_DIR_THRESHOLD) return true;
-    // File + dir combined thresholds
-    if (files >= MASS_FILES_THRESHOLD && dirs >= MASS_FILES_DIR_THRESHOLD) return true;
-    if (files >= MASS_LARGE_FILES_THRESHOLD && dirs >= MASS_LARGE_FILES_DIR_THRESHOLD) return true;
-    // Known bulk automation title patterns
-    if (MASS_TITLE_PATTERNS.some(re => re.test(title))) return true;
-    // SDK PR with 0 standard service dirs — repo-wide infra, not service code
-    if (!isSpec && dirs === 0 && files > 0) return true;
-    // Empty PR touching multiple dirs — broken/rebased artifact
-    if (files === 0 && dirs >= 2) return true;
-    return false;
-  }
-
-  for (const pr of specPRs) {
-    if (isMassChange(pr, true)) {
-      pr.massChange = true;
-      massFilteredSpec++;
-    }
-  }
-  for (const prs of Object.values(sdkPRs)) {
-    for (const pr of prs) {
-      if (isMassChange(pr, false)) {
-        pr.massChange = true;
-        massFilteredSdk++;
-      }
-    }
-  }
-  if (massFilteredSpec + massFilteredSdk > 0) {
-    console.error(`  Flagged mass-change PRs: ${massFilteredSpec} spec, ${massFilteredSdk} SDK`);
-  }
-
-  // Detect release windows (excludes mass-change PRs)
+  // Detect release windows
   console.error('Detecting release windows...');
   const releaseWindows = detectReleaseWindows(specPRs, sdkPRs);
 

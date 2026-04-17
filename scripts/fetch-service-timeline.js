@@ -111,11 +111,9 @@ function countDistinctServiceDirs(repo, number) {
   for (const f of files) {
     const p = f.filename || '';
     if (repoShort === 'azure-rest-api-specs') {
-      // e.g. specification/durabletask/... → "durabletask"
       const m = p.match(/^specification\/([^/]+)/);
       if (m) dirs.add(m[1]);
     } else {
-      // SDK repos: e.g. sdk/durabletask/... → "durabletask"
       const m = p.match(/^sdk\/([^/]+)/);
       if (m) dirs.add(m[1]);
     }
@@ -123,9 +121,38 @@ function countDistinctServiceDirs(repo, number) {
   return dirs.size;
 }
 
-function fetchFullPRData(repo, number) {
+// Mass-change heuristic — broad refactors, bulk regenerations, cross-service PRs.
+// Checked early in the fetch to skip expensive API calls (reviews, comments, etc.).
+const MASS_DIR_THRESHOLD = 5;
+const MASS_FILES_THRESHOLD = 200;
+const MASS_FILES_DIR_THRESHOLD = 3;
+const MASS_LARGE_FILES_THRESHOLD = 500;
+const MASS_LARGE_FILES_DIR_THRESHOLD = 2;
+const MASS_TITLE_PATTERNS = [/^\[automation\] regenerate sdk\b/i];
+
+function isMassChange(pr, serviceDirCount, isSpec) {
+  const dirs = serviceDirCount || 0;
+  const files = pr.changed_files || 0;
+  const title = pr.title || '';
+  if (dirs >= MASS_DIR_THRESHOLD) return true;
+  if (files >= MASS_FILES_THRESHOLD && dirs >= MASS_FILES_DIR_THRESHOLD) return true;
+  if (files >= MASS_LARGE_FILES_THRESHOLD && dirs >= MASS_LARGE_FILES_DIR_THRESHOLD) return true;
+  if (MASS_TITLE_PATTERNS.some(re => re.test(title))) return true;
+  if (!isSpec && dirs === 0 && files > 0) return true;
+  if (files === 0 && dirs >= 2) return true;
+  return false;
+}
+
+function fetchFullPRData(repo, number, isSpec) {
   const pr = fetchPR(repo, number);
   if (!pr) return null;
+
+  // Early mass-change detection — skip expensive calls if PR is a broad refactor
+  const serviceDirCount = countDistinctServiceDirs(repo, number);
+  if (isMassChange(pr, serviceDirCount, isSpec)) {
+    console.error(`    ⏭ Skipping mass-change PR (${serviceDirCount} dirs, ${pr.changed_files || 0} files)`);
+    return null;
+  }
 
   const comments = fetchComments(repo, number);
   const reviews = fetchReviews(repo, number);
@@ -142,8 +169,6 @@ function fetchFullPRData(repo, number) {
   const repoShort = repo.split('/')[1];
   const language = LANG_MAP[repoShort] || null;
 
-  const serviceDirCount = countDistinctServiceDirs(repo, number);
-
   return {
     repo, language, number,
     url: pr.html_url,
@@ -158,8 +183,6 @@ function fetchFullPRData(repo, number) {
     readyForReviewAt,
     generationFlow: detectGenerationFlow(pr),
     labels: (pr.labels || []).map(l => l.name),
-    serviceDirCount,
-    changedFiles: pr.changed_files || 0,
     reviewers: [
       ...(pr.requested_reviewers || []).map(r => r.login),
       ...reviews.filter(r => r.state === 'APPROVED').map(r => r.user?.login)
@@ -426,7 +449,7 @@ function main() {
 
   const specPRs = [];
   for (const ref of specPRRefs) {
-    const data = fetchFullPRData(ref.repo, ref.number);
+    const data = fetchFullPRData(ref.repo, ref.number, true);
     if (data) specPRs.push(data);
   }
 
@@ -447,7 +470,7 @@ function main() {
     sdkPRs[lang] = [];
     console.error(`\n  Fetching ${refs.length} ${lang} PRs...`);
     for (const ref of refs) {
-      const data = fetchFullPRData(ref.repo, ref.number);
+      const data = fetchFullPRData(ref.repo, ref.number, false);
       if (data) sdkPRs[lang].push(data);
     }
   }

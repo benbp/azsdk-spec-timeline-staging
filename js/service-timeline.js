@@ -28,13 +28,6 @@ const ServiceTimeline = (() => {
     'release_pipeline_completed', 'release_pipeline_failed', 'release_pending'
   ]);
 
-  /* ── Helpers ───────────────────────────────────────────── */
-
-  // Return all PRs excluding mass-change (broad refactors)
-  function getServicePRs() {
-    return DataLoader.getAllPRs(data).filter(pr => !pr.massChange);
-  }
-
   /* ── Public ─────────────────────────────────────────────── */
 
   function render(timelineData) {
@@ -89,8 +82,8 @@ const ServiceTimeline = (() => {
   function renderServiceHeader() {
     const el = document.getElementById('service-header');
     if (!el) return;
-    const specCount = data.specPRs.filter(p => !p.massChange).length;
-    const sdkCount = Object.values(data.sdkPRs).reduce((s, a) => s + a.filter(p => !p.massChange).length, 0);
+    const specCount = data.specPRs.length;
+    const sdkCount = Object.values(data.sdkPRs).reduce((s, a) => s + a.length, 0);
     const langs = Object.keys(data.sdkPRs).join(', ');
     const days = DataLoader.computeDurationDays(data.startDate, data.endDate);
     const generated = data.generatedAt
@@ -133,8 +126,8 @@ const ServiceTimeline = (() => {
     // All-up pill
     const allPill = document.createElement('button');
     allPill.className = `window-pill ${selectedWindow === null ? 'active' : ''}`;
-    const visibleSpec = data.specPRs.filter(p => !p.massChange).length;
-    const visibleSdk = Object.values(data.sdkPRs).reduce((s, a) => s + a.filter(p => !p.massChange).length, 0);
+    const visibleSpec = data.specPRs.length;
+    const visibleSdk = Object.values(data.sdkPRs).reduce((s, a) => s + a.length, 0);
     allPill.innerHTML = `<span class="pill-label">All</span><span class="pill-sub">${visibleSpec} spec · ${visibleSdk} SDK</span>`;
     allPill.addEventListener('click', () => selectWindow(null));
     pills.appendChild(allPill);
@@ -576,12 +569,12 @@ const ServiceTimeline = (() => {
 
   function getWindowPRs() {
     const nums = getWindowPRNumbers();
-    if (!nums) return getServicePRs();
-    return getServicePRs().filter(pr => nums.has(pr.number));
+    if (!nums) return DataLoader.getAllPRs(data);
+    return DataLoader.getAllPRs(data).filter(pr => nums.has(pr.number));
   }
 
   function buildSegments() {
-    const prsToUse = focusRange ? getWindowPRs() : getServicePRs();
+    const prsToUse = focusRange ? getWindowPRs() : DataLoader.getAllPRs(data);
     const ts = new Set();
 
     for (const pr of prsToUse) {
@@ -745,12 +738,10 @@ const ServiceTimeline = (() => {
     renderTimeAxis('time-axis-bottom');
 
     // In focus mode, only show PRs belonging to the selected window.
-    // Always hide mass-change PRs — they're broad refactors, not service-specific.
     const windowNums = getWindowPRNumbers();
     const filterPRs = (prs) => {
-      let filtered = prs.filter(pr => !pr.massChange);
-      if (windowNums) filtered = filtered.filter(pr => windowNums.has(pr.number));
-      return filtered;
+      if (windowNums) return prs.filter(pr => windowNums.has(pr.number));
+      return prs;
     };
 
     // Spec PRs lane
@@ -779,7 +770,7 @@ const ServiceTimeline = (() => {
 
     // Show hidden PR count in focus mode
     if (windowNums) {
-      const totalPRs = getServicePRs().length;
+      const totalPRs = DataLoader.getAllPRs(data).length;
       const shownPRs = getWindowPRs().length;
       const hidden = totalPRs - shownPRs;
       if (hidden > 0) {

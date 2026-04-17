@@ -74,10 +74,19 @@ gh api repos/Azure/azure-rest-api-specs/pulls/{number} --jq '.merge_commit_sha'
 gh api "search/issues?q=repo:Azure/azure-sdk-for-java+{sha}+is:pr&per_page=5"
 ```
 
-3. **Search by service name** — use the tspconfig path from the spec PR to derive the service name, then search for AutoPR titles or body content:
+3. **Search by service name** — derive the service name from any `specification/{service}/` file path in the spec PR (not just `tspconfig.yaml`). This is critical when SDK generation is batched — the generation may happen weeks or months after the spec merge, using a different commit SHA:
 ```bash
+# Get the files changed in the spec PR to find the service name
+gh api repos/Azure/azure-rest-api-specs/pulls/{number}/files --jq '.[0].filename'
+# Extract service name from path: specification/{serviceName}/...
 gh api "search/issues?q=repo:Azure/azure-sdk-for-java+{serviceName}+author:azure-sdk+is:pr&per_page=5"
 ```
+
+**NOTE on batched SDK generation**: The SDK generation pipeline may batch spec changes and generate SDKs long after a spec PR merges. In these cases:
+- The SDK PR body will contain a different `CommitSHA` than the spec PR merge commit (it's the spec repo's HEAD at generation time)
+- Strategies 1 and 2 will both fail to find these PRs
+- Strategy 3 (service name) becomes the primary discovery method
+- Verify the API version in the SDK PR body matches the spec PR's API version to confirm the correct match
 
 4. **The user may also provide SDK PR URLs directly** — use those if given. This is the most reliable method when available.
 

@@ -114,7 +114,7 @@ const UI = (() => {
     {
       file: 'data/sample-confluent.json',
       name: 'Liftr-Confluent',
-      meta: 'Aug 18 – Sep 4 · Shekar2004 · 17d · data-plane spec · no SDK PRs generated',
+      meta: 'Aug 18 – Mar 22 · Shekar2004 · 216d · 159d pipeline gap · 4 merged · .NET closed',
       hasTooling: false
     },
     {

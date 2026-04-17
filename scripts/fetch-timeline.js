@@ -403,35 +403,39 @@ function discoverSDKPRs(specRepo, specNumber) {
     }
   }
 
-  // Strategy 3: Search by tspconfig path from spec PR files
+  // Strategy 3: Search by service name extracted from spec PR files
+  // Works even when strategies 1/2 fail (e.g., batched SDK generation uses
+  // a different commit SHA than the spec PR merge commit)
   if (results.length < SDK_REPOS.length) {
     const files = ghJson(`api "repos/${specRepo}/pulls/${specNumber}/files?per_page=100"`);
     if (files?.length) {
-      // Extract service name from tspconfig path like specification/confluent/Confluent.Management/tspconfig.yaml
-      const tspFile = files.find(f => f.filename?.endsWith('tspconfig.yaml'));
-      if (tspFile) {
-        const parts = tspFile.filename.split('/');
-        const serviceName = parts[1]; // e.g. "confluent", "computeschedule"
-        if (serviceName) {
-          for (const repo of SDK_REPOS) {
-            const repoShort = repo.split('/')[1];
-            const lang = LANG_MAP[repoShort];
-            if (!lang) continue;
-            // Check if we already found a PR for this repo
-            if (results.some(r => r.repo === repo)) continue;
+      // Extract service name from any specification/ path, not just tspconfig.yaml.
+      // Handles cases where the spec PR only changes .tsp models or examples.
+      let serviceName = null;
+      const specFile = files.find(f => f.filename?.startsWith('specification/'));
+      if (specFile) {
+        const parts = specFile.filename.split('/');
+        serviceName = parts[1]; // e.g. "confluent", "computeschedule"
+      }
+      if (serviceName) {
+        for (const repo of SDK_REPOS) {
+          const repoShort = repo.split('/')[1];
+          const lang = LANG_MAP[repoShort];
+          if (!lang) continue;
+          // Check if we already found a PR for this repo
+          if (results.some(r => r.repo === repo)) continue;
 
-            console.error(`  Searching ${repo} for service name "${serviceName}"...`);
-            const searchResult = ghJson(
-              `api "search/issues?q=repo:${repo}+${serviceName}+is:pr+author:azure-sdk&per_page=5&sort=created&order=desc"`
-            );
-            if (searchResult?.items?.length) {
-              for (const item of searchResult.items) {
-                const key = `${repo}#${item.number}`;
-                if (!seen.has(key)) {
-                  seen.add(key);
-                  results.push({ repo, number: item.number, url: item.html_url });
-                  console.error(`    Found via service name: ${repo}#${item.number}`);
-                }
+          console.error(`  Searching ${repo} for service name "${serviceName}"...`);
+          const searchResult = ghJson(
+            `api "search/issues?q=repo:${repo}+${serviceName}+is:pr+author:azure-sdk&per_page=5&sort=created&order=desc"`
+          );
+          if (searchResult?.items?.length) {
+            for (const item of searchResult.items) {
+              const key = `${repo}#${item.number}`;
+              if (!seen.has(key)) {
+                seen.add(key);
+                results.push({ repo, number: item.number, url: item.html_url });
+                console.error(`    Found via service name: ${repo}#${item.number}`);
               }
             }
           }

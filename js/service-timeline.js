@@ -82,6 +82,18 @@ const ServiceTimeline = (() => {
     show('insights-panel');
     hide('empty-state');
 
+    // Scroll the pre-selected pill into view on initial load (delay to ensure layout)
+    setTimeout(() => {
+      const pillsEl = document.querySelector('.window-pills');
+      const activePill = pillsEl && pillsEl.querySelector('.window-pill.active');
+      if (pillsEl && activePill) {
+        const pr = pillsEl.getBoundingClientRect();
+        const ar = activePill.getBoundingClientRect();
+        const pillLeftInScroll = ar.left - pr.left + pillsEl.scrollLeft;
+        pillsEl.scrollLeft = pillLeftInScroll - (pr.width - ar.width) / 2;
+      }
+    }, 0);
+
     // Re-fit card grid now that summary-cards is visible (clientWidth is available)
     const cardsEl = document.getElementById('summary-cards');
     if (cardsEl) fitCardGrid(cardsEl, cardsEl.children.length);

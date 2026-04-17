@@ -498,7 +498,7 @@ header {
 }
 
 .lane-label-spacer {
-  height: 32px;
+  height: 33px;
   border-bottom: 1px solid var(--border);
   background: var(--bg-tertiary);
 }

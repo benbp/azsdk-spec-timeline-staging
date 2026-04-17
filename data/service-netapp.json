@@ -3,7 +3,7 @@
   "service": "NetApp",
   "specPath": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp",
   "namespace": "Microsoft.NetApp",
-  "generatedAt": "2026-04-17T19:04:14.812Z",
+  "generatedAt": "2026-04-17T21:52:03.873Z",
   "lookback": {
     "requestedDays": 365,
     "startDate": "2025-04-17T18:46:21.962Z",
@@ -9668,7 +9668,8 @@
           }
         ],
         "reviewWaitDays": 0,
-        "reviewWaitCycles": 0
+        "reviewWaitCycles": 0,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-python",
@@ -32520,7 +32521,8 @@
           }
         ],
         "reviewWaitDays": 0.01,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-go",
@@ -32900,7 +32902,8 @@
           }
         ],
         "reviewWaitDays": 0.02,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-go",
@@ -33735,7 +33738,8 @@
           }
         ],
         "reviewWaitDays": 1.15,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-go",
@@ -35014,7 +35018,7 @@
       "id": "rw-9",
       "label": "Spec PR #39032",
       "startDate": "2025-12-02T07:41:45Z",
-      "endDate": "2026-01-08T09:13:00Z",
+      "endDate": "2025-12-05T09:29:10Z",
       "specPRNumbers": [
         39032
       ],
@@ -35022,20 +35026,17 @@
         "Java": [
           47457,
           47455
-        ],
-        "Go": [
-          25729
         ]
       },
       "summary": {
-        "totalDurationDays": 37.06,
+        "totalDurationDays": 3.07,
         "specPRDays": 1.9,
         "pipelineGapDays": 0.29,
         "totalNags": 0,
         "totalManualFixes": 0,
-        "totalUniqueReviewers": 5,
-        "totalReviewWaitDays": 2.56,
-        "totalReviewWaitCycles": 4
+        "totalUniqueReviewers": 2,
+        "totalReviewWaitDays": 2.54,
+        "totalReviewWaitCycles": 3
       }
     },
     {
@@ -35280,7 +35281,7 @@
     "totalSpecPRs": 25,
     "totalSDKPRs": 115,
     "totalReleases": 0,
-    "avgCycleTimeDays": 7.95,
+    "avgCycleTimeDays": 6.16,
     "avgPipelineGapDays": 0.99,
     "avgReviewWaitDays": 2.48,
     "totalNags": 0,
@@ -35366,7 +35367,7 @@
     {
       "type": "summary",
       "severity": "info",
-      "description": "Average release cycle: 7.95d across 19 windows"
+      "description": "Average release cycle: 6.16d across 19 windows"
     }
   ]
 }

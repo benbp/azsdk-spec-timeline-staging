@@ -492,34 +492,51 @@ function main() {
   }
 
   // Filter out mass-change PRs from release window detection.
-  // Heuristics: ≥5 distinct service dirs, OR ≥200 changed files with ≥3 service dirs,
-  // OR ≥500 changed files with ≥2 service dirs (catches huge PRs where sampling
-  // under-counts dirs due to the 100-file API limit).
+  // Heuristics (any match → mass-change):
+  //   1. ≥5 distinct service dirs
+  //   2. ≥200 changed files with ≥3 service dirs
+  //   3. ≥500 changed files with ≥2 service dirs (API sampling under-counts)
+  //   4. Title matches known bulk automation patterns
+  //   5. SDK PR touches 0 standard service dirs (repo-wide infra, not service code)
+  //   6. 0 changed files but ≥2 service dirs (empty/broken PR)
   // These PRs remain in the full timeline but are tagged and excluded from windows.
   const MASS_DIR_THRESHOLD = 5;
   const MASS_FILES_THRESHOLD = 200;
   const MASS_FILES_DIR_THRESHOLD = 3;
   const MASS_LARGE_FILES_THRESHOLD = 500;
   const MASS_LARGE_FILES_DIR_THRESHOLD = 2;
+  const MASS_TITLE_PATTERNS = [
+    /^\[automation\] regenerate sdk\b/i,
+  ];
   let massFilteredSpec = 0, massFilteredSdk = 0;
 
-  function isMassChange(pr) {
+  function isMassChange(pr, isSpec) {
     const dirs = pr.serviceDirCount || 0;
     const files = pr.changedFiles || 0;
-    return dirs >= MASS_DIR_THRESHOLD ||
-      (files >= MASS_FILES_THRESHOLD && dirs >= MASS_FILES_DIR_THRESHOLD) ||
-      (files >= MASS_LARGE_FILES_THRESHOLD && dirs >= MASS_LARGE_FILES_DIR_THRESHOLD);
+    const title = pr.title || '';
+    // Dir-count thresholds
+    if (dirs >= MASS_DIR_THRESHOLD) return true;
+    // File + dir combined thresholds
+    if (files >= MASS_FILES_THRESHOLD && dirs >= MASS_FILES_DIR_THRESHOLD) return true;
+    if (files >= MASS_LARGE_FILES_THRESHOLD && dirs >= MASS_LARGE_FILES_DIR_THRESHOLD) return true;
+    // Known bulk automation title patterns
+    if (MASS_TITLE_PATTERNS.some(re => re.test(title))) return true;
+    // SDK PR with 0 standard service dirs — repo-wide infra, not service code
+    if (!isSpec && dirs === 0 && files > 0) return true;
+    // Empty PR touching multiple dirs — broken/rebased artifact
+    if (files === 0 && dirs >= 2) return true;
+    return false;
   }
 
   for (const pr of specPRs) {
-    if (isMassChange(pr)) {
+    if (isMassChange(pr, true)) {
       pr.massChange = true;
       massFilteredSpec++;
     }
   }
   for (const prs of Object.values(sdkPRs)) {
     for (const pr of prs) {
-      if (isMassChange(pr)) {
+      if (isMassChange(pr, false)) {
         pr.massChange = true;
         massFilteredSdk++;
       }

@@ -844,7 +844,7 @@ const ServiceTimeline = (() => {
     let prLinksHtml = '';
     if (prs.length > 0 && prs.length <= 3) {
       prLinksHtml = prs.map((pr, i) =>
-        `<span class="meta-pr-link" data-pr-idx="${i}" title="${escapeHtml((pr.title || '').slice(0, 80))}">#${pr.number}</span>`
+        `<span class="meta-pr-link" data-pr-idx="${i}">#${pr.number}</span>`
       ).join(' ');
     } else if (prs.length > 3) {
       prLinksHtml = `<span class="meta-pr-expand" title="Click to see all PRs">${prCount} PRs — click to see all</span>`;

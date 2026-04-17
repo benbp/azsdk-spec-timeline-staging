@@ -3,7 +3,7 @@
   "service": "DurableTask.Management",
   "specPath": "specification/durabletask/DurableTask.Management",
   "namespace": "Microsoft.DurableTask",
-  "generatedAt": "2026-04-17T19:04:14.637Z",
+  "generatedAt": "2026-04-17T21:51:49.817Z",
   "lookback": {
     "requestedDays": 365,
     "startDate": "2025-04-17T18:30:38.410Z",
@@ -7871,7 +7871,8 @@
           }
         ],
         "reviewWaitDays": 0,
-        "reviewWaitCycles": 0
+        "reviewWaitCycles": 0,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-python",
@@ -15842,7 +15843,8 @@
           }
         ],
         "reviewWaitDays": 0.01,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-go",
@@ -16222,7 +16224,8 @@
           }
         ],
         "reviewWaitDays": 0.02,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-go",
@@ -16925,7 +16928,8 @@
           }
         ],
         "reviewWaitDays": 1.15,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-go",
@@ -17508,7 +17512,8 @@
           }
         ],
         "reviewWaitDays": 0.19,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-go",
@@ -21521,7 +21526,8 @@
           }
         ],
         "reviewWaitDays": 40.45,
-        "reviewWaitCycles": 26
+        "reviewWaitCycles": 26,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-net",
@@ -24669,7 +24675,8 @@
           }
         ],
         "reviewWaitDays": 4.11,
-        "reviewWaitCycles": 26
+        "reviewWaitCycles": 26,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-net",
@@ -28044,7 +28051,8 @@
           }
         ],
         "reviewWaitDays": 1,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-net",
@@ -37610,7 +37618,8 @@
           }
         ],
         "reviewWaitDays": 0.07,
-        "reviewWaitCycles": 3
+        "reviewWaitCycles": 3,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-net",
@@ -46489,25 +46498,21 @@
     {
       "id": "rw-1",
       "label": "Spec PR #34202",
-      "startDate": "2025-04-23T20:26:15Z",
-      "endDate": "2025-05-08T18:20:08Z",
+      "startDate": "2025-04-24T06:57:29Z",
+      "endDate": "2025-04-24T09:07:24Z",
       "specPRNumbers": [
         34202
       ],
-      "sdkPRNumbers": {
-        ".NET": [
-          49593
-        ]
-      },
+      "sdkPRNumbers": {},
       "summary": {
-        "totalDurationDays": 14.91,
+        "totalDurationDays": 0.09,
         "specPRDays": 0.09,
         "pipelineGapDays": null,
         "totalNags": 0,
         "totalManualFixes": 0,
-        "totalUniqueReviewers": 5,
-        "totalReviewWaitDays": 0.15,
-        "totalReviewWaitCycles": 4
+        "totalUniqueReviewers": 1,
+        "totalReviewWaitDays": 0.08,
+        "totalReviewWaitCycles": 1
       }
     },
     {
@@ -46578,16 +46583,12 @@
     {
       "id": "rw-4",
       "label": "Spec PR #38143",
-      "startDate": "2025-10-13T02:18:09Z",
-      "endDate": "2025-12-04T08:55:59Z",
+      "startDate": "2025-10-13T20:20:48Z",
+      "endDate": "2025-10-14T09:26:49Z",
       "specPRNumbers": [
         38143
       ],
       "sdkPRNumbers": {
-        "Go": [
-          25506,
-          25405
-        ],
         ".NET": [
           53214,
           53197,
@@ -46595,14 +46596,14 @@
         ]
       },
       "summary": {
-        "totalDurationDays": 52.28,
+        "totalDurationDays": 0.55,
         "specPRDays": 0.03,
         "pipelineGapDays": null,
         "totalNags": 0,
         "totalManualFixes": 0,
-        "totalUniqueReviewers": 7,
-        "totalReviewWaitDays": 1.45,
-        "totalReviewWaitCycles": 7
+        "totalUniqueReviewers": 4,
+        "totalReviewWaitDays": 0.11,
+        "totalReviewWaitCycles": 4
       }
     },
     {
@@ -46674,7 +46675,6 @@
           26182
         ],
         ".NET": [
-          56876,
           57025,
           57017,
           56886
@@ -46686,12 +46686,12 @@
       "summary": {
         "totalDurationDays": 31.77,
         "specPRDays": 10.58,
-        "pipelineGapDays": 16.37,
+        "pipelineGapDays": 17.2,
         "totalNags": 4,
         "totalManualFixes": 1,
-        "totalUniqueReviewers": 83,
-        "totalReviewWaitDays": 14.88,
-        "totalReviewWaitCycles": 41
+        "totalUniqueReviewers": 13,
+        "totalReviewWaitDays": 10.77,
+        "totalReviewWaitCycles": 15
       }
     }
   ],
@@ -46699,8 +46699,8 @@
     "totalSpecPRs": 15,
     "totalSDKPRs": 126,
     "totalReleases": 0,
-    "avgCycleTimeDays": 17.46,
-    "avgPipelineGapDays": 5.83,
+    "avgCycleTimeDays": 7.95,
+    "avgPipelineGapDays": 6.11,
     "avgReviewWaitDays": 1.46,
     "totalNags": 5,
     "totalManualFixes": 1,
@@ -46796,7 +46796,7 @@
     {
       "type": "summary",
       "severity": "info",
-      "description": "Average release cycle: 17.46d across 7 windows"
+      "description": "Average release cycle: 7.95d across 7 windows"
     }
   ]
 }

@@ -524,6 +524,87 @@ const UI = (() => {
     setTimeout(() => panel.classList.add('hidden'), 200);
   }
 
+  function showPRDetail(pr) {
+    const panel = detailPanel();
+    const esc = (typeof ServiceTimeline !== 'undefined' ? ServiceTimeline : Timeline).escapeHtml;
+
+    const stateIcons = { merged: '🟣 Merged', open: '🟢 Open', closed: '🔴 Closed' };
+    const state = stateIcons[pr.state] || pr.state;
+    const flowLabel = pr.generationFlow === 'automated' ? '🤖 Automated'
+      : pr.generationFlow === 'manual' ? '👤 Manual' : '';
+
+    document.getElementById('detail-title').textContent =
+      `#${pr.number}: ${(pr.title || '').slice(0, 60)}${(pr.title || '').length > 60 ? '…' : ''}`;
+
+    const body = document.getElementById('detail-body');
+    body.innerHTML = '';
+
+    // Full title
+    addDetailField(body, 'Title', esc(pr.title || ''));
+
+    // GitHub link
+    const prUrl = pr.url || `https://github.com/${pr.repo || ''}/pull/${pr.number}`;
+    addDetailField(body, 'GitHub', `<a href="${prUrl}" target="_blank" rel="noopener">View on GitHub ↗</a>`);
+
+    // State
+    addDetailField(body, 'Status', `${state}${pr.isDraft ? ' (Draft)' : ''}`);
+
+    // Language / repo
+    addDetailField(body, 'Language', esc(pr.language || 'Spec'));
+    addDetailField(body, 'Repository', `<a href="https://github.com/${esc(pr.repo || '')}" target="_blank" rel="noopener">${esc(pr.repo || '')}</a>`);
+
+    // Author
+    addDetailField(body, 'Author', githubUserLink(pr.author || 'unknown'));
+
+    // Flow
+    if (flowLabel) addDetailField(body, 'Generation', flowLabel);
+
+    // Dates
+    if (pr.createdAt) addDetailField(body, 'Created', DataLoader.formatDateTime(pr.createdAt));
+    if (pr.mergedAt) addDetailField(body, 'Merged', DataLoader.formatDateTime(pr.mergedAt));
+    else if (pr.closedAt) addDetailField(body, 'Closed', DataLoader.formatDateTime(pr.closedAt));
+
+    // Duration
+    if (pr.createdAt && (pr.mergedAt || pr.closedAt)) {
+      const days = (new Date(pr.mergedAt || pr.closedAt) - new Date(pr.createdAt)) / 86400000;
+      addDetailField(body, 'Duration', `${days.toFixed(1)}d`);
+    }
+
+    // Review wait
+    if (pr.reviewWaitDays != null) {
+      addDetailField(body, 'Review Wait', `${pr.reviewWaitDays}d (${pr.reviewWaitCycles || 0} cycles)`);
+    }
+
+    // Reviewers
+    if (pr.reviewers?.length > 0) {
+      const reviewerLinks = pr.reviewers.map(r => githubUserLink(r)).join(', ');
+      addDetailField(body, 'Reviewers', reviewerLinks);
+    }
+
+    // Merged by
+    if (pr.mergedBy) addDetailField(body, 'Merged By', githubUserLink(pr.mergedBy));
+
+    // Labels
+    if (pr.labels?.length > 0) {
+      const labelHtml = pr.labels.map(l => `<span class="pr-label-badge">${esc(l)}</span>`).join(' ');
+      addDetailField(body, 'Labels', labelHtml);
+    }
+
+    // Mass change flag
+    if (pr.massChange) {
+      addDetailField(body, '⚠️ Mass Change',
+        `This PR touches ${pr.serviceDirCount || '?'} service directories (${pr.changedFiles || '?'} files) and is excluded from release windows.`);
+    }
+
+    // Event count
+    if (pr.events?.length > 0) {
+      addDetailField(body, 'Events', `${pr.events.length} timeline events`);
+    }
+
+    panel.classList.remove('hidden');
+    requestAnimationFrame(() => panel.classList.add('visible'));
+  }
+
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -531,5 +612,5 @@ const UI = (() => {
     init();
   }
 
-  return { showTooltip, hideTooltip, showDetail, closeDetail };
+  return { showTooltip, hideTooltip, showDetail, showPRDetail, closeDetail };
 })();

@@ -491,27 +491,37 @@ function main() {
     bestPR.events.sort((a, b) => a.timestamp.localeCompare(b.timestamp));
   }
 
-  // Filter out mass-change PRs (touching ≥5 service dirs) from release window detection.
+  // Filter out mass-change PRs from release window detection.
+  // Heuristics: ≥5 distinct service dirs, OR ≥200 changed files with ≥3 service dirs.
   // These PRs remain in the full timeline but are tagged and excluded from windows.
-  const MASS_CHANGE_THRESHOLD = 5;
+  const MASS_DIR_THRESHOLD = 5;
+  const MASS_FILES_THRESHOLD = 200;
+  const MASS_FILES_DIR_THRESHOLD = 3;
   let massFilteredSpec = 0, massFilteredSdk = 0;
 
+  function isMassChange(pr) {
+    const dirs = pr.serviceDirCount || 0;
+    const files = pr.changedFiles || 0;
+    return dirs >= MASS_DIR_THRESHOLD ||
+      (files >= MASS_FILES_THRESHOLD && dirs >= MASS_FILES_DIR_THRESHOLD);
+  }
+
   for (const pr of specPRs) {
-    if (pr.serviceDirCount >= MASS_CHANGE_THRESHOLD) {
+    if (isMassChange(pr)) {
       pr.massChange = true;
       massFilteredSpec++;
     }
   }
   for (const prs of Object.values(sdkPRs)) {
     for (const pr of prs) {
-      if (pr.serviceDirCount >= MASS_CHANGE_THRESHOLD) {
+      if (isMassChange(pr)) {
         pr.massChange = true;
         massFilteredSdk++;
       }
     }
   }
   if (massFilteredSpec + massFilteredSdk > 0) {
-    console.error(`  Flagged mass-change PRs: ${massFilteredSpec} spec, ${massFilteredSdk} SDK (>= ${MASS_CHANGE_THRESHOLD} service dirs)`);
+    console.error(`  Flagged mass-change PRs: ${massFilteredSpec} spec, ${massFilteredSdk} SDK`);
   }
 
   // Detect release windows (excludes mass-change PRs)

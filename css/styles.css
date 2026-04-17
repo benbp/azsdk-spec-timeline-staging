@@ -1734,6 +1734,7 @@ body.drag-over::after {
   text-decoration: none;
   font-size: 11px;
   font-family: var(--font-mono);
+  cursor: pointer;
 }
 .meta-pr-link:hover {
   text-decoration: underline;
@@ -1769,9 +1770,21 @@ body.drag-over::after {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: pointer;
 }
 .meta-pr-dropdown-item:hover {
   background: var(--bg-tertiary);
+}
+
+/* PR label badge in detail panel */
+.pr-label-badge {
+  display: inline-block;
+  padding: 1px 6px;
+  font-size: 11px;
+  border-radius: 10px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
 }
 
 /* Actor popover */

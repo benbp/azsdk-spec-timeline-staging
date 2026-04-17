@@ -159,6 +159,7 @@ function fetchFullPRData(repo, number) {
     generationFlow: detectGenerationFlow(pr),
     labels: (pr.labels || []).map(l => l.name),
     serviceDirCount,
+    changedFiles: pr.changed_files || 0,
     reviewers: [
       ...(pr.requested_reviewers || []).map(r => r.login),
       ...reviews.filter(r => r.state === 'APPROVED').map(r => r.user?.login)

@@ -840,11 +840,11 @@ const ServiceTimeline = (() => {
     const mergedCount = prs.filter(p => p.state === 'merged').length;
     const openCount = prs.filter(p => p.state === 'open').length;
 
-    // Build PR links for the meta section
+    // Build PR links for the meta section (click opens sidebar, not GitHub)
     let prLinksHtml = '';
     if (prs.length > 0 && prs.length <= 3) {
-      prLinksHtml = prs.map(pr =>
-        `<a href="${escapeHtml(pr.url || `https://github.com/${pr.repo || ''}/pull/${pr.number}`)}" target="_blank" rel="noopener" class="meta-pr-link" title="${escapeHtml((pr.title || '').slice(0, 80))}">#${pr.number}</a>`
+      prLinksHtml = prs.map((pr, i) =>
+        `<span class="meta-pr-link" data-pr-idx="${i}" title="${escapeHtml((pr.title || '').slice(0, 80))}">#${pr.number}</span>`
       ).join(' ');
     } else if (prs.length > 3) {
       prLinksHtml = `<span class="meta-pr-expand" title="Click to see all PRs">${prCount} PRs — click to see all</span>`;
@@ -861,6 +861,14 @@ const ServiceTimeline = (() => {
       </div>
     `;
 
+    // Inline PR link click → sidebar
+    label.querySelectorAll('.meta-pr-link[data-pr-idx]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        UI.showPRDetail(prs[parseInt(el.dataset.prIdx)]);
+      });
+    });
+
     // Handle "click to see all" expansion
     const expandEl = label.querySelector('.meta-pr-expand');
     if (expandEl) {
@@ -871,13 +879,15 @@ const ServiceTimeline = (() => {
         dropdown = document.createElement('div');
         dropdown.className = 'meta-pr-dropdown';
         for (const pr of prs) {
-          const link = document.createElement('a');
-          link.href = pr.url || `https://github.com/${pr.repo || ''}/pull/${pr.number}`;
-          link.target = '_blank';
-          link.rel = 'noopener';
-          link.className = 'meta-pr-dropdown-item';
-          link.textContent = `#${pr.number}: ${(pr.title || '').slice(0, 50)}${(pr.title || '').length > 50 ? '…' : ''}`;
-          dropdown.appendChild(link);
+          const item = document.createElement('span');
+          item.className = 'meta-pr-dropdown-item';
+          item.textContent = `#${pr.number}: ${(pr.title || '').slice(0, 50)}${(pr.title || '').length > 50 ? '…' : ''}`;
+          item.addEventListener('click', (ev) => {
+            ev.stopPropagation();
+            dropdown.remove();
+            UI.showPRDetail(pr);
+          });
+          dropdown.appendChild(item);
         }
         expandEl.parentElement.appendChild(dropdown);
         const close = (ev) => {

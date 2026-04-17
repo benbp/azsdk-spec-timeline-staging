@@ -1076,6 +1076,23 @@ const ServiceTimeline = (() => {
 
     content.appendChild(bar);
 
+    // Release segment bar (extends from merge to release, striped)
+    if (pr.release && pr.mergedAt && pr.release.releasedAt) {
+      const mergeX = timeToX(pr.mergedAt);
+      let releaseEnd = timeToX(pr.release.releasedAt);
+      const status = pr.release.status || 'released';
+      if (releaseEnd <= mergeX) releaseEnd = mergeX + 8;
+      const barWidth = Math.max(releaseEnd - mergeX, 4);
+      const releaseBar = document.createElement('div');
+      releaseBar.className = `release-bar ${status}`;
+      releaseBar.style.left = mergeX + 'px';
+      releaseBar.style.width = barWidth + 'px';
+      releaseBar.title = status === 'released'
+        ? `Released ${DataLoader.formatDate(pr.release.releasedAt)} (${pr.release.releaseGapDays != null ? pr.release.releaseGapDays + 'd' : 'same day'} after merge)`
+        : status === 'failed' ? `❌ Release pipeline failed` : `⏳ Release pending`;
+      content.appendChild(releaseBar);
+    }
+
     // Event markers on the bar
     const markers = [];
     for (const event of (pr.events || [])) {

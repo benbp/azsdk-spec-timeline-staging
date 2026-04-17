@@ -49,10 +49,16 @@ const ServiceTimeline = (() => {
     hiddenEventTypes.clear();
     allTypes.forEach(t => { if (!SMART_VIEW_TYPES.has(t)) hiddenEventTypes.add(t); });
 
-    // Default to the latest (most recent) release window
+    // Default to the latest API version window, or latest spec PR window
     const windows = data.releaseWindows || [];
     if (windows.length > 0) {
-      selectedWindow = windows.length - 1;
+      // Prefer the latest API version window (label starts with "API ")
+      let best = -1;
+      for (let i = windows.length - 1; i >= 0; i--) {
+        if (windows[i].label && windows[i].label.startsWith('API ')) { best = i; break; }
+      }
+      if (best === -1) best = windows.length - 1; // fallback: latest window
+      selectedWindow = best;
       const win = windows[selectedWindow];
       const winStart = new Date(win.startDate).getTime();
       const winEnd = new Date(win.endDate).getTime();
@@ -75,6 +81,10 @@ const ServiceTimeline = (() => {
     show('timeline-container');
     show('insights-panel');
     hide('empty-state');
+
+    // Re-fit card grid now that summary-cards is visible (clientWidth is available)
+    const cardsEl = document.getElementById('summary-cards');
+    if (cardsEl) fitCardGrid(cardsEl, cardsEl.children.length);
   }
 
   /* ── Service Header ─────────────────────────────────────── */
@@ -135,8 +145,9 @@ const ServiceTimeline = (() => {
     for (let i = windows.length - 1; i >= 0; i--) {
       const w = windows[i];
       const sdkCount = Object.values(w.sdkPRNumbers || {}).flat().length;
+      const isApiVersion = w.label && w.label.startsWith('API ');
       const pill = document.createElement('button');
-      pill.className = `window-pill ${selectedWindow === i ? 'active' : ''}`;
+      pill.className = `window-pill ${selectedWindow === i ? 'active' : ''} ${isApiVersion ? 'api-version' : ''}`;
       pill.innerHTML = `<span class="pill-label">${escapeHtml(w.label)}</span><span class="pill-sub">${sdkCount} SDK PRs</span>`;
       pill.addEventListener('click', () => selectWindow(i));
       pills.appendChild(pill);
@@ -147,7 +158,17 @@ const ServiceTimeline = (() => {
 
   function selectWindow(idx) {
     selectedWindow = idx;
+
+    // Preserve pill container scroll position across re-render
+    const pillsEl = document.querySelector('.window-pills');
+    const savedPillScroll = pillsEl?.scrollLeft || 0;
+
     renderWindowSelector();
+
+    // Restore pill scroll position (don't auto-center the active pill)
+    const newPillsEl = document.querySelector('.window-pills');
+    if (newPillsEl) newPillsEl.scrollLeft = savedPillScroll;
+
     renderSummaryCards();
     renderInsights();
 
@@ -169,16 +190,6 @@ const ServiceTimeline = (() => {
 
     // Re-render timeline with new zoom/filter state
     renderTimeline();
-
-    // Auto-scroll the active pill into view (after all DOM work)
-    setTimeout(() => {
-      const activePill = document.querySelector('.window-pill.active');
-      if (activePill) {
-        const container = activePill.parentElement;
-        const pillCenter = activePill.offsetLeft + activePill.offsetWidth / 2;
-        container.scrollLeft = pillCenter - container.offsetWidth / 2;
-      }
-    }, 0);
   }
 
   // (Window focus is now handled by re-rendering with filtered PRs in renderTimeline)
@@ -193,22 +204,64 @@ const ServiceTimeline = (() => {
 
     let cards;
     if (selectedWindow !== null) {
-      // Per-window metrics — stable layout matching all-up card count
+      // Per-window metrics — match single-PR view as closely as possible
       const win = data.releaseWindows[selectedWindow];
       const s = win?.summary || {};
-      const sdkCount = Object.values(win?.sdkPRNumbers || {}).flat().length;
+      const windowPRs = getWindowPRs();
+      const windowSDKPRs = windowPRs.filter(pr => !win.specPRNumbers.includes(pr.number));
+      const sdkCount = windowSDKPRs.length;
       const specCount = (win?.specPRNumbers || []).length;
+
+      // Compute slowest/fastest SDK PR in this window
+      let slowestSDK = null, fastestSDK = null;
+      for (const pr of windowSDKPRs) {
+        if (!pr.createdAt || !pr.mergedAt) continue;
+        const days = DataLoader.computeDurationDays(pr.createdAt, pr.mergedAt);
+        if (!slowestSDK || days > slowestSDK.days) slowestSDK = { days, language: pr.language || '?' };
+        if (!fastestSDK || days < fastestSDK.days) fastestSDK = { days, language: pr.language || '?' };
+      }
+
+      // Compute PR edits (manual PRs, non-merge commits minus initial)
+      let prEdits = 0;
+      for (const pr of windowSDKPRs) {
+        if (pr.generationFlow === 'manual') {
+          const commits = (pr.events || []).filter(e =>
+            e.type === 'commit_pushed' &&
+            !(e.description || '').toLowerCase().includes('merge')
+          );
+          prEdits += Math.max(0, commits.length - 1);
+        }
+      }
+
       cards = [
-        { label: 'Window', value: escapeHtml(win?.label || ''), sub: `${DataLoader.formatDateRange(win.startDate, win.endDate)}`, cls: 'info' },
-        { label: 'SDK PRs', value: `${sdkCount}`, sub: `${specCount} spec PR${specCount !== 1 ? 's' : ''}`, cls: 'info' },
-        { label: 'Duration', value: fmt(s.totalDurationDays), sub: 'End to end', cls: 'info' },
+        { label: 'Window', value: escapeHtml(win?.label || ''), sub: `${DataLoader.formatDateRange(win.startDate, win.endDate)}`, cls: 'info', smallValue: true },
+        { label: 'Spec PR', value: fmt(s.specPRDays), sub: 'API review', cls: 'info' },
         { label: 'Pipeline Gap', value: fmt(s.pipelineGapDays), sub: 'Merge → SDK PRs', cls: s.pipelineGapDays > 7 ? 'critical' : 'warning' },
-        { label: 'Review Wait', value: fmt(s.totalReviewWaitDays), sub: `${s.totalReviewWaitCycles || 0} wait cycles`, cls: s.totalReviewWaitDays > 7 ? 'critical' : 'info' },
+      ];
+
+      if (slowestSDK) cards.push({ label: 'Slowest SDK', value: fmt(slowestSDK.days), sub: slowestSDK.language, cls: 'warning' });
+      if (fastestSDK) cards.push({ label: 'Fastest SDK', value: fmt(fastestSDK.days), sub: fastestSDK.language, cls: 'positive' });
+
+      cards.push(
+        { label: 'Total', value: fmt(s.totalDurationDays), sub: 'End to end', cls: 'info' },
+        { label: 'Review Wait', value: fmt(s.totalReviewWaitDays), sub: `${s.totalReviewWaitCycles || 0} wait cycles`, cls: s.totalReviewWaitDays > 7 ? 'critical' : s.totalReviewWaitDays > 3 ? 'warning' : 'info' },
         { label: 'Nags', value: `${s.totalNags || 0}`, sub: 'Author nudges', cls: s.totalNags > 0 ? 'warning' : 'positive' },
         { label: 'Manual Fixes', value: `${s.totalManualFixes || 0}`, sub: 'On auto PRs', cls: s.totalManualFixes > 0 ? 'warning' : 'positive' },
-        { label: 'Spec PR', value: fmt(s.specPRDays), sub: 'API review', cls: 'info' },
+        { label: 'PR Edits', value: `${prEdits}`, sub: 'On manual PRs', cls: prEdits > 0 ? 'warning' : 'positive' },
         { label: 'Reviewers', value: `${s.totalUniqueReviewers ?? '—'}`, sub: 'Unique people', cls: 'info' },
-      ];
+      );
+
+      // Release data (if available in PR objects)
+      const releasedPRs = windowSDKPRs.filter(p => p.release?.status === 'released');
+      const pendingPRs = windowSDKPRs.filter(p => p.release?.status === 'pending');
+      if (releasedPRs.length > 0) {
+        const gaps = releasedPRs.map(p => p.release.releaseGapDays).filter(g => g != null);
+        const avgGap = gaps.length > 0 ? Math.round(gaps.reduce((a, b) => a + b, 0) / gaps.length * 10) / 10 : null;
+        if (avgGap != null) cards.push({ label: 'Release Gap', value: fmt(avgGap), sub: 'Avg merge → publish', cls: avgGap > 3 ? 'warning' : 'positive' });
+      }
+      if (pendingPRs.length > 0) {
+        cards.push({ label: 'Pending', value: `${pendingPRs.length}`, sub: 'Unreleased packages', cls: 'critical' });
+      }
     } else {
       // All-up metrics
       const s = data.summary || {};
@@ -253,12 +306,13 @@ const ServiceTimeline = (() => {
     for (const card of cards) {
       const el = document.createElement('div');
       el.className = `summary-card ${card.cls}`;
+      const valueClass = card.smallValue ? 'card-value card-value-sm' : 'card-value';
       const valueHtml = card.link
         ? `<a href="${card.link}" target="_blank" rel="noopener" class="card-value-link">${card.value}</a>`
         : card.value;
       el.innerHTML = `
         <div class="card-label">${card.label}</div>
-        <div class="card-value">${valueHtml}</div>
+        <div class="${valueClass}">${valueHtml}</div>
         <div class="card-sub">${card.sub}</div>
       `;
       container.appendChild(el);
@@ -842,14 +896,42 @@ const ServiceTimeline = (() => {
     const mergedCount = prs.filter(p => p.state === 'merged').length;
     const openCount = prs.filter(p => p.state === 'open').length;
 
-    // Build PR links for the meta section (click opens sidebar, not GitHub)
+    // Build PR links for the meta section — links go to GitHub, info button opens sidebar
     let prLinksHtml = '';
     if (prs.length > 0 && prs.length <= 3) {
-      prLinksHtml = prs.map((pr, i) =>
-        `<span class="meta-pr-link" data-pr-idx="${i}">#${pr.number}</span>`
-      ).join(' ');
+      prLinksHtml = prs.map((pr, i) => {
+        const prUrl = pr.url || `https://github.com/${pr.repo || ''}/pull/${pr.number}`;
+        return `<a href="${prUrl}" target="_blank" rel="noopener" class="meta-pr-link" title="${escapeHtml((pr.title || '').slice(0, 60))}">#${pr.number}</a>` +
+          `<span class="meta-pr-info" data-pr-idx="${i}" title="Details">ℹ</span>`;
+      }).join(' ');
     } else if (prs.length > 3) {
       prLinksHtml = `<span class="meta-pr-expand" title="Click to see all PRs">${prCount} PRs — click to see all</span>`;
+    }
+
+    // Enhanced per-PR meta when there's only 1 PR (matches single PR view detail)
+    let detailMeta = '';
+    if (prs.length === 1) {
+      const pr = prs[0];
+      const days = pr.mergedAt ? DataLoader.computeDurationDays(pr.createdAt, pr.mergedAt) : null;
+      const durationColorClass = days != null
+        ? days < 3 ? 'dur-fast' : days < 7 ? 'dur-ok' : days < 14 ? 'dur-slow' : 'dur-critical'
+        : '';
+      const daysDisplay = days != null ? `<span class="duration-value ${durationColorClass}">${days}d</span>` :
+        (pr.state === 'open' ? '<span class="status-pulse">⏳ open</span>' : '');
+      const flowIcon = !isSpec && pr.generationFlow
+        ? pr.generationFlow === 'automated' ? '<span class="flow-badge automated" title="Automated">🤖</span>'
+          : '<span class="flow-badge manual" title="Manual">👤</span>'
+        : '';
+      const reviewWaitHtml = pr.reviewWaitDays != null && pr.reviewWaitDays > 0
+        ? `<span class="review-wait-badge" title="${pr.reviewWaitCycles || 0} cycles">⏳ ${pr.reviewWaitDays}d wait</span>` : '';
+      const releaseStatus = pr.release
+        ? pr.release.status === 'released'
+          ? `<span class="release-badge released" title="Released ${DataLoader.formatDate(pr.release.releasedAt)}">${pr.release.releaseGapDays ? '📦 ' + pr.release.releaseGapDays + 'd' : '📦 <1d'}</span>`
+          : pr.release.status === 'pending'
+            ? '<span class="release-badge pending status-pulse">⏳ pending</span>'
+            : '<span class="release-badge failed">❌ failed</span>'
+        : '';
+      detailMeta = `${flowIcon} ${daysDisplay} ${reviewWaitHtml} ${releaseStatus}`;
     }
 
     label.innerHTML = `
@@ -860,18 +942,25 @@ const ServiceTimeline = (() => {
         <span>${prCount} PRs</span>
         <span class="pr-counts">${mergedCount}✓ ${openCount > 0 ? openCount + '⏳' : ''}</span>
         ${prLinksHtml ? `<span class="meta-pr-links">${prLinksHtml}</span>` : ''}
+        ${detailMeta}
       </div>
     `;
 
-    // Inline PR link click → sidebar, hover → tooltip
-    label.querySelectorAll('.meta-pr-link[data-pr-idx]').forEach(el => {
+    // Info button click → sidebar, hover on PR links → tooltip
+    label.querySelectorAll('.meta-pr-info[data-pr-idx]').forEach(el => {
       const pr = prs[parseInt(el.dataset.prIdx)];
       el.addEventListener('click', (e) => {
         e.stopPropagation();
         UI.showPRDetail(pr);
       });
-      el.addEventListener('mouseenter', (e) => UI.showPRTooltip(e, pr));
-      el.addEventListener('mouseleave', () => UI.hideTooltip());
+    });
+    label.querySelectorAll('.meta-pr-link').forEach(el => {
+      const idx = [...label.querySelectorAll('.meta-pr-link')].indexOf(el);
+      const pr = prs[idx];
+      if (pr) {
+        el.addEventListener('mouseenter', (e) => UI.showPRTooltip(e, pr));
+        el.addEventListener('mouseleave', () => UI.hideTooltip());
+      }
     });
 
     // Handle "click to see all" expansion
@@ -976,28 +1065,32 @@ const ServiceTimeline = (() => {
     content.appendChild(bar);
 
     // Event markers on the bar
+    const markers = [];
     for (const event of (pr.events || [])) {
-      if (hiddenEventTypes.has(event.type)) continue;
       if (event.type === 'idle_gap') {
         renderIdleGap(content, event);
         continue;
       }
       const x = timeToX(event.timestamp);
       const marker = document.createElement('div');
-      const info = DataLoader.getEventTypeInfo(event.type);
       marker.className = `event-marker ${event.type}`;
+      if (hiddenEventTypes.has(event.type)) marker.classList.add('hidden');
       marker.dataset.eventType = event.type;
       marker.style.left = x + 'px';
-      marker.textContent = info.icon;
       marker._eventData = event;
       marker._prData = pr;
+      marker._x = x;
 
       marker.addEventListener('mouseenter', (e) => UI.showTooltip(e, event, pr));
       marker.addEventListener('mouseleave', () => UI.hideTooltip());
       marker.addEventListener('click', () => UI.showDetail(event, pr));
 
       content.appendChild(marker);
+      markers.push(marker);
     }
+
+    // Resolve overlapping markers (vertical stagger like single-PR view)
+    resolveCollisions(markers);
   }
 
   function renderIdleGap(content, event) {
@@ -1012,6 +1105,37 @@ const ServiceTimeline = (() => {
     gap.style.width = width + 'px';
     gap.title = `Idle: ${DataLoader.formatDuration(event.details?.durationHours || 0)}`;
     content.appendChild(gap);
+  }
+
+  /* ── Collision Resolution ───────────────────────────────── */
+
+  function resolveCollisions(markers) {
+    if (markers.length < 2) return;
+    const MIN_SPACING = 14;
+    const sorted = [...markers].sort((a, b) => a._x - b._x);
+    const clusters = [];
+    let cluster = [sorted[0]];
+    for (let i = 1; i < sorted.length; i++) {
+      if (sorted[i]._x - sorted[i - 1]._x < MIN_SPACING) {
+        cluster.push(sorted[i]);
+      } else {
+        if (cluster.length > 1) clusters.push(cluster);
+        cluster = [sorted[i]];
+      }
+    }
+    if (cluster.length > 1) clusters.push(cluster);
+
+    for (const group of clusters) {
+      const n = group.length;
+      const maxSpread = 60;
+      const totalSpread = Math.min((n - 1) * 10, maxSpread);
+      const startOffset = -totalSpread / 2;
+      const step = n > 1 ? totalSpread / (n - 1) : 0;
+      for (let i = 0; i < n; i++) {
+        const offset = startOffset + i * step;
+        group[i].style.top = `calc(50% + ${offset}px)`;
+      }
+    }
   }
 
   function addGridlines(container) {

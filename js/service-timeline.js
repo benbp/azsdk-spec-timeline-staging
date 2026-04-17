@@ -9,10 +9,11 @@ const ServiceTimeline = (() => {
   let contentWidth = 0;
   let zoomLevel = 1;
   const padding = { left: 20, right: 20 };
-  let hiddenEventTypes = new Set(['bot_comment', 'label_added', 'ci_status', 'commit_pushed']);
+  let hiddenEventTypes = new Set();
   let hiddenActors = new Set();
   let allActors = [];
   let selectedWindow = null; // null = all-up, or a releaseWindows index
+  let focusRange = null; // null = full timeline, or { start, end } for window focus
 
   // Gap compaction — 7-day threshold for year-long timelines
   const GAP_THRESHOLD_MS = 7 * 86400000;
@@ -34,6 +35,19 @@ const ServiceTimeline = (() => {
     timeRange = { start: new Date(data.startDate), end: new Date(data.endDate) };
     hiddenActors.clear();
     selectedWindow = null;
+    focusRange = null;
+    zoomLevel = 1;
+
+    // Default to Smart View for service timelines (fewer markers = more readable)
+    const allTypes = [
+      'pr_created', 'pr_merged', 'ready_for_review', 'review_approved', 'review_changes_requested',
+      'review_comment', 'issue_comment', 'author_nag', 'manual_fix',
+      'commit_pushed', 'bot_comment', 'ci_status', 'idle_gap',
+      'release_pipeline_started', 'release_pipeline_completed',
+      'release_pipeline_failed', 'release_pending', 'tool_call'
+    ];
+    hiddenEventTypes.clear();
+    allTypes.forEach(t => { if (!SMART_VIEW_TYPES.has(t)) hiddenEventTypes.add(t); });
 
     renderServiceHeader();
     renderWindowSelector();
@@ -69,7 +83,7 @@ const ServiceTimeline = (() => {
       <h2>${escapeHtml(data.service)} — Full Service Timeline</h2>
       <div class="service-header-meta">
         <span title="TypeSpec project path">📂 ${escapeHtml(data.specPath || '')}</span>
-        <span>📅 ${DataLoader.formatDate(data.startDate)} → ${DataLoader.formatDate(data.endDate)} (${Math.round(days)}d)</span>
+        <span>📅 ${DataLoader.formatDateRange(data.startDate, data.endDate)} (${Math.round(days)}d)</span>
         <span>📋 ${specCount} spec PRs · ${sdkCount} SDK PRs · ${data.releaseWindows?.length || 0} release windows</span>
         <span>🌐 ${langs}</span>
         <span class="generated-stamp" title="Data generated at ${data.generatedAt}">Data as of ${generated}</span>
@@ -119,58 +133,38 @@ const ServiceTimeline = (() => {
     renderWindowSelector();
     renderSummaryCards();
     renderInsights();
-    highlightWindow();
-  }
 
-  function highlightWindow() {
-    // Remove existing highlights
-    document.querySelectorAll('.window-highlight').forEach(el => el.remove());
-
-    if (selectedWindow === null) {
-      // Show all PR bars normally
-      document.querySelectorAll('.pr-bar-multi').forEach(el => el.classList.remove('dimmed'));
-      return;
-    }
-
-    const win = data.releaseWindows[selectedWindow];
-    if (!win) return;
-
-    // Dim PRs not in this window
-    const windowPRNums = new Set();
-    for (const specNum of win.specPRNumbers) windowPRNums.add(specNum);
-    for (const nums of Object.values(win.sdkPRNumbers || {})) {
-      for (const n of nums) windowPRNums.add(n);
-    }
-
-    document.querySelectorAll('.pr-bar-multi').forEach(el => {
-      const prNum = parseInt(el.dataset.prNumber, 10);
-      if (windowPRNums.has(prNum)) {
-        el.classList.remove('dimmed');
-      } else {
-        el.classList.add('dimmed');
+    if (idx !== null) {
+      // Focus mode: zoom to window time range
+      const win = data.releaseWindows[idx];
+      if (win) {
+        const winStart = new Date(win.startDate).getTime();
+        const winEnd = new Date(win.endDate).getTime();
+        const padding_ms = (winEnd - winStart) * 0.15; // 15% padding on each side
+        focusRange = {
+          start: new Date(winStart - padding_ms),
+          end: new Date(winEnd + padding_ms)
+        };
       }
-    });
-
-    // Add highlight overlay for window time range
-    const lanes = document.getElementById('lanes');
-    if (!lanes || segments.length === 0) return;
-
-    const startX = timeToX(win.startDate);
-    const endX = timeToX(win.endDate);
-    const highlight = document.createElement('div');
-    highlight.className = 'window-highlight';
-    highlight.style.left = startX + 'px';
-    highlight.style.width = Math.max(endX - startX, 4) + 'px';
-    highlight.style.height = lanes.scrollHeight + 'px';
-    lanes.appendChild(highlight);
-
-    // Scroll to window
-    const scrollEl = document.querySelector('.timeline-scroll');
-    if (scrollEl) {
-      const centerX = (startX + endX) / 2;
-      scrollEl.scrollLeft = Math.max(0, centerX - scrollEl.clientWidth / 2);
+    } else {
+      focusRange = null;
     }
+
+    // Re-render timeline with new zoom/filter state
+    renderTimeline();
+
+    // Auto-scroll the active pill into view (after all DOM work)
+    setTimeout(() => {
+      const activePill = document.querySelector('.window-pill.active');
+      if (activePill) {
+        const container = activePill.parentElement;
+        const pillCenter = activePill.offsetLeft + activePill.offsetWidth / 2;
+        container.scrollLeft = pillCenter - container.offsetWidth / 2;
+      }
+    }, 0);
   }
+
+  // (Window focus is now handled by re-rendering with filtered PRs in renderTimeline)
 
   /* ── Summary Cards (contextual) ─────────────────────────── */
 
@@ -182,18 +176,21 @@ const ServiceTimeline = (() => {
 
     let cards;
     if (selectedWindow !== null) {
-      // Per-window metrics
+      // Per-window metrics — stable layout matching all-up card count
       const win = data.releaseWindows[selectedWindow];
       const s = win?.summary || {};
+      const sdkCount = Object.values(win?.sdkPRNumbers || {}).flat().length;
+      const specCount = (win?.specPRNumbers || []).length;
       cards = [
-        { label: 'Window', value: escapeHtml(win?.label || ''), sub: `${DataLoader.formatDate(win.startDate)} → ${DataLoader.formatDate(win.endDate)}`, cls: 'info' },
+        { label: 'Window', value: escapeHtml(win?.label || ''), sub: `${DataLoader.formatDateRange(win.startDate, win.endDate)}`, cls: 'info' },
+        { label: 'SDK PRs', value: `${sdkCount}`, sub: `${specCount} spec PR${specCount !== 1 ? 's' : ''}`, cls: 'info' },
         { label: 'Duration', value: fmt(s.totalDurationDays), sub: 'End to end', cls: 'info' },
-        { label: 'Spec PR', value: fmt(s.specPRDays), sub: 'API review', cls: 'info' },
         { label: 'Pipeline Gap', value: fmt(s.pipelineGapDays), sub: 'Merge → SDK PRs', cls: s.pipelineGapDays > 7 ? 'critical' : 'warning' },
+        { label: 'Review Wait', value: fmt(s.totalReviewWaitDays), sub: `${s.totalReviewWaitCycles || 0} wait cycles`, cls: s.totalReviewWaitDays > 7 ? 'critical' : 'info' },
         { label: 'Nags', value: `${s.totalNags || 0}`, sub: 'Author nudges', cls: s.totalNags > 0 ? 'warning' : 'positive' },
         { label: 'Manual Fixes', value: `${s.totalManualFixes || 0}`, sub: 'On auto PRs', cls: s.totalManualFixes > 0 ? 'warning' : 'positive' },
+        { label: 'Spec PR', value: fmt(s.specPRDays), sub: 'API review', cls: 'info' },
         { label: 'Reviewers', value: `${s.totalUniqueReviewers ?? '—'}`, sub: 'Unique people', cls: 'info' },
-        { label: 'Review Wait', value: fmt(s.totalReviewWaitDays), sub: `${s.totalReviewWaitCycles || 0} wait cycles`, cls: s.totalReviewWaitDays > 7 ? 'critical' : 'info' },
       ];
     } else {
       // All-up metrics
@@ -359,38 +356,39 @@ const ServiceTimeline = (() => {
 
     section.innerHTML = '';
 
-    // People — show top 15 with expander for service timeline (can be very large)
+    // Top actors as quick toggles (top 8 humans + top 3 bots)
+    const QUICK_HUMANS = 8;
+    const QUICK_BOTS = 3;
+    const quickHumans = humanActors.slice(0, QUICK_HUMANS);
+    const quickBots = botActors.slice(0, QUICK_BOTS);
+
     const peopleLabel = document.createElement('span');
     peopleLabel.className = 'filters-label';
     peopleLabel.textContent = `👤 People (${humanActors.length}):`;
     section.appendChild(peopleLabel);
 
-    const peopleContainer = document.createElement('div');
-    peopleContainer.className = 'filter-buttons actor-filter-buttons';
-    section.appendChild(peopleContainer);
+    const quickContainer = document.createElement('div');
+    quickContainer.className = 'filter-buttons actor-filter-buttons';
+    section.appendChild(quickContainer);
 
-    const MAX_VISIBLE = 15;
-    const visibleHumans = humanActors.slice(0, MAX_VISIBLE);
-    const hiddenHumans = humanActors.slice(MAX_VISIBLE);
-
-    for (const actor of visibleHumans) {
-      peopleContainer.appendChild(makeActorBtn(actor, actorCounts[actor]));
+    for (const actor of quickHumans) {
+      quickContainer.appendChild(makeActorBtn(actor, actorCounts[actor]));
     }
 
-    if (hiddenHumans.length > 0) {
-      const expandBtn = document.createElement('button');
-      expandBtn.className = 'filter-btn expand-btn';
-      expandBtn.textContent = `+${hiddenHumans.length} more`;
-      expandBtn.addEventListener('click', () => {
-        expandBtn.remove();
-        for (const actor of hiddenHumans) {
-          peopleContainer.appendChild(makeActorBtn(actor, actorCounts[actor]));
-        }
+    // "All actors" button to open popover
+    if (humanActors.length > QUICK_HUMANS || botActors.length > QUICK_BOTS) {
+      const moreBtn = document.createElement('button');
+      moreBtn.className = 'filter-btn expand-btn';
+      const totalMore = (humanActors.length - QUICK_HUMANS) + (botActors.length - QUICK_BOTS);
+      moreBtn.textContent = `+${Math.max(0, totalMore)} more…`;
+      moreBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleActorPopover(section, humanActors, botActors, actorCounts);
       });
-      peopleContainer.appendChild(expandBtn);
+      quickContainer.appendChild(moreBtn);
     }
 
-    // Bots collapsed by default
+    // Bot quick toggles
     if (botActors.length > 0) {
       const botLabel = document.createElement('span');
       botLabel.className = 'filters-label bot-label';
@@ -401,22 +399,96 @@ const ServiceTimeline = (() => {
       botContainer.className = 'filter-buttons actor-filter-buttons';
       section.appendChild(botContainer);
 
-      for (const actor of botActors.slice(0, 5)) {
+      for (const actor of quickBots) {
         botContainer.appendChild(makeActorBtn(actor, actorCounts[actor]));
       }
-      if (botActors.length > 5) {
-        const expandBtn = document.createElement('button');
-        expandBtn.className = 'filter-btn expand-btn';
-        expandBtn.textContent = `+${botActors.length - 5} more`;
-        expandBtn.addEventListener('click', () => {
-          expandBtn.remove();
-          for (const actor of botActors.slice(5)) {
-            botContainer.appendChild(makeActorBtn(actor, actorCounts[actor]));
-          }
+    }
+  }
+
+  function toggleActorPopover(anchor, humanActors, botActors, actorCounts) {
+    let popover = document.getElementById('actor-popover');
+    if (popover) { popover.remove(); return; }
+
+    popover = document.createElement('div');
+    popover.id = 'actor-popover';
+    popover.className = 'actor-popover';
+
+    const search = document.createElement('input');
+    search.type = 'text';
+    search.placeholder = 'Search actors…';
+    search.className = 'actor-search';
+    popover.appendChild(search);
+
+    const list = document.createElement('div');
+    list.className = 'actor-popover-list';
+    popover.appendChild(list);
+
+    const allItems = [
+      ...humanActors.map(a => ({ actor: a, count: actorCounts[a], isBot: false })),
+      ...botActors.map(a => ({ actor: a, count: actorCounts[a], isBot: true })),
+    ];
+
+    function renderList(filter) {
+      list.innerHTML = '';
+      const items = filter
+        ? allItems.filter(i => i.actor.toLowerCase().includes(filter.toLowerCase()))
+        : allItems;
+      for (const item of items) {
+        const row = document.createElement('label');
+        row.className = 'actor-popover-item';
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.checked = !hiddenActors.has(item.actor);
+        cb.addEventListener('change', () => {
+          if (cb.checked) hiddenActors.delete(item.actor);
+          else hiddenActors.add(item.actor);
+          updateEventVisibility();
+          // Update quick toggle button states
+          document.querySelectorAll('.actor-btn').forEach(btn => {
+            const name = btn.title?.split(':')[0];
+            if (name === item.actor) btn.classList.toggle('active', cb.checked);
+          });
         });
-        botContainer.appendChild(expandBtn);
+        row.appendChild(cb);
+        const label = document.createElement('span');
+        label.className = 'actor-popover-name';
+        label.textContent = `${item.isBot ? '🤖 ' : ''}${item.actor}`;
+        row.appendChild(label);
+        const count = document.createElement('span');
+        count.className = 'actor-popover-count';
+        count.textContent = item.count;
+        row.appendChild(count);
+        list.appendChild(row);
+      }
+      if (items.length === 0) {
+        list.innerHTML = '<div class="actor-popover-empty">No matching actors</div>';
       }
     }
+
+    renderList('');
+    search.addEventListener('input', () => renderList(search.value));
+
+    anchor.appendChild(popover);
+    search.focus();
+
+    // Close on outside click
+    const closeHandler = (e) => {
+      if (!popover.contains(e.target) && e.target !== popover) {
+        popover.remove();
+        document.removeEventListener('click', closeHandler);
+      }
+    };
+    setTimeout(() => document.addEventListener('click', closeHandler), 0);
+
+    // Close on Escape
+    const escHandler = (e) => {
+      if (e.key === 'Escape') {
+        popover.remove();
+        document.removeEventListener('keydown', escHandler);
+        document.removeEventListener('click', closeHandler);
+      }
+    };
+    document.addEventListener('keydown', escHandler);
   }
 
   function makeActorBtn(actor, count) {
@@ -450,11 +522,29 @@ const ServiceTimeline = (() => {
 
   /* ── Gap Compaction ─────────────────────────────────────── */
 
+  function getWindowPRNumbers() {
+    if (selectedWindow === null) return null;
+    const win = data.releaseWindows[selectedWindow];
+    if (!win) return null;
+    const nums = new Set();
+    for (const n of win.specPRNumbers) nums.add(n);
+    for (const arr of Object.values(win.sdkPRNumbers || {})) {
+      for (const n of arr) nums.add(n);
+    }
+    return nums;
+  }
+
+  function getWindowPRs() {
+    const nums = getWindowPRNumbers();
+    if (!nums) return DataLoader.getAllPRs(data);
+    return DataLoader.getAllPRs(data).filter(pr => nums.has(pr.number));
+  }
+
   function buildSegments() {
-    const allPRs = DataLoader.getAllPRs(data);
+    const prsToUse = focusRange ? getWindowPRs() : DataLoader.getAllPRs(data);
     const ts = new Set();
 
-    for (const pr of allPRs) {
+    for (const pr of prsToUse) {
       if (!pr.createdAt) continue;
       ts.add(new Date(pr.createdAt).getTime());
       if (pr.mergedAt) ts.add(new Date(pr.mergedAt).getTime());
@@ -595,6 +685,9 @@ const ServiceTimeline = (() => {
     lanesContainer.innerHTML = '';
     labelsContainer.innerHTML = '';
 
+    // Clean up old focus notices
+    document.querySelectorAll('.focus-notice').forEach(el => el.remove());
+
     const scrollEl = document.querySelector('.timeline-scroll');
     const availWidth = scrollEl.clientWidth;
     contentWidth = Math.max(availWidth * zoomLevel, 800);
@@ -606,24 +699,49 @@ const ServiceTimeline = (() => {
     renderTimeAxis('time-axis');
     renderTimeAxis('time-axis-bottom');
 
-    // Spec PRs lane (all spec PRs in one lane)
-    renderMultiPRLane(lanesContainer, labelsContainer, 'Spec PRs', 'spec', data.specPRs, true);
+    // In focus mode, only show PRs belonging to the selected window
+    const windowNums = getWindowPRNumbers();
+    const filterPRs = (prs) => {
+      if (!windowNums) return prs;
+      return prs.filter(pr => windowNums.has(pr.number));
+    };
+
+    // Spec PRs lane
+    const specPRs = filterPRs(data.specPRs);
+    if (specPRs.length > 0 || !windowNums) {
+      renderMultiPRLane(lanesContainer, labelsContainer, 'Spec PRs', 'spec', specPRs, true);
+    }
 
     // SDK PR lanes per language
     const langOrder = ['Python', 'Java', 'Go', '.NET', 'JavaScript'];
     for (const lang of langOrder) {
-      const prs = data.sdkPRs[lang];
-      if (!prs || prs.length === 0) continue;
+      const prs = filterPRs(data.sdkPRs[lang] || []);
+      if (prs.length === 0 && windowNums) continue; // hide empty lanes in focus mode
+      if (!data.sdkPRs[lang] || data.sdkPRs[lang].length === 0) continue;
       renderMultiPRLane(lanesContainer, labelsContainer, lang, lang.toLowerCase().replace('.', ''), prs, false);
     }
     // Any remaining languages not in standard order
-    for (const [lang, prs] of Object.entries(data.sdkPRs)) {
-      if (langOrder.includes(lang) || prs.length === 0) continue;
+    for (const [lang, allPrs] of Object.entries(data.sdkPRs)) {
+      if (langOrder.includes(lang) || allPrs.length === 0) continue;
+      const prs = filterPRs(allPrs);
+      if (prs.length === 0 && windowNums) continue;
       renderMultiPRLane(lanesContainer, labelsContainer, lang, lang.toLowerCase(), prs, false);
     }
 
     addGridlines(lanesContainer);
-    highlightWindow();
+
+    // Show hidden PR count in focus mode
+    if (windowNums) {
+      const totalPRs = DataLoader.getAllPRs(data).length;
+      const shownPRs = getWindowPRs().length;
+      const hidden = totalPRs - shownPRs;
+      if (hidden > 0) {
+        const notice = document.createElement('div');
+        notice.className = 'focus-notice';
+        notice.textContent = `${hidden} PRs outside this window are hidden`;
+        lanesContainer.parentNode.insertBefore(notice, lanesContainer.nextSibling);
+      }
+    }
   }
 
   function renderTimeAxis(elementId) {

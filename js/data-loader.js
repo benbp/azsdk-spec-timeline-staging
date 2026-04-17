@@ -95,9 +95,11 @@ const DataLoader = (() => {
     return Math.round((ms / (1000 * 60 * 60 * 24)) * 10) / 10;
   }
 
-  function formatDate(dateStr) {
+  function formatDate(dateStr, opts) {
     const d = new Date(dateStr);
-    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const format = { month: 'short', day: 'numeric' };
+    if (opts?.year) format.year = '2-digit';
+    return d.toLocaleDateString('en-US', format);
   }
 
   function formatDateTime(dateStr) {
@@ -105,6 +107,14 @@ const DataLoader = (() => {
     return d.toLocaleDateString('en-US', {
       month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'
     });
+  }
+
+  function formatDateRange(startStr, endStr) {
+    const s = new Date(startStr);
+    const e = new Date(endStr);
+    const crossYear = s.getUTCFullYear() !== e.getUTCFullYear();
+    const opts = crossYear ? { year: true } : {};
+    return `${formatDate(startStr, opts)} → ${formatDate(endStr, opts)}`;
   }
 
   function formatDuration(hours) {
@@ -164,6 +174,7 @@ const DataLoader = (() => {
     getEventTypeInfo,
     computeDurationDays,
     formatDate,
+    formatDateRange,
     formatDateTime,
     formatDuration,
     loadFromUrl,

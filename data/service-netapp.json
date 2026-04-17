@@ -3,14 +3,14 @@
   "service": "NetApp",
   "specPath": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp",
   "namespace": "Microsoft.NetApp",
-  "generatedAt": "2026-04-16T23:46:22.497Z",
+  "generatedAt": "2026-04-17T19:04:14.812Z",
   "lookback": {
     "requestedDays": 365,
-    "startDate": "2025-04-16T23:34:11.916Z",
-    "endDate": "2026-04-16T23:34:11.916Z"
+    "startDate": "2025-04-17T18:46:21.962Z",
+    "endDate": "2026-04-17T18:46:21.962Z"
   },
-  "startDate": "2025-04-17T06:16:51Z",
-  "endDate": "2026-04-03T21:34:49Z",
+  "startDate": "2025-04-18T09:11:55Z",
+  "endDate": "2026-04-03T21:09:22Z",
   "packages": {
     "Python": {
       "name": "azure-mgmt-netapp",
@@ -68,6 +68,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 677,
       "reviewers": [
         "einarnetapp"
       ],
@@ -1442,6 +1444,8 @@
         "PublishToCustomers",
         "FolderMigrationV2"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 4338,
       "reviewers": [
         "qiaozha"
       ],
@@ -1601,6 +1605,8 @@
         "BreakingChange-JavaScript-Sdk",
         "BreakingChange-Python-Sdk"
       ],
+      "serviceDirCount": 37,
+      "changedFiles": 184,
       "reviewers": [
         "serbrech",
         "jim-minter",
@@ -1902,7 +1908,8 @@
         }
       ],
       "reviewWaitDays": 8.08,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "massChange": true
     },
     {
       "repo": "Azure/azure-rest-api-specs",
@@ -1929,6 +1936,8 @@
         "BreakingChange-Python-Sdk",
         "ARMAutoSignedOff"
       ],
+      "serviceDirCount": 5,
+      "changedFiles": 27,
       "reviewers": [
         "timotheeguerin"
       ],
@@ -2004,7 +2013,8 @@
         }
       ],
       "reviewWaitDays": 0.01,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "massChange": true
     },
     {
       "repo": "Azure/azure-rest-api-specs",
@@ -2028,6 +2038,8 @@
         "TypeSpec",
         "PublishToCustomers"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 2,
       "reviewers": [
         "XiaofeiCao"
       ],
@@ -2149,6 +2161,8 @@
         "TypeSpec",
         "PublishToCustomers"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 2,
       "reviewers": [
         "XiaofeiCao"
       ],
@@ -2281,6 +2295,8 @@
         "TypeSpec",
         "PublishToCustomers"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 1,
       "reviewers": [
         "JiaqiZhang-Dev"
       ],
@@ -2406,6 +2422,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 4,
       "reviewers": [
         "jamesmcskeane"
       ],
@@ -2521,6 +2539,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 10,
       "reviewers": [
         "darri89"
       ],
@@ -2706,6 +2726,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 9,
       "reviewers": [
         "weidongxu-microsoft"
       ],
@@ -2849,6 +2871,8 @@
         "TypeSpec",
         "PublishToCustomers"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 1,
       "reviewers": [
         "ArthurMa1978"
       ],
@@ -2973,6 +2997,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 2,
       "reviewers": [
         "weidongxu-microsoft"
       ],
@@ -3076,6 +3102,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 18,
       "reviewers": [
         "dcsibi"
       ],
@@ -3478,6 +3506,8 @@
         "BreakingChange-Python-Sdk",
         "NotReadyForARMReview"
       ],
+      "serviceDirCount": 26,
+      "changedFiles": 252,
       "reviewers": [
         "serbrech",
         "jim-minter",
@@ -3746,7 +3776,8 @@
         }
       ],
       "reviewWaitDays": 0.01,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "massChange": true
     },
     {
       "repo": "Azure/azure-rest-api-specs",
@@ -3777,6 +3808,8 @@
         "BreakingChange-Python-Sdk",
         "PublishToCustomers"
       ],
+      "serviceDirCount": 9,
+      "changedFiles": 9,
       "reviewers": [
         "qiaozha"
       ],
@@ -3921,7 +3954,8 @@
         }
       ],
       "reviewWaitDays": 2.02,
-      "reviewWaitCycles": 1
+      "reviewWaitCycles": 1,
+      "massChange": true
     },
     {
       "repo": "Azure/azure-rest-api-specs",
@@ -3949,6 +3983,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 2,
       "reviewers": [
         "hkhanntap"
       ],
@@ -4079,6 +4115,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff-IncrementalTSP"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 655,
       "reviewers": [
         "einarnetapp"
       ],
@@ -4793,6 +4831,8 @@
         "BreakingChange-Python-Sdk",
         "PublishToCustomers"
       ],
+      "serviceDirCount": 17,
+      "changedFiles": 32,
       "reviewers": [
         "serbrech",
         "mikaelsitruk",
@@ -5974,7 +6014,8 @@
         }
       ],
       "reviewWaitDays": 1.36,
-      "reviewWaitCycles": 4
+      "reviewWaitCycles": 4,
+      "massChange": true
     },
     {
       "repo": "Azure/azure-rest-api-specs",
@@ -6028,6 +6069,8 @@
         "RPaaS",
         "TypeSpec"
       ],
+      "serviceDirCount": 66,
+      "changedFiles": 126,
       "reviewers": [
         "giulianob",
         "serbrech",
@@ -6220,7 +6263,8 @@
         }
       ],
       "reviewWaitDays": 0.04,
-      "reviewWaitCycles": 2
+      "reviewWaitCycles": 2,
+      "massChange": true
     },
     {
       "repo": "Azure/azure-rest-api-specs",
@@ -6248,6 +6292,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff-IncrementalTSP"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 17,
       "reviewers": [
         "einarnetapp"
       ],
@@ -6360,6 +6406,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff-IncrementalTSP"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 4,
       "reviewers": [
         "einarnetapp"
       ],
@@ -6447,6 +6495,8 @@
         "TypeSpec",
         "PublishToCustomers"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 19,
       "reviewers": [
         "einarnetapp"
       ],
@@ -6572,294 +6622,6 @@
     {
       "repo": "Azure/azure-rest-api-specs",
       "language": null,
-      "number": 40940,
-      "url": "https://github.com/Azure/azure-rest-api-specs/pull/40940",
-      "title": "Set ignore-nullable-on-optional to false for JS for impacted services",
-      "author": "JialinHuang803",
-      "createdAt": "2026-03-03T01:58:44Z",
-      "mergedAt": "2026-03-13T08:17:43Z",
-      "closedAt": "2026-03-13T08:17:43Z",
-      "mergedBy": "JialinHuang803",
-      "state": "merged",
-      "isDraft": false,
-      "readyForReviewAt": null,
-      "generationFlow": "manual",
-      "labels": [
-        "ARMSignedOff",
-        "ARMReview",
-        "resource-manager",
-        "TypeSpec",
-        "BreakingChange-Go-Sdk-Approved",
-        "BreakingChange-JavaScript-Sdk-Approved",
-        "BreakingChange-Python-Sdk-Approved",
-        "BreakingChange-Go-Sdk",
-        "BreakingChange-JavaScript-Sdk",
-        "BreakingChange-Python-Sdk",
-        "PublishToCustomers"
-      ],
-      "reviewers": [
-        "MaryGao",
-        "maorleger"
-      ],
-      "events": [
-        {
-          "type": "commit_pushed",
-          "timestamp": "2026-03-03T01:49:44Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "Set ignore-nullable-on-optional to false for impacted servic",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/commit/ba057102633059f2f30a2c23185903729e2db18a"
-          }
-        },
-        {
-          "type": "pr_created",
-          "timestamp": "2026-03-03T01:58:44Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "PR #40940 opened: Set ignore-nullable-on-optional to false for JS for impacted",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/pull/40940"
-          }
-        },
-        {
-          "type": "bot_comment",
-          "timestamp": "2026-03-03T01:59:14Z",
-          "actor": "github-actions[bot]",
-          "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
-          "sentiment": "neutral",
-          "details": {
-            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/23042217639\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
-            "url": "https://github.com/Azure/azure-rest-api-specs/pull/40940#issuecomment-3988123603"
-          }
-        },
-        {
-          "type": "review_approved",
-          "timestamp": "2026-03-03T06:44:39Z",
-          "actor": "MaryGao",
-          "actorRole": "reviewer",
-          "description": "Approved by MaryGao",
-          "sentiment": "positive",
-          "details": {
-            "body": "So we only have two stable SDKs impacted?",
-            "url": "https://github.com/Azure/azure-rest-api-specs/pull/40940#pullrequestreview-3880586285"
-          }
-        },
-        {
-          "type": "issue_comment",
-          "timestamp": "2026-03-03T06:54:07Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "Yes. The previous report generated by AI was not that correct, so eventually I found only two sdks i",
-          "sentiment": "neutral",
-          "details": {
-            "body": "> So we only have two stable SDKs impacted?\r\n\r\nYes. The previous report generated by AI was not that correct, so eventually I found only two sdks impacted..",
-            "url": "https://github.com/Azure/azure-rest-api-specs/pull/40940#issuecomment-3989061790"
-          }
-        },
-        {
-          "type": "commit_pushed",
-          "timestamp": "2026-03-03T06:54:28Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "Merge branch 'main' into set-ignore-nullable-false-flag",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/commit/59e68f157d2fee55b6fff61be0f23a90ddf057fa"
-          }
-        },
-        {
-          "type": "commit_pushed",
-          "timestamp": "2026-03-03T07:36:12Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "add flag for ai-agents",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/commit/19e7a0ad446ac127b3b3d14480762bfb7935228d"
-          }
-        },
-        {
-          "type": "review_approved",
-          "timestamp": "2026-03-03T14:54:45Z",
-          "actor": "maorleger",
-          "actorRole": "reviewer",
-          "description": "Approved by maorleger",
-          "sentiment": "positive",
-          "details": {
-            "body": null,
-            "url": "https://github.com/Azure/azure-rest-api-specs/pull/40940#pullrequestreview-3883136703"
-          }
-        },
-        {
-          "type": "commit_pushed",
-          "timestamp": "2026-03-04T01:06:46Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "Merge branch 'main' into set-ignore-nullable-false-flag",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/commit/1100fd25378192cb852069b417baf69370bcda4d"
-          }
-        },
-        {
-          "type": "commit_pushed",
-          "timestamp": "2026-03-04T06:06:01Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "Merge branch 'main' into set-ignore-nullable-false-flag",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/commit/b9a403aac0ec4e974911ede3ec1f7e5b7e55a081"
-          }
-        },
-        {
-          "type": "issue_comment",
-          "timestamp": "2026-03-05T01:05:19Z",
-          "actor": "psah434",
-          "actorRole": "reviewer",
-          "description": "sdk validation test is failing. please fix.",
-          "sentiment": "neutral",
-          "details": {
-            "body": "sdk validation test is failing. please fix.",
-            "url": "https://github.com/Azure/azure-rest-api-specs/pull/40940#issuecomment-4001313538"
-          }
-        },
-        {
-          "type": "idle_gap",
-          "timestamp": "2026-03-05T01:05:19Z",
-          "endTimestamp": "2026-03-06T14:03:36Z",
-          "actor": "system",
-          "actorRole": "bot",
-          "description": "Idle for 37h (1.5d)",
-          "sentiment": "neutral",
-          "details": {
-            "durationHours": 37
-          }
-        },
-        {
-          "type": "commit_pushed",
-          "timestamp": "2026-03-06T14:03:36Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "Merge branch 'main' into set-ignore-nullable-false-flag",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/commit/8bba7c5f191cb906e0614cc281c429416bda9d97"
-          }
-        },
-        {
-          "type": "idle_gap",
-          "timestamp": "2026-03-06T14:03:36Z",
-          "endTimestamp": "2026-03-10T07:23:17Z",
-          "actor": "system",
-          "actorRole": "bot",
-          "description": "Idle for 89h (3.7d)",
-          "sentiment": "blocking",
-          "details": {
-            "durationHours": 89.3
-          }
-        },
-        {
-          "type": "commit_pushed",
-          "timestamp": "2026-03-10T07:23:17Z",
-          "actor": "kazrael2119",
-          "actorRole": "reviewer",
-          "description": "Merge branch 'main' into set-ignore-nullable-false-flag",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/commit/461de89245afaf32ff9dae369916249554d03ad0"
-          }
-        },
-        {
-          "type": "issue_comment",
-          "timestamp": "2026-03-10T08:35:30Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "@psah434 The validation test passed and overall looks good to me. Could you help review? Thanks!",
-          "sentiment": "neutral",
-          "details": {
-            "body": "@psah434 The validation test passed and overall looks good to me. Could you help review? Thanks!",
-            "url": "https://github.com/Azure/azure-rest-api-specs/pull/40940#issuecomment-4029608352"
-          }
-        },
-        {
-          "type": "idle_gap",
-          "timestamp": "2026-03-10T08:35:30Z",
-          "endTimestamp": "2026-03-12T08:02:16Z",
-          "actor": "system",
-          "actorRole": "bot",
-          "description": "Idle for 47h (2.0d)",
-          "sentiment": "neutral",
-          "details": {
-            "durationHours": 47.4
-          }
-        },
-        {
-          "type": "commit_pushed",
-          "timestamp": "2026-03-12T08:02:16Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "Merge branch 'main' into set-ignore-nullable-false-flag",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/commit/fdba8f39b1f79c475cb3874906fc418aa72f8ffc"
-          }
-        },
-        {
-          "type": "commit_pushed",
-          "timestamp": "2026-03-12T14:28:27Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "Merge branch 'main' into set-ignore-nullable-false-flag",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/commit/68ddbe331332e0f54fc7ab0aa41ee2b28509b4b8"
-          }
-        },
-        {
-          "type": "commit_pushed",
-          "timestamp": "2026-03-12T15:50:26Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "Merge branch 'main' into set-ignore-nullable-false-flag",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/commit/fcd8ee1017c37562b502948b73a76c883bcbaccc"
-          }
-        },
-        {
-          "type": "commit_pushed",
-          "timestamp": "2026-03-13T07:56:47Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "Merge branch 'main' into set-ignore-nullable-false-flag",
-          "sentiment": "neutral",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/commit/8ceb9eb70a10d09b11b4eee2deab5937ef1733ee"
-          }
-        },
-        {
-          "type": "pr_merged",
-          "timestamp": "2026-03-13T08:17:43Z",
-          "actor": "JialinHuang803",
-          "actorRole": "author",
-          "description": "PR #40940 merged",
-          "sentiment": "positive",
-          "details": {
-            "url": "https://github.com/Azure/azure-rest-api-specs/pull/40940"
-          }
-        }
-      ],
-      "reviewWaitDays": 5.25,
-      "reviewWaitCycles": 4
-    },
-    {
-      "repo": "Azure/azure-rest-api-specs",
-      "language": null,
       "number": 41041,
       "url": "https://github.com/Azure/azure-rest-api-specs/pull/41041",
       "title": "[NetAppFiles] java api-version",
@@ -6880,6 +6642,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff-Trivial"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 1,
       "reviewers": [
         "tommim9bdash"
       ],
@@ -6991,6 +6755,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff-Trivial"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 1,
       "reviewers": [
         "weidongxu-microsoft"
       ],
@@ -7153,6 +6919,8 @@
         "PublishToCustomers",
         "ARMAutoSignedOff-IncrementalTSP"
       ],
+      "serviceDirCount": 1,
+      "changedFiles": 41,
       "reviewers": [
         "einarnetapp",
         "nandakus2"
@@ -7283,6 +7051,8 @@
         "readyForReviewAt": "2025-11-20T23:44:09Z",
         "generationFlow": "automated",
         "labels": [],
+        "serviceDirCount": 1,
+        "changedFiles": 223,
         "reviewers": [
           "ChenxiJiang333",
           "msyyc"
@@ -7457,6 +7227,8 @@
         "readyForReviewAt": "2025-11-11T00:44:28Z",
         "generationFlow": "automated",
         "labels": [],
+        "serviceDirCount": 1,
+        "changedFiles": 137,
         "reviewers": [
           "ChenxiJiang333",
           "msyyc"
@@ -7654,6 +7426,8 @@
         "readyForReviewAt": "2026-03-14T11:07:05Z",
         "generationFlow": "automated",
         "labels": [],
+        "serviceDirCount": 1,
+        "changedFiles": 234,
         "reviewers": [
           "ChenxiJiang333",
           "msyyc"
@@ -7841,24 +7615,6 @@
             "details": {
               "url": "https://github.com/Azure/azure-sdk-for-python/pull/45613"
             }
-          },
-          {
-            "type": "tool_call",
-            "timestamp": "2026-03-22T16:04:46.795Z",
-            "actor": "developer",
-            "actorRole": "tool",
-            "description": "release-plan.update-release-status — OK (3.1s)",
-            "sentiment": "neutral",
-            "language": "Python",
-            "details": {
-              "toolName": "release-plan.update-release-status",
-              "success": true,
-              "durationMs": 3145,
-              "clientName": "",
-              "clientType": "human",
-              "language": "Python",
-              "packageName": "azure-mgmt-netapp"
-            }
           }
         ],
         "reviewWaitDays": 1.78,
@@ -7880,6 +7636,8 @@
         "readyForReviewAt": "2026-02-20T13:49:52Z",
         "generationFlow": "automated",
         "labels": [],
+        "serviceDirCount": 1,
+        "changedFiles": 224,
         "reviewers": [
           "ChenxiJiang333",
           "msyyc"
@@ -8132,24 +7890,6 @@
             "details": {
               "url": "https://github.com/Azure/azure-sdk-for-python/pull/45164"
             }
-          },
-          {
-            "type": "tool_call",
-            "timestamp": "2026-03-03T15:06:36.115Z",
-            "actor": "developer",
-            "actorRole": "tool",
-            "description": "release-plan.update-release-status — OK (3.0s)",
-            "sentiment": "neutral",
-            "language": "Python",
-            "details": {
-              "toolName": "release-plan.update-release-status",
-              "success": true,
-              "durationMs": 3037,
-              "clientName": "",
-              "clientType": "human",
-              "language": "Python",
-              "packageName": "azure-mgmt-netapp"
-            }
           }
         ],
         "reviewWaitDays": 6.67,
@@ -8171,6 +7911,8 @@
         "readyForReviewAt": "2026-02-02T23:06:49Z",
         "generationFlow": "manual",
         "labels": [],
+        "serviceDirCount": 76,
+        "changedFiles": 202,
         "reviewers": [
           "dpwatrous",
           "mikaelsitruk",
@@ -8359,7 +8101,8 @@
           }
         ],
         "reviewWaitDays": 0,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-python",
@@ -8377,6 +8120,8 @@
         "readyForReviewAt": "2025-12-02T13:03:40Z",
         "generationFlow": "automated",
         "labels": [],
+        "serviceDirCount": 1,
+        "changedFiles": 12,
         "reviewers": [
           "ChenxiJiang333",
           "msyyc"
@@ -8517,6 +8262,8 @@
         "readyForReviewAt": "2025-11-26T22:26:35Z",
         "generationFlow": "automated",
         "labels": [],
+        "serviceDirCount": 1,
+        "changedFiles": 223,
         "reviewers": [
           "ChenxiJiang333",
           "msyyc"
@@ -8711,6 +8458,8 @@
         "readyForReviewAt": "2025-11-14T21:51:13Z",
         "generationFlow": "automated",
         "labels": [],
+        "serviceDirCount": 1,
+        "changedFiles": 17,
         "reviewers": [
           "ChenxiJiang333",
           "audunn",
@@ -8992,6 +8741,8 @@
         "readyForReviewAt": null,
         "generationFlow": "automated",
         "labels": [],
+        "serviceDirCount": 1,
+        "changedFiles": 234,
         "reviewers": [
           "msyyc",
           "ChenxiJiang333"
@@ -9259,6 +9010,8 @@
         "readyForReviewAt": "2025-10-09T07:06:24Z",
         "generationFlow": "manual",
         "labels": [],
+        "serviceDirCount": 11,
+        "changedFiles": 33,
         "reviewers": [
           "msyyc"
         ],
@@ -9513,7 +9266,8 @@
           }
         ],
         "reviewWaitDays": 0.01,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-python",
@@ -9531,6 +9285,8 @@
         "readyForReviewAt": null,
         "generationFlow": "automated",
         "labels": [],
+        "serviceDirCount": 1,
+        "changedFiles": 213,
         "reviewers": [
           "ChenxiJiang333",
           "msyyc"
@@ -9748,6 +9504,8 @@
           "Azure Projects",
           "AI Agents"
         ],
+        "serviceDirCount": 0,
+        "changedFiles": 632,
         "reviewers": [
           "kashifkhan",
           "aelij",
@@ -9928,6 +9686,8 @@
         "readyForReviewAt": null,
         "generationFlow": "automated",
         "labels": [],
+        "serviceDirCount": 1,
+        "changedFiles": 174,
         "reviewers": [
           "msyyc",
           "ChenxiJiang333"
@@ -10057,6 +9817,8 @@
         "readyForReviewAt": null,
         "generationFlow": "automated",
         "labels": [],
+        "serviceDirCount": 1,
+        "changedFiles": 201,
         "reviewers": [
           "ChenxiJiang333",
           "msyyc"
@@ -10198,6 +9960,8 @@
         "readyForReviewAt": null,
         "generationFlow": "automated",
         "labels": [],
+        "serviceDirCount": 1,
+        "changedFiles": 211,
         "reviewers": [
           "ChenxiJiang333",
           "msyyc"
@@ -10364,6 +10128,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 660,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -10601,6 +10367,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 664,
         "reviewers": [
           "weidongxu-microsoft"
         ],
@@ -10916,6 +10684,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 3,
         "reviewers": [
           "weidongxu-microsoft"
         ],
@@ -11011,6 +10781,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 84,
+        "changedFiles": 86,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -11089,7 +10861,8 @@
           }
         ],
         "reviewWaitDays": 0.01,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -11109,6 +10882,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 663,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -11290,6 +11065,8 @@
           "DPG",
           "Load Testing"
         ],
+        "serviceDirCount": 21,
+        "changedFiles": 508,
         "reviewers": [
           "benbp",
           "weshaggard",
@@ -11429,7 +11206,8 @@
           }
         ],
         "reviewWaitDays": 0.03,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -11449,6 +11227,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 3,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -11535,6 +11315,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 676,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -11951,6 +11733,8 @@
           "Speech Transcription",
           "AI"
         ],
+        "serviceDirCount": 52,
+        "changedFiles": 184,
         "reviewers": [
           "dpwatrous",
           "benbp",
@@ -12087,7 +11871,8 @@
           }
         ],
         "reviewWaitDays": 0.02,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -12105,6 +11890,8 @@
         "readyForReviewAt": "2026-01-29T23:58:14Z",
         "generationFlow": "manual",
         "labels": [],
+        "serviceDirCount": 53,
+        "changedFiles": 227,
         "reviewers": [
           "trask",
           "dpwatrous",
@@ -12538,7 +12325,8 @@
           }
         ],
         "reviewWaitDays": 0.02,
-        "reviewWaitCycles": 4
+        "reviewWaitCycles": 4,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -12612,6 +12400,8 @@
           "Voice Live",
           "Speech Transcription"
         ],
+        "serviceDirCount": 72,
+        "changedFiles": 361,
         "reviewers": [
           "trask",
           "vicancy",
@@ -12830,7 +12620,8 @@
           }
         ],
         "reviewWaitDays": 0.55,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -12910,6 +12701,8 @@
           "Voice Live",
           "Speech Transcription"
         ],
+        "serviceDirCount": 53,
+        "changedFiles": 425,
         "reviewers": [
           "trask",
           "vicancy",
@@ -13072,7 +12865,8 @@
           }
         ],
         "reviewWaitDays": 0.6,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -13092,6 +12886,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 3,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -13178,6 +12974,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 193,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -13367,6 +13165,8 @@
         "labels": [
           "DPG"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 3,
         "reviewers": [
           "benbp",
           "weshaggard",
@@ -13496,6 +13296,8 @@
           "Online Experimentation",
           "Voice Live"
         ],
+        "serviceDirCount": 4,
+        "changedFiles": 159,
         "reviewers": [
           "benbp",
           "weshaggard",
@@ -13824,6 +13626,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 671,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -13968,6 +13772,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 3,
         "reviewers": [
           "ArthurMa1978",
           "weidongxu-microsoft",
@@ -14055,6 +13861,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 664,
         "reviewers": [
           "JonathanGiles",
           "moarychan",
@@ -14264,6 +14072,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 84,
+        "changedFiles": 86,
         "reviewers": [
           "ArthurMa1978",
           "weidongxu-microsoft",
@@ -14354,7 +14164,8 @@
           }
         ],
         "reviewWaitDays": 0.06,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -14413,6 +14224,8 @@
           "Communication - Email",
           "Text Translation"
         ],
+        "serviceDirCount": 56,
+        "changedFiles": 206,
         "reviewers": [
           "trask",
           "vicancy",
@@ -14939,7 +14752,8 @@
           }
         ],
         "reviewWaitDays": 0.29,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -14959,6 +14773,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 3,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -15045,6 +14861,8 @@
         "labels": [
           "Mgmt - Track 2"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 356,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -15231,6 +15049,8 @@
           "Online Experimentation",
           "AI Agents"
         ],
+        "serviceDirCount": 74,
+        "changedFiles": 361,
         "reviewers": [
           "trask",
           "dpwatrous",
@@ -15472,7 +15292,8 @@
           }
         ],
         "reviewWaitDays": 0.58,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -15551,6 +15372,8 @@
           "Online Experimentation",
           "AI Agents"
         ],
+        "serviceDirCount": 52,
+        "changedFiles": 437,
         "reviewers": [
           "trask",
           "vicancy",
@@ -15725,7 +15548,8 @@
           }
         ],
         "reviewWaitDays": 0.1,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -15746,6 +15570,8 @@
           "Cosmos",
           "Mgmt"
         ],
+        "serviceDirCount": 79,
+        "changedFiles": 113,
         "reviewers": [
           "kirankumarkolli",
           "bganapa",
@@ -15824,7 +15650,8 @@
           }
         ],
         "reviewWaitDays": 0.03,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -15896,6 +15723,8 @@
           "Online Experimentation",
           "AI Agents"
         ],
+        "serviceDirCount": 75,
+        "changedFiles": 343,
         "reviewers": [
           "trask",
           "vicancy",
@@ -16178,7 +16007,8 @@
           }
         ],
         "reviewWaitDays": 0.06,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -16255,6 +16085,8 @@
           "Online Experimentation",
           "AI Agents"
         ],
+        "serviceDirCount": 51,
+        "changedFiles": 435,
         "reviewers": [
           "trask",
           "vicancy",
@@ -16452,7 +16284,8 @@
           }
         ],
         "reviewWaitDays": 0.09,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -16476,6 +16309,8 @@
           "Mgmt",
           "azure-spring"
         ],
+        "serviceDirCount": 63,
+        "changedFiles": 118,
         "reviewers": [
           "dpwatrous",
           "kirankumarkolli",
@@ -16623,7 +16458,8 @@
           }
         ],
         "reviewWaitDays": 0,
-        "reviewWaitCycles": 0
+        "reviewWaitCycles": 0,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -16643,6 +16479,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 7,
+        "changedFiles": 30,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -16744,7 +16582,8 @@
           }
         ],
         "reviewWaitDays": 0.01,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -16764,6 +16603,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 2,
+        "changedFiles": 6,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -17084,6 +16925,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 3,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -17170,6 +17013,8 @@
         "labels": [
           "Mgmt - Track 2"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 193,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -17447,6 +17292,8 @@
           "Online Experimentation",
           "AI Agents"
         ],
+        "serviceDirCount": 75,
+        "changedFiles": 340,
         "reviewers": [
           "trask",
           "vicancy",
@@ -17633,7 +17480,8 @@
           }
         ],
         "reviewWaitDays": 0.05,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -17709,6 +17557,8 @@
           "Online Experimentation",
           "AI Agents"
         ],
+        "serviceDirCount": 46,
+        "changedFiles": 433,
         "reviewers": [
           "trask",
           "vicancy",
@@ -17883,7 +17733,8 @@
           }
         ],
         "reviewWaitDays": 0.03,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -17907,6 +17758,8 @@
           "Mgmt",
           "azure-spring"
         ],
+        "serviceDirCount": 60,
+        "changedFiles": 126,
         "reviewers": [
           "dpwatrous",
           "kirankumarkolli",
@@ -17984,7 +17837,8 @@
           }
         ],
         "reviewWaitDays": 0.04,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -18008,6 +17862,8 @@
           "Mgmt",
           "azure-spring"
         ],
+        "serviceDirCount": 59,
+        "changedFiles": 125,
         "reviewers": [
           "dpwatrous",
           "lmolkova",
@@ -18110,7 +17966,8 @@
           }
         ],
         "reviewWaitDays": 0.07,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -18179,6 +18036,8 @@
           "Online Experimentation",
           "AI Agents"
         ],
+        "serviceDirCount": 73,
+        "changedFiles": 335,
         "reviewers": [
           "trask",
           "vicancy",
@@ -18353,7 +18212,8 @@
           }
         ],
         "reviewWaitDays": 0,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -18373,6 +18233,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 3,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -18459,6 +18321,8 @@
         "labels": [
           "Mgmt - Track 2"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 387,
         "reviewers": [
           "ArthurMa1978",
           "XiaofeiCao",
@@ -18729,6 +18593,8 @@
           "Online Experimentation",
           "AI Agents"
         ],
+        "serviceDirCount": 45,
+        "changedFiles": 428,
         "reviewers": [
           "trask",
           "vicancy",
@@ -18902,7 +18768,8 @@
           }
         ],
         "reviewWaitDays": 0.02,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -18926,6 +18793,8 @@
           "Mgmt",
           "azure-spring"
         ],
+        "serviceDirCount": 59,
+        "changedFiles": 125,
         "reviewers": [
           "dpwatrous",
           "lmolkova",
@@ -19064,7 +18933,8 @@
           }
         ],
         "reviewWaitDays": 0.05,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -19133,6 +19003,8 @@
           "Health Deidentification",
           "AI Agents"
         ],
+        "serviceDirCount": 74,
+        "changedFiles": 335,
         "reviewers": [
           "trask",
           "vicancy",
@@ -19342,7 +19214,8 @@
           }
         ],
         "reviewWaitDays": 0.33,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -19416,6 +19289,8 @@
           "Health Deidentification",
           "AI Agents"
         ],
+        "serviceDirCount": 45,
+        "changedFiles": 427,
         "reviewers": [
           "trask",
           "vicancy",
@@ -19651,7 +19526,8 @@
           }
         ],
         "reviewWaitDays": 0.01,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -19676,6 +19552,8 @@
           "App Configuration",
           "azure-spring"
         ],
+        "serviceDirCount": 59,
+        "changedFiles": 123,
         "reviewers": [
           "dpwatrous",
           "joshfree",
@@ -19853,7 +19731,8 @@
           }
         ],
         "reviewWaitDays": 0.03,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -19921,6 +19800,8 @@
           "Health Deidentification",
           "AI Agents"
         ],
+        "serviceDirCount": 74,
+        "changedFiles": 327,
         "reviewers": [
           "trask",
           "dpwatrous",
@@ -20118,7 +19999,8 @@
           }
         ],
         "reviewWaitDays": 0.5,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -20185,6 +20067,8 @@
           "AI Model Inference",
           "Health Deidentification"
         ],
+        "serviceDirCount": 76,
+        "changedFiles": 319,
         "reviewers": [
           "trask",
           "vicancy",
@@ -20371,7 +20255,8 @@
           }
         ],
         "reviewWaitDays": 0.01,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -20391,6 +20276,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 3,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -20477,6 +20364,8 @@
         "labels": [
           "Mgmt - Track 2"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 334,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -20602,6 +20491,8 @@
           "Mgmt",
           "azure-spring"
         ],
+        "serviceDirCount": 59,
+        "changedFiles": 123,
         "reviewers": [
           "dpwatrous",
           "lmolkova",
@@ -20704,7 +20595,8 @@
           }
         ],
         "reviewWaitDays": 0.13,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -20724,6 +20616,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 3,
         "reviewers": [
           "ArthurMa1978",
           "haolingdong-msft",
@@ -20803,257 +20697,6 @@
         ],
         "reviewWaitDays": 0.77,
         "reviewWaitCycles": 1
-      },
-      {
-        "repo": "Azure/azure-sdk-for-java",
-        "language": "Java",
-        "number": 45007,
-        "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007",
-        "title": "[Automation] Generate Fluent Lite from Swagger netapp#package-2025-01-01",
-        "author": "azure-sdk",
-        "createdAt": "2025-04-17T06:17:20Z",
-        "mergedAt": "2025-04-20T09:09:21Z",
-        "closedAt": "2025-04-20T09:09:21Z",
-        "mergedBy": "XiaofeiCao",
-        "state": "merged",
-        "isDraft": false,
-        "readyForReviewAt": "2025-04-18T09:51:16Z",
-        "generationFlow": "automated",
-        "labels": [
-          "Mgmt - Track 2"
-        ],
-        "reviewers": [
-          "ArthurMa1978",
-          "haolingdong-msft",
-          "weidongxu-microsoft",
-          "XiaofeiCao"
-        ],
-        "events": [
-          {
-            "type": "commit_pushed",
-            "timestamp": "2025-04-17T06:16:51Z",
-            "actor": "azure-sdk",
-            "actorRole": "bot",
-            "description": "[Automation] External Change",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-java/commit/1500bedfd1521856c5fd3345cafa05b415d37b68"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2025-04-17T06:17:16Z",
-            "actor": "azure-sdk",
-            "actorRole": "bot",
-            "description": "[Automation] Generate Fluent Lite from Swagger netapp#packag",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-java/commit/1790742a71bed47d5e3d203a93f6baca53f577a6"
-            }
-          },
-          {
-            "type": "pr_created",
-            "timestamp": "2025-04-17T06:17:20Z",
-            "actor": "azure-sdk",
-            "actorRole": "bot",
-            "description": "PR #45007 opened: [Automation] Generate Fluent Lite from Swagger netapp#packag",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007"
-            }
-          },
-          {
-            "type": "issue_comment",
-            "timestamp": "2025-04-17T06:25:23Z",
-            "actor": "XiaofeiCao",
-            "actorRole": "reviewer",
-            "description": "/azp run java - netapp - mgmt - tests",
-            "sentiment": "neutral",
-            "details": {
-              "body": "/azp run java - netapp - mgmt - tests",
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007#issuecomment-2811898271"
-            }
-          },
-          {
-            "type": "bot_comment",
-            "timestamp": "2025-04-17T06:25:43Z",
-            "actor": "azure-pipelines[bot]",
-            "actorRole": "bot",
-            "description": "<samp>",
-            "sentiment": "neutral",
-            "details": {
-              "body": "<samp>\nAzure Pipelines successfully started running 1 pipeline(s).<br>\r\n\n</samp>",
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007#issuecomment-2811898897"
-            }
-          },
-          {
-            "type": "bot_comment",
-            "timestamp": "2025-04-17T06:34:02Z",
-            "actor": "azure-sdk",
-            "actorRole": "bot",
-            "description": "**API change check**",
-            "sentiment": "neutral",
-            "details": {
-              "body": "**API change check**\r\n\r\nAPIView has identified API level changes in this PR and created following API reviews.\r\n\r\n[com.azure.resourcemanager:azure-resourcemanager-netapp](https://apiview.dev/Assemblies/Review/8fcc1d10381343ac97c9221acb230935?revisionId=c0b694fb3f7b442cad062fa4434ea8eb)\r\n\r\n",
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007#issuecomment-2811926302"
-            }
-          },
-          {
-            "type": "idle_gap",
-            "timestamp": "2025-04-17T06:34:02Z",
-            "endTimestamp": "2025-04-18T09:14:38Z",
-            "actor": "system",
-            "actorRole": "bot",
-            "description": "Idle for 27h (1.1d)",
-            "sentiment": "neutral",
-            "details": {
-              "durationHours": 26.7
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2025-04-18T09:14:38Z",
-            "actor": "XiaofeiCao",
-            "actorRole": "reviewer",
-            "description": "Add revapi.skip property to pom.xml",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-java/commit/2515ab05e364f049e93d14ff817075a9cb3a23ae"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2025-04-18T09:15:55Z",
-            "actor": "XiaofeiCao",
-            "actorRole": "reviewer",
-            "description": "Breaking change due to swagger fix:",
-            "sentiment": "blocking",
-            "details": {
-              "body": "Breaking change due to swagger fix:\r\nhttps://github.com/Azure/azure-rest-api-specs/pull/33247#issuecomment-2730713901\r\n\r\nThe property is never settable.",
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007#discussion_r2050396983"
-            }
-          },
-          {
-            "type": "review_approved",
-            "timestamp": "2025-04-18T09:18:10Z",
-            "actor": "weidongxu-microsoft",
-            "actorRole": "reviewer",
-            "description": "Approved by weidongxu-microsoft",
-            "sentiment": "positive",
-            "details": {
-              "body": null,
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007#pullrequestreview-2778166647"
-            }
-          },
-          {
-            "type": "issue_comment",
-            "timestamp": "2025-04-18T09:44:13Z",
-            "actor": "XiaofeiCao",
-            "actorRole": "reviewer",
-            "description": "/azp run java - netapp - mgmt - tests",
-            "sentiment": "neutral",
-            "details": {
-              "body": "/azp run java - netapp - mgmt - tests",
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007#issuecomment-2815093914"
-            }
-          },
-          {
-            "type": "bot_comment",
-            "timestamp": "2025-04-18T09:44:31Z",
-            "actor": "azure-pipelines[bot]",
-            "actorRole": "bot",
-            "description": "<samp>",
-            "sentiment": "neutral",
-            "details": {
-              "body": "<samp>\nAzure Pipelines successfully started running 1 pipeline(s).<br>\r\n\n</samp>",
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007#issuecomment-2815094311"
-            }
-          },
-          {
-            "type": "ready_for_review",
-            "timestamp": "2025-04-18T09:51:16Z",
-            "actor": "XiaofeiCao",
-            "actorRole": "reviewer",
-            "description": "PR marked ready for review",
-            "sentiment": "positive",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007"
-            }
-          },
-          {
-            "type": "review_approved",
-            "timestamp": "2025-04-18T09:52:16Z",
-            "actor": "XiaofeiCao",
-            "actorRole": "reviewer",
-            "description": "Approved by XiaofeiCao",
-            "sentiment": "positive",
-            "details": {
-              "body": null,
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007#pullrequestreview-2778226815"
-            }
-          },
-          {
-            "type": "idle_gap",
-            "timestamp": "2025-04-18T09:52:16Z",
-            "endTimestamp": "2025-04-20T08:58:44Z",
-            "actor": "system",
-            "actorRole": "bot",
-            "description": "Idle for 47h (2.0d)",
-            "sentiment": "neutral",
-            "details": {
-              "durationHours": 47.1
-            }
-          },
-          {
-            "type": "issue_comment",
-            "timestamp": "2025-04-20T08:58:44Z",
-            "actor": "XiaofeiCao",
-            "actorRole": "reviewer",
-            "description": "/azp run java - netapp - mgmt - tests",
-            "sentiment": "neutral",
-            "details": {
-              "body": "/azp run java - netapp - mgmt - tests",
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007#issuecomment-2817072391"
-            }
-          },
-          {
-            "type": "bot_comment",
-            "timestamp": "2025-04-20T08:59:02Z",
-            "actor": "azure-pipelines[bot]",
-            "actorRole": "bot",
-            "description": "<samp>",
-            "sentiment": "neutral",
-            "details": {
-              "body": "<samp>\nAzure Pipelines successfully started running 1 pipeline(s).<br>\r\n\n</samp>",
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007#issuecomment-2817072488"
-            }
-          },
-          {
-            "type": "review_approved",
-            "timestamp": "2025-04-20T09:09:19Z",
-            "actor": "XiaofeiCao",
-            "actorRole": "reviewer",
-            "description": "Approved by XiaofeiCao",
-            "sentiment": "positive",
-            "details": {
-              "body": null,
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007#pullrequestreview-2780192688"
-            }
-          },
-          {
-            "type": "pr_merged",
-            "timestamp": "2025-04-20T09:09:21Z",
-            "actor": "XiaofeiCao",
-            "actorRole": "reviewer",
-            "description": "PR #45007 merged",
-            "sentiment": "positive",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-java/pull/45007"
-            }
-          }
-        ],
-        "reviewWaitDays": 0,
-        "reviewWaitCycles": 1
       }
     ],
     "JavaScript": [
@@ -21075,6 +20718,8 @@
           "Mgmt",
           "Self-Service Release"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 380,
         "reviewers": [],
         "events": [
           {
@@ -21260,745 +20905,6 @@
       {
         "repo": "Azure/azure-sdk-for-js",
         "language": "JavaScript",
-        "number": 37893,
-        "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893",
-        "title": "feat(warp): explicit CJS via moduleType, esbuild ESM→CJS transform",
-        "author": "deyaaeldeen",
-        "createdAt": "2026-03-30T16:41:19Z",
-        "mergedAt": "2026-04-03T21:34:49Z",
-        "closedAt": "2026-04-03T21:34:49Z",
-        "mergedBy": "deyaaeldeen",
-        "state": "merged",
-        "isDraft": false,
-        "readyForReviewAt": null,
-        "generationFlow": "manual",
-        "labels": [
-          "EngSys",
-          "Mgmt",
-          "Service Bus",
-          "Event Hubs",
-          "Storage",
-          "Cosmos",
-          "KeyVault",
-          "Azure.Identity",
-          "Azure.Core",
-          "Batch",
-          "Container Registry",
-          "Event Grid",
-          "Monitor",
-          "Search",
-          "Tables",
-          "App Configuration",
-          "eslint plugin",
-          "Synapse",
-          "Cognitive - Text Analytics",
-          "Cognitive - Form Recognizer",
-          "Cognitive - Translator",
-          "Attestation",
-          "Digital Twins",
-          "Schema Registry",
-          "Communication",
-          "Cognitive - Language",
-          "Purview",
-          "WebPubSub",
-          "AgriFood",
-          "Confidential Ledger",
-          "Maps",
-          "test-utils",
-          "Communication - Chat",
-          "Communication - Common",
-          "Communication - Identity",
-          "Communication - Phone Numbers",
-          "Communication - Short Codes",
-          "Communication - SMS",
-          "Communication - Email",
-          "Communication - Alpha IDs",
-          "Communication - Job Router",
-          "Communication - Rooms",
-          "OpenAI",
-          "DocumentTranslator",
-          "OpenTelemetryInstrumentation",
-          "Image Analysis",
-          "Communication - Messages",
-          "Health Deidentification",
-          "Communication - Toll Free Verification",
-          "Communication - Call Automation",
-          "Azure Load Testing",
-          "Online Experimentation",
-          "Voice Live",
-          "Speech Transcription",
-          "Cognitive - Content Understanding"
-        ],
-        "reviewers": [
-          "akania",
-          "dpwatrous",
-          "vicancy",
-          "maorleger",
-          "benbp",
-          "axisc",
-          "joshfree",
-          "johngallardo",
-          "ganeshyb",
-          "hmlam",
-          "timovv",
-          "bojunehsu",
-          "juancamilor",
-          "dubiety",
-          "jeremydvoss",
-          "sajeetharan",
-          "olivakar",
-          "EmmaZhu",
-          "shankarsama",
-          "XiaoningLiu",
-          "vinjiang",
-          "blueww",
-          "gkostal",
-          "jeremymeng",
-          "zackliu",
-          "Han-msft",
-          "ljian3377",
-          "chenkennt",
-          "sjkwak",
-          "KarishmaGhiya",
-          "weshaggard",
-          "Shamkh",
-          "mikeharder",
-          "MaryGao",
-          "kagbakpem",
-          "xitzhang",
-          "lzchen",
-          "jiacfan",
-          "rhurey",
-          "yungshinlintw",
-          "kirill-linnik",
-          "changjian-wang",
-          "paolamvhz",
-          "bobogogo1990",
-          "cRui861",
-          "andykao1213",
-          "EldertGrootenboer",
-          "minnieliu",
-          "sjiherzig",
-          "jimmyca15",
-          "joheredi",
-          "rads-1996",
-          "AikoBB",
-          "khannavikas",
-          "wanghoppe",
-          "rajeshka",
-          "arifibrahim4",
-          "quentinRobinson",
-          "trrwilson",
-          "dargilco",
-          "hectorhdzg",
-          "skapur12",
-          "skarri-microsoft",
-          "anilba06",
-          "LuChen-Microsoft",
-          "yogeshmo",
-          "JacksonWeber",
-          "srnagar",
-          "wiboris",
-          "amanrao23",
-          "MSNev",
-          "pankopon",
-          "alexathomases",
-          "qiaozha",
-          "taicchoumsft",
-          "glharper",
-          "glorialimicrosoft",
-          "olkroshk",
-          "gulopesd",
-          "marche0133",
-          "minwoolee-msft",
-          "emilyjiji",
-          "juntuchen-msft",
-          "natekimball-msft",
-          "maximrytych-ms",
-          "zihyunting",
-          "besh2014",
-          "mayssamm",
-          "minhanh-phan",
-          "gfeitosa-msft",
-          "allchiang-msft",
-          "topshot99",
-          "mjafferi-msft",
-          "phermanov-msft",
-          "ilyapaliakou-msft",
-          "JialinHuang803",
-          "zhiyuanliang-ms",
-          "aditishree1",
-          "linglingye001",
-          "v-dharmarajv",
-          "chienyuanchang",
-          "amber-yujueWang",
-          "xirzec"
-        ],
-        "events": [
-          {
-            "type": "pr_created",
-            "timestamp": "2026-03-30T16:41:19Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "PR #37893 opened: feat(warp): explicit CJS via moduleType, esbuild ESM→CJS tra",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-30T16:44:00Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "The `moduleType === \"commonjs\"` branch replaces the provided `host` with a fresh `ts.createCompilerH",
-            "sentiment": "blocking",
-            "details": {
-              "body": "The `moduleType === \"commonjs\"` branch replaces the provided `host` with a fresh `ts.createCompilerHost`, which drops polyfill substitution (from `createPolyfillHost`) and also changes caching behavior. Concretely, a CJS target with `polyfillSuffix` will log “polyfill(s)…”, but compilation may read the original files instead of the polyfills. Fix by composing the override with the *existing* host (preserving `getSourceFile` behavior) while still isolating any SourceFile caching for Node16 implie",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959802"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-30T16:44:01Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "The `moduleType === \"commonjs\"` branch replaces the provided `host` with a fresh `ts.createCompilerH",
-            "sentiment": "blocking",
-            "details": {
-              "body": "The `moduleType === \"commonjs\"` branch replaces the provided `host` with a fresh `ts.createCompilerHost`, which drops polyfill substitution (from `createPolyfillHost`) and also changes caching behavior. Concretely, a CJS target with `polyfillSuffix` will log “polyfill(s)…”, but compilation may read the original files instead of the polyfills. Fix by composing the override with the *existing* host (preserving `getSourceFile` behavior) while still isolating any SourceFile caching for Node16 implie",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959827"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-30T16:44:01Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "In the worker crash handler, `outDir` is populated with `msg.target.tsconfig` (a tsconfig path), not",
-            "sentiment": "blocking",
-            "details": {
-              "body": "In the worker crash handler, `outDir` is populated with `msg.target.tsconfig` (a tsconfig path), not the target output directory. This will mislead downstream reporting/diagnostics and can break code that assumes `outDir` is a real output directory. Use the parsed target’s `outDir` if available (e.g., keep `parsed` in scope), or fall back to a clearly “unknown” value like an empty string or `msg.packageRoot`.\n```suggestion\n          outDir: msg.packageRoot ?? \"\",\n```",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959845"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-30T16:44:01Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "Defaulting the shim `type` to `\"module\"` when `target.moduleType` is absent can silently produce an ",
-            "sentiment": "blocking",
-            "details": {
-              "body": "Defaulting the shim `type` to `\"module\"` when `target.moduleType` is absent can silently produce an invalid output package.json for `condition: require` targets that weren’t migrated (Node will treat `.js` as ESM and `require()` will fail). Since this PR moves to explicit `moduleType`, consider making this failure explicit by validating config (e.g., require `moduleType: commonjs` when `condition` is `\"require\"`), or preserve backward compatibility by inferring a safe default for `\"require\"` tar",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959872"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-30T16:44:02Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "The previous esbuild-based CJS emission path set `platform: \"node\"` for CommonJS to help Node’s CJS ",
-            "sentiment": "blocking",
-            "details": {
-              "body": "The previous esbuild-based CJS emission path set `platform: \"node\"` for CommonJS to help Node’s CJS analysis (notably `cjs-module-lexer` named export detection). The new ESM→CJS transform omits `platform: \"node\"`, which can reduce interoperability/analysis quality for consumers/tools. Add `platform: \"node\"` here to match the prior behavior for CJS output.\n```suggestion\n        sourcefile: path.basename(srcPath),\n        platform: \"node\",\n```",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959895"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-30T16:44:02Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "`inferModuleType`, `setJsonMode`, and `isJsonMode` were removed from the package’s public exports (a",
-            "sentiment": "blocking",
-            "details": {
-              "body": "`inferModuleType`, `setJsonMode`, and `isJsonMode` were removed from the package’s public exports (and `inferModuleType` removed from `config.ts`). If `@microsoft/warp` is consumed externally, this is a breaking API change. Consider re-exporting these as deprecated shims for at least one release cycle (with runtime warnings if appropriate), or ensure the package versioning reflects a breaking change per semver.\n```suggestion\nexport {\n  findWarpConfig,\n  validateTsconfigPaths,\n  inferModuleType,\n",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959929"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-30T16:44:02Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "`inferModuleType`, `setJsonMode`, and `isJsonMode` were removed from the package’s public exports (a",
-            "sentiment": "blocking",
-            "details": {
-              "body": "`inferModuleType`, `setJsonMode`, and `isJsonMode` were removed from the package’s public exports (and `inferModuleType` removed from `config.ts`). If `@microsoft/warp` is consumed externally, this is a breaking API change. Consider re-exporting these as deprecated shims for at least one release cycle (with runtime warnings if appropriate), or ensure the package versioning reflects a breaking change per semver.",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959955"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-30T16:44:02Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "The new “virtual package.json type override” + `moduleType` behavior should have a targeted regressi",
-            "sentiment": "blocking",
-            "details": {
-              "body": "The new “virtual package.json type override” + `moduleType` behavior should have a targeted regression test that also includes `polyfillSuffix` (to ensure polyfill substitution still occurs under the commonjs host override). Adding a Vitest case that compiles a file requiring a polyfill-only change and asserting the emitted CJS output contains the polyfilled content would prevent regressions in this interaction.",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959969"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-30T16:44:03Z",
-            "actor": "copilot-pull-request-reviewer[bot]",
-            "actorRole": "copilot",
-            "description": "Review comment by copilot-pull-request-reviewer[bot]",
-            "sentiment": "neutral",
-            "details": {
-              "body": "## Pull request overview\n\nThis PR makes CommonJS output explicit via a `moduleType` target setting, updates Warp’s internal dedup/emit pipeline (including an esbuild ESM→CJS transform fast path), and expands tests to validate source-map behavior.\n\n**Changes:**\n- Add `moduleType: commonjs` to CJS targets across the repo’s `warp.config.yml` files.\n- Refactor compilation/dedup to separate type-check vs emit identity, add `programIdentity`, and introduce esbuild-based ESM→CJS transformation.\n- Updat",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#pullrequestreview-4031903972"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-03-30T18:19:21Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "feat(warp): explicit CJS via moduleType, esbuild ESM→CJS tra",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/c2acd960b702f5a8e5b60833b214809f7aa556e2"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-03-30T18:19:22Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "fix(warp): address review feedback on esbuild transform and ",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/1f52e407daa56b51b7046f0044f4731980d09aa5"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-03-30T18:19:22Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "fix(warp): preserve polyfill host when injecting CJS virtual",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/73ebe21f68f02022d2d88dcdaa08aee258e4c77d"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-03-30T18:19:22Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "test(warp): add regression test for polyfill + moduleType: c",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/ea885403de78467d4d70af51582611a4a9fb12bb"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-03-30T18:19:22Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "feat(warp): infer moduleType from condition for backward com",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/8eee5cce07c45c5d56123b43e3cb8b5cf5a02154"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-03-31T17:11:49Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Merge remote-tracking branch 'origin/main' into warp-compile",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/7776886aebba1aba1873d3098c95ddb5198e8e30"
-            }
-          },
-          {
-            "type": "issue_comment",
-            "timestamp": "2026-03-31T19:58:52Z",
-            "actor": "xirzec",
-            "actorRole": "reviewer",
-            "description": "Would it be possible to have warp assume ` moduleType: commonjs` when `condition === \"require\"` rath",
-            "sentiment": "neutral",
-            "details": {
-              "body": "Would it be possible to have warp assume ` moduleType: commonjs` when `condition === \"require\"` rather than setting this in hundreds of files? Or is there a reason that isn't a good default?",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#issuecomment-4165111480"
-            }
-          },
-          {
-            "type": "issue_comment",
-            "timestamp": "2026-03-31T20:46:57Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Yes, this is already implemented in this PR to preserve backward compat with any new lib that doesn'",
-            "sentiment": "neutral",
-            "details": {
-              "body": "> Would it be possible to have warp assume  moduleType: commonjs when condition === \"require\"\r\n\r\nYes, this is already implemented in this PR to preserve backward compat with any new lib that doesn't get a chance to use the new option.\r\n\r\n> rather than setting this in hundreds of files? Or is there a reason that isn't a good default?\r\n\r\nI just prefer these things to be explicit, even though we shouldn't care that much about cjs anymore.",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#issuecomment-4165408635"
-            }
-          },
-          {
-            "type": "bot_comment",
-            "timestamp": "2026-03-31T23:35:38Z",
-            "actor": "github-actions[bot]",
-            "actorRole": "bot",
-            "description": "## API Change Check",
-            "sentiment": "neutral",
-            "details": {
-              "body": "## API Change Check\r\n\r\nAPIView identified API level changes in this PR and created the following API reviews\r\n\r\n[@azure/storage-internal-avro](https://spa.apiview.dev/review/d8f416aaa6284c308b3fb49a44465f3e?activeApiRevisionId=171c7d32ff50472d976324ec34a9caa4)\r\n[@azure-tools/mock-hub](https://spa.apiview.dev/review/e136f040d83e488eb4a57b0c388a5949?activeApiRevisionId=6ae8e578a47449ccb6364391f5b44fb2)\r\n[@azure/keyvault-certificates](https://spa.apiview.dev/review/1fb5a6fd2898435b87b80fb3c56c3606?",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#issuecomment-4166362680"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-04-01T17:52:13Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Merge remote-tracking branch 'origin/main' into warp-compile",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/302b0a208d5e8e0235b0ce90025298bf4ae59903"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-01T22:14:19Z",
-            "actor": "jeremymeng",
-            "actorRole": "reviewer",
-            "description": "Not directly related to this PR but do we need cjs for our eslint plugin?",
-            "sentiment": "blocking",
-            "details": {
-              "body": "Not directly related to this PR but do we need cjs for our eslint plugin?",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3024927241"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-04-01T22:16:20Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Merge remote-tracking branch 'origin/main' into warp-compile",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/dd7a6f279aa54897c9fea1891c8097fffb5e1f9e"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-01T23:57:42Z",
-            "actor": "jeremymeng",
-            "actorRole": "reviewer",
-            "description": "Review comment by jeremymeng",
-            "sentiment": "neutral",
-            "details": {
-              "body": "The transpilation approach looks good. I also feel there's a lot of redundant information that we need to have.  We probably only have several special tools that don't need commonjs build or can't have ESM build (dev-tool?).  Couldn't we always output ESM and CJS?",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#pullrequestreview-4047375569"
-            }
-          },
-          {
-            "type": "issue_comment",
-            "timestamp": "2026-04-02T00:00:48Z",
-            "actor": "jeremymeng",
-            "actorRole": "reviewer",
-            "description": "I remember you disliked the idea, but it could be cleaner if we could have a root-level config and i",
-            "sentiment": "neutral",
-            "details": {
-              "body": "I remember you disliked the idea, but it could be cleaner if we could have a root-level config and individual packages can customize if needed",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#issuecomment-4173663697"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-02T00:24:15Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Looks like it is not needed, I opened https://github.com/Azure/azure-sdk-for-js/pull/37935",
-            "sentiment": "neutral",
-            "details": {
-              "body": "Looks like it is not needed, I opened https://github.com/Azure/azure-sdk-for-js/pull/37935",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3025280807"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-04-02T12:21:59Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Merge remote-tracking branch 'origin/main' into warp-compile",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/f87917154d2bf8380b525634a76b3e18885ac58a"
-            }
-          },
-          {
-            "type": "issue_comment",
-            "timestamp": "2026-04-02T16:25:06Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "@jeremymeng I opened https://github.com/Azure/azure-sdk-for-js/pull/37937",
-            "sentiment": "neutral",
-            "details": {
-              "body": "> I remember you disliked the idea, but it could be cleaner if we could have a root-level config and individual packages can customize if needed\r\n\r\n@jeremymeng I opened https://github.com/Azure/azure-sdk-for-js/pull/37937",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#issuecomment-4179010208"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-04-02T19:56:44Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Merge remote-tracking branch 'origin/main' into warp-compile",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/18e54cdffe5ca610e2c15f123c639a244dd379b4"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-04-02T22:21:26Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "fix: resolve 335 warp.config.yml merge conflict markers",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/a1a0a4b6c03f7c4f16c36dc4bf34a3d700428b45"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-04-02T22:38:49Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "fix: resolve remaining conflict marker in eslint-plugin warp",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/ea30b4c5d9f3aede57b8aee2a84ebc589f9aa20d"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-04-03T00:44:44Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Merge remote-tracking branch 'origin/main' into warp-compile",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/3c3d72aa06709e30b2db14d19c254cc9fa5cc78c"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-04-03T02:35:23Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "fix: restore arm-search warp.config.yml custom exports",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/ad4c5d3193ae571ab3fdd156094161dd977d5535"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-03T18:42:45Z",
-            "actor": "xirzec",
-            "actorRole": "reviewer",
-            "description": "json now appears to duplicate quiet?",
-            "sentiment": "blocking",
-            "details": {
-              "body": "json now appears to duplicate quiet?",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3033935797"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-03T18:46:06Z",
-            "actor": "xirzec",
-            "actorRole": "reviewer",
-            "description": "is this using the replacer argument to alphabetize the options? But aren't the options already in a ",
-            "sentiment": "blocking",
-            "details": {
-              "body": "is this using the replacer argument to alphabetize the options? But aren't the options already in a stable order since you explicitly iterate over a known list of them?",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3033945259"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-03T18:47:31Z",
-            "actor": "xirzec",
-            "actorRole": "reviewer",
-            "description": "why are we introducing deprecated methods into a tool only used inside our repo?",
-            "sentiment": "blocking",
-            "details": {
-              "body": "why are we introducing deprecated methods into a tool only used inside our repo? ",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3033949490"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-03T18:50:52Z",
-            "actor": "xirzec",
-            "actorRole": "reviewer",
-            "description": "nit: `Boolean(value)` is much more readable than !!",
-            "sentiment": "blocking",
-            "details": {
-              "body": "nit: `Boolean(value)` is much more readable than !!",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3033959474"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-03T18:59:58Z",
-            "actor": "xirzec",
-            "actorRole": "reviewer",
-            "description": "do any packages actually do this today? Looking at a few different warp configs touched by this PR a",
-            "sentiment": "blocking",
-            "details": {
-              "body": "do any packages actually do this today? Looking at a few different warp configs touched by this PR and I never saw this referenced. Feels like if it was then we wouldn't have seen so many additions for \"moduleType: commonjs\"",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3033998007"
-            }
-          },
-          {
-            "type": "review_approved",
-            "timestamp": "2026-04-03T19:00:44Z",
-            "actor": "xirzec",
-            "actorRole": "reviewer",
-            "description": "Approved by xirzec",
-            "sentiment": "positive",
-            "details": {
-              "body": "I'm fine with the high-level goals of this PR, but I do have some feedback about the implementation",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#pullrequestreview-4056825479"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-03T19:09:34Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Only packages that use polyfillSuffix don't extend from the base config. All other packages (300+) d",
-            "sentiment": "neutral",
-            "details": {
-              "body": "Only packages that use polyfillSuffix don't extend from the base config. All other packages (300+) do extend it.",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3034037323"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-04-03T19:21:46Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "build CJS from TS sources via esbuild, fix source map issues",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/0c1ade2bc4b8f3dbf53dd3753beaa8a9366a45b9"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-03T19:27:14Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Addressed in https://github.com/Azure/azure-sdk-for-js/pull/37893/commits/0c1ade2bc4b8f3dbf53dd3753b",
-            "sentiment": "neutral",
-            "details": {
-              "body": "Addressed in https://github.com/Azure/azure-sdk-for-js/pull/37893/commits/0c1ade2bc4b8f3dbf53dd3753beaa8a9366a45b9",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3034090045"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-03T19:27:39Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "This is still being used by the parallel mode but will be deleted in an upcoming PR.",
-            "sentiment": "neutral",
-            "details": {
-              "body": "This is still being used by the parallel mode but will be deleted in an upcoming PR.",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3034091225"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-03T19:27:45Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Addressed in https://github.com/Azure/azure-sdk-for-js/pull/37893/commits/0c1ade2bc4b8f3dbf53dd3753b",
-            "sentiment": "neutral",
-            "details": {
-              "body": "Addressed in https://github.com/Azure/azure-sdk-for-js/pull/37893/commits/0c1ade2bc4b8f3dbf53dd3753beaa8a9366a45b9",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3034091590"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-04-03T19:27:50Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Addressed in https://github.com/Azure/azure-sdk-for-js/pull/37893/commits/0c1ade2bc4b8f3dbf53dd3753b",
-            "sentiment": "neutral",
-            "details": {
-              "body": "Addressed in https://github.com/Azure/azure-sdk-for-js/pull/37893/commits/0c1ade2bc4b8f3dbf53dd3753beaa8a9366a45b9",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3034091846"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-04-03T19:29:49Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "Merge remote-tracking branch 'origin/main' into warp-compile",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/0c397d453037aafb4e13f3f1c1d62442b1da27cb"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-04-03T19:29:57Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "remove unused json option from BuildOptions",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/d8800185c4221eeb79d91695d60c300e1cf68236"
-            }
-          },
-          {
-            "type": "review_approved",
-            "timestamp": "2026-04-03T21:20:02Z",
-            "actor": "xirzec",
-            "actorRole": "reviewer",
-            "description": "Approved by xirzec",
-            "sentiment": "positive",
-            "details": {
-              "body": null,
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#pullrequestreview-4057337268"
-            }
-          },
-          {
-            "type": "pr_merged",
-            "timestamp": "2026-04-03T21:34:49Z",
-            "actor": "deyaaeldeen",
-            "actorRole": "author",
-            "description": "PR #37893 merged",
-            "sentiment": "positive",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893"
-            }
-          }
-        ],
-        "reviewWaitDays": 4.12,
-        "reviewWaitCycles": 5
-      },
-      {
-        "repo": "Azure/azure-sdk-for-js",
-        "language": "JavaScript",
         "number": 37638,
         "url": "https://github.com/Azure/azure-sdk-for-js/pull/37638",
         "title": "[AutoPR @azure-arm-netapp]-generated-from-SDK Generation - JS-6007554",
@@ -22015,6 +20921,8 @@
           "Mgmt",
           "Self-Service Release"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 36,
         "reviewers": [
           "MaryGao",
           "qiaozha",
@@ -22229,24 +21137,6 @@
             "details": {
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37638"
             }
-          },
-          {
-            "type": "tool_call",
-            "timestamp": "2026-03-22T15:46:52.092Z",
-            "actor": "developer",
-            "actorRole": "tool",
-            "description": "release-plan.update-release-status — OK (3.2s)",
-            "sentiment": "neutral",
-            "language": "JavaScript",
-            "details": {
-              "toolName": "release-plan.update-release-status",
-              "success": true,
-              "durationMs": 3177,
-              "clientName": "",
-              "clientType": "human",
-              "language": "JavaScript",
-              "packageName": "@azure/arm-netapp"
-            }
           }
         ],
         "reviewWaitDays": 2.7,
@@ -22271,6 +21161,8 @@
           "Mgmt",
           "Self-Service Release"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 650,
         "reviewers": [
           "MaryGao",
           "JialinHuang803",
@@ -22633,6 +21525,8 @@
           "Azure Load Testing",
           "Online Experimentation"
         ],
+        "serviceDirCount": 39,
+        "changedFiles": 801,
         "reviewers": [
           "akania",
           "xirzec",
@@ -22902,28 +21796,11 @@
             "details": {
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37372"
             }
-          },
-          {
-            "type": "tool_call",
-            "timestamp": "2026-03-04T00:27:15.093Z",
-            "actor": "developer",
-            "actorRole": "tool",
-            "description": "release-plan.update-release-status — OK (5.0s)",
-            "sentiment": "neutral",
-            "language": "JavaScript",
-            "details": {
-              "toolName": "release-plan.update-release-status",
-              "success": true,
-              "durationMs": 5042,
-              "clientName": "",
-              "clientType": "human",
-              "language": "JavaScript",
-              "packageName": "@azure/arm-netapp"
-            }
           }
         ],
         "reviewWaitDays": 0.67,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -22993,6 +21870,8 @@
           "Online Experimentation",
           "Voice Live"
         ],
+        "serviceDirCount": 3,
+        "changedFiles": 1322,
         "reviewers": [
           "akania",
           "dpwatrous",
@@ -23379,7 +22258,8 @@
           }
         ],
         "reviewWaitDays": 3.23,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -23400,6 +22280,8 @@
           "Mgmt",
           "Self-Service Release"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 620,
         "reviewers": [
           "MaryGao",
           "qiaozha",
@@ -23624,6 +22506,8 @@
           "Mgmt",
           "Self-Service Release"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 14,
         "reviewers": [
           "MaryGao",
           "qiaozha",
@@ -23793,6 +22677,8 @@
           "Microsoft Playwright Testing",
           "Azure Load Testing"
         ],
+        "serviceDirCount": 38,
+        "changedFiles": 242,
         "reviewers": [
           "axisc",
           "joshfree",
@@ -23948,7 +22834,8 @@
           }
         ],
         "reviewWaitDays": 0.02,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -23969,6 +22856,8 @@
           "Mgmt",
           "Self-Service Release"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 603,
         "reviewers": [
           "MaryGao",
           "qiaozha"
@@ -24232,6 +23121,8 @@
           "Mgmt",
           "Self-Service Release"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 381,
         "reviewers": [
           "jeremymeng",
           "qiaozha",
@@ -24533,6 +23424,8 @@
           "Azure Load Testing",
           "Online Experimentation"
         ],
+        "serviceDirCount": 51,
+        "changedFiles": 436,
         "reviewers": [
           "akania",
           "dpwatrous",
@@ -25187,7 +24080,8 @@
           }
         ],
         "reviewWaitDays": 8.11,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -25208,6 +24102,8 @@
           "Mgmt",
           "Monthly Release"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 746,
         "reviewers": [
           "jeremymeng",
           "qiaozha",
@@ -25416,6 +24312,8 @@
           "Azure Load Testing",
           "Online Experimentation"
         ],
+        "serviceDirCount": 16,
+        "changedFiles": 1267,
         "reviewers": [
           "akania",
           "vicancy",
@@ -25784,7 +24682,8 @@
           }
         ],
         "reviewWaitDays": 2.29,
-        "reviewWaitCycles": 4
+        "reviewWaitCycles": 4,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -25856,6 +24755,8 @@
           "Azure Load Testing",
           "Online Experimentation"
         ],
+        "serviceDirCount": 13,
+        "changedFiles": 2079,
         "reviewers": [
           "akania",
           "aelij",
@@ -26114,7 +25015,8 @@
           }
         ],
         "reviewWaitDays": 0.06,
-        "reviewWaitCycles": 3
+        "reviewWaitCycles": 3,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -26134,6 +25036,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 358,
         "reviewers": [
           "jeremymeng",
           "qiaozha",
@@ -26442,6 +25346,8 @@
           "Azure Load Testing",
           "Online Experimentation"
         ],
+        "serviceDirCount": 51,
+        "changedFiles": 421,
         "reviewers": [
           "akania",
           "dpwatrous",
@@ -26758,7 +25664,8 @@
           }
         ],
         "reviewWaitDays": 0.29,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -26832,6 +25739,8 @@
           "Azure Load Testing",
           "Online Experimentation"
         ],
+        "serviceDirCount": 51,
+        "changedFiles": 438,
         "reviewers": [
           "akania",
           "aelij",
@@ -27264,7 +26173,8 @@
           }
         ],
         "reviewWaitDays": 0.08,
-        "reviewWaitCycles": 3
+        "reviewWaitCycles": 3,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -27335,6 +26245,8 @@
           "Azure Load Testing",
           "Online Experimentation"
         ],
+        "serviceDirCount": 50,
+        "changedFiles": 406,
         "reviewers": [
           "akania",
           "aelij",
@@ -27604,7 +26516,8 @@
           }
         ],
         "reviewWaitDays": 0.53,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -27628,6 +26541,8 @@
           "Communication - Identity",
           "Azure Load Testing"
         ],
+        "serviceDirCount": 14,
+        "changedFiles": 96,
         "reviewers": [
           "johngallardo",
           "ganeshyb",
@@ -27987,7 +26902,8 @@
           }
         ],
         "reviewWaitDays": 1.35,
-        "reviewWaitCycles": 4
+        "reviewWaitCycles": 4,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -28008,6 +26924,8 @@
           "Mgmt",
           "Communication - Job Router"
         ],
+        "serviceDirCount": 3,
+        "changedFiles": 3761,
         "reviewers": [
           "xirzec",
           "qiaozha",
@@ -28110,7 +27028,8 @@
           }
         ],
         "reviewWaitDays": 1.33,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -28133,6 +27052,8 @@
           "Communication - Job Router",
           "Communication - Messages"
         ],
+        "serviceDirCount": 5,
+        "changedFiles": 13576,
         "reviewers": [
           "xirzec",
           "juancamilor",
@@ -28878,7 +27799,8 @@
           }
         ],
         "reviewWaitDays": 0.11,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -28899,6 +27821,8 @@
           "Mgmt",
           "AgriFood"
         ],
+        "serviceDirCount": 90,
+        "changedFiles": 217,
         "reviewers": [
           "xirzec",
           "MaryGao",
@@ -29001,7 +27925,8 @@
           }
         ],
         "reviewWaitDays": 0.72,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -29073,6 +27998,8 @@
           "Azure Load Testing",
           "Online Experimentation"
         ],
+        "serviceDirCount": 37,
+        "changedFiles": 803,
         "reviewers": [
           "akania",
           "aelij",
@@ -29291,7 +28218,8 @@
           }
         ],
         "reviewWaitDays": 0.11,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -29311,6 +28239,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 352,
         "reviewers": [
           "qiaozha",
           "MaryGao"
@@ -29539,6 +28469,8 @@
           "Microsoft Playwright Testing",
           "Azure Load Testing"
         ],
+        "serviceDirCount": 83,
+        "changedFiles": 314,
         "reviewers": [
           "dpwatrous",
           "xirzec",
@@ -29702,7 +28634,8 @@
           }
         ],
         "reviewWaitDays": 0.8,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -29725,6 +28658,8 @@
           "dev-tool",
           "WebPubSub"
         ],
+        "serviceDirCount": 34,
+        "changedFiles": 684,
         "reviewers": [
           "bterlson",
           "dpwatrous",
@@ -30237,7 +29172,8 @@
           }
         ],
         "reviewWaitDays": 5.79,
-        "reviewWaitCycles": 7
+        "reviewWaitCycles": 7,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -30311,6 +29247,8 @@
           "Azure Load Testing",
           "Online Experimentation"
         ],
+        "serviceDirCount": 15,
+        "changedFiles": 1243,
         "reviewers": [
           "akania",
           "dpwatrous",
@@ -30567,7 +29505,8 @@
           }
         ],
         "reviewWaitDays": 55.71,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -30639,6 +29578,8 @@
           "Azure Load Testing",
           "Online Experimentation"
         ],
+        "serviceDirCount": 50,
+        "changedFiles": 397,
         "reviewers": [
           "bterlson",
           "akania",
@@ -30868,7 +29809,8 @@
           }
         ],
         "reviewWaitDays": 0,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -30937,6 +29879,8 @@
           "Communication - Call Automation",
           "Azure Load Testing"
         ],
+        "serviceDirCount": 36,
+        "changedFiles": 785,
         "reviewers": [
           "akania",
           "dpwatrous",
@@ -31134,7 +30078,8 @@
           }
         ],
         "reviewWaitDays": 0,
-        "reviewWaitCycles": 0
+        "reviewWaitCycles": 0,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -31154,6 +30099,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 369,
         "reviewers": [
           "qiaozha",
           "MaryGao"
@@ -31345,6 +30292,8 @@
           "dev-tool",
           "AgriFood"
         ],
+        "serviceDirCount": 42,
+        "changedFiles": 448,
         "reviewers": [
           "akania",
           "dpwatrous",
@@ -31852,7 +30801,8 @@
           }
         ],
         "reviewWaitDays": 6.02,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -31872,6 +30822,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 22,
+        "changedFiles": 22,
         "reviewers": [
           "MaryGao",
           "qiaozha",
@@ -31949,7 +30901,8 @@
           }
         ],
         "reviewWaitDays": 0.02,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-js",
@@ -31969,6 +30922,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 334,
         "reviewers": [
           "jeremymeng",
           "ckairen",
@@ -32234,6 +31189,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 88,
         "reviewers": [
           "lirenhe",
           "tadelesh",
@@ -32401,6 +31358,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 59,
         "reviewers": [
           "lirenhe",
           "JiaqiZhang-Dev",
@@ -32606,6 +31565,8 @@
           "WebPubSub",
           "Internal"
         ],
+        "serviceDirCount": 10,
+        "changedFiles": 693,
         "reviewers": [
           "vicancy",
           "benbp",
@@ -32928,7 +31889,8 @@
           }
         ],
         "reviewWaitDays": 0.45,
-        "reviewWaitCycles": 3
+        "reviewWaitCycles": 3,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-go",
@@ -32948,6 +31910,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 110,
         "reviewers": [
           "lirenhe",
           "JiaqiZhang-Dev",
@@ -33103,6 +32067,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 110,
         "reviewers": [
           "tadelesh",
           "lirenhe",
@@ -33401,6 +32367,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 385,
         "reviewers": [
           "tadelesh",
           "RickWinter",
@@ -33572,6 +32540,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 140,
         "reviewers": [
           "RickWinter",
           "lirenhe",
@@ -33950,6 +32920,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 88,
         "reviewers": [
           "tadelesh",
           "JiaqiZhang-Dev",
@@ -34080,6 +33052,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 188,
         "reviewers": [
           "RickWinter",
           "lirenhe",
@@ -34795,6 +33769,8 @@
           "WebPubSub",
           "Internal"
         ],
+        "serviceDirCount": 10,
+        "changedFiles": 675,
         "reviewers": [
           "vicancy",
           "axisc",
@@ -34905,7 +33881,8 @@
           }
         ],
         "reviewWaitDays": 0,
-        "reviewWaitCycles": 1
+        "reviewWaitCycles": 1,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-go",
@@ -34925,6 +33902,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 11,
         "reviewers": [
           "JiaqiZhang-Dev",
           "tadelesh",
@@ -35104,6 +34083,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 81,
         "reviewers": [
           "tadelesh",
           "lirenhe",
@@ -35274,6 +34255,8 @@
         "labels": [
           "Mgmt"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 66,
         "reviewers": [
           "lirenhe",
           "ArcturusZhang",
@@ -35396,6 +34379,8 @@
         "labels": [
           "Stable"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 74,
         "reviewers": [
           "lirenhe",
           "ArcturusZhang",
@@ -35567,6 +34552,8 @@
           "WebPubSub",
           "Internal"
         ],
+        "serviceDirCount": 10,
+        "changedFiles": 656,
         "reviewers": [
           "analogrelay",
           "Pilchie",
@@ -35678,7 +34665,8 @@
           }
         ],
         "reviewWaitDays": 0.04,
-        "reviewWaitCycles": 2
+        "reviewWaitCycles": 2,
+        "massChange": true
       },
       {
         "repo": "Azure/azure-sdk-for-go",
@@ -35699,6 +34687,8 @@
           "BreakingChange",
           "Beta"
         ],
+        "serviceDirCount": 1,
+        "changedFiles": 75,
         "reviewers": [
           "tadelesh",
           "lirenhe",
@@ -35843,71 +34833,24 @@
       "id": "rw-2",
       "label": "Spec PR #38459",
       "startDate": "2025-10-28T09:06:59Z",
-      "endDate": "2025-11-06T03:02:35Z",
+      "endDate": "2025-10-30T09:22:19Z",
       "specPRNumbers": [
         38459
       ],
-      "sdkPRNumbers": {
-        "Java": [
-          47120
-        ],
-        "JavaScript": [
-          36373
-        ]
-      },
+      "sdkPRNumbers": {},
       "summary": {
-        "totalDurationDays": 8.75,
+        "totalDurationDays": 2.01,
         "specPRDays": 2.01,
         "pipelineGapDays": null,
         "totalNags": 0,
         "totalManualFixes": 0,
-        "totalUniqueReviewers": 4,
-        "totalReviewWaitDays": 10.19,
-        "totalReviewWaitCycles": 6
+        "totalUniqueReviewers": 1,
+        "totalReviewWaitDays": 1.79,
+        "totalReviewWaitCycles": 2
       }
     },
     {
       "id": "rw-3",
-      "label": "Spec PR #38581",
-      "startDate": "2025-11-03T14:12:54Z",
-      "endDate": "2025-11-05T20:40:46Z",
-      "specPRNumbers": [
-        38581
-      ],
-      "sdkPRNumbers": {},
-      "summary": {
-        "totalDurationDays": 2.27,
-        "specPRDays": 2.27,
-        "pipelineGapDays": null,
-        "totalNags": 0,
-        "totalManualFixes": 0,
-        "totalUniqueReviewers": 2,
-        "totalReviewWaitDays": 8.08,
-        "totalReviewWaitCycles": 1
-      }
-    },
-    {
-      "id": "rw-4",
-      "label": "Spec PR #38727",
-      "startDate": "2025-11-12T01:31:29Z",
-      "endDate": "2025-11-12T02:22:26Z",
-      "specPRNumbers": [
-        38727
-      ],
-      "sdkPRNumbers": {},
-      "summary": {
-        "totalDurationDays": 0.04,
-        "specPRDays": 0.04,
-        "pipelineGapDays": null,
-        "totalNags": 0,
-        "totalManualFixes": 0,
-        "totalUniqueReviewers": 1,
-        "totalReviewWaitDays": 0.01,
-        "totalReviewWaitCycles": 1
-      }
-    },
-    {
-      "id": "rw-5",
       "label": "Spec PR #38728",
       "startDate": "2025-11-12T02:25:25Z",
       "endDate": "2025-11-12T04:01:44Z",
@@ -35927,7 +34870,7 @@
       }
     },
     {
-      "id": "rw-6",
+      "id": "rw-4",
       "label": "Spec PR #38730",
       "startDate": "2025-11-12T04:28:57Z",
       "endDate": "2025-11-12T06:21:19Z",
@@ -35947,7 +34890,7 @@
       }
     },
     {
-      "id": "rw-7",
+      "id": "rw-5",
       "label": "Spec PR #38734",
       "startDate": "2025-11-12T05:45:38Z",
       "endDate": "2025-11-12T06:50:42Z",
@@ -35967,7 +34910,7 @@
       }
     },
     {
-      "id": "rw-8",
+      "id": "rw-6",
       "label": "Spec PR #38806",
       "startDate": "2025-11-14T12:50:00Z",
       "endDate": "2025-11-19T15:57:38Z",
@@ -35986,8 +34929,7 @@
         "Java": [
           47334,
           47333,
-          47288,
-          47315
+          47288
         ],
         "JavaScript": [
           36626
@@ -36000,12 +34942,12 @@
         "totalNags": 0,
         "totalManualFixes": 0,
         "totalUniqueReviewers": 12,
-        "totalReviewWaitDays": 17.87,
-        "totalReviewWaitCycles": 14
+        "totalReviewWaitDays": 17.81,
+        "totalReviewWaitCycles": 13
       }
     },
     {
-      "id": "rw-9",
+      "id": "rw-7",
       "label": "Spec PR #38998",
       "startDate": "2025-11-26T12:54:20Z",
       "endDate": "2025-12-01T02:41:28Z",
@@ -36035,7 +34977,7 @@
       }
     },
     {
-      "id": "rw-10",
+      "id": "rw-8",
       "label": "Spec PR #39013",
       "startDate": "2025-12-01T16:52:07Z",
       "endDate": "2025-12-05T17:16:27Z",
@@ -36051,27 +34993,25 @@
           47418
         ],
         "JavaScript": [
-          36780,
-          36773
+          36780
         ],
         "Go": [
-          25703,
-          25687
+          25703
         ]
       },
       "summary": {
         "totalDurationDays": 4.02,
         "specPRDays": 0.66,
-        "pipelineGapDays": null,
+        "pipelineGapDays": 0.06,
         "totalNags": 0,
         "totalManualFixes": 0,
-        "totalUniqueReviewers": 11,
-        "totalReviewWaitDays": 5.86,
-        "totalReviewWaitCycles": 11
+        "totalUniqueReviewers": 8,
+        "totalReviewWaitDays": 5.84,
+        "totalReviewWaitCycles": 9
       }
     },
     {
-      "id": "rw-11",
+      "id": "rw-9",
       "label": "Spec PR #39032",
       "startDate": "2025-12-02T07:41:45Z",
       "endDate": "2026-01-08T09:13:00Z",
@@ -36099,7 +35039,7 @@
       }
     },
     {
-      "id": "rw-12",
+      "id": "rw-10",
       "label": "Spec PR #39037",
       "startDate": "2025-12-02T13:22:24Z",
       "endDate": "2025-12-03T08:44:27Z",
@@ -36119,7 +35059,7 @@
       }
     },
     {
-      "id": "rw-13",
+      "id": "rw-11",
       "label": "Spec PR #39143",
       "startDate": "2025-12-09T14:45:46Z",
       "endDate": "2025-12-11T13:18:48Z",
@@ -36139,78 +35079,27 @@
       }
     },
     {
-      "id": "rw-14",
-      "label": "Spec PR #39167",
-      "startDate": "2025-12-10T13:21:43Z",
-      "endDate": "2025-12-10T19:48:07Z",
+      "id": "rw-12",
+      "label": "Spec PR #39842",
+      "startDate": "2026-01-22T17:16:05Z",
+      "endDate": "2026-01-26T10:05:19Z",
       "specPRNumbers": [
-        39167
+        39842
       ],
       "sdkPRNumbers": {},
       "summary": {
-        "totalDurationDays": 0.27,
-        "specPRDays": 0.27,
+        "totalDurationDays": 3.7,
+        "specPRDays": 3.7,
         "pipelineGapDays": null,
         "totalNags": 0,
         "totalManualFixes": 0,
         "totalUniqueReviewers": 1,
-        "totalReviewWaitDays": 0.01,
+        "totalReviewWaitDays": 1.04,
         "totalReviewWaitCycles": 1
       }
     },
     {
-      "id": "rw-15",
-      "label": "Spec PR #39459",
-      "startDate": "2026-01-06T02:33:48Z",
-      "endDate": "2026-01-22T08:39:32Z",
-      "specPRNumbers": [
-        39459
-      ],
-      "sdkPRNumbers": {
-        "Java": [
-          47762
-        ]
-      },
-      "summary": {
-        "totalDurationDays": 16.25,
-        "specPRDays": 16.25,
-        "pipelineGapDays": null,
-        "totalNags": 0,
-        "totalManualFixes": 0,
-        "totalUniqueReviewers": 2,
-        "totalReviewWaitDays": 2.57,
-        "totalReviewWaitCycles": 2
-      }
-    },
-    {
-      "id": "rw-16",
-      "label": "Spec PR #39842",
-      "startDate": "2026-01-22T17:16:05Z",
-      "endDate": "2026-02-02T23:42:08Z",
-      "specPRNumbers": [
-        39842
-      ],
-      "sdkPRNumbers": {
-        "Python": [
-          44943
-        ],
-        "Java": [
-          47860
-        ]
-      },
-      "summary": {
-        "totalDurationDays": 11.27,
-        "specPRDays": 3.7,
-        "pipelineGapDays": 3.54,
-        "totalNags": 0,
-        "totalManualFixes": 0,
-        "totalUniqueReviewers": 5,
-        "totalReviewWaitDays": 1.06,
-        "totalReviewWaitCycles": 6
-      }
-    },
-    {
-      "id": "rw-17",
+      "id": "rw-13",
       "label": "Spec PR #39908",
       "startDate": "2026-01-26T16:14:44Z",
       "endDate": "2026-03-02T14:17:55Z",
@@ -36243,12 +35132,32 @@
       }
     },
     {
-      "id": "rw-18",
-      "label": "Spec PR #40140",
-      "startDate": "2026-02-04T03:11:45Z",
-      "endDate": "2026-03-05T02:28:37Z",
+      "id": "rw-14",
+      "label": "Spec PR #40743",
+      "startDate": "2026-02-25T14:48:41Z",
+      "endDate": "2026-02-25T16:18:33Z",
       "specPRNumbers": [
-        40140
+        40743
+      ],
+      "sdkPRNumbers": {},
+      "summary": {
+        "totalDurationDays": 0.06,
+        "specPRDays": 0.06,
+        "pipelineGapDays": null,
+        "totalNags": 0,
+        "totalManualFixes": 0,
+        "totalUniqueReviewers": 1,
+        "totalReviewWaitDays": 0.03,
+        "totalReviewWaitCycles": 1
+      }
+    },
+    {
+      "id": "rw-15",
+      "label": "Spec PR #40744",
+      "startDate": "2026-02-25T17:03:29Z",
+      "endDate": "2026-03-03T15:13:33Z",
+      "specPRNumbers": [
+        40744
       ],
       "sdkPRNumbers": {
         "Java": [
@@ -36256,89 +35165,18 @@
         ]
       },
       "summary": {
-        "totalDurationDays": 28.97,
-        "specPRDays": 28.97,
-        "pipelineGapDays": null,
-        "totalNags": 0,
-        "totalManualFixes": 0,
-        "totalUniqueReviewers": 8,
-        "totalReviewWaitDays": 1.53,
-        "totalReviewWaitCycles": 5
-      }
-    },
-    {
-      "id": "rw-19",
-      "label": "Spec PR #40560",
-      "startDate": "2026-02-19T21:43:20Z",
-      "endDate": "2026-02-20T00:16:07Z",
-      "specPRNumbers": [
-        40560
-      ],
-      "sdkPRNumbers": {},
-      "summary": {
-        "totalDurationDays": 0.11,
-        "specPRDays": 0.11,
-        "pipelineGapDays": null,
+        "totalDurationDays": 5.92,
+        "specPRDays": 0.84,
+        "pipelineGapDays": 4.91,
         "totalNags": 0,
         "totalManualFixes": 0,
         "totalUniqueReviewers": 2,
-        "totalReviewWaitDays": 0.04,
+        "totalReviewWaitDays": 0.86,
         "totalReviewWaitCycles": 2
       }
     },
     {
-      "id": "rw-20",
-      "label": "Spec PR #40743",
-      "startDate": "2026-02-25T07:39:58Z",
-      "endDate": "2026-03-03T18:00:20Z",
-      "specPRNumbers": [
-        40743
-      ],
-      "sdkPRNumbers": {
-        "Java": [
-          48107
-        ],
-        "JavaScript": [
-          37372
-        ]
-      },
-      "summary": {
-        "totalDurationDays": 6.43,
-        "specPRDays": 0.06,
-        "pipelineGapDays": null,
-        "totalNags": 0,
-        "totalManualFixes": 0,
-        "totalUniqueReviewers": 4,
-        "totalReviewWaitDays": 0.72,
-        "totalReviewWaitCycles": 3
-      }
-    },
-    {
-      "id": "rw-21",
-      "label": "Spec PR #40744",
-      "startDate": "2026-02-25T17:03:29Z",
-      "endDate": "2026-03-02T22:53:51Z",
-      "specPRNumbers": [
-        40744
-      ],
-      "sdkPRNumbers": {
-        "JavaScript": [
-          37385
-        ]
-      },
-      "summary": {
-        "totalDurationDays": 5.24,
-        "specPRDays": 0.84,
-        "pipelineGapDays": 0.37,
-        "totalNags": 0,
-        "totalManualFixes": 0,
-        "totalUniqueReviewers": 2,
-        "totalReviewWaitDays": 3.92,
-        "totalReviewWaitCycles": 3
-      }
-    },
-    {
-      "id": "rw-22",
+      "id": "rw-16",
       "label": "Spec PR #40855",
       "startDate": "2026-02-27T14:39:59Z",
       "endDate": "2026-03-05T13:24:52Z",
@@ -36358,39 +35196,7 @@
       }
     },
     {
-      "id": "rw-23",
-      "label": "Spec PR #40940",
-      "startDate": "2026-03-03T01:58:44Z",
-      "endDate": "2026-04-03T21:34:49Z",
-      "specPRNumbers": [
-        40940
-      ],
-      "sdkPRNumbers": {
-        "Java": [
-          48509,
-          48489
-        ],
-        "JavaScript": [
-          37893,
-          37638
-        ],
-        "Go": [
-          26371
-        ]
-      },
-      "summary": {
-        "totalDurationDays": 31.82,
-        "specPRDays": 10.26,
-        "pipelineGapDays": 0.08,
-        "totalNags": 0,
-        "totalManualFixes": 0,
-        "totalUniqueReviewers": 13,
-        "totalReviewWaitDays": 14.01,
-        "totalReviewWaitCycles": 16
-      }
-    },
-    {
-      "id": "rw-24",
+      "id": "rw-17",
       "label": "Spec PR #41041",
       "startDate": "2026-03-05T10:32:46Z",
       "endDate": "2026-03-17T16:05:02Z",
@@ -36402,8 +35208,7 @@
           45613
         ],
         "Java": [
-          48350,
-          48336
+          48350
         ],
         "JavaScript": [
           37567
@@ -36415,16 +35220,16 @@
       "summary": {
         "totalDurationDays": 12.23,
         "specPRDays": 4.69,
-        "pipelineGapDays": null,
+        "pipelineGapDays": 0.29,
         "totalNags": 0,
         "totalManualFixes": 0,
-        "totalUniqueReviewers": 9,
-        "totalReviewWaitDays": 16.02,
-        "totalReviewWaitCycles": 8
+        "totalUniqueReviewers": 8,
+        "totalReviewWaitDays": 15.99,
+        "totalReviewWaitCycles": 7
       }
     },
     {
-      "id": "rw-25",
+      "id": "rw-18",
       "label": "Spec PR #41250",
       "startDate": "2026-03-11T14:15:04Z",
       "endDate": "2026-03-12T09:38:01Z",
@@ -36444,37 +35249,44 @@
       }
     },
     {
-      "id": "rw-26",
+      "id": "rw-19",
       "label": "Spec PR #41312",
       "startDate": "2026-03-12T10:20:55Z",
-      "endDate": "2026-03-12T15:23:43Z",
+      "endDate": "2026-03-23T23:57:30Z",
       "specPRNumbers": [
         41312
       ],
-      "sdkPRNumbers": {},
+      "sdkPRNumbers": {
+        "Java": [
+          48509
+        ],
+        "JavaScript": [
+          37638
+        ]
+      },
       "summary": {
-        "totalDurationDays": 0.21,
+        "totalDurationDays": 11.57,
         "specPRDays": 0.21,
-        "pipelineGapDays": null,
+        "pipelineGapDays": 0.78,
         "totalNags": 0,
         "totalManualFixes": 0,
-        "totalUniqueReviewers": 2,
-        "totalReviewWaitDays": 0.18,
-        "totalReviewWaitCycles": 2
+        "totalUniqueReviewers": 5,
+        "totalReviewWaitDays": 4.36,
+        "totalReviewWaitCycles": 5
       }
     }
   ],
   "summary": {
-    "totalSpecPRs": 26,
-    "totalSDKPRs": 117,
+    "totalSpecPRs": 25,
+    "totalSDKPRs": 115,
     "totalReleases": 0,
-    "avgCycleTimeDays": 9.21,
-    "avgPipelineGapDays": 0.83,
-    "avgReviewWaitDays": 2.49,
+    "avgCycleTimeDays": 7.95,
+    "avgPipelineGapDays": 0.99,
+    "avgReviewWaitDays": 2.48,
     "totalNags": 0,
     "totalManualFixes": 0,
-    "totalToolCalls": 4,
-    "toolCallSuccessRate": 1,
+    "totalToolCalls": 0,
+    "toolCallSuccessRate": null,
     "languageBreakdown": {
       "Python": {
         "prCount": 15,
@@ -36483,14 +35295,14 @@
         "releaseCount": 0
       },
       "Java": {
-        "prCount": 52,
-        "mergedCount": 50,
-        "avgDays": 1.06,
+        "prCount": 51,
+        "mergedCount": 49,
+        "avgDays": 1.01,
         "releaseCount": 0
       },
       "JavaScript": {
-        "prCount": 34,
-        "mergedCount": 33,
+        "prCount": 33,
+        "mergedCount": 32,
         "avgDays": 4.28,
         "releaseCount": 0
       },
@@ -36504,14 +35316,10 @@
     "topReviewers": [
       {
         "login": "weidongxu-microsoft",
-        "reviewCount": 130
+        "reviewCount": 129
       },
       {
         "login": "markcowl",
-        "reviewCount": 50
-      },
-      {
-        "login": "XiaofeiCao",
         "reviewCount": 50
       },
       {
@@ -36523,15 +35331,19 @@
         "reviewCount": 47
       },
       {
-        "login": "MaryGao",
-        "reviewCount": 39
+        "login": "XiaofeiCao",
+        "reviewCount": 41
       },
       {
-        "login": "jeremymeng",
-        "reviewCount": 39
+        "login": "MaryGao",
+        "reviewCount": 38
       },
       {
         "login": "tadelesh",
+        "reviewCount": 36
+      },
+      {
+        "login": "jeremymeng",
         "reviewCount": 36
       },
       {
@@ -36549,12 +35361,12 @@
     {
       "type": "bottleneck",
       "severity": "warning",
-      "description": "Go is consistently slowest (avg 11.22d vs Java at 1.06d)"
+      "description": "Go is consistently slowest (avg 11.22d vs Java at 1.01d)"
     },
     {
       "type": "summary",
       "severity": "info",
-      "description": "Average release cycle: 9.21d across 26 windows"
+      "description": "Average release cycle: 7.95d across 19 windows"
     }
   ]
 }

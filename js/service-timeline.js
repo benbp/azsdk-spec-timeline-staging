@@ -861,12 +861,15 @@ const ServiceTimeline = (() => {
       </div>
     `;
 
-    // Inline PR link click → sidebar
+    // Inline PR link click → sidebar, hover → tooltip
     label.querySelectorAll('.meta-pr-link[data-pr-idx]').forEach(el => {
+      const pr = prs[parseInt(el.dataset.prIdx)];
       el.addEventListener('click', (e) => {
         e.stopPropagation();
-        UI.showPRDetail(prs[parseInt(el.dataset.prIdx)]);
+        UI.showPRDetail(pr);
       });
+      el.addEventListener('mouseenter', (e) => UI.showPRTooltip(e, pr));
+      el.addEventListener('mouseleave', () => UI.hideTooltip());
     });
 
     // Handle "click to see all" expansion

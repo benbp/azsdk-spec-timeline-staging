@@ -103,12 +103,12 @@ const UI = (() => {
     {
       file: 'data/service-durabletask.json',
       name: 'DurableTask',
-      meta: '15 spec PRs · 125 SDK PRs · 5 languages · 15 release windows · 1yr lookback'
+      meta: '15 spec PRs · 126 SDK PRs · 5 languages · 7 release windows · 1yr lookback'
     },
     {
       file: 'data/service-netapp.json',
       name: 'NetApp',
-      meta: '26 spec PRs · 117 SDK PRs · 4 languages · 26 release windows · 1yr lookback'
+      meta: '25 spec PRs · 115 SDK PRs · 4 languages · 19 release windows · 1yr lookback'
     }
   ];
 
@@ -354,6 +354,42 @@ const UI = (() => {
     }
     if (top < 8) top = 8;
 
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+  }
+
+  function showPRTooltip(mouseEvent, pr) {
+    const tip = tooltip();
+    const esc = (typeof ServiceTimeline !== 'undefined' ? ServiceTimeline : Timeline).escapeHtml;
+    const stateIcons = { merged: '🟣 Merged', open: '🟢 Open', closed: '🔴 Closed' };
+    const state = stateIcons[pr.state] || pr.state;
+    const flowIcon = pr.generationFlow === 'automated' ? '🤖' : '👤';
+    const dur = pr.createdAt && (pr.mergedAt || pr.closedAt)
+      ? ((new Date(pr.mergedAt || pr.closedAt) - new Date(pr.createdAt)) / 86400000).toFixed(1) + 'd'
+      : '';
+
+    tip.innerHTML = `
+      <div class="tooltip-type">#${pr.number}: ${esc((pr.title || '').slice(0, 60))}${(pr.title || '').length > 60 ? '…' : ''}</div>
+      <div class="tooltip-meta">
+        <span>${state}</span>
+        <span>${flowIcon} ${esc(pr.author || '')}</span>
+        ${dur ? `<span>⏱ ${dur}</span>` : ''}
+      </div>
+      <div class="tooltip-meta">
+        <span>📅 ${DataLoader.formatDate(pr.createdAt)}${pr.mergedAt ? ' → ' + DataLoader.formatDate(pr.mergedAt) : ''}</span>
+      </div>
+      ${pr.reviewers?.length ? `<div class="tooltip-meta"><span>👥 ${pr.reviewers.length} reviewer${pr.reviewers.length > 1 ? 's' : ''}</span></div>` : ''}
+      <div class="tooltip-link">Click for full details</div>
+    `;
+
+    tip.classList.remove('hidden');
+    const rect = mouseEvent.target.getBoundingClientRect();
+    let left = rect.right + 8;
+    let top = rect.top - 10;
+    const tipRect = tip.getBoundingClientRect();
+    if (left + tipRect.width > window.innerWidth - 16) left = rect.left - tipRect.width - 8;
+    if (top + tipRect.height > window.innerHeight - 16) top = window.innerHeight - tipRect.height - 16;
+    if (top < 8) top = 8;
     tip.style.left = left + 'px';
     tip.style.top = top + 'px';
   }
@@ -612,5 +648,5 @@ const UI = (() => {
     init();
   }
 
-  return { showTooltip, hideTooltip, showDetail, showPRDetail, closeDetail };
+  return { showTooltip, showPRTooltip, hideTooltip, showDetail, showPRDetail, closeDetail };
 })();

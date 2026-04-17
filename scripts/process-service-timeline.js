@@ -492,18 +492,23 @@ function main() {
   }
 
   // Filter out mass-change PRs from release window detection.
-  // Heuristics: ≥5 distinct service dirs, OR ≥200 changed files with ≥3 service dirs.
+  // Heuristics: ≥5 distinct service dirs, OR ≥200 changed files with ≥3 service dirs,
+  // OR ≥500 changed files with ≥2 service dirs (catches huge PRs where sampling
+  // under-counts dirs due to the 100-file API limit).
   // These PRs remain in the full timeline but are tagged and excluded from windows.
   const MASS_DIR_THRESHOLD = 5;
   const MASS_FILES_THRESHOLD = 200;
   const MASS_FILES_DIR_THRESHOLD = 3;
+  const MASS_LARGE_FILES_THRESHOLD = 500;
+  const MASS_LARGE_FILES_DIR_THRESHOLD = 2;
   let massFilteredSpec = 0, massFilteredSdk = 0;
 
   function isMassChange(pr) {
     const dirs = pr.serviceDirCount || 0;
     const files = pr.changedFiles || 0;
     return dirs >= MASS_DIR_THRESHOLD ||
-      (files >= MASS_FILES_THRESHOLD && dirs >= MASS_FILES_DIR_THRESHOLD);
+      (files >= MASS_FILES_THRESHOLD && dirs >= MASS_FILES_DIR_THRESHOLD) ||
+      (files >= MASS_LARGE_FILES_THRESHOLD && dirs >= MASS_LARGE_FILES_DIR_THRESHOLD);
   }
 
   for (const pr of specPRs) {

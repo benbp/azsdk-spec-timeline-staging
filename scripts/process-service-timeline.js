@@ -126,41 +126,90 @@ function detectReleaseWindows(specPRs, sdkPRs) {
     }
   }
 
-  // Build final window objects
-  return windows.map((win, i) => {
+  // Build final window objects, splitting by API version when a spec PR
+  // produces SDK PRs targeting different API versions (e.g. stable + preview)
+  const result = [];
+  for (const win of windows) {
     const spec = win.spec;
-    const windowSdkPRs = win.windowSdkPRs;
 
-    // Compute window time range
-    const allDates = [spec.createdAt].filter(Boolean);
-    for (const [lang, prNums] of Object.entries(windowSdkPRs)) {
+    // Extract API version from each SDK PR body
+    // Patterns: "API Version: 2026-01-01", "Spec API version: 2026-01-02-preview"
+    const apiVersionRegex = /(?:API [Vv]ersion|Spec API version)[:\s]+(\d{4}-\d{2}-\d{2}(?:-preview)?)/;
+    const prsByVersion = {};   // apiVersion -> { lang -> [prNums] }
+    const unversioned = {};    // lang -> [prNums] (no version detected)
+
+    for (const [lang, prNums] of Object.entries(win.windowSdkPRs)) {
       for (const num of prNums) {
         const pr = (sdkPRs[lang] || []).find(p => p.number === num);
-        if (pr) {
-          if (pr.createdAt) allDates.push(pr.createdAt);
-          if (pr.mergedAt) allDates.push(pr.mergedAt);
+        const body = pr?._rawBody || '';
+        const vMatch = body.match(apiVersionRegex);
+        if (vMatch) {
+          const ver = vMatch[1];
+          if (!prsByVersion[ver]) prsByVersion[ver] = {};
+          if (!prsByVersion[ver][lang]) prsByVersion[ver][lang] = [];
+          prsByVersion[ver][lang].push(num);
+        } else {
+          if (!unversioned[lang]) unversioned[lang] = [];
+          unversioned[lang].push(num);
         }
       }
     }
-    if (spec.mergedAt) allDates.push(spec.mergedAt);
-    allDates.sort();
 
-    // Infer label from spec PR title
-    const apiVersionMatch = (spec.title || '').match(/(\d{4}-\d{2}-\d{2})/);
-    const label = apiVersionMatch
-      ? `API ${apiVersionMatch[1]}`
-      : `Spec PR #${spec.number}`;
+    const versions = Object.keys(prsByVersion);
+    if (versions.length > 1) {
+      // Multiple API versions from one spec PR — split into separate windows
+      for (const ver of versions.sort()) {
+        const verSdkPRs = prsByVersion[ver];
+        result.push(buildWindow(spec, verSdkPRs, sdkPRs, `API ${ver}`));
+      }
+      // Unversioned PRs go into the first version window
+      if (Object.keys(unversioned).length > 0) {
+        const firstWin = result[result.length - versions.length];
+        for (const [lang, nums] of Object.entries(unversioned)) {
+          if (!firstWin.sdkPRNumbers[lang]) firstWin.sdkPRNumbers[lang] = [];
+          firstWin.sdkPRNumbers[lang].push(...nums);
+        }
+      }
+    } else {
+      // Single or no API version — keep as one window
+      const mergedSdkPRs = { ...win.windowSdkPRs };
+      const label = versions.length === 1
+        ? `API ${versions[0]}`
+        : (spec.title || '').match(/(\d{4}-\d{2}-\d{2})/)
+          ? `API ${(spec.title || '').match(/(\d{4}-\d{2}-\d{2})/)[1]}`
+          : `Spec PR #${spec.number}`;
+      result.push(buildWindow(spec, mergedSdkPRs, sdkPRs, label));
+    }
+  }
 
-    return {
-      id: `rw-${i + 1}`,
-      label,
-      startDate: allDates[0] || spec.createdAt,
-      endDate: allDates[allDates.length - 1] || spec.createdAt,
-      specPRNumbers: [spec.number],
-      sdkPRNumbers: windowSdkPRs,
-      summary: {} // filled in below
-    };
-  });
+  // Re-number IDs
+  result.forEach((w, i) => { w.id = `rw-${i + 1}`; });
+  return result;
+}
+
+function buildWindow(spec, windowSdkPRs, sdkPRs, label) {
+  const allDates = [spec.createdAt].filter(Boolean);
+  for (const [lang, prNums] of Object.entries(windowSdkPRs)) {
+    for (const num of prNums) {
+      const pr = (sdkPRs[lang] || []).find(p => p.number === num);
+      if (pr) {
+        if (pr.createdAt) allDates.push(pr.createdAt);
+        if (pr.mergedAt) allDates.push(pr.mergedAt);
+      }
+    }
+  }
+  if (spec.mergedAt) allDates.push(spec.mergedAt);
+  allDates.sort();
+
+  return {
+    id: 'rw-0', // re-numbered later
+    label,
+    startDate: allDates[0] || spec.createdAt,
+    endDate: allDates[allDates.length - 1] || spec.createdAt,
+    specPRNumbers: [spec.number],
+    sdkPRNumbers: windowSdkPRs,
+    summary: {} // filled in below
+  };
 }
 
 /* ── Per-Window Summary ───────────────────────────────────── */

@@ -96,6 +96,33 @@ const UI = (() => {
       meta: 'Mar 18 – Apr 2 · rohitsinghal4u · 15d · 4 PRs still open · no .NET',
       hasTooling: false,
       inFlight: true
+    },
+    {
+      file: 'data/sample-kubernetes.json',
+      name: 'Kubernetes',
+      meta: 'Mar 8 – Apr 14 · prasannajsns · 37d · 7 SDK PRs · 5 merged · 2 open',
+      hasTooling: false,
+      inFlight: true
+    },
+    {
+      file: 'data/sample-servicefabric.json',
+      name: 'Service Fabric',
+      meta: 'Feb 12 – Apr 14 · mcgallan · 62d · 4 open PRs · no .NET',
+      hasTooling: false,
+      inFlight: true
+    },
+    {
+      file: 'data/sample-confluent.json',
+      name: 'Liftr-Confluent',
+      meta: 'Aug 18 – Sep 4 · Shekar2004 · 17d · data-plane spec · no SDK PRs generated',
+      hasTooling: false
+    },
+    {
+      file: 'data/sample-monitor.json',
+      name: 'Azure Monitor',
+      meta: 'Mar 4 – Apr 14 · sebader · 41d · 4 open PRs · no JS',
+      hasTooling: false,
+      inFlight: true
     }
   ];
 

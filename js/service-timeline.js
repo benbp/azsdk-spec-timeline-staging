@@ -49,6 +49,17 @@ const ServiceTimeline = (() => {
     hiddenEventTypes.clear();
     allTypes.forEach(t => { if (!SMART_VIEW_TYPES.has(t)) hiddenEventTypes.add(t); });
 
+    // Default to the latest (most recent) release window
+    const windows = data.releaseWindows || [];
+    if (windows.length > 0) {
+      selectedWindow = windows.length - 1;
+      const win = windows[selectedWindow];
+      const winStart = new Date(win.startDate).getTime();
+      const winEnd = new Date(win.endDate).getTime();
+      const padding_ms = (winEnd - winStart) * 0.15;
+      focusRange = { start: new Date(winStart - padding_ms), end: new Date(winEnd + padding_ms) };
+    }
+
     renderServiceHeader();
     renderWindowSelector();
     renderSummaryCards();
@@ -79,10 +90,14 @@ const ServiceTimeline = (() => {
       ? new Date(data.generatedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
       : '—';
 
+    const specPathLink = data.specPath
+      ? `<a href="https://github.com/Azure/azure-rest-api-specs/tree/main/${encodeURI(data.specPath)}" target="_blank" rel="noopener" title="View in azure-rest-api-specs">📂 ${escapeHtml(data.specPath)}</a>`
+      : '';
+
     el.innerHTML = `
       <h2>${escapeHtml(data.service)} — Full Service Timeline</h2>
       <div class="service-header-meta">
-        <span title="TypeSpec project path">📂 ${escapeHtml(data.specPath || '')}</span>
+        ${specPathLink}
         <span>📅 ${DataLoader.formatDateRange(data.startDate, data.endDate)} (${Math.round(days)}d)</span>
         <span>📋 ${specCount} spec PRs · ${sdkCount} SDK PRs · ${data.releaseWindows?.length || 0} release windows</span>
         <span>🌐 ${langs}</span>
@@ -115,7 +130,7 @@ const ServiceTimeline = (() => {
     allPill.addEventListener('click', () => selectWindow(null));
     pills.appendChild(allPill);
 
-    for (let i = 0; i < windows.length; i++) {
+    for (let i = windows.length - 1; i >= 0; i--) {
       const w = windows[i];
       const sdkCount = Object.values(w.sdkPRNumbers || {}).flat().length;
       const pill = document.createElement('button');
@@ -217,11 +232,13 @@ const ServiceTimeline = (() => {
       }
 
       if (s.topReviewers?.length > 0) {
+        const login = s.topReviewers[0].login;
         cards.push({
           label: 'Top Reviewer',
-          value: escapeHtml(s.topReviewers[0].login),
+          value: escapeHtml(login),
           sub: `${s.topReviewers[0].reviewCount} reviews`,
-          cls: 'info'
+          cls: 'info',
+          link: `https://github.com/${encodeURIComponent(login)}`
         });
       }
 
@@ -234,13 +251,20 @@ const ServiceTimeline = (() => {
     for (const card of cards) {
       const el = document.createElement('div');
       el.className = `summary-card ${card.cls}`;
+      const valueHtml = card.link
+        ? `<a href="${card.link}" target="_blank" rel="noopener" class="card-value-link">${card.value}</a>`
+        : card.value;
       el.innerHTML = `
         <div class="card-label">${card.label}</div>
-        <div class="card-value">${card.value}</div>
+        <div class="card-value">${valueHtml}</div>
         <div class="card-sub">${card.sub}</div>
       `;
       container.appendChild(el);
     }
+
+    // Smart card grid: fit all in one row, or split evenly across 2 rows.
+    // Avoid the case where 1-2 cards spill onto row 2 and expand to full width.
+    fitCardGrid(container, cards.length);
   }
 
   /* ── Filters ────────────────────────────────────────────── */
@@ -356,66 +380,81 @@ const ServiceTimeline = (() => {
 
     section.innerHTML = '';
 
-    // Top actors as quick toggles (top 8 humans + top 3 bots)
-    const QUICK_HUMANS = 8;
-    const QUICK_BOTS = 3;
-    const quickHumans = humanActors.slice(0, QUICK_HUMANS);
-    const quickBots = botActors.slice(0, QUICK_BOTS);
+    const QUICK_COUNT = 8;
 
-    const peopleLabel = document.createElement('span');
-    peopleLabel.className = 'filters-label';
-    peopleLabel.textContent = `👤 People (${humanActors.length}):`;
-    section.appendChild(peopleLabel);
+    // People section
+    renderActorGroup(section, '👤', 'People', humanActors, actorCounts, QUICK_COUNT, 'people');
 
-    const quickContainer = document.createElement('div');
-    quickContainer.className = 'filter-buttons actor-filter-buttons';
-    section.appendChild(quickContainer);
-
-    for (const actor of quickHumans) {
-      quickContainer.appendChild(makeActorBtn(actor, actorCounts[actor]));
-    }
-
-    // "All actors" button to open popover
-    if (humanActors.length > QUICK_HUMANS || botActors.length > QUICK_BOTS) {
-      const moreBtn = document.createElement('button');
-      moreBtn.className = 'filter-btn expand-btn';
-      const totalMore = (humanActors.length - QUICK_HUMANS) + (botActors.length - QUICK_BOTS);
-      moreBtn.textContent = `+${Math.max(0, totalMore)} more…`;
-      moreBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleActorPopover(section, humanActors, botActors, actorCounts);
-      });
-      quickContainer.appendChild(moreBtn);
-    }
-
-    // Bot quick toggles
+    // Bots section
     if (botActors.length > 0) {
-      const botLabel = document.createElement('span');
-      botLabel.className = 'filters-label bot-label';
-      botLabel.textContent = `🤖 Bots (${botActors.length}):`;
-      section.appendChild(botLabel);
-
-      const botContainer = document.createElement('div');
-      botContainer.className = 'filter-buttons actor-filter-buttons';
-      section.appendChild(botContainer);
-
-      for (const actor of quickBots) {
-        botContainer.appendChild(makeActorBtn(actor, actorCounts[actor]));
-      }
+      renderActorGroup(section, '🤖', 'Bots', botActors, actorCounts, 3, 'bots');
     }
   }
 
-  function toggleActorPopover(anchor, humanActors, botActors, actorCounts) {
-    let popover = document.getElementById('actor-popover');
+  function renderActorGroup(container, icon, label, actors, counts, quickCount, groupId) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'actor-group';
+    wrapper.style.position = 'relative';
+
+    const header = document.createElement('div');
+    header.className = 'actor-group-header';
+
+    const labelSpan = document.createElement('span');
+    labelSpan.className = 'filters-label';
+    labelSpan.textContent = `${icon} ${label} (${actors.length}):`;
+    header.appendChild(labelSpan);
+
+    // Show All / Hide All toggle
+    const allHidden = actors.every(a => hiddenActors.has(a));
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = `filter-btn toggle-all ${allHidden ? '' : 'active'}`;
+    toggleBtn.textContent = allHidden ? 'Show All' : 'Hide All';
+    toggleBtn.addEventListener('click', () => {
+      if (allHidden) actors.forEach(a => hiddenActors.delete(a));
+      else actors.forEach(a => hiddenActors.add(a));
+      updateEventVisibility();
+      renderActorFilters();
+    });
+    header.appendChild(toggleBtn);
+
+    wrapper.appendChild(header);
+
+    const btnContainer = document.createElement('div');
+    btnContainer.className = 'filter-buttons actor-filter-buttons';
+    wrapper.appendChild(btnContainer);
+
+    const quickActors = actors.slice(0, quickCount);
+    for (const actor of quickActors) {
+      btnContainer.appendChild(makeActorBtn(actor, counts[actor]));
+    }
+
+    // More button to open popover for this group
+    if (actors.length > quickCount) {
+      const moreBtn = document.createElement('button');
+      moreBtn.className = 'filter-btn expand-btn';
+      moreBtn.textContent = `+${actors.length - quickCount} more…`;
+      moreBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleActorPopover(wrapper, actors, counts, groupId);
+      });
+      btnContainer.appendChild(moreBtn);
+    }
+
+    container.appendChild(wrapper);
+  }
+
+  function toggleActorPopover(anchor, actors, counts, groupId) {
+    const popoverId = `actor-popover-${groupId}`;
+    let popover = document.getElementById(popoverId);
     if (popover) { popover.remove(); return; }
 
     popover = document.createElement('div');
-    popover.id = 'actor-popover';
+    popover.id = popoverId;
     popover.className = 'actor-popover';
 
     const search = document.createElement('input');
     search.type = 'text';
-    search.placeholder = 'Search actors…';
+    search.placeholder = `Search ${groupId}…`;
     search.className = 'actor-search';
     popover.appendChild(search);
 
@@ -423,41 +462,35 @@ const ServiceTimeline = (() => {
     list.className = 'actor-popover-list';
     popover.appendChild(list);
 
-    const allItems = [
-      ...humanActors.map(a => ({ actor: a, count: actorCounts[a], isBot: false })),
-      ...botActors.map(a => ({ actor: a, count: actorCounts[a], isBot: true })),
-    ];
-
     function renderList(filter) {
       list.innerHTML = '';
       const items = filter
-        ? allItems.filter(i => i.actor.toLowerCase().includes(filter.toLowerCase()))
-        : allItems;
-      for (const item of items) {
+        ? actors.filter(a => a.toLowerCase().includes(filter.toLowerCase()))
+        : actors;
+      for (const actor of items) {
         const row = document.createElement('label');
         row.className = 'actor-popover-item';
         const cb = document.createElement('input');
         cb.type = 'checkbox';
-        cb.checked = !hiddenActors.has(item.actor);
+        cb.checked = !hiddenActors.has(actor);
         cb.addEventListener('change', () => {
-          if (cb.checked) hiddenActors.delete(item.actor);
-          else hiddenActors.add(item.actor);
+          if (cb.checked) hiddenActors.delete(actor);
+          else hiddenActors.add(actor);
           updateEventVisibility();
-          // Update quick toggle button states
           document.querySelectorAll('.actor-btn').forEach(btn => {
             const name = btn.title?.split(':')[0];
-            if (name === item.actor) btn.classList.toggle('active', cb.checked);
+            if (name === actor) btn.classList.toggle('active', cb.checked);
           });
         });
         row.appendChild(cb);
-        const label = document.createElement('span');
-        label.className = 'actor-popover-name';
-        label.textContent = `${item.isBot ? '🤖 ' : ''}${item.actor}`;
-        row.appendChild(label);
-        const count = document.createElement('span');
-        count.className = 'actor-popover-count';
-        count.textContent = item.count;
-        row.appendChild(count);
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'actor-popover-name';
+        nameSpan.textContent = actor;
+        row.appendChild(nameSpan);
+        const countSpan = document.createElement('span');
+        countSpan.className = 'actor-popover-count';
+        countSpan.textContent = counts[actor];
+        row.appendChild(countSpan);
         list.appendChild(row);
       }
       if (items.length === 0) {
@@ -471,7 +504,6 @@ const ServiceTimeline = (() => {
     anchor.appendChild(popover);
     search.focus();
 
-    // Close on outside click
     const closeHandler = (e) => {
       if (!popover.contains(e.target) && e.target !== popover) {
         popover.remove();
@@ -480,7 +512,6 @@ const ServiceTimeline = (() => {
     };
     setTimeout(() => document.addEventListener('click', closeHandler), 0);
 
-    // Close on Escape
     const escHandler = (e) => {
       if (e.key === 'Escape') {
         popover.remove();
@@ -682,13 +713,18 @@ const ServiceTimeline = (() => {
   function renderTimeline() {
     const lanesContainer = document.getElementById('lanes');
     const labelsContainer = document.getElementById('lane-labels');
+
+    // Preserve scroll positions across re-render
+    const scrollEl = document.querySelector('.timeline-scroll');
+    const savedScrollLeft = scrollEl?.scrollLeft || 0;
+    const savedPageScrollY = window.scrollY;
+
     lanesContainer.innerHTML = '';
     labelsContainer.innerHTML = '';
 
     // Clean up old focus notices
     document.querySelectorAll('.focus-notice').forEach(el => el.remove());
 
-    const scrollEl = document.querySelector('.timeline-scroll');
     const availWidth = scrollEl.clientWidth;
     contentWidth = Math.max(availWidth * zoomLevel, 800);
 
@@ -739,9 +775,14 @@ const ServiceTimeline = (() => {
         const notice = document.createElement('div');
         notice.className = 'focus-notice';
         notice.textContent = `${hidden} PRs outside this window are hidden`;
-        lanesContainer.parentNode.insertBefore(notice, lanesContainer.nextSibling);
+        const container = document.getElementById('timeline-container');
+        container.parentNode.insertBefore(notice, container);
       }
     }
+
+    // Restore scroll positions
+    if (scrollEl) scrollEl.scrollLeft = savedScrollLeft;
+    window.scrollTo(window.scrollX, savedPageScrollY);
   }
 
   function renderTimeAxis(elementId) {
@@ -799,6 +840,16 @@ const ServiceTimeline = (() => {
     const mergedCount = prs.filter(p => p.state === 'merged').length;
     const openCount = prs.filter(p => p.state === 'open').length;
 
+    // Build PR links for the meta section
+    let prLinksHtml = '';
+    if (prs.length > 0 && prs.length <= 3) {
+      prLinksHtml = prs.map(pr =>
+        `<a href="${escapeHtml(pr.url || `https://github.com/${pr.repo || ''}/pull/${pr.number}`)}" target="_blank" rel="noopener" class="meta-pr-link" title="${escapeHtml((pr.title || '').slice(0, 80))}">#${pr.number}</a>`
+      ).join(' ');
+    } else if (prs.length > 3) {
+      prLinksHtml = `<span class="meta-pr-expand" title="Click to see all PRs">${prCount} PRs — click to see all</span>`;
+    }
+
     label.innerHTML = `
       <div class="lane-repo">
         <span class="lane-language ${langClass}">${escapeHtml(langName)}</span>
@@ -806,8 +857,39 @@ const ServiceTimeline = (() => {
       <div class="lane-meta">
         <span>${prCount} PRs</span>
         <span class="pr-counts">${mergedCount}✓ ${openCount > 0 ? openCount + '⏳' : ''}</span>
+        ${prLinksHtml ? `<span class="meta-pr-links">${prLinksHtml}</span>` : ''}
       </div>
     `;
+
+    // Handle "click to see all" expansion
+    const expandEl = label.querySelector('.meta-pr-expand');
+    if (expandEl) {
+      expandEl.addEventListener('click', (e) => {
+        e.stopPropagation();
+        let dropdown = expandEl.parentElement.querySelector('.meta-pr-dropdown');
+        if (dropdown) { dropdown.remove(); return; }
+        dropdown = document.createElement('div');
+        dropdown.className = 'meta-pr-dropdown';
+        for (const pr of prs) {
+          const link = document.createElement('a');
+          link.href = pr.url || `https://github.com/${pr.repo || ''}/pull/${pr.number}`;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.className = 'meta-pr-dropdown-item';
+          link.textContent = `#${pr.number}: ${(pr.title || '').slice(0, 50)}${(pr.title || '').length > 50 ? '…' : ''}`;
+          dropdown.appendChild(link);
+        }
+        expandEl.parentElement.appendChild(dropdown);
+        const close = (ev) => {
+          if (!dropdown.contains(ev.target) && ev.target !== expandEl) {
+            dropdown.remove();
+            document.removeEventListener('click', close);
+          }
+        };
+        setTimeout(() => document.addEventListener('click', close), 0);
+      });
+    }
+
     labelsContainer.appendChild(label);
 
     // Lane
@@ -969,6 +1051,26 @@ const ServiceTimeline = (() => {
   function escapeHtml(str) {
     if (!str) return '';
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  /**
+   * Smart card grid: compute the right column count so cards either fit
+   * in one row, or split evenly across exactly two full rows.
+   */
+  function fitCardGrid(container, count) {
+    if (count <= 0) return;
+    const width = container.clientWidth;
+    const minCardW = 120, gap = 8;
+    // Max cards that fit in one row
+    const maxPerRow = Math.floor((width + gap) / (minCardW + gap));
+    if (count <= maxPerRow) {
+      // All fit in one row
+      container.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
+    } else {
+      // Split across 2 rows; use ceil(count/2) columns
+      const cols = Math.ceil(count / 2);
+      container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    }
   }
 
   return { render, escapeHtml, selectWindow };

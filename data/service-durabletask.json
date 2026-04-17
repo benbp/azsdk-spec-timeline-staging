@@ -1,6 +1,6 @@
 {
   "type": "service-timeline",
-  "service": "DurableTask",
+  "service": "DurableTask.Management",
   "specPath": "specification/durabletask/DurableTask.Management",
   "namespace": "Microsoft.DurableTask",
   "generatedAt": "2026-04-16T21:56:55.016Z",
@@ -120,10 +120,10 @@
           "timestamp": "2025-04-24T06:57:32Z",
           "actor": "openapi-pipeline-app[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "description": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merge",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.",
+            "body": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/34202#issuecomment-2826574179"
           }
         },
@@ -238,10 +238,10 @@
           "timestamp": "2025-04-24T09:55:33Z",
           "actor": "openapi-pipeline-app[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ The requi",
+          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c The requi",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ The required check named <code>SDK azure-sdk-for-go</code> has failed. Refer to the check in the PR's 'Checks' tab for details on how to fix it and consult the <a href=\"https://aka.ms/ci-fix\">aka.ms/ci-fix</a> guide. In addition, refer to step 3 in the <a href=\"https://aka.ms/azsdk/pr-diagram\">PR workflow diagram</a></li></ul>",
+            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c The required check named <code>SDK azure-sdk-for-go</code> has failed. Refer to the check in the PR's 'Checks' tab for details on how to fix it and consult the <a href=\"https://aka.ms/ci-fix\">aka.ms/ci-fix</a> guide. In addition, refer to step 3 in the <a href=\"https://aka.ms/azsdk/pr-diagram\">PR workflow diagram</a></li></ul>",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/34209#issuecomment-2827033601"
           }
         },
@@ -387,10 +387,10 @@
           "timestamp": "2025-04-27T03:28:15Z",
           "actor": "openapi-pipeline-app[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "description": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merge",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.",
+            "body": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/34270#issuecomment-2832936323"
           }
         },
@@ -894,10 +894,10 @@
           "timestamp": "2025-08-15T00:30:57Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ This PR t",
+          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c This PR t",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ This PR targets either the <code>main</code> branch of the public specs repo or the <code>RPSaaSMaster</code> branch of the private specs repo. These branches are not intended for iterative development. Therefore, you must acknowledge you understand that after this PR is merged, the APIs are considered shipped to Azure customers. Any further attempts at in-place modifications to the APIs will be subject to",
+            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c This PR targets either the <code>main</code> branch of the public specs repo or the <code>RPSaaSMaster</code> branch of the private specs repo. These branches are not intended for iterative development. Therefore, you must acknowledge you understand that after this PR is merged, the APIs are considered shipped to Azure customers. Any further attempts at in-place modifications to the APIs will be subject to",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/36679#issuecomment-3190280779"
           }
         },
@@ -3176,10 +3176,10 @@
           "timestamp": "2025-08-28T21:54:56Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ This PR t",
+          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c This PR t",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ This PR targets either the <code>main</code> branch of the public specs repo or the <code>RPSaaSMaster</code> branch of the private specs repo. These branches are not intended for iterative development. Therefore, you must acknowledge you understand that after this PR is merged, the APIs are considered shipped to Azure customers. Any further attempts at in-place modifications to the APIs will be subject to",
+            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c This PR targets either the <code>main</code> branch of the public specs repo or the <code>RPSaaSMaster</code> branch of the private specs repo. These branches are not intended for iterative development. Therefore, you must acknowledge you understand that after this PR is merged, the APIs are considered shipped to Azure customers. Any further attempts at in-place modifications to the APIs will be subject to",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/37016#issuecomment-3235057658"
           }
         },
@@ -3459,10 +3459,10 @@
           "timestamp": "2025-08-29T04:27:12Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ The requi",
+          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c The requi",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ The required check named <code>Protected Files</code> has failed. Refer to the check in the PR's 'Checks' tab for details on how to fix it and consult the <a href=\"https://aka.ms/ci-fix\">aka.ms/ci-fix</a> guide</li><li>❌ The required check named <code>SDK Validation Status</code> has failed. Refer to the check in the PR's 'Checks' tab for details on how to fix it and consult the <a href=\"https://aka.ms/ci-",
+            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c The required check named <code>Protected Files</code> has failed. Refer to the check in the PR's 'Checks' tab for details on how to fix it and consult the <a href=\"https://aka.ms/ci-fix\">aka.ms/ci-fix</a> guide</li><li>\u274c The required check named <code>SDK Validation Status</code> has failed. Refer to the check in the PR's 'Checks' tab for details on how to fix it and consult the <a href=\"https://aka.ms/ci-",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/37022#issuecomment-3235677235"
           }
         },
@@ -4125,10 +4125,10 @@
           "timestamp": "2025-09-01T03:34:07Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ This PR t",
+          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c This PR t",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ This PR targets either the <code>main</code> branch of the public specs repo or the <code>RPSaaSMaster</code> branch of the private specs repo. These branches are not intended for iterative development. Therefore, you must acknowledge you understand that after this PR is merged, the APIs are considered shipped to Azure customers. Any further attempts at in-place modifications to the APIs will be subject to",
+            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c This PR targets either the <code>main</code> branch of the public specs repo or the <code>RPSaaSMaster</code> branch of the private specs repo. These branches are not intended for iterative development. Therefore, you must acknowledge you understand that after this PR is merged, the APIs are considered shipped to Azure customers. Any further attempts at in-place modifications to the APIs will be subject to",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/37063#issuecomment-3240761991"
           }
         },
@@ -4517,10 +4517,10 @@
           "timestamp": "2025-09-03T09:56:45Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ The requi",
+          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c The requi",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ The required check named <code>Swagger Avocado</code> has failed. Refer to the check in the PR's 'Checks' tab for details on how to fix it and consult the <a href=\"https://aka.ms/ci-fix\">aka.ms/ci-fix</a> guide</li></ul><br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/18485666227\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c The required check named <code>Swagger Avocado</code> has failed. Refer to the check in the PR's 'Checks' tab for details on how to fix it and consult the <a href=\"https://aka.ms/ci-fix\">aka.ms/ci-fix</a> guide</li></ul><br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/18485666227\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/37117#issuecomment-3248547283"
           }
         },
@@ -4599,7 +4599,7 @@
           "description": "<img width=\"1487\" height=\"550\" alt=\"image\" src=\"https://github.com/user-attachments/assets/6a110f85-",
           "sentiment": "neutral",
           "details": {
-            "body": "\r\n<img width=\"1487\" height=\"550\" alt=\"image\" src=\"https://github.com/user-attachments/assets/6a110f85-f2d8-4553-9eed-3ebfc60259bb\" />\r\n\r\nUsing {cwd} ensures the generator resolves paths correctly—especially for JS projects that rely on locating package.json from the repo root. using {output-dir} instead would misplace outputs like tsp-output\\sdk\\compute\\arm-computerecommender, causing resolution errors.",
+            "body": "\r\n<img width=\"1487\" height=\"550\" alt=\"image\" src=\"https://github.com/user-attachments/assets/6a110f85-f2d8-4553-9eed-3ebfc60259bb\" />\r\n\r\nUsing {cwd} ensures the generator resolves paths correctly\u2014especially for JS projects that rely on locating package.json from the repo root. using {output-dir} instead would misplace outputs like tsp-output\\sdk\\compute\\arm-computerecommender, causing resolution errors.",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/37117#discussion_r2323946622"
           }
         },
@@ -4859,10 +4859,10 @@
           "timestamp": "2025-09-15T07:10:31Z",
           "actor": "skywing918",
           "actorRole": "author",
-          "description": "I only refactored the Java validation logic — I didn’t change any of the original validation conditi",
+          "description": "I only refactored the Java validation logic \u2014 I didn\u2019t change any of the original validation conditi",
           "sentiment": "neutral",
           "details": {
-            "body": "I only refactored the Java validation logic — I didn’t change any of the original validation conditions.",
+            "body": "I only refactored the Java validation logic \u2014 I didn\u2019t change any of the original validation conditions.",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/37117#discussion_r2348066926"
           }
         },
@@ -5676,10 +5676,10 @@
           "timestamp": "2025-09-22T23:50:37Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "description": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merge",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/17985117376\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "body": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/17985117376\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/37635#issuecomment-3321920516"
           }
         },
@@ -5833,10 +5833,10 @@
           "timestamp": "2025-09-29T23:48:16Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ This PR t",
+          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c This PR t",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ This PR targets either the <code>main</code> branch of the public specs repo or the <code>RPSaaSMaster</code> branch of the private specs repo. These branches are not intended for iterative development. Therefore, you must acknowledge you understand that after this PR is merged, the APIs are considered shipped to Azure customers. Any further attempts at in-place modifications to the APIs will be subject to",
+            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>\u274c This PR targets either the <code>main</code> branch of the public specs repo or the <code>RPSaaSMaster</code> branch of the private specs repo. These branches are not intended for iterative development. Therefore, you must acknowledge you understand that after this PR is merged, the APIs are considered shipped to Azure customers. Any further attempts at in-place modifications to the APIs will be subject to",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/37826#issuecomment-3349418441"
           }
         },
@@ -6085,10 +6085,10 @@
           "timestamp": "2025-10-13T21:18:57Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "description": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merge",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/18479248936\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "body": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/18479248936\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/38143#issuecomment-3399100373"
           }
         },
@@ -6209,10 +6209,10 @@
           "timestamp": "2025-10-22T07:11:15Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "description": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merge",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/18740208615\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "body": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/18740208615\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/38356#issuecomment-3430781225"
           }
         },
@@ -6315,10 +6315,10 @@
           "timestamp": "2025-10-31T22:10:55Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "description": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merge",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/18986876437\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "body": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/18986876437\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/38552#issuecomment-3475040966"
           }
         },
@@ -6457,10 +6457,10 @@
           "timestamp": "2025-11-03T03:37:53Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "description": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merge",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/19023312372\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "body": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/19023312372\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/38568#issuecomment-3478796083"
           }
         },
@@ -6561,10 +6561,10 @@
           "timestamp": "2026-02-10T01:17:59Z",
           "actor": "github-actions[bot]",
           "actorRole": "bot",
-          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "description": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merge",
           "sentiment": "neutral",
           "details": {
-            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/22212944329\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "body": "<h2>Next Steps to Merge</h2>\u2705 All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/22212944329\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
             "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#issuecomment-3874774420"
           }
         },
@@ -6960,7 +6960,7 @@
             "description": "Same issue as the sync configuration: the docstring lists `None` as a known value for `api_version`,",
             "sentiment": "blocking",
             "details": {
-              "body": "Same issue as the sync configuration: the docstring lists `None` as a known value for `api_version`, but the type is `str` and it is passed through into request building. Update the documentation and/or type/validation so `None` is not presented as a supported value unless it’s handled explicitly.",
+              "body": "Same issue as the sync configuration: the docstring lists `None` as a known value for `api_version`, but the type is `str` and it is passed through into request building. Update the documentation and/or type/validation so `None` is not presented as a supported value unless it\u2019s handled explicitly.",
               "url": "https://github.com/Azure/azure-sdk-for-python/pull/45588#discussion_r2907965475"
             }
           },
@@ -7087,7 +7087,7 @@
             "timestamp": "2026-03-13T23:41:26.026Z",
             "actor": "developer",
             "actorRole": "tool",
-            "description": "azsdk_release_sdk — OK (0.8s)",
+            "description": "azsdk_release_sdk \u2014 OK (0.8s)",
             "sentiment": "neutral",
             "language": "Python",
             "details": {
@@ -7105,7 +7105,7 @@
             "timestamp": "2026-03-13T23:41:38.898Z",
             "actor": "developer",
             "actorRole": "tool",
-            "description": "azsdk_release_sdk — OK (0.4s)",
+            "description": "azsdk_release_sdk \u2014 OK (0.4s)",
             "sentiment": "neutral",
             "language": "Python",
             "details": {
@@ -9015,7 +9015,7 @@
             "description": "Review comment by copilot-pull-request-reviewer[bot]",
             "sentiment": "neutral",
             "details": {
-              "body": "## Pull request overview\n\nThis PR increments version numbers for Azure core libraries and their dependencies across the SDK to prepare for new releases. The changes update dependencies from patch versions (e.g., 1.57.0 → 1.57.1) for stable releases and from current stable to next beta versions (e.g., 1.57.1 → 1.58.0-beta.1) for core packages.\n\n**Changes:**\n- Updated core library versions to next beta releases (azure-core, azure-core-http-netty, azure-core-test, etc.)\n- Updated dependency version",
+              "body": "## Pull request overview\n\nThis PR increments version numbers for Azure core libraries and their dependencies across the SDK to prepare for new releases. The changes update dependencies from patch versions (e.g., 1.57.0 \u2192 1.57.1) for stable releases and from current stable to next beta versions (e.g., 1.57.1 \u2192 1.58.0-beta.1) for core packages.\n\n**Changes:**\n- Updated core library versions to next beta releases (azure-core, azure-core-http-netty, azure-core-test, etc.)\n- Updated dependency version",
               "url": "https://github.com/Azure/azure-sdk-for-java/pull/47731#pullrequestreview-3668049200"
             }
           },
@@ -12172,7 +12172,7 @@
             "description": "Review comment by copilot-pull-request-reviewer[bot]",
             "sentiment": "neutral",
             "details": {
-              "body": "## Pull Request Overview\n\nThis pull request updates the core Azure SDK dependencies across multiple Java SDK modules to their latest versions for a core release. The changes primarily involve incrementing version numbers for `azure-core`, `azure-core-management`, `azure-core-http-netty`, `azure-core-test`, `azure-core-serializer-json-jackson`, and `azure-core-tracing-opentelemetry` dependencies.\n\n### Key changes:\n- azure-core: 1.55.5 → 1.56.0\n- azure-core-management: 1.18.1 → 1.19.0  \n- azure-co",
+              "body": "## Pull Request Overview\n\nThis pull request updates the core Azure SDK dependencies across multiple Java SDK modules to their latest versions for a core release. The changes primarily involve incrementing version numbers for `azure-core`, `azure-core-management`, `azure-core-http-netty`, `azure-core-test`, `azure-core-serializer-json-jackson`, and `azure-core-tracing-opentelemetry` dependencies.\n\n### Key changes:\n- azure-core: 1.55.5 \u2192 1.56.0\n- azure-core-management: 1.18.1 \u2192 1.19.0  \n- azure-co",
               "url": "https://github.com/Azure/azure-sdk-for-java/pull/46309#pullrequestreview-3098221132"
             }
           },
@@ -15507,10 +15507,10 @@
             "timestamp": "2026-03-09T21:18:11Z",
             "actor": "Copilot",
             "actorRole": "copilot",
-            "description": "New public type name `OptionalPropertiesUpdateableProperties` uses the uncommon spelling “Updateable",
+            "description": "New public type name `OptionalPropertiesUpdateableProperties` uses the uncommon spelling \u201cUpdateable",
             "sentiment": "blocking",
             "details": {
-              "body": "New public type name `OptionalPropertiesUpdateableProperties` uses the uncommon spelling “Updateable”. Across other ARM Go SDK packages the established convention is “Updatable” (e.g., `SessionPoolUpdatableProperties` in armappcontainers). Consider renaming this model in the TypeSpec/spec (e.g., via a client name override) so the generated Go type becomes `OptionalPropertiesUpdatableProperties` before the stable release is finalized, to avoid locking in an inconsistent public API name.",
+              "body": "New public type name `OptionalPropertiesUpdateableProperties` uses the uncommon spelling \u201cUpdateable\u201d. Across other ARM Go SDK packages the established convention is \u201cUpdatable\u201d (e.g., `SessionPoolUpdatableProperties` in armappcontainers). Consider renaming this model in the TypeSpec/spec (e.g., via a client name override) so the generated Go type becomes `OptionalPropertiesUpdatableProperties` before the stable release is finalized, to avoid locking in an inconsistent public API name.",
               "url": "https://github.com/Azure/azure-sdk-for-go/pull/26182#discussion_r2907986663"
             }
           },
@@ -15554,7 +15554,7 @@
             "timestamp": "2026-03-12T20:51:11.369Z",
             "actor": "developer",
             "actorRole": "tool",
-            "description": "azsdk_release_sdk — OK (0.6s)",
+            "description": "azsdk_release_sdk \u2014 OK (0.6s)",
             "sentiment": "neutral",
             "language": "Go",
             "details": {
@@ -15572,7 +15572,7 @@
             "timestamp": "2026-03-12T20:51:17.042Z",
             "actor": "developer",
             "actorRole": "tool",
-            "description": "azsdk_release_sdk — OK (0.5s)",
+            "description": "azsdk_release_sdk \u2014 OK (0.5s)",
             "sentiment": "neutral",
             "language": "Go",
             "details": {
@@ -15590,7 +15590,7 @@
             "timestamp": "2026-03-13T05:02:01.824Z",
             "actor": "developer",
             "actorRole": "tool",
-            "description": "release-plan.update-release-status — OK (2.8s)",
+            "description": "release-plan.update-release-status \u2014 OK (2.8s)",
             "sentiment": "neutral",
             "language": "Go",
             "details": {
@@ -16087,10 +16087,10 @@
             "timestamp": "2026-01-08T07:06:45Z",
             "actor": "jliusan",
             "actorRole": "reviewer",
-            "description": "![Uploading image.png…]()",
+            "description": "![Uploading image.png\u2026]()",
             "sentiment": "blocking",
             "details": {
-              "body": "![Uploading image.png…]()\r\n",
+              "body": "![Uploading image.png\u2026]()\r\n",
               "url": "https://github.com/Azure/azure-sdk-for-go/pull/25729#discussion_r2671135623"
             }
           },
@@ -16358,7 +16358,7 @@
             "description": "Review comment by copilot-pull-request-reviewer[bot]",
             "sentiment": "neutral",
             "details": {
-              "body": "## Pull request overview\n\nThis PR regenerates SDK code for multiple Azure resource manager modules based on updates from the TypeSpec Go main branch. The changes are automated and include dependency updates and code generation improvements.\n\n### Key Changes\n- Updated emitter version from 0.8.3 to 0.8.4 across all modules\n- Updated tsp-location.yaml commit references to 1ce64eb6ce4e09437f3455162888e0ec59983919\n- Upgraded dependencies: azcore (v1.19.x → v1.20.0), testify (v1.10.0 → v1.11.1), golan",
+              "body": "## Pull request overview\n\nThis PR regenerates SDK code for multiple Azure resource manager modules based on updates from the TypeSpec Go main branch. The changes are automated and include dependency updates and code generation improvements.\n\n### Key Changes\n- Updated emitter version from 0.8.3 to 0.8.4 across all modules\n- Updated tsp-location.yaml commit references to 1ce64eb6ce4e09437f3455162888e0ec59983919\n- Upgraded dependencies: azcore (v1.19.x \u2192 v1.20.0), testify (v1.10.0 \u2192 v1.11.1), golan",
               "url": "https://github.com/Azure/azure-sdk-for-go/pull/25506#pullrequestreview-3498198814"
             }
           },
@@ -17870,7 +17870,7 @@
             "description": "the changes is according to regen branch",
             "sentiment": "neutral",
             "details": {
-              "body": "the changes is according to regen branch\r\n![Uploading image.png…]()\r\n",
+              "body": "the changes is according to regen branch\r\n![Uploading image.png\u2026]()\r\n",
               "url": "https://github.com/Azure/azure-sdk-for-go/pull/25211#discussion_r2348473944"
             }
           },
@@ -18734,10 +18734,10 @@
             "timestamp": "2026-04-08T23:27:18Z",
             "actor": "Copilot",
             "actorRole": "copilot",
-            "description": "Done — removed `ToolsVersion` from all `*.props` and `*.targets` files as well (9 additional files: ",
+            "description": "Done \u2014 removed `ToolsVersion` from all `*.props` and `*.targets` files as well (9 additional files: ",
             "sentiment": "neutral",
             "details": {
-              "body": "\n> @copilot:  Also include `*.props` and `*.targets` files\n\nDone — removed `ToolsVersion` from all `*.props` and `*.targets` files as well (9 additional files: `Directory.Build.targets`, `Directory.Build.Common.targets`, `Azure.Management.Test.targets`, `LiveOnly.props`, `AzSdk.RP.props`, and several service-level `Directory.Build.targets`). Commit: 48f2b884b",
+              "body": "\n> @copilot:  Also include `*.props` and `*.targets` files\n\nDone \u2014 removed `ToolsVersion` from all `*.props` and `*.targets` files as well (9 additional files: `Directory.Build.targets`, `Directory.Build.Common.targets`, `Azure.Management.Test.targets`, `LiveOnly.props`, `AzSdk.RP.props`, and several service-level `Directory.Build.targets`). Commit: 48f2b884b",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/57960#issuecomment-4210384573"
             }
           },
@@ -19121,7 +19121,7 @@
             "description": "Approved by live1206",
             "sentiment": "positive",
             "details": {
-              "body": "## Mgmt PR Review — All Phases Pass ✅\n\n### Phase 1: Versioning Review ✅\n- **No major version bump**: Only `Azure.Provisioning.Monitor` version bumped from `1.0.0-beta.1` → `1.0.0-beta.2` (patch-level beta bump). No mgmt package major version changes.\n- **ApiCompatVersion not removed**: `Azure.Provisioning.Monitor` had no `ApiCompatVersion` (beta.1 package, no prior stable). All other mgmt packages' csproj files are unchanged.\n- **No new ApiCompatBaseline entries**: No `ApiCompatBaseline.txt` fil",
+              "body": "## Mgmt PR Review \u2014 All Phases Pass \u2705\n\n### Phase 1: Versioning Review \u2705\n- **No major version bump**: Only `Azure.Provisioning.Monitor` version bumped from `1.0.0-beta.1` \u2192 `1.0.0-beta.2` (patch-level beta bump). No mgmt package major version changes.\n- **ApiCompatVersion not removed**: `Azure.Provisioning.Monitor` had no `ApiCompatVersion` (beta.1 package, no prior stable). All other mgmt packages' csproj files are unchanged.\n- **No new ApiCompatBaseline entries**: No `ApiCompatBaseline.txt` fil",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/57864#pullrequestreview-4072418517"
             }
           },
@@ -19526,7 +19526,7 @@
             "timestamp": "2026-03-12T19:44:17.713Z",
             "actor": "developer",
             "actorRole": "tool",
-            "description": "release-plan.update-release-status — OK (3.8s)",
+            "description": "release-plan.update-release-status \u2014 OK (3.8s)",
             "sentiment": "neutral",
             "language": ".NET",
             "details": {
@@ -19544,7 +19544,7 @@
             "timestamp": "2026-03-12T20:49:03.176Z",
             "actor": "developer",
             "actorRole": "tool",
-            "description": "azsdk_release_sdk — OK (12.0s)",
+            "description": "azsdk_release_sdk \u2014 OK (12.0s)",
             "sentiment": "neutral",
             "language": ".NET",
             "details": {
@@ -19562,7 +19562,7 @@
             "timestamp": "2026-03-12T20:49:19.256Z",
             "actor": "developer",
             "actorRole": "tool",
-            "description": "azsdk_release_sdk — OK (11.6s)",
+            "description": "azsdk_release_sdk \u2014 OK (11.6s)",
             "sentiment": "neutral",
             "language": ".NET",
             "details": {
@@ -19672,7 +19672,7 @@
             "description": "Review comment by copilot-pull-request-reviewer[bot]",
             "sentiment": "neutral",
             "details": {
-              "body": "## Pull request overview\n\nStandard post-release version increment for Azure.ResourceManager.DurableTask, bumping from 1.1.0 to 1.2.0-beta.1.\n\n**Changes:**\n- Version bumped to 1.2.0-beta.1 and ApiCompatVersion updated to 1.1.0\n- Changelog updated with unreleased 1.2.0-beta.1 section\n\n### Reviewed changes\n\nCopilot reviewed 2 out of 2 changed files in this pull request and generated no comments.\n\n| File | Description |\n| ---- | ----------- |\n| .csproj | Version → 1.2.0-beta.1, ApiCompatVersion → 1.",
+              "body": "## Pull request overview\n\nStandard post-release version increment for Azure.ResourceManager.DurableTask, bumping from 1.1.0 to 1.2.0-beta.1.\n\n**Changes:**\n- Version bumped to 1.2.0-beta.1 and ApiCompatVersion updated to 1.1.0\n- Changelog updated with unreleased 1.2.0-beta.1 section\n\n### Reviewed changes\n\nCopilot reviewed 2 out of 2 changed files in this pull request and generated no comments.\n\n| File | Description |\n| ---- | ----------- |\n| .csproj | Version \u2192 1.2.0-beta.1, ApiCompatVersion \u2192 1.",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/57025#pullrequestreview-3937705641"
             }
           },
@@ -19957,7 +19957,7 @@
             "description": "The `tsp-location.yaml` file now has `additionalDirectories:` with a blank value followed by an empt",
             "sentiment": "blocking",
             "details": {
-              "body": "The `tsp-location.yaml` file now has `additionalDirectories:` with a blank value followed by an empty line (lines 4–5). According to the repository convention for tsp-location.yaml, an empty `additionalDirectories` list should either be omitted or set to `[]`. Having a bare key with no value and a trailing blank line could cause YAML parse errors or unexpected behavior in the generation tooling. If no additional directories are needed, this key should be removed entirely.",
+              "body": "The `tsp-location.yaml` file now has `additionalDirectories:` with a blank value followed by an empty line (lines 4\u20135). According to the repository convention for tsp-location.yaml, an empty `additionalDirectories` list should either be omitted or set to `[]`. Having a bare key with no value and a trailing blank line could cause YAML parse errors or unexpected behavior in the generation tooling. If no additional directories are needed, this key should be removed entirely.",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/56886#discussion_r2908012574"
             }
           },
@@ -20143,7 +20143,7 @@
             "description": "## PR Review: Azure.ResourceManager.DurableTask v1.1.0",
             "sentiment": "neutral",
             "details": {
-              "body": "## PR Review: Azure.ResourceManager.DurableTask v1.1.0\r\n\r\n### Phase 1: Versioning Review — :white_check_mark: PASS\r\n\r\n| Check | Result |\r\n|-------|--------|\r\n| No major version bump | :white_check_mark: Version `1.1.0` (minor bump) |\r\n| `ApiCompatVersion` present | :white_check_mark: Set to `1.0.0` |\r\n| No new `ApiCompatBaseline.txt` entries | :white_check_mark: File does not exist |\r\n\r\n### Phase 2: API Surface Review — :white_check_mark: PASS\r\n\r\n**New resource types (all correctly prefixed with",
+              "body": "## PR Review: Azure.ResourceManager.DurableTask v1.1.0\r\n\r\n### Phase 1: Versioning Review \u2014 :white_check_mark: PASS\r\n\r\n| Check | Result |\r\n|-------|--------|\r\n| No major version bump | :white_check_mark: Version `1.1.0` (minor bump) |\r\n| `ApiCompatVersion` present | :white_check_mark: Set to `1.0.0` |\r\n| No new `ApiCompatBaseline.txt` entries | :white_check_mark: File does not exist |\r\n\r\n### Phase 2: API Surface Review \u2014 :white_check_mark: PASS\r\n\r\n**New resource types (all correctly prefixed with",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/56886#issuecomment-4043716787"
             }
           },
@@ -20366,7 +20366,7 @@
             "description": "Approved by live1206",
             "sentiment": "positive",
             "details": {
-              "body": "## Mgmt PR Review: ^Gzure-typespec/http-client-csharp-mgmt 20260302.3 → 20260304.2\n\n### Phase 1: Versioning ✅\n- No `.csproj` changes — no major version bumps, no `ApiCompatVersion` removals\n- No `ApiCompatBaseline.txt` changes\n\n### Phase 2: API Review ✅\n- No public API surface files (`api/*.cs`) changed — all changes are to **internal** generated code\n\n### Phase 3: Breaking Changes ✅\n- N/A — no public API surface changes\n\n---\n\n### Change Summary (98 services regenerated)\n\n| File | Change | Risk ",
+              "body": "## Mgmt PR Review: ^Gzure-typespec/http-client-csharp-mgmt 20260302.3 \u2192 20260304.2\n\n### Phase 1: Versioning \u2705\n- No `.csproj` changes \u2014 no major version bumps, no `ApiCompatVersion` removals\n- No `ApiCompatBaseline.txt` changes\n\n### Phase 2: API Review \u2705\n- No public API surface files (`api/*.cs`) changed \u2014 all changes are to **internal** generated code\n\n### Phase 3: Breaking Changes \u2705\n- N/A \u2014 no public API surface changes\n\n---\n\n### Change Summary (98 services regenerated)\n\n| File | Change | Risk ",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/56796#pullrequestreview-3893914721"
             }
           },
@@ -20576,7 +20576,7 @@
             "description": "Review comment by copilot-pull-request-reviewer[bot]",
             "sentiment": "neutral",
             "details": {
-              "body": "## Pull request overview\n\nThis PR updates the Azure TypeSpec HTTP client C# management emitter package to prerelease version `1.0.0-alpha.20260224.1`. The update includes version bumps for the main emitter package and all its TypeSpec-related dependencies.\n\n**Changes:**\n- Updated `@azure-typespec/http-client-csharp-mgmt` from `1.0.0-alpha.20260211.2` to `1.0.0-alpha.20260224.1`\n- Updated all TypeSpec and Azure TypeSpec tooling dependencies to their latest versions (0.64.x → 0.65.x for Azure tool",
+              "body": "## Pull request overview\n\nThis PR updates the Azure TypeSpec HTTP client C# management emitter package to prerelease version `1.0.0-alpha.20260224.1`. The update includes version bumps for the main emitter package and all its TypeSpec-related dependencies.\n\n**Changes:**\n- Updated `@azure-typespec/http-client-csharp-mgmt` from `1.0.0-alpha.20260211.2` to `1.0.0-alpha.20260224.1`\n- Updated all TypeSpec and Azure TypeSpec tooling dependencies to their latest versions (0.64.x \u2192 0.65.x for Azure tool",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/56431#pullrequestreview-3852348033"
             }
           },
@@ -20600,7 +20600,7 @@
             "description": "Approved by live1206",
             "sentiment": "positive",
             "details": {
-              "body": "Approved. Clean generator version bump with no API surface changes. All 5543 file changes are in generated code — serialization method reordering, NextLink relative URI fix, and conditional api-version null checks.",
+              "body": "Approved. Clean generator version bump with no API surface changes. All 5543 file changes are in generated code \u2014 serialization method reordering, NextLink relative URI fix, and conditional api-version null checks.",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/56431#pullrequestreview-3852428453"
             }
           },
@@ -21198,7 +21198,7 @@
             "description": "Review comment by copilot-pull-request-reviewer[bot]",
             "sentiment": "neutral",
             "details": {
-              "body": "## Pull request overview\n\nUpdates the pinned prerelease version of the `@azure-typespec/http-client-csharp-mgmt` emitter package used by the repo’s TypeSpec toolchain.\n\n**Changes:**\n- Bumps `@azure-typespec/http-client-csharp-mgmt` from `1.0.0-alpha.20260128.1` to `1.0.0-alpha.20260201.2`.\n\n<details>\n<summary>Files not reviewed (1)</summary>\n\n* **eng/azure-typespec-http-client-csharp-mgmt-emitter-package-lock.json**: Language not supported\n</details>\n\n\n",
+              "body": "## Pull request overview\n\nUpdates the pinned prerelease version of the `@azure-typespec/http-client-csharp-mgmt` emitter package used by the repo\u2019s TypeSpec toolchain.\n\n**Changes:**\n- Bumps `@azure-typespec/http-client-csharp-mgmt` from `1.0.0-alpha.20260128.1` to `1.0.0-alpha.20260201.2`.\n\n<details>\n<summary>Files not reviewed (1)</summary>\n\n* **eng/azure-typespec-http-client-csharp-mgmt-emitter-package-lock.json**: Language not supported\n</details>\n\n\n",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/55408#pullrequestreview-3737238747"
             }
           },
@@ -25559,7 +25559,7 @@
             "description": "Fixed. Added `IncludeAutorestDependency=true` to 86 additional libraries that have `tsp-location.yam",
             "sentiment": "neutral",
             "details": {
-              "body": "\n> @copilot  Some libraries were missed. Scan the repo and ensure that libraries that fit the criteria have the property explicitly enabled in their csproj file. To reiterate, if the library doesn't have...\n\nFixed. Added `IncludeAutorestDependency=true` to 86 additional libraries that have `tsp-location.yaml` without `emitterPackageJsonPath` or with an invalid emitter path. This includes all the examples you mentioned:\n- sdk/recoveryservices/Azure.ResourceManager.RecoveryServices ✅\n- sdk/openai/",
+              "body": "\n> @copilot  Some libraries were missed. Scan the repo and ensure that libraries that fit the criteria have the property explicitly enabled in their csproj file. To reiterate, if the library doesn't have...\n\nFixed. Added `IncludeAutorestDependency=true` to 86 additional libraries that have `tsp-location.yaml` without `emitterPackageJsonPath` or with an invalid emitter path. This includes all the examples you mentioned:\n- sdk/recoveryservices/Azure.ResourceManager.RecoveryServices \u2705\n- sdk/openai/",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/53149#issuecomment-3398498110"
             }
           },
@@ -25594,7 +25594,7 @@
             "description": "Fixed. Added `IncludeAutorestDependency=true` to 56 additional libraries that have a `Generated` fol",
             "sentiment": "neutral",
             "details": {
-              "body": "\n> @copilot  This library `sdk/personalizer/Azure.AI.Personalizer` doesn't have a corresponding tsp-location.yaml yet it is missing the enabled property. Add the property to this library's csproj file an...\n\nFixed. Added `IncludeAutorestDependency=true` to 56 additional libraries that have a `Generated` folder but no `tsp-location.yaml` or `autorest.md` files. This includes:\n- sdk/personalizer/Azure.AI.Personalizer ✅\n- All Microsoft.Azure.CognitiveServices.* libraries (24 libraries)\n- All Azure.",
+              "body": "\n> @copilot  This library `sdk/personalizer/Azure.AI.Personalizer` doesn't have a corresponding tsp-location.yaml yet it is missing the enabled property. Add the property to this library's csproj file an...\n\nFixed. Added `IncludeAutorestDependency=true` to 56 additional libraries that have a `Generated` folder but no `tsp-location.yaml` or `autorest.md` files. This includes:\n- sdk/personalizer/Azure.AI.Personalizer \u2705\n- All Microsoft.Azure.CognitiveServices.* libraries (24 libraries)\n- All Azure.",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/53149#issuecomment-3398576734"
             }
           },
@@ -26533,7 +26533,7 @@
             "description": "Review comment by copilot-pull-request-reviewer[bot]",
             "sentiment": "neutral",
             "details": {
-              "body": "## Pull Request Overview\n\nThis PR updates class names in the Azure.ResourceManager.DurableTask SDK for its 1.0.0 GA release. The changes drop the \"DurableTask\" prefix from class names and rename \"DurableTaskHub\" classes to \"SchedulerTaskHub\" for improved clarity and consistency.\n\nKey changes include:\n- Rename all class names to drop the \"DurableTask\" prefix (e.g., `DurableTaskSchedulerData` → `SchedulerData`)\n- Update API specifications to use newer commit and different repo branch\n- Update vers",
+              "body": "## Pull Request Overview\n\nThis PR updates class names in the Azure.ResourceManager.DurableTask SDK for its 1.0.0 GA release. The changes drop the \"DurableTask\" prefix from class names and rename \"DurableTaskHub\" classes to \"SchedulerTaskHub\" for improved clarity and consistency.\n\nKey changes include:\n- Rename all class names to drop the \"DurableTask\" prefix (e.g., `DurableTaskSchedulerData` \u2192 `SchedulerData`)\n- Update API specifications to use newer commit and different repo branch\n- Update vers",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/53192#pullrequestreview-3332945366"
             }
           },
@@ -28958,7 +28958,7 @@
             "description": "Review comment by copilot-pull-request-reviewer[bot]",
             "sentiment": "neutral",
             "details": {
-              "body": "## Pull Request Overview\n\nThis PR switches source generation to an attribute-driven model, embeds assembly-level context naming for discovery, and optimizes the type‐to‐reference caching to improve generation performance.\n\n- Switch to scanning `[ModelReaderWriterBuildable]` attributes and emit `[ModelReaderWriterContextName]`\n- Extend `TypeRef` and its cache to track the containing context\n- Refactor/remove legacy invocation-test helpers and update tests to use buildable attributes\n\n### Reviewed",
+              "body": "## Pull Request Overview\n\nThis PR switches source generation to an attribute-driven model, embeds assembly-level context naming for discovery, and optimizes the type\u2010to\u2010reference caching to improve generation performance.\n\n- Switch to scanning `[ModelReaderWriterBuildable]` attributes and emit `[ModelReaderWriterContextName]`\n- Extend `TypeRef` and its cache to track the containing context\n- Refactor/remove legacy invocation-test helpers and update tests to use buildable attributes\n\n### Reviewed",
               "url": "https://github.com/Azure/azure-sdk-for-net/pull/51067#pullrequestreview-2984879621"
             }
           },
@@ -31647,7 +31647,7 @@
         "language": "JavaScript",
         "number": 37893,
         "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893",
-        "title": "feat(warp): explicit CJS via moduleType, esbuild ESM→CJS transform",
+        "title": "feat(warp): explicit CJS via moduleType, esbuild ESM\u2192CJS transform",
         "author": "deyaaeldeen",
         "createdAt": "2026-03-30T16:41:19Z",
         "mergedAt": "2026-04-03T21:34:49Z",
@@ -31825,7 +31825,7 @@
             "timestamp": "2026-03-30T16:41:19Z",
             "actor": "deyaaeldeen",
             "actorRole": "author",
-            "description": "PR #37893 opened: feat(warp): explicit CJS via moduleType, esbuild ESM→CJS tra",
+            "description": "PR #37893 opened: feat(warp): explicit CJS via moduleType, esbuild ESM\u2192CJS tra",
             "sentiment": "neutral",
             "details": {
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893"
@@ -31839,7 +31839,7 @@
             "description": "The `moduleType === \"commonjs\"` branch replaces the provided `host` with a fresh `ts.createCompilerH",
             "sentiment": "blocking",
             "details": {
-              "body": "The `moduleType === \"commonjs\"` branch replaces the provided `host` with a fresh `ts.createCompilerHost`, which drops polyfill substitution (from `createPolyfillHost`) and also changes caching behavior. Concretely, a CJS target with `polyfillSuffix` will log “polyfill(s)…”, but compilation may read the original files instead of the polyfills. Fix by composing the override with the *existing* host (preserving `getSourceFile` behavior) while still isolating any SourceFile caching for Node16 implie",
+              "body": "The `moduleType === \"commonjs\"` branch replaces the provided `host` with a fresh `ts.createCompilerHost`, which drops polyfill substitution (from `createPolyfillHost`) and also changes caching behavior. Concretely, a CJS target with `polyfillSuffix` will log \u201cpolyfill(s)\u2026\u201d, but compilation may read the original files instead of the polyfills. Fix by composing the override with the *existing* host (preserving `getSourceFile` behavior) while still isolating any SourceFile caching for Node16 implie",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959802"
             }
           },
@@ -31851,7 +31851,7 @@
             "description": "The `moduleType === \"commonjs\"` branch replaces the provided `host` with a fresh `ts.createCompilerH",
             "sentiment": "blocking",
             "details": {
-              "body": "The `moduleType === \"commonjs\"` branch replaces the provided `host` with a fresh `ts.createCompilerHost`, which drops polyfill substitution (from `createPolyfillHost`) and also changes caching behavior. Concretely, a CJS target with `polyfillSuffix` will log “polyfill(s)…”, but compilation may read the original files instead of the polyfills. Fix by composing the override with the *existing* host (preserving `getSourceFile` behavior) while still isolating any SourceFile caching for Node16 implie",
+              "body": "The `moduleType === \"commonjs\"` branch replaces the provided `host` with a fresh `ts.createCompilerHost`, which drops polyfill substitution (from `createPolyfillHost`) and also changes caching behavior. Concretely, a CJS target with `polyfillSuffix` will log \u201cpolyfill(s)\u2026\u201d, but compilation may read the original files instead of the polyfills. Fix by composing the override with the *existing* host (preserving `getSourceFile` behavior) while still isolating any SourceFile caching for Node16 implie",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959827"
             }
           },
@@ -31863,7 +31863,7 @@
             "description": "In the worker crash handler, `outDir` is populated with `msg.target.tsconfig` (a tsconfig path), not",
             "sentiment": "blocking",
             "details": {
-              "body": "In the worker crash handler, `outDir` is populated with `msg.target.tsconfig` (a tsconfig path), not the target output directory. This will mislead downstream reporting/diagnostics and can break code that assumes `outDir` is a real output directory. Use the parsed target’s `outDir` if available (e.g., keep `parsed` in scope), or fall back to a clearly “unknown” value like an empty string or `msg.packageRoot`.\n```suggestion\n          outDir: msg.packageRoot ?? \"\",\n```",
+              "body": "In the worker crash handler, `outDir` is populated with `msg.target.tsconfig` (a tsconfig path), not the target output directory. This will mislead downstream reporting/diagnostics and can break code that assumes `outDir` is a real output directory. Use the parsed target\u2019s `outDir` if available (e.g., keep `parsed` in scope), or fall back to a clearly \u201cunknown\u201d value like an empty string or `msg.packageRoot`.\n```suggestion\n          outDir: msg.packageRoot ?? \"\",\n```",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959845"
             }
           },
@@ -31875,7 +31875,7 @@
             "description": "Defaulting the shim `type` to `\"module\"` when `target.moduleType` is absent can silently produce an ",
             "sentiment": "blocking",
             "details": {
-              "body": "Defaulting the shim `type` to `\"module\"` when `target.moduleType` is absent can silently produce an invalid output package.json for `condition: require` targets that weren’t migrated (Node will treat `.js` as ESM and `require()` will fail). Since this PR moves to explicit `moduleType`, consider making this failure explicit by validating config (e.g., require `moduleType: commonjs` when `condition` is `\"require\"`), or preserve backward compatibility by inferring a safe default for `\"require\"` tar",
+              "body": "Defaulting the shim `type` to `\"module\"` when `target.moduleType` is absent can silently produce an invalid output package.json for `condition: require` targets that weren\u2019t migrated (Node will treat `.js` as ESM and `require()` will fail). Since this PR moves to explicit `moduleType`, consider making this failure explicit by validating config (e.g., require `moduleType: commonjs` when `condition` is `\"require\"`), or preserve backward compatibility by inferring a safe default for `\"require\"` tar",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959872"
             }
           },
@@ -31884,10 +31884,10 @@
             "timestamp": "2026-03-30T16:44:02Z",
             "actor": "Copilot",
             "actorRole": "copilot",
-            "description": "The previous esbuild-based CJS emission path set `platform: \"node\"` for CommonJS to help Node’s CJS ",
+            "description": "The previous esbuild-based CJS emission path set `platform: \"node\"` for CommonJS to help Node\u2019s CJS ",
             "sentiment": "blocking",
             "details": {
-              "body": "The previous esbuild-based CJS emission path set `platform: \"node\"` for CommonJS to help Node’s CJS analysis (notably `cjs-module-lexer` named export detection). The new ESM→CJS transform omits `platform: \"node\"`, which can reduce interoperability/analysis quality for consumers/tools. Add `platform: \"node\"` here to match the prior behavior for CJS output.\n```suggestion\n        sourcefile: path.basename(srcPath),\n        platform: \"node\",\n```",
+              "body": "The previous esbuild-based CJS emission path set `platform: \"node\"` for CommonJS to help Node\u2019s CJS analysis (notably `cjs-module-lexer` named export detection). The new ESM\u2192CJS transform omits `platform: \"node\"`, which can reduce interoperability/analysis quality for consumers/tools. Add `platform: \"node\"` here to match the prior behavior for CJS output.\n```suggestion\n        sourcefile: path.basename(srcPath),\n        platform: \"node\",\n```",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959895"
             }
           },
@@ -31896,10 +31896,10 @@
             "timestamp": "2026-03-30T16:44:02Z",
             "actor": "Copilot",
             "actorRole": "copilot",
-            "description": "`inferModuleType`, `setJsonMode`, and `isJsonMode` were removed from the package’s public exports (a",
+            "description": "`inferModuleType`, `setJsonMode`, and `isJsonMode` were removed from the package\u2019s public exports (a",
             "sentiment": "blocking",
             "details": {
-              "body": "`inferModuleType`, `setJsonMode`, and `isJsonMode` were removed from the package’s public exports (and `inferModuleType` removed from `config.ts`). If `@microsoft/warp` is consumed externally, this is a breaking API change. Consider re-exporting these as deprecated shims for at least one release cycle (with runtime warnings if appropriate), or ensure the package versioning reflects a breaking change per semver.\n```suggestion\nexport {\n  findWarpConfig,\n  validateTsconfigPaths,\n  inferModuleType,\n",
+              "body": "`inferModuleType`, `setJsonMode`, and `isJsonMode` were removed from the package\u2019s public exports (and `inferModuleType` removed from `config.ts`). If `@microsoft/warp` is consumed externally, this is a breaking API change. Consider re-exporting these as deprecated shims for at least one release cycle (with runtime warnings if appropriate), or ensure the package versioning reflects a breaking change per semver.\n```suggestion\nexport {\n  findWarpConfig,\n  validateTsconfigPaths,\n  inferModuleType,\n",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959929"
             }
           },
@@ -31908,10 +31908,10 @@
             "timestamp": "2026-03-30T16:44:02Z",
             "actor": "Copilot",
             "actorRole": "copilot",
-            "description": "`inferModuleType`, `setJsonMode`, and `isJsonMode` were removed from the package’s public exports (a",
+            "description": "`inferModuleType`, `setJsonMode`, and `isJsonMode` were removed from the package\u2019s public exports (a",
             "sentiment": "blocking",
             "details": {
-              "body": "`inferModuleType`, `setJsonMode`, and `isJsonMode` were removed from the package’s public exports (and `inferModuleType` removed from `config.ts`). If `@microsoft/warp` is consumed externally, this is a breaking API change. Consider re-exporting these as deprecated shims for at least one release cycle (with runtime warnings if appropriate), or ensure the package versioning reflects a breaking change per semver.",
+              "body": "`inferModuleType`, `setJsonMode`, and `isJsonMode` were removed from the package\u2019s public exports (and `inferModuleType` removed from `config.ts`). If `@microsoft/warp` is consumed externally, this is a breaking API change. Consider re-exporting these as deprecated shims for at least one release cycle (with runtime warnings if appropriate), or ensure the package versioning reflects a breaking change per semver.",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959955"
             }
           },
@@ -31920,10 +31920,10 @@
             "timestamp": "2026-03-30T16:44:02Z",
             "actor": "Copilot",
             "actorRole": "copilot",
-            "description": "The new “virtual package.json type override” + `moduleType` behavior should have a targeted regressi",
+            "description": "The new \u201cvirtual package.json type override\u201d + `moduleType` behavior should have a targeted regressi",
             "sentiment": "blocking",
             "details": {
-              "body": "The new “virtual package.json type override” + `moduleType` behavior should have a targeted regression test that also includes `polyfillSuffix` (to ensure polyfill substitution still occurs under the commonjs host override). Adding a Vitest case that compiles a file requiring a polyfill-only change and asserting the emitted CJS output contains the polyfilled content would prevent regressions in this interaction.",
+              "body": "The new \u201cvirtual package.json type override\u201d + `moduleType` behavior should have a targeted regression test that also includes `polyfillSuffix` (to ensure polyfill substitution still occurs under the commonjs host override). Adding a Vitest case that compiles a file requiring a polyfill-only change and asserting the emitted CJS output contains the polyfilled content would prevent regressions in this interaction.",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#discussion_r3010959969"
             }
           },
@@ -31935,7 +31935,7 @@
             "description": "Review comment by copilot-pull-request-reviewer[bot]",
             "sentiment": "neutral",
             "details": {
-              "body": "## Pull request overview\n\nThis PR makes CommonJS output explicit via a `moduleType` target setting, updates Warp’s internal dedup/emit pipeline (including an esbuild ESM→CJS transform fast path), and expands tests to validate source-map behavior.\n\n**Changes:**\n- Add `moduleType: commonjs` to CJS targets across the repo’s `warp.config.yml` files.\n- Refactor compilation/dedup to separate type-check vs emit identity, add `programIdentity`, and introduce esbuild-based ESM→CJS transformation.\n- Updat",
+              "body": "## Pull request overview\n\nThis PR makes CommonJS output explicit via a `moduleType` target setting, updates Warp\u2019s internal dedup/emit pipeline (including an esbuild ESM\u2192CJS transform fast path), and expands tests to validate source-map behavior.\n\n**Changes:**\n- Add `moduleType: commonjs` to CJS targets across the repo\u2019s `warp.config.yml` files.\n- Refactor compilation/dedup to separate type-check vs emit identity, add `programIdentity`, and introduce esbuild-based ESM\u2192CJS transformation.\n- Updat",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37893#pullrequestreview-4031903972"
             }
           },
@@ -31944,7 +31944,7 @@
             "timestamp": "2026-03-30T18:19:21Z",
             "actor": "deyaaeldeen",
             "actorRole": "author",
-            "description": "feat(warp): explicit CJS via moduleType, esbuild ESM→CJS tra",
+            "description": "feat(warp): explicit CJS via moduleType, esbuild ESM\u2192CJS tra",
             "sentiment": "neutral",
             "details": {
               "url": "https://github.com/Azure/azure-sdk-for-js/commit/c2acd960b702f5a8e5b60833b214809f7aa556e2"
@@ -32505,10 +32505,10 @@
             "timestamp": "2026-03-09T21:27:54Z",
             "actor": "Copilot",
             "actorRole": "copilot",
-            "description": "The “cross-platform” example under “run a single sample with the required environment variables set”",
+            "description": "The \u201ccross-platform\u201d example under \u201crun a single sample with the required environment variables set\u201d",
             "sentiment": "blocking",
             "details": {
-              "body": "The “cross-platform” example under “run a single sample with the required environment variables set” does not actually set any environment variables (it just runs `node ...`). This is inconsistent with the pattern used across the repo (e.g. `npx cross-env VAR=value node ...`) and with the added `cross-env` devDependency. Update the example to demonstrate setting the required env vars via `npx cross-env`, or adjust the surrounding text if no env vars are needed.",
+              "body": "The \u201ccross-platform\u201d example under \u201crun a single sample with the required environment variables set\u201d does not actually set any environment variables (it just runs `node ...`). This is inconsistent with the pattern used across the repo (e.g. `npx cross-env VAR=value node ...`) and with the added `cross-env` devDependency. Update the example to demonstrate setting the required env vars via `npx cross-env`, or adjust the surrounding text if no env vars are needed.",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37544#discussion_r2908034171"
             }
           },
@@ -32517,10 +32517,10 @@
             "timestamp": "2026-03-09T21:27:54Z",
             "actor": "Copilot",
             "actorRole": "copilot",
-            "description": "The “cross-platform” example says it runs the sample with required environment variables set, but th",
+            "description": "The \u201ccross-platform\u201d example says it runs the sample with required environment variables set, but th",
             "sentiment": "blocking",
             "details": {
-              "body": "The “cross-platform” example says it runs the sample with required environment variables set, but the command shown (`node operationsListSample.js`) doesn’t set any env vars. This is inconsistent with the standard samples pattern in this repo (typically `npx cross-env VAR=value node ...`) and with the added `cross-env` devDependency. Update the example to use `npx cross-env` (with the actual env var names) or revise the text.",
+              "body": "The \u201ccross-platform\u201d example says it runs the sample with required environment variables set, but the command shown (`node operationsListSample.js`) doesn\u2019t set any env vars. This is inconsistent with the standard samples pattern in this repo (typically `npx cross-env VAR=value node ...`) and with the added `cross-env` devDependency. Update the example to use `npx cross-env` (with the actual env var names) or revise the text.",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37544#discussion_r2908034189"
             }
           },
@@ -32541,10 +32541,10 @@
             "timestamp": "2026-03-09T21:27:55Z",
             "actor": "Copilot",
             "actorRole": "copilot",
-            "description": "The export targets for the API subpaths use \"src/...\" instead of \"./src/...\". Other packages’ warp c",
+            "description": "The export targets for the API subpaths use \"src/...\" instead of \"./src/...\". Other packages\u2019 warp c",
             "sentiment": "blocking",
             "details": {
-              "body": "The export targets for the API subpaths use \"src/...\" instead of \"./src/...\". Other packages’ warp configs consistently use \"./src/...\"; leaving off the leading \"./\" may break module resolution during build/publish. Update these 4 entries to use \"./src/...\" for consistency and correctness.",
+              "body": "The export targets for the API subpaths use \"src/...\" instead of \"./src/...\". Other packages\u2019 warp configs consistently use \"./src/...\"; leaving off the leading \"./\" may break module resolution during build/publish. Update these 4 entries to use \"./src/...\" for consistency and correctness.",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37544#discussion_r2908034206"
             }
           },
@@ -32590,10 +32590,10 @@
             "timestamp": "2026-03-13T02:57:15Z",
             "actor": "JialinHuang803",
             "actorRole": "reviewer",
-            "description": "Practically, it's low-risk today — warp uses path.resolve(packageRoot, sourcePath) internally, which",
+            "description": "Practically, it's low-risk today \u2014 warp uses path.resolve(packageRoot, sourcePath) internally, which",
             "sentiment": "blocking",
             "details": {
-              "body": "Practically, it's low-risk today — warp uses path.resolve(packageRoot, sourcePath) internally, which resolves both \"src/...\" and \"./src/...\" identically. The generated dist paths in package.json always get \"./\" prepended.\n\nBut I would suggest that we maintain consistency by always adding the \"./\" prefix in the emitter. cc.@kazrael2119 ",
+              "body": "Practically, it's low-risk today \u2014 warp uses path.resolve(packageRoot, sourcePath) internally, which resolves both \"src/...\" and \"./src/...\" identically. The generated dist paths in package.json always get \"./\" prepended.\n\nBut I would suggest that we maintain consistency by always adding the \"./\" prefix in the emitter. cc.@kazrael2119 ",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37544#discussion_r2928724732"
             }
           },
@@ -32625,7 +32625,7 @@
             "timestamp": "2026-03-13T23:40:28.978Z",
             "actor": "developer",
             "actorRole": "tool",
-            "description": "azsdk_release_sdk — OK (13.8s)",
+            "description": "azsdk_release_sdk \u2014 OK (13.8s)",
             "sentiment": "neutral",
             "language": "JavaScript",
             "details": {
@@ -32643,7 +32643,7 @@
             "timestamp": "2026-03-13T23:40:46.099Z",
             "actor": "developer",
             "actorRole": "tool",
-            "description": "azsdk_release_sdk — OK (15.8s)",
+            "description": "azsdk_release_sdk \u2014 OK (15.8s)",
             "sentiment": "neutral",
             "language": "JavaScript",
             "details": {
@@ -32887,10 +32887,10 @@
             "timestamp": "2026-03-03T01:51:07Z",
             "actor": "Copilot",
             "actorRole": "copilot",
-            "description": "`tshy` is removed here, but this package doesn’t appear (in this PR content) to have a corresponding",
+            "description": "`tshy` is removed here, but this package doesn\u2019t appear (in this PR content) to have a corresponding",
             "sentiment": "blocking",
             "details": {
-              "body": "`tshy` is removed here, but this package doesn’t appear (in this PR content) to have a corresponding `warp.config.yml` added like the other migrated libraries. If the build/release pipeline relies on Warp configuration to generate multi-target outputs/exports, this package may stop producing the expected `dist/*` entrypoints. Add a `warp.config.yml` for this package (matching its export surface and targets) or keep the `tshy` config until Warp is wired up for it.",
+              "body": "`tshy` is removed here, but this package doesn\u2019t appear (in this PR content) to have a corresponding `warp.config.yml` added like the other migrated libraries. If the build/release pipeline relies on Warp configuration to generate multi-target outputs/exports, this package may stop producing the expected `dist/*` entrypoints. Add a `warp.config.yml` for this package (matching its export surface and targets) or keep the `tshy` config until Warp is wired up for it.",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37372#discussion_r2875609726"
             }
           },
@@ -32902,7 +32902,7 @@
             "description": "Review comment by copilot-pull-request-reviewer[bot]",
             "sentiment": "neutral",
             "details": {
-              "body": "## Pull request overview\n\nMigrates a large set of packages that don’t require polyfills from `tshy`-based builds to Warp by removing `tshy` configuration/dependencies from `package.json` and introducing `warp.config.yml` files that define exports and build targets.\n\n**Changes:**\n- Removed `tshy` devDependency entries and `tshy` config blocks from many `package.json` files.\n- Added `warp.config.yml` files describing per-package export surfaces and build target tsconfigs (browser/react-native/esm/",
+              "body": "## Pull request overview\n\nMigrates a large set of packages that don\u2019t require polyfills from `tshy`-based builds to Warp by removing `tshy` configuration/dependencies from `package.json` and introducing `warp.config.yml` files that define exports and build targets.\n\n**Changes:**\n- Removed `tshy` devDependency entries and `tshy` config blocks from many `package.json` files.\n- Added `warp.config.yml` files describing per-package export surfaces and build target tsconfigs (browser/react-native/esm/",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37372#pullrequestreview-3879727751"
             }
           },
@@ -32911,10 +32911,10 @@
             "timestamp": "2026-03-03T01:51:08Z",
             "actor": "Copilot",
             "actorRole": "copilot",
-            "description": "`tshy` is removed here, but this package doesn’t appear (in this PR content) to have a corresponding",
+            "description": "`tshy` is removed here, but this package doesn\u2019t appear (in this PR content) to have a corresponding",
             "sentiment": "blocking",
             "details": {
-              "body": "`tshy` is removed here, but this package doesn’t appear (in this PR content) to have a corresponding `warp.config.yml` added like the other migrated libraries. If the build/release pipeline relies on Warp configuration to generate multi-target outputs/exports, this package may stop producing the expected `dist/*` entrypoints. Add a `warp.config.yml` for this package (matching its export surface and targets) or keep the `tshy` config until Warp is wired up for it.",
+              "body": "`tshy` is removed here, but this package doesn\u2019t appear (in this PR content) to have a corresponding `warp.config.yml` added like the other migrated libraries. If the build/release pipeline relies on Warp configuration to generate multi-target outputs/exports, this package may stop producing the expected `dist/*` entrypoints. Add a `warp.config.yml` for this package (matching its export surface and targets) or keep the `tshy` config until Warp is wired up for it.",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37372#discussion_r2875609744"
             }
           },
@@ -32926,7 +32926,7 @@
             "description": "This perf-test package is configured to build `browser` and `react-native` targets, which likely inc",
             "sentiment": "blocking",
             "details": {
-              "body": "This perf-test package is configured to build `browser` and `react-native` targets, which likely increases build time and artifact output without being consumed (many other `*-perf-tests` packages in this PR only build `esm` + `commonjs`). Consider removing the `browser`/`react-native` targets (or justifying them by ensuring the package’s `package.json` exports/fields actually reference those builds).",
+              "body": "This perf-test package is configured to build `browser` and `react-native` targets, which likely increases build time and artifact output without being consumed (many other `*-perf-tests` packages in this PR only build `esm` + `commonjs`). Consider removing the `browser`/`react-native` targets (or justifying them by ensuring the package\u2019s `package.json` exports/fields actually reference those builds).",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37372#discussion_r2875609757"
             }
           },
@@ -33281,7 +33281,7 @@
             "description": "This is actually a pure TypeScript type alias (`export type dependencyResolutionType = \"disabled\" | ",
             "sentiment": "neutral",
             "details": {
-              "body": "This is actually a pure TypeScript type alias (`export type dependencyResolutionType = \"disabled\" | \"enabled\" | \"tryFromExpanded\"`), not a runtime value. The camelCase naming is a convention choice by the original authors. `export type` is correct here — there's no runtime value to preserve.",
+              "body": "This is actually a pure TypeScript type alias (`export type dependencyResolutionType = \"disabled\" | \"enabled\" | \"tryFromExpanded\"`), not a runtime value. The camelCase naming is a convention choice by the original authors. `export type` is correct here \u2014 there's no runtime value to preserve.",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37385#discussion_r2865546483"
             }
           },
@@ -33293,7 +33293,7 @@
             "description": "I tested this by simulating regeneration: copied the generated `index.ts` (without `type` annotation",
             "sentiment": "neutral",
             "details": {
-              "body": "I tested this by simulating regeneration: copied the generated `index.ts` (without `type` annotations) over `src/index.ts`, then ran `npx eslint --fix src/index.ts`. The `@typescript-eslint/consistent-type-exports` rule's auto-fixer perfectly restores all `type` annotations — the resulting file matches the PR version exactly.\n\nSo after regeneration, running `npm run lint:fix` recovers the annotations. Note that the current `regenerate` script runs `npm run format` (prettier only), not `lint:fix`",
+              "body": "I tested this by simulating regeneration: copied the generated `index.ts` (without `type` annotations) over `src/index.ts`, then ran `npx eslint --fix src/index.ts`. The `@typescript-eslint/consistent-type-exports` rule's auto-fixer perfectly restores all `type` annotations \u2014 the resulting file matches the PR version exactly.\n\nSo after regeneration, running `npm run lint:fix` recovers the annotations. Note that the current `regenerate` script runs `npm run format` (prettier only), not `lint:fix`",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37385#discussion_r2865546997"
             }
           },
@@ -33302,10 +33302,10 @@
             "timestamp": "2026-02-27T18:05:22Z",
             "actor": "deyaaeldeen",
             "actorRole": "author",
-            "description": "Good questions. I verified that `eslint --fix` auto-fixes `export * from` → `export type * from` for",
+            "description": "Good questions. I verified that `eslint --fix` auto-fixes `export * from` \u2192 `export type * from` for",
             "sentiment": "neutral",
             "details": {
-              "body": "Good questions. I verified that `eslint --fix` auto-fixes `export * from` → `export type * from` for REST client packages too, so no codegen changes are strictly required — running `lint:fix` after regeneration handles it.\n\nThat said, you raise a valid point: `export * from \"./some.js\"` in the JS output is indeed harmless — it's a barrel re-export that becomes a no-op if the source module has no runtime exports. The real problem that this PR solves is with **named** type exports like `export { S",
+              "body": "Good questions. I verified that `eslint --fix` auto-fixes `export * from` \u2192 `export type * from` for REST client packages too, so no codegen changes are strictly required \u2014 running `lint:fix` after regeneration handles it.\n\nThat said, you raise a valid point: `export * from \"./some.js\"` in the JS output is indeed harmless \u2014 it's a barrel re-export that becomes a no-op if the source module has no runtime exports. The real problem that this PR solves is with **named** type exports like `export { S",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/37385#discussion_r2865547679"
             }
           },
@@ -34599,7 +34599,7 @@
             "description": "Approved by maorleger",
             "sentiment": "positive",
             "details": {
-              "body": "🚀 🥳 \r\n\r\n(huge PR but looks pretty mechanical, had copilot summarize the changes)",
+              "body": "\ud83d\ude80 \ud83e\udd73 \r\n\r\n(huge PR but looks pretty mechanical, had copilot summarize the changes)",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/36198#pullrequestreview-3332978909"
             }
           },
@@ -34608,10 +34608,10 @@
             "timestamp": "2025-10-13T21:04:22Z",
             "actor": "maorleger",
             "actorRole": "reviewer",
-            "description": "meh I'm sure you would have removed it if possible 😄 gonna resolve my own comment here",
+            "description": "meh I'm sure you would have removed it if possible \ud83d\ude04 gonna resolve my own comment here",
             "sentiment": "blocking",
             "details": {
-              "body": "meh I'm sure you would have removed it if possible 😄 gonna resolve my own comment here",
+              "body": "meh I'm sure you would have removed it if possible \ud83d\ude04 gonna resolve my own comment here",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/36198#discussion_r2427328957"
             }
           },
@@ -36002,7 +36002,7 @@
             "description": "Approved by maorleger",
             "sentiment": "positive",
             "details": {
-              "body": "🥳 starting with devDeps is a great idea! What CI pipelines trigger when we update the `pnpm-workspace` file? ",
+              "body": "\ud83e\udd73 starting with devDeps is a great idea! What CI pipelines trigger when we update the `pnpm-workspace` file? ",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/35629#pullrequestreview-3141685955"
             }
           },
@@ -36026,7 +36026,7 @@
             "description": "It should trigger https://github.com/Azure/azure-sdk-for-js/blob/f1ff9e67e5ed8aa1ba6871ae8842d9c4309",
             "sentiment": "neutral",
             "details": {
-              "body": "> 🥳 starting with devDeps is a great idea! What CI pipelines trigger when we update the `pnpm-workspace` file?\r\n\r\nIt should trigger https://github.com/Azure/azure-sdk-for-js/blob/f1ff9e67e5ed8aa1ba6871ae8842d9c4309adf59/sdk/core/ci.yml#L46",
+              "body": "> \ud83e\udd73 starting with devDeps is a great idea! What CI pipelines trigger when we update the `pnpm-workspace` file?\r\n\r\nIt should trigger https://github.com/Azure/azure-sdk-for-js/blob/f1ff9e67e5ed8aa1ba6871ae8842d9c4309adf59/sdk/core/ci.yml#L46",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/35629#issuecomment-3211608769"
             }
           },
@@ -39236,7 +39236,7 @@
             "description": "Approved by jeremymeng",
             "sentiment": "positive",
             "details": {
-              "body": "I ❤️ this!",
+              "body": "I \u2764\ufe0f this!",
               "url": "https://github.com/Azure/azure-sdk-for-js/pull/34812#pullrequestreview-2926069928"
             }
           },

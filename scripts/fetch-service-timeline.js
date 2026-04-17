@@ -103,6 +103,26 @@ function detectGenerationFlow(pr) {
   return 'manual';
 }
 
+function countDistinctServiceDirs(repo, number) {
+  // Fetch first page of changed files (100 max) to detect mass changes
+  const files = ghJson(`api "repos/${repo}/pulls/${number}/files?per_page=100"`) || [];
+  const dirs = new Set();
+  const repoShort = repo.split('/')[1];
+  for (const f of files) {
+    const p = f.filename || '';
+    if (repoShort === 'azure-rest-api-specs') {
+      // e.g. specification/durabletask/... → "durabletask"
+      const m = p.match(/^specification\/([^/]+)/);
+      if (m) dirs.add(m[1]);
+    } else {
+      // SDK repos: e.g. sdk/durabletask/... → "durabletask"
+      const m = p.match(/^sdk\/([^/]+)/);
+      if (m) dirs.add(m[1]);
+    }
+  }
+  return dirs.size;
+}
+
 function fetchFullPRData(repo, number) {
   const pr = fetchPR(repo, number);
   if (!pr) return null;
@@ -122,6 +142,8 @@ function fetchFullPRData(repo, number) {
   const repoShort = repo.split('/')[1];
   const language = LANG_MAP[repoShort] || null;
 
+  const serviceDirCount = countDistinctServiceDirs(repo, number);
+
   return {
     repo, language, number,
     url: pr.html_url,
@@ -136,6 +158,7 @@ function fetchFullPRData(repo, number) {
     readyForReviewAt,
     generationFlow: detectGenerationFlow(pr),
     labels: (pr.labels || []).map(l => l.name),
+    serviceDirCount,
     reviewers: [
       ...(pr.requested_reviewers || []).map(r => r.login),
       ...reviews.filter(r => r.state === 'APPROVED').map(r => r.user?.login)

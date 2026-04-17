@@ -177,6 +177,8 @@ const Timeline = (() => {
       `;
       container.appendChild(el);
     }
+
+    fitCardGrid(container, cards.length);
   }
 
   function renderFilters() {
@@ -562,10 +564,15 @@ const Timeline = (() => {
   function renderTimeline() {
     const lanesContainer = document.getElementById('lanes');
     const labelsContainer = document.getElementById('lane-labels');
+
+    // Preserve scroll positions across re-render
+    const scrollEl = document.querySelector('.timeline-scroll');
+    const savedScrollLeft = scrollEl?.scrollLeft || 0;
+    const savedPageScrollY = window.scrollY;
+
     lanesContainer.innerHTML = '';
     labelsContainer.innerHTML = '';
 
-    const scrollEl = document.querySelector('.timeline-scroll');
     const availWidth = scrollEl.clientWidth;
     contentWidth = Math.max(availWidth * zoomLevel, 600);
 
@@ -603,6 +610,10 @@ const Timeline = (() => {
 
     // Gridlines
     addGridlines(lanesContainer);
+
+    // Restore scroll positions
+    if (scrollEl) scrollEl.scrollLeft = savedScrollLeft;
+    window.scrollTo(window.scrollX, savedPageScrollY);
   }
 
   function renderTimeAxis(elementId) {
@@ -1087,6 +1098,19 @@ const Timeline = (() => {
 
   function hide(id) {
     document.getElementById(id)?.classList.add('hidden');
+  }
+
+  function fitCardGrid(container, count) {
+    if (count <= 0) return;
+    const width = container.clientWidth;
+    const minCardW = 120, gap = 8;
+    const maxPerRow = Math.floor((width + gap) / (minCardW + gap));
+    if (count <= maxPerRow) {
+      container.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
+    } else {
+      const cols = Math.ceil(count / 2);
+      container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    }
   }
 
   return { render, escapeHtml };

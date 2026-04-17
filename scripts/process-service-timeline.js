@@ -68,15 +68,22 @@ function convertToolCalls(rawToolCalls, metadata) {
 function detectReleaseWindows(specPRs, sdkPRs) {
   const windows = [];
 
+  // Filter out mass-change spec PRs — they don't generate release windows
+  const eligibleSpecPRs = specPRs.filter(pr => !pr.massChange);
+
   // Track which SDK PRs have been claimed (one-to-one assignment)
   const claimed = {}; // lang -> Set of PR numbers
   for (const lang of Object.keys(sdkPRs)) {
     claimed[lang] = new Set();
+    // Pre-claim mass-change SDK PRs so they don't get assigned to windows
+    for (const pr of sdkPRs[lang]) {
+      if (pr.massChange) claimed[lang].add(pr.number);
+    }
   }
 
   // Pass 1: explicit matches (spec PR number or merge commit in body/title)
-  for (let i = 0; i < specPRs.length; i++) {
-    const spec = specPRs[i];
+  for (let i = 0; i < eligibleSpecPRs.length; i++) {
+    const spec = eligibleSpecPRs[i];
     const windowSdkPRs = {};
 
     for (const [lang, prs] of Object.entries(sdkPRs)) {
@@ -484,7 +491,30 @@ function main() {
     bestPR.events.sort((a, b) => a.timestamp.localeCompare(b.timestamp));
   }
 
-  // Detect release windows
+  // Filter out mass-change PRs (touching ≥5 service dirs) from release window detection.
+  // These PRs remain in the full timeline but are tagged and excluded from windows.
+  const MASS_CHANGE_THRESHOLD = 5;
+  let massFilteredSpec = 0, massFilteredSdk = 0;
+
+  for (const pr of specPRs) {
+    if (pr.serviceDirCount >= MASS_CHANGE_THRESHOLD) {
+      pr.massChange = true;
+      massFilteredSpec++;
+    }
+  }
+  for (const prs of Object.values(sdkPRs)) {
+    for (const pr of prs) {
+      if (pr.serviceDirCount >= MASS_CHANGE_THRESHOLD) {
+        pr.massChange = true;
+        massFilteredSdk++;
+      }
+    }
+  }
+  if (massFilteredSpec + massFilteredSdk > 0) {
+    console.error(`  Flagged mass-change PRs: ${massFilteredSpec} spec, ${massFilteredSdk} SDK (>= ${MASS_CHANGE_THRESHOLD} service dirs)`);
+  }
+
+  // Detect release windows (excludes mass-change PRs)
   console.error('Detecting release windows...');
   const releaseWindows = detectReleaseWindows(specPRs, sdkPRs);
 

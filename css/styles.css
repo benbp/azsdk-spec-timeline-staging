@@ -185,10 +185,10 @@ header {
 
 /* Summary Cards */
 .summary-cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 12px;
   margin-bottom: 20px;
-  flex-wrap: wrap;
 }
 
 .summary-card {
@@ -196,8 +196,7 @@ header {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 12px 16px;
-  min-width: 120px;
-  flex: 1;
+  min-width: 0;
 }
 
 .summary-card .card-label {
@@ -212,6 +211,17 @@ header {
   font-size: 22px;
   font-weight: 600;
   font-family: var(--font-mono);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.summary-card .card-value .card-value-link {
+  color: inherit;
+  text-decoration: none;
+  font-size: 16px;
+}
+.summary-card .card-value .card-value-link:hover {
+  text-decoration: underline;
 }
 
 .summary-card .card-sub {
@@ -1583,6 +1593,13 @@ body.drag-over::after {
   font-size: 13px;
   color: var(--text-secondary);
 }
+.service-header-meta a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.service-header-meta a:hover {
+  text-decoration: underline;
+}
 .generated-stamp {
   color: var(--text-muted);
   font-style: italic;
@@ -1601,6 +1618,7 @@ body.drag-over::after {
   padding: 4px 0;
   overflow-x: auto;
   scrollbar-width: thin;
+  scrollbar-color: var(--bg-hover) var(--bg-secondary);
   -webkit-overflow-scrolling: touch;
 }
 .window-pill {
@@ -1701,10 +1719,71 @@ body.drag-over::after {
   font-size: 12px;
   color: var(--text-muted);
   background: var(--bg-secondary);
-  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* PR links in lane meta */
+.meta-pr-links {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.meta-pr-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 11px;
+  font-family: var(--font-mono);
+}
+.meta-pr-link:hover {
+  text-decoration: underline;
+}
+.meta-pr-expand {
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 11px;
+}
+.meta-pr-expand:hover {
+  text-decoration: underline;
+}
+.meta-pr-dropdown {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 280px;
+  max-height: 200px;
+  overflow-y: auto;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 100;
+  padding: 4px 0;
+}
+.meta-pr-dropdown-item {
+  display: block;
+  padding: 4px 10px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.meta-pr-dropdown-item:hover {
+  background: var(--bg-tertiary);
 }
 
 /* Actor popover */
+.actor-group {
+  margin-bottom: 4px;
+}
+.actor-group-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
 .actor-popover {
   position: absolute;
   top: 100%;

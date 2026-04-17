@@ -243,21 +243,14 @@ function parseFromMetadata(metadata) {
 
 /**
  * Infer the service name from the spec path.
- * e.g. specification/durabletask/DurableTask.Management → "DurableTask"
+ * Returns the actual TypeSpec project root directory name as-is.
+ * e.g. specification/durabletask/DurableTask.Management → "DurableTask.Management"
+ * e.g. specification/netapp/resource-manager/Microsoft.NetApp/NetApp → "NetApp"
  */
 function inferServiceName(specRelPath) {
   if (!specRelPath) return 'Unknown';
   const parts = specRelPath.split('/');
-  // Find the TypeSpec project directory name (after specification/<service>/)
-  // Common patterns:
-  //   specification/durabletask/DurableTask.Management
-  //   specification/netapp/resource-manager/Microsoft.NetApp/NetApp
-  const last = parts[parts.length - 1];
-  // Prefer the last segment, strip common prefixes
-  return last
-    .replace(/^Microsoft\./, '')
-    .replace(/\.Management$/, '')
-    .replace(/\.Mgmt$/, '');
+  return parts[parts.length - 1];
 }
 
 /**

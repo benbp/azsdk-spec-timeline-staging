@@ -108,63 +108,63 @@ function detectGenerationFlow(pr) {
  * Check if an SDK PR targets a different sub-package than our target.
  * Returns true if the PR should be EXCLUDED (it's for a sibling package).
  *
- * Uses multi-signal approach:
- * - AutoPR title pattern: [AutoPR <package-name>]
- * - Explicit sibling project name in title (e.g. "RegistryTasks", "containerregistrytasks")
- * - Changed files touching a sibling package dir but not the target
+ * Generalized approach — no hardcoded package names:
+ * 1. AutoPR title: [AutoPR <package-name>] — compare against known target names
+ * 2. Changed files: if files exist, check whether any touch the target packageDir
  */
 function isSiblingPackagePR(pr, targetPackageDir, targetPackageName, files) {
-  const title = (pr.title || '').toLowerCase();
-  const targetDirBase = targetPackageDir.split('/').pop().toLowerCase();
+  const title = (pr.title || '');
+  const targetDirLower = (targetPackageDir || '').toLowerCase();
+  const targetDirBase = targetDirLower.split('/').pop();
+  const targetNameLower = (targetPackageName || '').toLowerCase();
 
-  // Signal 1: AutoPR title with explicit package name
-  const autoprMatch = title.match(/^\[autopr\s+([^\]]+)\]/);
-  if (autoprMatch) {
-    const autoprPkg = autoprMatch[1].toLowerCase().trim();
-    // If AutoPR names a package that's a longer/different variant of our target, it's a sibling
-    // e.g. target="containerregistry", AutoPR="containerregistrytasks" → sibling
-    // e.g. target="containerregistry", AutoPR="containerregistry" → ours
-    if (autoprPkg !== targetDirBase &&
-        autoprPkg !== targetPackageName.toLowerCase() &&
-        !autoprPkg.endsWith('/' + targetDirBase)) {
-      // Check if the autopr package is a sibling (same prefix, different suffix)
-      if (autoprPkg.includes(targetDirBase) || targetDirBase.includes(autoprPkg.replace(/-/g, ''))) {
-        console.error(`    ⏭ Skipping sibling-package PR (AutoPR: ${autoprPkg} ≠ ${targetDirBase})`);
-        return true;
-      }
-    }
+  // Build set of acceptable name variants from the target
+  // e.g. "Azure.ResourceManager.ContainerRegistry" → "azure.resourcemanager.containerregistry"
+  // e.g. "sdk/containerregistry/arm-containerregistry" → "arm-containerregistry"
+  const targetVariants = new Set();
+  if (targetDirBase) targetVariants.add(targetDirBase);
+  if (targetNameLower) {
+    targetVariants.add(targetNameLower);
+    // Strip common prefixes: @azure/, azure-, com.azure.resourcemanager:
+    const stripped = targetNameLower
+      .replace(/^@azure[\/-]/, '')
+      .replace(/^azure[\.-]mgmt[\.-]/, '')
+      .replace(/^azure[\.-]/, '')
+      .replace(/^com\.azure\.resourcemanager:/, '')
+      .replace(/^sdk\/resourcemanager\/[^/]+\//, '');
+    if (stripped) targetVariants.add(stripped);
   }
 
-  // Signal 2: Title explicitly mentions a sibling project name
-  // Common sibling suffixes: tasks, dataplane, etc.
-  const siblingPatterns = [
-    /\bregistrytask/i, /\b[-_]tasks?\b/i, /\bdataplane\b/i, /\bdata-plane\b/i
-  ];
-  // Only flag if target name does NOT contain the sibling keyword
-  for (const pat of siblingPatterns) {
-    if (pat.test(title) && !pat.test(targetDirBase) && !pat.test(targetPackageName)) {
-      console.error(`    ⏭ Skipping sibling-package PR (title mentions sibling: ${title.slice(0, 60)})`);
+  // Signal 1: AutoPR title with explicit package name
+  const autoprMatch = title.match(/^\[AutoPR\s+([^\]]+)\]/i);
+  if (autoprMatch) {
+    const autoprPkg = autoprMatch[1].toLowerCase().trim();
+
+    // Check if autoprPkg matches any of our target variants
+    let matchesTarget = false;
+    for (const variant of targetVariants) {
+      if (autoprPkg === variant || autoprPkg.endsWith('/' + variant)) {
+        matchesTarget = true;
+        break;
+      }
+    }
+
+    if (!matchesTarget) {
+      console.error(`    ⏭ Skipping sibling-package PR (AutoPR: "${autoprPkg}" ≠ target "${targetDirBase}")`);
       return true;
     }
   }
 
-  // Signal 3: Changed files touch sibling package dir but not target
-  if (files && files.length > 0) {
+  // Signal 2: Changed files — if present, check whether any touch the target packageDir
+  if (files && files.length > 0 && targetDirLower) {
     const touchesTarget = files.some(f => {
       const fn = (f.filename || '').toLowerCase();
-      return fn.includes(targetDirBase + '/') || fn.endsWith(targetDirBase);
+      return fn.startsWith(targetDirLower + '/') || fn === targetDirLower;
     });
     if (!touchesTarget) {
-      // If files exist but none touch target package dir, likely sibling
-      const touchesSibling = files.some(f => {
-        const fn = (f.filename || '').toLowerCase();
-        const parentDir = targetDirBase.replace(/[^a-z0-9]/g, '');
-        return fn.includes(parentDir);
-      });
-      if (touchesSibling) {
-        console.error(`    ⏭ Skipping sibling-package PR (files don't touch ${targetDirBase})`);
-        return true;
-      }
+      // Files exist but none are in our target packageDir — likely a sibling
+      console.error(`    ⏭ Skipping sibling-package PR (no files in ${targetDirBase})`);
+      return true;
     }
   }
 

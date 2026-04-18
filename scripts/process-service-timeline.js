@@ -117,32 +117,42 @@ function detectApiVersionFromFiles(changedFiles, specPath) {
 /**
  * Check if an SDK PR targets a sibling sub-package (not our target).
  * Returns true if the PR should be excluded.
+ *
+ * Generalized — compares AutoPR package name against known target names/dirs.
+ * No hardcoded package-specific keywords.
  */
-function isSiblingSubPackage(pr, targetPackageName) {
-  if (!targetPackageName) return false;
-  const title = (pr.title || '').toLowerCase();
-  const targetLower = targetPackageName.toLowerCase();
+function isSiblingSubPackage(pr, targetPackageName, targetPackageDir) {
+  if (!targetPackageName && !targetPackageDir) return false;
+  const title = (pr.title || '');
+  const targetNameLower = (targetPackageName || '').toLowerCase();
+  const targetDirBase = (targetPackageDir || '').split('/').pop().toLowerCase();
 
-  // AutoPR pattern: [AutoPR <package-name>]-generated-from-...
-  const autoprMatch = title.match(/^\[autopr\s+([^\]]+)\]/);
-  if (autoprMatch) {
-    const autoprPkg = autoprMatch[1].toLowerCase().trim();
-    // Strip common prefixes for comparison
-    const normalizeForCompare = s => s.replace(/^@azure[\/-]/, '').replace(/^azure[\.-]/, '').replace(/^sdk[-\/]resourcemanager[-\/]/, '');
-    const normTarget = normalizeForCompare(targetLower);
-    const normAutoPR = normalizeForCompare(autoprPkg);
-    // If the AutoPR package is strictly longer (tasks suffix), it's a sibling
-    if (normAutoPR !== normTarget && normAutoPR.startsWith(normTarget)) {
-      return true;
-    }
+  // Build set of acceptable name variants from the target metadata
+  const targetVariants = new Set();
+  if (targetDirBase) targetVariants.add(targetDirBase);
+  if (targetNameLower) {
+    targetVariants.add(targetNameLower);
+    const stripped = targetNameLower
+      .replace(/^@azure[\/-]/, '')
+      .replace(/^azure[\.-]mgmt[\.-]/, '')
+      .replace(/^azure[\.-]/, '')
+      .replace(/^com\.azure\.resourcemanager:/, '')
+      .replace(/^sdk\/resourcemanager\/[^/]+\//, '');
+    if (stripped) targetVariants.add(stripped);
   }
 
-  // Title explicitly mentions tasks/dataplane variant
-  const siblingKeywords = ['registrytask', '-tasks', '_tasks'];
-  for (const kw of siblingKeywords) {
-    if (title.includes(kw) && !targetLower.includes(kw.replace(/^-|^_/, ''))) {
-      return true;
+  // AutoPR pattern: [AutoPR <package-name>]-generated-from-...
+  const autoprMatch = title.match(/^\[AutoPR\s+([^\]]+)\]/i);
+  if (autoprMatch) {
+    const autoprPkg = autoprMatch[1].toLowerCase().trim();
+    let matchesTarget = false;
+    for (const variant of targetVariants) {
+      if (autoprPkg === variant || autoprPkg.endsWith('/' + variant)) {
+        matchesTarget = true;
+        break;
+      }
     }
+    if (!matchesTarget) return true;
   }
 
   return false;
@@ -157,7 +167,22 @@ function detectReleaseWindows(specPRs, sdkPRs, specPath) {
     claimed[lang] = new Set();
   }
 
-  // Pass 1: explicit matches (spec PR number or merge commit in body/title)
+  const apiVersionRegex = /(?:API [Vv]ersion|Spec API version)[:\s]+(\d{4}-\d{2}-\d{2}(?:-preview)?)/;
+
+  // Helper: extract API version from an SDK PR body/title
+  function extractSdkPrVersion(pr) {
+    const body = pr?._rawBody || '';
+    const title = pr?.title || '';
+    const vMatch = body.match(apiVersionRegex) ||
+      title.match(/(?:api[- ]?version|for api[- ]version)\s+(\d{4}-\d{2}-\d{2}(?:-preview)?)/i) ||
+      title.match(/\b(\d{4}-\d{2}-\d{2}-preview)\b/) ||
+      (title.match(/\b(\d{4})\s+(\d{2})\s+(\d{2})(?:\s+preview)?\b/) ?
+        { 1: title.match(/\b(\d{4})\s+(\d{2})\s+(\d{2})/).slice(1).join('-') +
+          (title.toLowerCase().includes('preview') ? '-preview' : '') } : null);
+    return vMatch ? vMatch[1] : null;
+  }
+
+  // Pass 1: explicit matches (spec PR number or merge commit in SDK PR body/title)
   for (let i = 0; i < specPRs.length; i++) {
     const spec = specPRs[i];
     const windowSdkPRs = {};
@@ -182,68 +207,26 @@ function detectReleaseWindows(specPRs, sdkPRs, specPath) {
     windows.push({ specIndex: i, spec, windowSdkPRs });
   }
 
-  // Pass 2: temporal proximity for unclaimed SDK PRs (nearest spec PR)
-  for (const [lang, prs] of Object.entries(sdkPRs)) {
-    for (const pr of prs) {
-      if (claimed[lang].has(pr.number)) continue;
-      if (!pr.createdAt) continue;
-
-      // Find nearest spec PR by merge time → SDK PR creation gap
-      let bestWindow = null;
-      let bestGap = Infinity;
-      for (const win of windows) {
-        const specMergedAt = win.spec.mergedAt;
-        if (!specMergedAt) continue;
-        const gap = daysBetween(specMergedAt, pr.createdAt);
-        if (gap !== null && gap >= -2 && gap <= 30 && Math.abs(gap) < bestGap) {
-          bestGap = Math.abs(gap);
-          bestWindow = win;
-        }
-      }
-
-      if (bestWindow) {
-        if (!bestWindow.windowSdkPRs[lang]) bestWindow.windowSdkPRs[lang] = [];
-        bestWindow.windowSdkPRs[lang].push(pr.number);
-        claimed[lang].add(pr.number);
-      }
-    }
-  }
-
-  // Build final window objects, determining API version via multi-signal approach:
-  // 1. File-based detection (spec PR changed files → stable/<ver>/ or preview/<ver>/)
-  // 2. SDK PR body regex (API Version: <ver>)
-  // 3. Spec PR title parsing (date patterns)
-  const result = [];
+  // Build intermediate window objects with labels (for API-version-based assignment)
+  // This determines the API version label for each spec PR window before
+  // we try to assign unclaimed SDK PRs.
+  const labeledWindows = [];
   for (const win of windows) {
     const spec = win.spec;
 
     // Signal 1: File-based version detection from spec PR changed files
-    // If the PR touches 2+ distinct high-confidence version dirs, it's likely a
-    // mass refactor/migration — file-based version detection is unreliable.
     const fileVersions = detectApiVersionFromFiles(spec._changedFiles, specPath);
     const distinctHighConfVersions = fileVersions.filter(v => v.confidence >= 3);
     const highConfFileVer = distinctHighConfVersions.length === 1 ? distinctHighConfVersions[0] : null;
 
-    // Signal 2: Extract API version from each SDK PR body
-    const apiVersionRegex = /(?:API [Vv]ersion|Spec API version)[:\s]+(\d{4}-\d{2}-\d{2}(?:-preview)?)/;
-    const prsByVersion = {};   // apiVersion -> { lang -> [prNums] }
-    const unversioned = {};    // lang -> [prNums] (no version detected)
-
+    // Signal 2: Determine versions from SDK PRs already claimed by this window
+    const prsByVersion = {};
+    const unversioned = {};
     for (const [lang, prNums] of Object.entries(win.windowSdkPRs)) {
       for (const num of prNums) {
         const pr = (sdkPRs[lang] || []).find(p => p.number === num);
-        const body = pr?._rawBody || '';
-        const title = pr?.title || '';
-        // Check body first, then title for version patterns
-        const vMatch = body.match(apiVersionRegex) ||
-          title.match(/(?:api[- ]?version|for api[- ]version)\s+(\d{4}-\d{2}-\d{2}(?:-preview)?)/i) ||
-          title.match(/\b(\d{4}-\d{2}-\d{2}-preview)\b/) ||
-          (title.match(/\b(\d{4})\s+(\d{2})\s+(\d{2})(?:\s+preview)?\b/) ? 
-            { 1: title.match(/\b(\d{4})\s+(\d{2})\s+(\d{2})/).slice(1).join('-') + 
-              (title.toLowerCase().includes('preview') ? '-preview' : '') } : null);
-        
-        if (vMatch) {
-          const ver = vMatch[1];
+        const ver = extractSdkPrVersion(pr);
+        if (ver) {
           if (!prsByVersion[ver]) prsByVersion[ver] = {};
           if (!prsByVersion[ver][lang]) prsByVersion[ver][lang] = [];
           prsByVersion[ver][lang].push(num);
@@ -257,29 +240,26 @@ function detectReleaseWindows(specPRs, sdkPRs, specPath) {
     const versions = Object.keys(prsByVersion);
     if (versions.length > 1) {
       // Multiple API versions from one spec PR — split into separate windows
+      // This handles parallel releases: one spec PR triggering different API versions
       for (const ver of versions.sort()) {
-        const verSdkPRs = prsByVersion[ver];
-        result.push(buildWindow(spec, verSdkPRs, sdkPRs, `API ${ver}`));
+        labeledWindows.push({ spec, sdkPRs: prsByVersion[ver], label: `API ${ver}` });
       }
       // Unversioned PRs go into the first version window
       if (Object.keys(unversioned).length > 0) {
-        const firstWin = result[result.length - versions.length];
+        const firstWin = labeledWindows[labeledWindows.length - versions.length];
         for (const [lang, nums] of Object.entries(unversioned)) {
-          if (!firstWin.sdkPRNumbers[lang]) firstWin.sdkPRNumbers[lang] = [];
-          firstWin.sdkPRNumbers[lang].push(...nums);
+          if (!firstWin.sdkPRs[lang]) firstWin.sdkPRs[lang] = [];
+          firstWin.sdkPRs[lang].push(...nums);
         }
       }
     } else {
-      // Single or no API version — determine label using priority:
-      // 1. File-based (high confidence) > 2. SDK PR body > 3. Title parsing
-      const mergedSdkPRs = { ...win.windowSdkPRs };
+      // Single or no API version — determine label
       let label;
       if (highConfFileVer) {
         label = `API ${highConfFileVer.version}`;
       } else if (versions.length === 1) {
         label = `API ${versions[0]}`;
       } else {
-        // Fall back to title parsing
         const dashDate = (spec.title || '').match(/(\d{4}-\d{2}-\d{2}(?:-preview)?)/);
         const spaceDate = (spec.title || '').match(/(\d{4})\s+(\d{2})\s+(\d{2})/);
         if (dashDate) {
@@ -289,15 +269,69 @@ function detectReleaseWindows(specPRs, sdkPRs, specPath) {
           const previewSuffix = (spec.title || '').toLowerCase().includes('preview') ? '-preview' : '';
           label = `API ${dateStr}${previewSuffix}`;
         } else if (fileVersions.length === 1) {
-          // Use single low-confidence file version if nothing else
           label = `API ${fileVersions[0].version}`;
         } else {
           label = `Spec PR #${spec.number}`;
         }
       }
-      result.push(buildWindow(spec, mergedSdkPRs, sdkPRs, label));
+      labeledWindows.push({ spec, sdkPRs: { ...win.windowSdkPRs }, label });
     }
   }
+
+  // Pass 2: API-version-based assignment for unclaimed SDK PRs
+  // If an unclaimed SDK PR has an explicit API version in its body, assign it
+  // to the matching labeled window. This handles parallel development correctly.
+  const versionToWindow = {};
+  for (const win of labeledWindows) {
+    if (win.label.startsWith('API ')) {
+      const ver = win.label.replace('API ', '');
+      if (!versionToWindow[ver]) versionToWindow[ver] = win;
+    }
+  }
+
+  for (const [lang, prs] of Object.entries(sdkPRs)) {
+    for (const pr of prs) {
+      if (claimed[lang].has(pr.number)) continue;
+      const ver = extractSdkPrVersion(pr);
+      if (ver && versionToWindow[ver]) {
+        const win = versionToWindow[ver];
+        if (!win.sdkPRs[lang]) win.sdkPRs[lang] = [];
+        win.sdkPRs[lang].push(pr.number);
+        claimed[lang].add(pr.number);
+      }
+    }
+  }
+
+  // Pass 3: temporal proximity for remaining unclaimed SDK PRs (nearest spec PR)
+  for (const [lang, prs] of Object.entries(sdkPRs)) {
+    for (const pr of prs) {
+      if (claimed[lang].has(pr.number)) continue;
+      if (!pr.createdAt) continue;
+
+      let bestWindow = null;
+      let bestGap = Infinity;
+      for (const win of labeledWindows) {
+        const specMergedAt = win.spec.mergedAt;
+        if (!specMergedAt) continue;
+        const gap = daysBetween(specMergedAt, pr.createdAt);
+        if (gap !== null && gap >= -2 && gap <= 30 && Math.abs(gap) < bestGap) {
+          bestGap = Math.abs(gap);
+          bestWindow = win;
+        }
+      }
+
+      if (bestWindow) {
+        if (!bestWindow.sdkPRs[lang]) bestWindow.sdkPRs[lang] = [];
+        bestWindow.sdkPRs[lang].push(pr.number);
+        claimed[lang].add(pr.number);
+      }
+    }
+  }
+
+  // Build final window objects from labeled windows
+  const result = labeledWindows.map(win =>
+    buildWindow(win.spec, win.sdkPRs, sdkPRs, win.label)
+  );
 
   // Consolidate follow-up spec PRs under their API-version anchors.
   // Anchors have labels starting with "API "; non-anchors are follow-up
@@ -781,7 +815,7 @@ function main() {
     const targetName = pkg?.name || '';
     const targetDir = pkg?.packageDir || '';
     const before = prs.length;
-    sdkPRs[lang] = prs.filter(pr => !isSiblingSubPackage(pr, targetName));
+    sdkPRs[lang] = prs.filter(pr => !isSiblingSubPackage(pr, targetName, targetDir));
     const dropped = before - sdkPRs[lang].length;
     if (dropped > 0) {
       console.error(`  Filtered ${dropped} sibling-package ${lang} PRs`);

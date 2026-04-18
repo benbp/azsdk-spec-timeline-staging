@@ -3,7 +3,7 @@
   "service": "Registry",
   "specPath": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry",
   "namespace": "Microsoft.ContainerRegistry",
-  "generatedAt": "2026-04-18T21:06:46.139Z",
+  "generatedAt": "2026-04-18T21:28:31.358Z",
   "lookback": {
     "requestedDays": 365,
     "startDate": "2025-04-18T04:14:32.760Z",
@@ -15543,6 +15543,227 @@
       {
         "repo": "Azure/azure-sdk-for-net",
         "language": ".NET",
+        "number": 54341,
+        "url": "https://github.com/Azure/azure-sdk-for-net/pull/54341",
+        "title": "Release Azure.ResourceManager.ContainerRegistry for RegistryTasks 2025-03-01-preview",
+        "author": "ArthurMa1978",
+        "createdAt": "2025-12-05T10:21:02Z",
+        "mergedAt": "2025-12-09T15:31:33Z",
+        "closedAt": "2025-12-09T15:31:33Z",
+        "mergedBy": "ArthurMa1978",
+        "state": "merged",
+        "isDraft": false,
+        "readyForReviewAt": null,
+        "generationFlow": "manual",
+        "labels": [
+          "Mgmt"
+        ],
+        "reviewers": [
+          "ArcturusZhang"
+        ],
+        "events": [
+          {
+            "type": "commit_pushed",
+            "timestamp": "2025-12-05T10:17:24Z",
+            "actor": "ArthurMa1978",
+            "actorRole": "author",
+            "description": "Release Azure.ResourceManager.ContainerRegistry for Registry",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/e880b0baa1cb5c0430c30f07c26975d13b0989ae"
+            }
+          },
+          {
+            "type": "pr_created",
+            "timestamp": "2025-12-05T10:21:02Z",
+            "actor": "ArthurMa1978",
+            "actorRole": "author",
+            "description": "PR #54341 opened: Release Azure.ResourceManager.ContainerRegistry for Registry",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/54341"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2025-12-05T10:30:50Z",
+            "actor": "copilot-pull-request-reviewer[bot]",
+            "actorRole": "copilot",
+            "description": "Review comment by copilot-pull-request-reviewer[bot]",
+            "sentiment": "neutral",
+            "details": {
+              "body": "## Pull request overview\n\nThis PR upgrades the Azure.ResourceManager.ContainerRegistry SDK to use the RegistryTasks 2025-03-01-preview API version, replacing the previous 2019-06-01-preview version. The changes align with the latest Azure Container Registry Tasks API specifications.\n\nKey changes include:\n- API version upgrade from 2019-06-01-preview to 2025-03-01-preview for RegistryTasks\n- Removal of long-running operation (LRO) patterns for certain operations (Update, Cancel, ScheduleRun) that",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/54341#pullrequestreview-3544098834"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2025-12-05T10:33:59Z",
+            "actor": "ArthurMa1978",
+            "actorRole": "author",
+            "description": "update",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/daf0c7abd2ba6a08575729085541afac2a67f335"
+            }
+          },
+          {
+            "type": "bot_comment",
+            "timestamp": "2025-12-05T10:35:12Z",
+            "actor": "github-actions[bot]",
+            "actorRole": "bot",
+            "description": "## API Change Check",
+            "sentiment": "neutral",
+            "details": {
+              "body": "## API Change Check\r\n\r\nAPIView identified API level changes in this PR and created the following API reviews\r\n\r\n[Azure.ResourceManager.ContainerRegistry](https://spa.apiview.dev/review/fb743330399b4753a62dd7d1af984894?activeApiRevisionId=d8305c36a0624ff7b702e9e18490a2e2)\r\n<!-- Fetch URI: https://apiview.dev/api/pullrequests?pullRequestNumber=54341&repoName=Azure/azure-sdk-for-net&commitSHA=08fd17b054cc0598993f64ea2f31a9228c124660 -->",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/54341#issuecomment-3616279718"
+            }
+          },
+          {
+            "type": "idle_gap",
+            "timestamp": "2025-12-05T10:35:12Z",
+            "endTimestamp": "2025-12-08T06:02:39Z",
+            "actor": "system",
+            "actorRole": "bot",
+            "description": "Idle for 67h (2.8d)",
+            "sentiment": "neutral",
+            "details": {
+              "durationHours": 67.5
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2025-12-08T06:02:39Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "reviewer",
+            "description": "is this property just removed in the new api-version?",
+            "sentiment": "blocking",
+            "details": {
+              "body": "is this property just removed in the new api-version?",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/54341#discussion_r2597152498"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2025-12-08T06:03:10Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "reviewer",
+            "description": "could we add some information in this exception about which API to use instead?",
+            "sentiment": "blocking",
+            "details": {
+              "body": "could we add some information in this exception about which API to use instead?",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/54341#discussion_r2597153412"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2025-12-08T06:03:36Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "reviewer",
+            "description": "same here",
+            "sentiment": "blocking",
+            "details": {
+              "body": "same here",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/54341#discussion_r2597154055"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2025-12-08T06:31:39Z",
+            "actor": "ArthurMa1978",
+            "actorRole": "author",
+            "description": "Not removed, but the type will be changed to `IList<string>` without this customization code.",
+            "sentiment": "neutral",
+            "details": {
+              "body": "Not removed, but the type will be changed to `IList<string>` without this customization code.",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/54341#discussion_r2597205485"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2025-12-09T00:26:37Z",
+            "actor": "ArthurMa1978",
+            "actorRole": "author",
+            "description": "Merge branch 'main' into mgmt-acr",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/bf80d5d044689cb26fe9b383ba6af1a3314389e2"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2025-12-09T00:43:30Z",
+            "actor": "ArthurMa1978",
+            "actorRole": "author",
+            "description": "update",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/08fd17b054cc0598993f64ea2f31a9228c124660"
+            }
+          },
+          {
+            "type": "review_approved",
+            "timestamp": "2025-12-09T05:11:45Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "reviewer",
+            "description": "Approved by ArcturusZhang",
+            "sentiment": "positive",
+            "details": {
+              "body": null,
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/54341#pullrequestreview-3555489721"
+            }
+          },
+          {
+            "type": "pr_merged",
+            "timestamp": "2025-12-09T15:31:33Z",
+            "actor": "ArthurMa1978",
+            "actorRole": "author",
+            "description": "PR #54341 merged",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/54341"
+            }
+          },
+          {
+            "type": "release_pipeline_started",
+            "timestamp": "2025-12-09T15:31:33Z",
+            "actor": "azure-pipelines[bot]",
+            "actorRole": "bot",
+            "description": "Release pipeline started: net - containerregistry - mgmt",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6034404&view=results",
+              "body": "Build 6034404"
+            }
+          },
+          {
+            "type": "release_pipeline_failed",
+            "timestamp": "2025-12-09T15:31:33Z",
+            "actor": "azure-pipelines[bot]",
+            "actorRole": "bot",
+            "description": "Release pipeline failed: net - containerregistry - mgmt",
+            "sentiment": "negative",
+            "details": {
+              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6034404&view=results",
+              "body": "Build 6034404 failed"
+            }
+          }
+        ],
+        "reviewWaitDays": 3.77,
+        "reviewWaitCycles": 2,
+        "release": {
+          "packageName": "Azure.ResourceManager.ContainerRegistry",
+          "pipelineName": "net - containerregistry - mgmt",
+          "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6034404&view=results",
+          "buildId": "6034404",
+          "releasedAt": null,
+          "releaseGapDays": null,
+          "status": "failed"
+        }
+      },
+      {
+        "repo": "Azure/azure-sdk-for-net",
+        "language": ".NET",
         "number": 53641,
         "url": "https://github.com/Azure/azure-sdk-for-net/pull/53641",
         "title": "Release Azure.ResourceManager.ContainerRegistry for api-version 2025-11-01",
@@ -19334,684 +19555,6 @@
       {
         "repo": "Azure/azure-sdk-for-js",
         "language": "JavaScript",
-        "number": 37742,
-        "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742",
-        "title": "[AutoPR @azure-arm-containerregistry]-generated-from-SDK Generation - JS-6038023",
-        "author": "azure-sdk",
-        "createdAt": "2026-03-20T00:21:27Z",
-        "mergedAt": "2026-03-23T15:50:27Z",
-        "closedAt": "2026-03-23T15:50:27Z",
-        "mergedBy": "CodeJourneys",
-        "state": "merged",
-        "isDraft": false,
-        "readyForReviewAt": "2026-03-20T05:54:04Z",
-        "generationFlow": "automated",
-        "labels": [
-          "Mgmt",
-          "Self-Service Release",
-          "mgmt-review-needed"
-        ],
-        "reviewers": [
-          "MaryGao",
-          "qiaozha",
-          "JialinHuang803",
-          "Ari4ka"
-        ],
-        "events": [
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-03-20T00:21:23Z",
-            "actor": "azure-sdk",
-            "actorRole": "bot",
-            "description": "Configurations:  'specification/containerregistry/resource-m",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/4d1ea1fc249d28e04a45e4f8beb25c2ff51584a6"
-            }
-          },
-          {
-            "type": "pr_created",
-            "timestamp": "2026-03-20T00:21:27Z",
-            "actor": "azure-sdk",
-            "actorRole": "bot",
-            "description": "PR #37742 opened: [AutoPR @azure-arm-containerregistry]-generated-from-SDK Gen",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742"
-            }
-          },
-          {
-            "type": "bot_comment",
-            "timestamp": "2026-03-20T00:36:11Z",
-            "actor": "github-actions[bot]",
-            "actorRole": "bot",
-            "description": "## API Change Check",
-            "sentiment": "neutral",
-            "details": {
-              "body": "## API Change Check\r\n\r\nAPIView identified API level changes in this PR and created the following API reviews\r\n\r\n[@azure/arm-containerregistry](https://spa.apiview.dev/review/d10c9472429444ccb9776a87507d6033?activeApiRevisionId=5f086a649fbc4df3bf9b6c07fc8faebb)\r\n<!-- Fetch URI: https://apiview.dev/api/pullrequests?pullRequestNumber=37742&repoName=Azure/azure-sdk-for-js&commitSHA=2be4a9251e7c7bff27f0ce1a5faf1fc5e19df20b -->",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#issuecomment-4094611384"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-03-20T04:33:39Z",
-            "actor": "CodeJourneys",
-            "actorRole": "author",
-            "description": "Incremented test registry suffix",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/935253cacc41497780faad8685c7841ff798f7a4"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-03-20T04:33:54Z",
-            "actor": "CodeJourneys",
-            "actorRole": "author",
-            "description": "Update asset tag for arm-containerregistry to latest version",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/191202281b3d37c81336499070e9c4523c085fa3"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-03-20T05:50:01Z",
-            "actor": "CodeJourneys",
-            "actorRole": "author",
-            "description": "Update asset tag for arm-containerregistry browser recording",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/2be4a9251e7c7bff27f0ce1a5faf1fc5e19df20b"
-            }
-          },
-          {
-            "type": "ready_for_review",
-            "timestamp": "2026-03-20T05:54:04Z",
-            "actor": "CodeJourneys",
-            "actorRole": "author",
-            "description": "PR marked ready for review",
-            "sentiment": "positive",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-20T05:56:26Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "Making `apiVersion` optional on the public `ContainerRegistryManagementContext` is a breaking-ish su",
-            "sentiment": "blocking",
-            "details": {
-              "body": "Making `apiVersion` optional on the public `ContainerRegistryManagementContext` is a breaking-ish surface change for TS consumers (it becomes `string | undefined`), and increases the risk of requests being sent without an `api-version` if any generated operation misses the `?? \"2026-01-01-preview\"` fallback. Prefer keeping `apiVersion` required on the context and assigning a concrete default during client creation (e.g., `options.apiVersion ?? \"2026-01-01-preview\"`), so all operations can rely o",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#discussion_r2964114584"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-20T05:56:26Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "Making `apiVersion` optional on the public `ContainerRegistryManagementContext` is a breaking-ish su",
-            "sentiment": "blocking",
-            "details": {
-              "body": "Making `apiVersion` optional on the public `ContainerRegistryManagementContext` is a breaking-ish surface change for TS consumers (it becomes `string | undefined`), and increases the risk of requests being sent without an `api-version` if any generated operation misses the `?? \"2026-01-01-preview\"` fallback. Prefer keeping `apiVersion` required on the context and assigning a concrete default during client creation (e.g., `options.apiVersion ?? \"2026-01-01-preview\"`), so all operations can rely o",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#discussion_r2964114600"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-20T05:56:26Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "The literal API version fallback (`\"2026-01-01-preview\"`) is repeated across request building, pagin",
-            "sentiment": "blocking",
-            "details": {
-              "body": "The literal API version fallback (`\"2026-01-01-preview\"`) is repeated across request building, paging, and LRO polling configuration. To avoid drift and make future version bumps safer, centralize this in a single local variable early in each operation (e.g. `const apiVersion = context.apiVersion ?? \"2026-01-01-preview\";`) and reuse it, or expose a shared `DEFAULT_API_VERSION` constant from the context module.",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#discussion_r2964114610"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-20T05:56:26Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "The literal API version fallback (`\"2026-01-01-preview\"`) is repeated across request building, pagin",
-            "sentiment": "blocking",
-            "details": {
-              "body": "The literal API version fallback (`\"2026-01-01-preview\"`) is repeated across request building, paging, and LRO polling configuration. To avoid drift and make future version bumps safer, centralize this in a single local variable early in each operation (e.g. `const apiVersion = context.apiVersion ?? \"2026-01-01-preview\";`) and reuse it, or expose a shared `DEFAULT_API_VERSION` constant from the context module.",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#discussion_r2964114617"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-20T05:56:27Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "The literal API version fallback (`\"2026-01-01-preview\"`) is repeated across request building, pagin",
-            "sentiment": "blocking",
-            "details": {
-              "body": "The literal API version fallback (`\"2026-01-01-preview\"`) is repeated across request building, paging, and LRO polling configuration. To avoid drift and make future version bumps safer, centralize this in a single local variable early in each operation (e.g. `const apiVersion = context.apiVersion ?? \"2026-01-01-preview\";`) and reuse it, or expose a shared `DEFAULT_API_VERSION` constant from the context module.",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#discussion_r2964114637"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-20T05:56:27Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "The literal API version fallback (`\"2026-01-01-preview\"`) is repeated across request building, pagin",
-            "sentiment": "blocking",
-            "details": {
-              "body": "The literal API version fallback (`\"2026-01-01-preview\"`) is repeated across request building, paging, and LRO polling configuration. To avoid drift and make future version bumps safer, centralize this in a single local variable early in each operation (e.g. `const apiVersion = context.apiVersion ?? \"2026-01-01-preview\";`) and reuse it, or expose a shared `DEFAULT_API_VERSION` constant from the context module.",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#discussion_r2964114646"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-20T05:56:28Z",
-            "actor": "copilot-pull-request-reviewer[bot]",
-            "actorRole": "copilot",
-            "description": "Review comment by copilot-pull-request-reviewer[bot]",
-            "sentiment": "neutral",
-            "details": {
-              "body": "## Pull request overview\n\nAuto-generated update for `@azure/arm-containerregistry` targeting API version `2026-01-01-preview` (beta), adding new resource areas and refreshing samples/reports accordingly.\n\n**Changes:**\n- Updated API version handling to default to `2026-01-01-preview` when `apiVersion` is not provided.\n- Added new API surface for pipelines (import/export/pipelineRuns) and archives (archives/archiveVersions), plus a new connected registries `resync` operation.\n- Refreshed samples a",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#pullrequestreview-3979609847"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-20T05:56:28Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "`catalogDigest: \"sha256@\"` is not a valid digest format and is likely to fail service-side validatio",
-            "sentiment": "blocking",
-            "details": {
-              "body": "`catalogDigest: \"sha256@\"` is not a valid digest format and is likely to fail service-side validation if the sample is run. Use a syntactically valid placeholder (e.g. `sha256:<64 hex chars>`) so the sample remains runnable while still being clearly a placeholder value.\n```suggestion\n        catalogDigest:\n          \"sha256:0000000000000000000000000000000000000000000000000000000000000000\",\n```",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#discussion_r2964114654"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-20T05:56:28Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "These list samples buffer the entire pageable result into memory, which can be problematic for subsc",
-            "sentiment": "blocking",
-            "details": {
-              "body": "These list samples buffer the entire pageable result into memory, which can be problematic for subscriptions with large result sets and can make “quickstart” runs appear slow/hung. Prefer streaming output inside the `for await` loop (or collecting only the first N items) to keep memory bounded and make progress visible during execution.\n```suggestion\n  for await (const item of client.pipelineRuns.list(\"myResourceGroup\", \"myRegistry\")) {\n    console.log(item);\n  }\n```",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#discussion_r2964114666"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-20T05:56:28Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "The README now hard-links to the preview docs view. If this README is also used for stable package d",
-            "sentiment": "blocking",
-            "details": {
-              "body": "The README now hard-links to the preview docs view. If this README is also used for stable package documentation, consider linking to the non-preview docs (or providing both stable + preview links) to avoid directing stable users to preview-only content. This aligns with Azure SDK guidance to clearly separate stable vs preview/beta documentation links.\n```suggestion\n- [API reference documentation](https://learn.microsoft.com/javascript/api/@azure/arm-containerregistry?view=azure-node-latest)\n- [",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#discussion_r2964114674"
-            }
-          },
-          {
-            "type": "issue_comment",
-            "timestamp": "2026-03-20T08:14:02Z",
-            "actor": "kazrael2119",
-            "actorRole": "reviewer",
-            "description": "LGTM",
-            "sentiment": "neutral",
-            "details": {
-              "body": "LGTM\r\ncc @JialinHuang803 ",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#issuecomment-4096469980"
-            }
-          },
-          {
-            "type": "idle_gap",
-            "timestamp": "2026-03-20T08:14:02Z",
-            "endTimestamp": "2026-03-23T02:53:11Z",
-            "actor": "system",
-            "actorRole": "bot",
-            "description": "Idle for 67h (2.8d)",
-            "sentiment": "neutral",
-            "details": {
-              "durationHours": 66.7
-            }
-          },
-          {
-            "type": "review_approved",
-            "timestamp": "2026-03-23T02:53:11Z",
-            "actor": "JialinHuang803",
-            "actorRole": "reviewer",
-            "description": "Approved by JialinHuang803",
-            "sentiment": "positive",
-            "details": {
-              "body": null,
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#pullrequestreview-3989049809"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-23T03:00:52Z",
-            "actor": "github-actions[bot]",
-            "actorRole": "bot",
-            "description": "Review comment by github-actions[bot]",
-            "sentiment": "neutral",
-            "details": {
-              "body": "1 tool issue found in this PR for `@azure/arm-containerregistry@12.1.0-beta.1` (API version `2026-01-01-preview`). CI checks are passing. Version consistency looks good (`12.1.0-beta.1` in `package.json`, context file, and `CHANGELOG.md`). The CHANGELOG correctly compares against the stable `12.0.0` release. No breaking changes to existing stable API surface. No naming duplication or type safety violations in the new public API.\n\nThe one finding is a non-standard enum member name `VLatestPreview",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#pullrequestreview-3989066058"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-23T03:00:53Z",
-            "actor": "github-actions[bot]",
-            "actorRole": "bot",
-            "description": "🔴 **Tool Issue** — Non-standard enum member name in `KnownVersions`",
-            "sentiment": "blocking",
-            "details": {
-              "body": "🔴 **Tool Issue** — Non-standard enum member name in `KnownVersions`\n\nThe new value `VLatestPreview = \"2026-01-01-preview\"` does not follow the established date-based naming convention used throughout all other management SDK packages. For example, compare with:\n- `arm-containerregistrytasks`: `V20250301Preview = \"2025-03-01-preview\"`\n- `arm-programmableconnectivity`: `V20240115Preview = \"2024-01-15-preview\"`\n\nThe correct name for this version should be `V20260101Preview`.\n\n**Fix:** Report this ",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#discussion_r2972601995"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-03-23T04:24:02Z",
-            "actor": "MaryGao",
-            "actorRole": "reviewer",
-            "description": "This should not be a tool issue but interesting if this is recommanded pattern?",
-            "sentiment": "blocking",
-            "details": {
-              "body": "This should not be a tool issue but interesting if this is recommanded pattern?",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#discussion_r2972758066"
-            }
-          },
-          {
-            "type": "pr_merged",
-            "timestamp": "2026-03-23T15:50:27Z",
-            "actor": "CodeJourneys",
-            "actorRole": "author",
-            "description": "PR #37742 merged",
-            "sentiment": "positive",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742"
-            }
-          },
-          {
-            "type": "release_pipeline_started",
-            "timestamp": "2026-03-23T16:44:41.15Z",
-            "actor": "azure-pipelines[bot]",
-            "actorRole": "bot",
-            "description": "Release pipeline started: js - containerregistry - mgmt",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6048802&view=results",
-              "body": "Build 6048802"
-            }
-          },
-          {
-            "type": "release_pipeline_completed",
-            "timestamp": "2026-03-23T17:02:41.6866667Z",
-            "actor": "azure-pipelines[bot]",
-            "actorRole": "bot",
-            "description": "Package released: @azure/arm-containerregistry",
-            "sentiment": "positive",
-            "details": {
-              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6048802&view=results",
-              "body": "Build 6048802 succeeded"
-            }
-          },
-          {
-            "type": "review_approved",
-            "timestamp": "2026-03-23T18:37:01Z",
-            "actor": "Ari4ka",
-            "actorRole": "reviewer",
-            "description": "Approved by Ari4ka",
-            "sentiment": "positive",
-            "details": {
-              "body": null,
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37742#pullrequestreview-3993820095"
-            }
-          }
-        ],
-        "reviewWaitDays": 0.27,
-        "reviewWaitCycles": 3,
-        "release": {
-          "packageName": "@azure/arm-containerregistry",
-          "packageVersion": null,
-          "pipelineName": "js - containerregistry - mgmt",
-          "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6048802&view=results",
-          "buildId": "6048802",
-          "releasedAt": "2026-03-23T17:02:41.6866667Z",
-          "releaseGapDays": 0.1,
-          "status": "released"
-        }
-      },
-      {
-        "repo": "Azure/azure-sdk-for-js",
-        "language": "JavaScript",
-        "number": 37083,
-        "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083",
-        "title": "[AutoPR @azure-arm-containerregistry]-generated-from-SDK Generation - JS-5777148",
-        "author": "azure-sdk",
-        "createdAt": "2026-01-21T00:50:57Z",
-        "mergedAt": "2026-01-30T06:33:31Z",
-        "closedAt": "2026-01-30T06:33:31Z",
-        "mergedBy": "qiaozha",
-        "state": "merged",
-        "isDraft": false,
-        "readyForReviewAt": "2026-01-21T21:49:23Z",
-        "generationFlow": "automated",
-        "labels": [
-          "Mgmt",
-          "Self-Service Release",
-          "first-typespec-migration"
-        ],
-        "reviewers": [
-          "jeremymeng",
-          "MaryGao",
-          "JialinHuang803",
-          "qiaozha"
-        ],
-        "events": [
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-01-21T00:50:54Z",
-            "actor": "azure-sdk",
-            "actorRole": "bot",
-            "description": "Configurations:  'specification/containerregistry/resource-m",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/69d7a5c5e245de3bed665ab30d4a73c951096644"
-            }
-          },
-          {
-            "type": "pr_created",
-            "timestamp": "2026-01-21T00:50:57Z",
-            "actor": "azure-sdk",
-            "actorRole": "bot",
-            "description": "PR #37083 opened: [AutoPR @azure-arm-containerregistry]-generated-from-SDK Gen",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083"
-            }
-          },
-          {
-            "type": "bot_comment",
-            "timestamp": "2026-01-21T00:58:22Z",
-            "actor": "github-actions[bot]",
-            "actorRole": "bot",
-            "description": "## API Change Check",
-            "sentiment": "neutral",
-            "details": {
-              "body": "## API Change Check\r\n\r\nAPIView identified API level changes in this PR and created the following API reviews\r\n\r\n[@azure/arm-containerregistry](https://spa.apiview.dev/review/d10c9472429444ccb9776a87507d6033?activeApiRevisionId=c47b78774d4e46ae9fcd36bc13a72f5e)\r\n<!-- Fetch URI: https://apiview.dev/api/pullrequests?pullRequestNumber=37083&repoName=Azure/azure-sdk-for-js&commitSHA=8415aca2534c11bdcf2b490944910a58004d13e9 -->",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083#issuecomment-3775635237"
-            }
-          },
-          {
-            "type": "ready_for_review",
-            "timestamp": "2026-01-21T21:49:23Z",
-            "actor": "CodeJourneys",
-            "actorRole": "author",
-            "description": "PR marked ready for review",
-            "sentiment": "positive",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-01-21T21:49:51Z",
-            "actor": "Copilot",
-            "actorRole": "copilot",
-            "description": "Multiple Azure SDK linting rules are set to \"warn\" instead of \"error\". According to coding guideline",
-            "sentiment": "blocking",
-            "details": {
-              "body": "Multiple Azure SDK linting rules are set to \"warn\" instead of \"error\". According to coding guideline 646, ESLint rules should not be disabled. Setting rules to \"warn\" effectively weakens enforcement. These rules should either be set to \"error\" to ensure compliance, or if the codebase cannot currently meet these standards, a plan should be in place to address the warnings and restore error-level enforcement.",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083#discussion_r2714474253"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-01-21T21:49:52Z",
-            "actor": "copilot-pull-request-reviewer[bot]",
-            "actorRole": "copilot",
-            "description": "Review comment by copilot-pull-request-reviewer[bot]",
-            "sentiment": "neutral",
-            "details": {
-              "body": "## Pull request overview\n\nThis PR represents an automated SDK generation update for the Azure Container Registry Management client library. The changes involve removing all sample files and READMEs from both v11 and v12-beta sample directories (JavaScript and TypeScript variants), while adding a new ESLint configuration file.\n\n**Changes:**\n- Removal of all sample files and documentation from v11 and v12-beta sample directories\n- Addition of a new ESLint configuration with specific rule overrides",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083#pullrequestreview-3689564161"
-            }
-          },
-          {
-            "type": "issue_comment",
-            "timestamp": "2026-01-22T02:53:10Z",
-            "actor": "kazrael2119",
-            "actorRole": "reviewer",
-            "description": "I have submitted a PR to disable some breakings on JS side",
-            "sentiment": "neutral",
-            "details": {
-              "body": "I have submitted a PR to disable some breakings on JS side\r\nhttps://github.com/Azure/azure-rest-api-specs/pull/39827\r\n\r\nwill regenerate this service after this PR merged",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083#issuecomment-3782233654"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-01-22T05:57:46Z",
-            "actor": "azure-sdk",
-            "actorRole": "bot",
-            "description": "Configurations:  'specification/containerregistry/resource-m",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/f8af340955046660cc8e5726de2572b904801726"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-01-22T06:28:07Z",
-            "actor": "kazrael2119",
-            "actorRole": "reviewer",
-            "description": "this is wrong, need verify the root cause",
-            "sentiment": "blocking",
-            "details": {
-              "body": "this is wrong, need verify the root cause",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083#discussion_r2715480945"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-01-22T06:54:25Z",
-            "actor": "kazrael2119",
-            "actorRole": "reviewer",
-            "description": "update",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/b95e4ebd697b70a598c1bfcad02d92e6993b737c"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-01-22T08:01:50Z",
-            "actor": "kazrael2119",
-            "actorRole": "reviewer",
-            "description": "update manually",
-            "sentiment": "blocking",
-            "details": {
-              "body": "update manually",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083#discussion_r2715747083"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-01-22T08:02:42Z",
-            "actor": "kazrael2119",
-            "actorRole": "reviewer",
-            "description": "need revert these breakings",
-            "sentiment": "blocking",
-            "details": {
-              "body": "need revert these breakings\r\npr: https://github.com/Azure/azure-rest-api-specs/pull/39836",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083#discussion_r2715749638"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-01-22T08:31:58Z",
-            "actor": "azure-sdk",
-            "actorRole": "bot",
-            "description": "Configurations:  'specification/containerregistry/resource-m",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/4ce953737339b8e2db910e4251ff693640f7f743"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-01-23T06:22:28Z",
-            "actor": "kazrael2119",
-            "actorRole": "reviewer",
-            "description": "update",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/1a58a0951a8391f3b9822b970bf7137fc7567446"
-            }
-          },
-          {
-            "type": "commit_pushed",
-            "timestamp": "2026-01-23T08:39:58Z",
-            "actor": "kazrael2119",
-            "actorRole": "reviewer",
-            "description": "update",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/commit/8415aca2534c11bdcf2b490944910a58004d13e9"
-            }
-          },
-          {
-            "type": "idle_gap",
-            "timestamp": "2026-01-23T08:39:58Z",
-            "endTimestamp": "2026-01-27T02:27:51Z",
-            "actor": "system",
-            "actorRole": "bot",
-            "description": "Idle for 90h (3.7d)",
-            "sentiment": "blocking",
-            "details": {
-              "durationHours": 89.8
-            }
-          },
-          {
-            "type": "issue_comment",
-            "timestamp": "2026-01-27T02:27:51Z",
-            "actor": "kazrael2119",
-            "actorRole": "reviewer",
-            "description": "LGTM",
-            "sentiment": "neutral",
-            "details": {
-              "body": "LGTM\r\n\r\ncc @qiaozha ",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083#issuecomment-3802730526"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-01-27T06:40:08Z",
-            "actor": "qiaozha",
-            "actorRole": "reviewer",
-            "description": "Why are those tests being removed?",
-            "sentiment": "blocking",
-            "details": {
-              "body": "Why are those tests being removed? ",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083#discussion_r2730485465"
-            }
-          },
-          {
-            "type": "review_comment",
-            "timestamp": "2026-01-28T02:22:30Z",
-            "actor": "kazrael2119",
-            "actorRole": "reviewer",
-            "description": "test file has been moved into /test/**public**/containerregistry_examples.spec.ts",
-            "sentiment": "blocking",
-            "details": {
-              "body": "test file has been moved into /test/**public**/containerregistry_examples.spec.ts",
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083#discussion_r2734576193"
-            }
-          },
-          {
-            "type": "idle_gap",
-            "timestamp": "2026-01-28T02:22:30Z",
-            "endTimestamp": "2026-01-30T06:33:22Z",
-            "actor": "system",
-            "actorRole": "bot",
-            "description": "Idle for 52h (2.2d)",
-            "sentiment": "neutral",
-            "details": {
-              "durationHours": 52.2
-            }
-          },
-          {
-            "type": "review_approved",
-            "timestamp": "2026-01-30T06:33:22Z",
-            "actor": "qiaozha",
-            "actorRole": "reviewer",
-            "description": "Approved by qiaozha",
-            "sentiment": "positive",
-            "details": {
-              "body": null,
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083#pullrequestreview-3726599119"
-            }
-          },
-          {
-            "type": "pr_merged",
-            "timestamp": "2026-01-30T06:33:31Z",
-            "actor": "qiaozha",
-            "actorRole": "reviewer",
-            "description": "PR #37083 merged",
-            "sentiment": "positive",
-            "details": {
-              "url": "https://github.com/Azure/azure-sdk-for-js/pull/37083"
-            }
-          },
-          {
-            "type": "release_pipeline_started",
-            "timestamp": "2026-03-23T16:44:41.15Z",
-            "actor": "azure-pipelines[bot]",
-            "actorRole": "bot",
-            "description": "Release pipeline started: js - containerregistry - mgmt",
-            "sentiment": "neutral",
-            "details": {
-              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6048802&view=results",
-              "body": "Build 6048802"
-            }
-          },
-          {
-            "type": "release_pipeline_completed",
-            "timestamp": "2026-03-23T17:02:41.6866667Z",
-            "actor": "azure-pipelines[bot]",
-            "actorRole": "bot",
-            "description": "Package released: @azure/arm-containerregistry",
-            "sentiment": "positive",
-            "details": {
-              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6048802&view=results",
-              "body": "Build 6048802 succeeded"
-            }
-          }
-        ],
-        "reviewWaitDays": 1.14,
-        "reviewWaitCycles": 3,
-        "release": {
-          "packageName": "@azure/arm-containerregistry",
-          "packageVersion": null,
-          "pipelineName": "js - containerregistry - mgmt",
-          "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6048802&view=results",
-          "buildId": "6048802",
-          "releasedAt": "2026-03-23T17:02:41.6866667Z",
-          "releaseGapDays": 52.4,
-          "status": "released"
-        }
-      },
-      {
-        "repo": "Azure/azure-sdk-for-js",
-        "language": "JavaScript",
         "number": 36857,
         "url": "https://github.com/Azure/azure-sdk-for-js/pull/36857",
         "title": "[mgmt] containerregistry release",
@@ -20576,6 +20119,113 @@
       }
     ],
     "Go": [
+      {
+        "repo": "Azure/azure-sdk-for-go",
+        "language": "Go",
+        "number": 25496,
+        "url": "https://github.com/Azure/azure-sdk-for-go/pull/25496",
+        "title": "[Containerregistrytasks-typespec] containerregistry/armcontainerregistrytasks ",
+        "author": "jliusan",
+        "createdAt": "2025-10-23T07:19:36Z",
+        "mergedAt": null,
+        "closedAt": "2025-11-03T09:10:18Z",
+        "state": "closed",
+        "isDraft": false,
+        "readyForReviewAt": null,
+        "generationFlow": "manual",
+        "labels": [
+          "Mgmt"
+        ],
+        "reviewers": [
+          "tadelesh",
+          "lirenhe",
+          "JiaqiZhang-Dev"
+        ],
+        "events": [
+          {
+            "type": "commit_pushed",
+            "timestamp": "2025-10-22T07:59:42Z",
+            "actor": "jliusan",
+            "actorRole": "author",
+            "description": "[Release] sdk/resourcemanager/containerregistry/armcontainer",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-go/commit/5dd932dbebea11017da30e28709f9ccdf3181f90"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2025-10-23T07:00:22Z",
+            "actor": "jliusan",
+            "actorRole": "author",
+            "description": "[Release] sdk/resourcemanager/containerregistry/armcontainer",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-go/commit/c6c6f74eac337cc731a298a412f125ed7c45da42"
+            }
+          },
+          {
+            "type": "pr_created",
+            "timestamp": "2025-10-23T07:19:36Z",
+            "actor": "jliusan",
+            "actorRole": "author",
+            "description": "PR #25496 opened: [Containerregistrytasks-typespec] containerregistry/armconta",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-go/pull/25496"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2025-10-23T07:20:00Z",
+            "actor": "copilot-pull-request-reviewer[bot]",
+            "actorRole": "copilot",
+            "description": "Review comment by copilot-pull-request-reviewer[bot]",
+            "sentiment": "neutral",
+            "details": {
+              "body": "## Pull Request Overview\n\nThis PR introduces a new Go SDK module `armcontainerregistrytasks` for the Azure Container Registry Tasks API, generated from TypeSpec specifications. The module provides client interfaces for managing container registry tasks, task runs, runs, agent pools, and registries.\n\n**Key Changes:**\n- New SDK module generated from TypeSpec for API version 2025-03-01-preview\n- Implements clients for Tasks, TaskRuns, Runs, AgentPools, and Registries operations\n- Includes comprehen",
+              "url": "https://github.com/Azure/azure-sdk-for-go/pull/25496#pullrequestreview-3368552382"
+            }
+          },
+          {
+            "type": "bot_comment",
+            "timestamp": "2025-10-23T07:25:41Z",
+            "actor": "github-actions[bot]",
+            "actorRole": "bot",
+            "description": "## API Change Check",
+            "sentiment": "neutral",
+            "details": {
+              "body": "## API Change Check\r\n\r\nAPIView identified API level changes in this PR and created the following API reviews\r\n\r\n[sdk/resourcemanager/containerregistry/armcontainerregistrytasks](https://spa.apiview.dev/review/6182d562882f4dc490b8dbc2df0df9f7?activeApiRevisionId=ae6f05065a41488692e0a361e5cdf829)\r\n<!-- Fetch URI: https://apiview.dev/api/pullrequests?pullRequestNumber=25496&repoName=Azure/azure-sdk-for-go&commitSHA=c6c6f74eac337cc731a298a412f125ed7c45da42 -->",
+              "url": "https://github.com/Azure/azure-sdk-for-go/pull/25496#issuecomment-3435516800"
+            }
+          },
+          {
+            "type": "idle_gap",
+            "timestamp": "2025-10-23T07:25:41Z",
+            "endTimestamp": "2025-11-03T09:10:18Z",
+            "actor": "system",
+            "actorRole": "bot",
+            "description": "Idle for 266h (11.1d)",
+            "sentiment": "blocking",
+            "details": {
+              "durationHours": 265.7
+            }
+          },
+          {
+            "type": "pr_closed",
+            "timestamp": "2025-11-03T09:10:18Z",
+            "actor": "unknown",
+            "actorRole": "reviewer",
+            "description": "PR #25496 closed without merge",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-go/pull/25496"
+            }
+          }
+        ],
+        "reviewWaitDays": 11.08,
+        "reviewWaitCycles": 1
+      },
       {
         "repo": "Azure/azure-sdk-for-go",
         "language": "Go",
@@ -22175,57 +21825,55 @@
       "endDate": "2026-04-03T08:53:59Z",
       "specPRNumbers": [
         37748,
-        38576,
         39455,
-        39827,
         39858,
-        41347,
         36874,
         37169,
         37474,
         38473,
         38570,
+        38576,
         38594,
         38619,
         38663
       ],
       "sdkPRNumbers": {
-        "Go": [
-          25495,
-          25900,
-          25551,
-          25696
-        ],
         ".NET": [
+          57060,
           53641,
-          57060
+          54341
         ],
         "Python": [
-          43759,
           44775,
+          43759,
           44257
         ],
         "Java": [
           47758,
-          48433,
           47139,
           47471
         ],
+        "Go": [
+          25900,
+          25496,
+          25495,
+          25551,
+          25696
+        ],
         "JavaScript": [
-          37083,
           36439
         ]
       },
       "summary": {
         "totalDurationDays": 224.19,
-        "specPRDays": 112.27,
-        "specPRCount": 14,
+        "specPRDays": 112.18,
+        "specPRCount": 12,
         "pipelineGapDays": 48.3,
         "totalNags": 0,
         "totalManualFixes": 0,
         "totalUniqueReviewers": 29,
-        "totalReviewWaitDays": 66.94,
-        "totalReviewWaitCycles": 62
+        "totalReviewWaitDays": 80.58,
+        "totalReviewWaitCycles": 59
       }
     },
     {
@@ -22235,9 +21883,9 @@
       "endDate": "2026-04-06T20:16:52Z",
       "specPRNumbers": [
         39535,
-        41603,
         39031,
         39114,
+        39827,
         39828,
         39833,
         39865,
@@ -22246,16 +21894,13 @@
         40122,
         40922,
         41267,
+        41347,
         41363,
+        41603,
         41649,
         42113
       ],
       "sdkPRNumbers": {
-        "Java": [
-          48314,
-          48487,
-          47639
-        ],
         ".NET": [
           57245,
           55925
@@ -22263,26 +21908,31 @@
         "Python": [
           45814
         ],
-        "JavaScript": [
-          37742,
-          36908,
-          36857
+        "Java": [
+          48487,
+          48314,
+          47639,
+          48433
         ],
         "Go": [
           26343,
           25736,
           26381
+        ],
+        "JavaScript": [
+          36908,
+          36857
         ]
       },
       "summary": {
         "totalDurationDays": 125.54,
-        "specPRDays": 103.74,
-        "specPRCount": 15,
+        "specPRDays": 103.83,
+        "specPRCount": 17,
         "pipelineGapDays": 0.1,
         "totalNags": 0,
         "totalManualFixes": 0,
-        "totalUniqueReviewers": 31,
-        "totalReviewWaitDays": 71.73,
+        "totalUniqueReviewers": 28,
+        "totalReviewWaitDays": 71.53,
         "totalReviewWaitCycles": 52
       }
     }
@@ -22290,19 +21940,19 @@
   "summary": {
     "totalSpecPRs": 30,
     "totalSDKPRs": 27,
-    "totalReleases": 18,
+    "totalReleases": 16,
     "avgCycleTimeDays": 151.07,
     "avgPipelineGapDays": 24.2,
-    "avgReviewWaitDays": 3.64,
+    "avgReviewWaitDays": 3.87,
     "totalNags": 0,
     "totalManualFixes": 0,
     "totalToolCalls": 0,
     "toolCallSuccessRate": null,
     "languageBreakdown": {
       ".NET": {
-        "prCount": 4,
-        "mergedCount": 4,
-        "avgDays": 5.82,
+        "prCount": 5,
+        "mergedCount": 5,
+        "avgDays": 5.5,
         "releaseCount": 0
       },
       "Python": {
@@ -22318,13 +21968,13 @@
         "releaseCount": 7
       },
       "JavaScript": {
-        "prCount": 5,
-        "mergedCount": 5,
-        "avgDays": 5.54,
-        "releaseCount": 5
+        "prCount": 3,
+        "mergedCount": 3,
+        "avgDays": 4.94,
+        "releaseCount": 3
       },
       "Go": {
-        "prCount": 7,
+        "prCount": 8,
         "mergedCount": 6,
         "avgDays": 3.81,
         "releaseCount": 4
@@ -22337,7 +21987,7 @@
       },
       {
         "login": "qiaozha",
-        "reviewCount": 42
+        "reviewCount": 39
       },
       {
         "login": "CodeJourneys",
@@ -22368,11 +22018,11 @@
         "reviewCount": 20
       },
       {
-        "login": "kazrael2119",
+        "login": "ArcturusZhang",
         "reviewCount": 14
       }
     ],
-    "automationRate": 0.41
+    "automationRate": 0.33
   },
   "insights": [
     {
@@ -22383,7 +22033,7 @@
     {
       "type": "summary",
       "severity": "info",
-      "description": "Low automation rate: 41% of SDK PRs are automated"
+      "description": "Low automation rate: 33% of SDK PRs are automated"
     },
     {
       "type": "summary",

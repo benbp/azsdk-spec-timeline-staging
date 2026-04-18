@@ -110,6 +110,20 @@ function detectReleaseWindows(specPRs, sdkPRs, specPath) {
     claimed[lang] = new Set();
   }
 
+  const apiVersionRegex = /(?:API [Vv]ersion|Spec API version)[:\s]+(\d{4}-\d{2}-\d{2}(?:-preview)?)/;
+
+  function extractSdkPrVersion(pr) {
+    const body = pr?._rawBody || '';
+    const title = pr?.title || '';
+    const vMatch = body.match(apiVersionRegex) ||
+      title.match(/(?:api[- ]?version|for api[- ]version)\s+(\d{4}-\d{2}-\d{2}(?:-preview)?)/i) ||
+      title.match(/\b(\d{4}-\d{2}-\d{2}-preview)\b/) ||
+      (title.match(/\b(\d{4})\s+(\d{2})\s+(\d{2})(?:\s+preview)?\b/) ?
+        { 1: title.match(/\b(\d{4})\s+(\d{2})\s+(\d{2})/).slice(1).join('-') +
+          (title.toLowerCase().includes('preview') ? '-preview' : '') } : null);
+    return vMatch ? vMatch[1] : null;
+  }
+
   // Pass 1: explicit matches (spec PR number or merge commit in body/title)
   for (let i = 0; i < specPRs.length; i++) {
     const spec = specPRs[i];
@@ -135,48 +149,22 @@ function detectReleaseWindows(specPRs, sdkPRs, specPath) {
     windows.push({ specIndex: i, spec, windowSdkPRs });
   }
 
-  // Pass 2: temporal proximity for unclaimed SDK PRs
-  for (const [lang, prs] of Object.entries(sdkPRs)) {
-    for (const pr of prs) {
-      if (claimed[lang].has(pr.number)) continue;
-      if (!pr.createdAt) continue;
-
-      let bestWindow = null;
-      let bestGap = Infinity;
-      for (const win of windows) {
-        const specMergedAt = win.spec.mergedAt;
-        if (!specMergedAt) continue;
-        const gap = daysBetween(specMergedAt, pr.createdAt);
-        if (gap !== null && gap >= -2 && gap <= 30 && Math.abs(gap) < bestGap) {
-          bestGap = Math.abs(gap);
-          bestWindow = win;
-        }
-      }
-
-      if (bestWindow) {
-        if (!bestWindow.windowSdkPRs[lang]) bestWindow.windowSdkPRs[lang] = [];
-        bestWindow.windowSdkPRs[lang].push(pr.number);
-        claimed[lang].add(pr.number);
-      }
-    }
-  }
-
-  // Build final window objects with API version splitting
-  const result = [];
-  const apiVersionRegex = /(?:API [Vv]ersion|Spec API version)[:\s]+(\d{4}-\d{2}-\d{2}(?:-preview)?)/;
-
+  // Build intermediate labeled windows (determines API version for each)
+  const labeledWindows = [];
   for (const win of windows) {
     const spec = win.spec;
+
+    const fileVersions = detectApiVersionFromFiles(spec._changedFiles, specPath);
+    const distinctHighConf = fileVersions.filter(v => v.confidence >= 3);
+    const highConfFileVer = distinctHighConf.length === 1 ? distinctHighConf[0] : null;
+
     const prsByVersion = {};
     const unversioned = {};
-
     for (const [lang, prNums] of Object.entries(win.windowSdkPRs)) {
       for (const num of prNums) {
         const pr = (sdkPRs[lang] || []).find(p => p.number === num);
-        const body = pr?._rawBody || '';
-        const vMatch = body.match(apiVersionRegex);
-        if (vMatch) {
-          const ver = vMatch[1];
+        const ver = extractSdkPrVersion(pr);
+        if (ver) {
           if (!prsByVersion[ver]) prsByVersion[ver] = {};
           if (!prsByVersion[ver][lang]) prsByVersion[ver][lang] = [];
           prsByVersion[ver][lang].push(num);
@@ -190,29 +178,22 @@ function detectReleaseWindows(specPRs, sdkPRs, specPath) {
     const versions = Object.keys(prsByVersion);
     if (versions.length > 1) {
       for (const ver of versions.sort()) {
-        result.push(buildWindow(spec, prsByVersion[ver], sdkPRs, `API ${ver}`));
+        labeledWindows.push({ spec, sdkPRs: prsByVersion[ver], label: `API ${ver}` });
       }
       if (Object.keys(unversioned).length > 0) {
-        const firstWin = result[result.length - versions.length];
+        const firstWin = labeledWindows[labeledWindows.length - versions.length];
         for (const [lang, nums] of Object.entries(unversioned)) {
-          if (!firstWin.sdkPRNumbers[lang]) firstWin.sdkPRNumbers[lang] = [];
-          firstWin.sdkPRNumbers[lang].push(...nums);
+          if (!firstWin.sdkPRs[lang]) firstWin.sdkPRs[lang] = [];
+          firstWin.sdkPRs[lang].push(...nums);
         }
       }
     } else {
-      const mergedSdkPRs = { ...win.windowSdkPRs };
-      // Signal 1: File-based version detection (if _changedFiles present)
-      const fileVersions = detectApiVersionFromFiles(spec._changedFiles, specPath);
-      const distinctHighConf = fileVersions.filter(v => v.confidence >= 3);
-      const highConfFileVer = distinctHighConf.length === 1 ? distinctHighConf[0] : null;
-
       let label;
       if (highConfFileVer) {
         label = `API ${highConfFileVer.version}`;
       } else if (versions.length === 1) {
         label = `API ${versions[0]}`;
       } else {
-        // Fall back to title parsing
         const dashDate = (spec.title || '').match(/(\d{4}-\d{2}-\d{2}(?:-preview)?)/);
         const spaceDate = (spec.title || '').match(/(\d{4})\s+(\d{2})\s+(\d{2})/);
         if (dashDate) {
@@ -227,9 +208,62 @@ function detectReleaseWindows(specPRs, sdkPRs, specPath) {
           label = `Spec PR #${spec.number}`;
         }
       }
-      result.push(buildWindow(spec, mergedSdkPRs, sdkPRs, label));
+      labeledWindows.push({ spec, sdkPRs: { ...win.windowSdkPRs }, label });
     }
   }
+
+  // Pass 2: API-version-based assignment for unclaimed SDK PRs
+  const versionToWindow = {};
+  for (const win of labeledWindows) {
+    if (win.label.startsWith('API ')) {
+      const ver = win.label.replace('API ', '');
+      if (!versionToWindow[ver]) versionToWindow[ver] = win;
+    }
+  }
+
+  for (const [lang, prs] of Object.entries(sdkPRs)) {
+    for (const pr of prs) {
+      if (claimed[lang].has(pr.number)) continue;
+      const ver = extractSdkPrVersion(pr);
+      if (ver && versionToWindow[ver]) {
+        const win = versionToWindow[ver];
+        if (!win.sdkPRs[lang]) win.sdkPRs[lang] = [];
+        win.sdkPRs[lang].push(pr.number);
+        claimed[lang].add(pr.number);
+      }
+    }
+  }
+
+  // Pass 3: temporal proximity for remaining unclaimed SDK PRs
+  for (const [lang, prs] of Object.entries(sdkPRs)) {
+    for (const pr of prs) {
+      if (claimed[lang].has(pr.number)) continue;
+      if (!pr.createdAt) continue;
+
+      let bestWindow = null;
+      let bestGap = Infinity;
+      for (const win of labeledWindows) {
+        const specMergedAt = win.spec.mergedAt;
+        if (!specMergedAt) continue;
+        const gap = daysBetween(specMergedAt, pr.createdAt);
+        if (gap !== null && gap >= -2 && gap <= 30 && Math.abs(gap) < bestGap) {
+          bestGap = Math.abs(gap);
+          bestWindow = win;
+        }
+      }
+
+      if (bestWindow) {
+        if (!bestWindow.sdkPRs[lang]) bestWindow.sdkPRs[lang] = [];
+        bestWindow.sdkPRs[lang].push(pr.number);
+        claimed[lang].add(pr.number);
+      }
+    }
+  }
+
+  // Build final window objects
+  const result = labeledWindows.map(win =>
+    buildWindow(win.spec, win.sdkPRs, sdkPRs, win.label)
+  );
 
   // Consolidation: merge follow-up spec PRs into API-version anchors
   const consolidated = consolidateWindows(result, specPRs, sdkPRs);

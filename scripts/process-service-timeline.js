@@ -636,17 +636,16 @@ function main() {
         delete out._release; // clean up raw data
       }
 
-      // Flag post-release version bump PRs (not real SDK generation)
-      const titleLower = (out.title || '').toLowerCase();
+      // Skip post-release version bump PRs entirely
       if (/^increment\s+versions?\s+for\s+/i.test(out.title || '') ||
           /^update\s+typespec\s+emitter\s+version\s+/i.test(out.title || '') ||
           /^prepare\s+for\s+release\b/i.test(out.title || '') ||
           /^update\s+changelog\b/i.test(out.title || '')) {
-        out.isVersionBump = true;
+        return null;
       }
 
       return out;
-    });
+    }).filter(Boolean);
   }
 
   // Convert tool call telemetry
@@ -681,6 +680,21 @@ function main() {
   // Detect release windows
   console.error('Detecting release windows...');
   const releaseWindows = detectReleaseWindows(specPRs, sdkPRs);
+
+  // Drop SDK PRs not claimed by any release window (outside lookback scope)
+  const windowedNums = new Set();
+  for (const w of releaseWindows) {
+    for (const nums of Object.values(w.sdkPRNumbers)) {
+      for (const n of nums) windowedNums.add(n);
+    }
+  }
+  let droppedOrphans = 0;
+  for (const lang of Object.keys(sdkPRs)) {
+    const before = sdkPRs[lang].length;
+    sdkPRs[lang] = sdkPRs[lang].filter(pr => windowedNums.has(pr.number));
+    droppedOrphans += before - sdkPRs[lang].length;
+  }
+  if (droppedOrphans > 0) console.error(`Dropped ${droppedOrphans} orphan SDK PRs (no matching spec PR in lookback)`);
 
   // Compute per-window summaries
   for (const win of releaseWindows) {

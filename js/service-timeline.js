@@ -222,7 +222,7 @@ const ServiceTimeline = (() => {
       const win = data.releaseWindows[selectedWindow];
       const s = win?.summary || {};
       const windowPRs = getWindowPRs();
-      const windowSDKPRs = windowPRs.filter(pr => !win.specPRNumbers.includes(pr.number) && !pr.isVersionBump);
+      const windowSDKPRs = windowPRs.filter(pr => !win.specPRNumbers.includes(pr.number));
       const sdkCount = windowSDKPRs.length;
       const specCount = (win?.specPRNumbers || []).length;
 
@@ -925,7 +925,7 @@ const ServiceTimeline = (() => {
     label.className = `lane-label ${isSpec ? 'spec-lane' : ''} service-lane-label`;
     label.dataset.laneIndex = laneIndex;
 
-    const activePRs = prs.filter(p => !p.isVersionBump);
+    const activePRs = prs;
     const prCount = activePRs.length;
     const mergedCount = activePRs.filter(p => p.state === 'merged').length;
     const openCount = activePRs.filter(p => p.state === 'open').length;
@@ -963,9 +963,29 @@ const ServiceTimeline = (() => {
           ? `<span class="release-badge released" title="Released ${DataLoader.formatDate(pr.release.releasedAt)}">${pr.release.releaseGapDays ? '📦 ' + pr.release.releaseGapDays + 'd' : '📦 <1d'}</span>`
           : pr.release.status === 'pending'
             ? '<span class="release-badge pending status-pulse">⏳ pending</span>'
-            : '<span class="release-badge failed">❌ failed</span>'
+            : '<span class="release-badge failed" title="Release pipeline failed">❌ failed</span>'
         : '';
-      detailMeta = `${flowIcon} ${daysDisplay} ${reviewWaitHtml} ${releaseStatus}`;
+      const releaseLinkHtml = pr.release?.pipelineUrl
+        ? ` <a href="${pr.release.pipelineUrl}" target="_blank" title="${escapeHtml(pr.release.pipelineName || 'Release pipeline')}">🔗</a>` : '';
+      detailMeta = `${flowIcon} ${daysDisplay} ${reviewWaitHtml} ${releaseStatus}${releaseLinkHtml}`;
+    } else if (activePRs.length > 1) {
+      // Aggregate release status for multi-PR lanes
+      const released = activePRs.filter(p => p.release?.status === 'released');
+      const pending = activePRs.filter(p => p.release?.status === 'pending');
+      const failed = activePRs.filter(p => p.release?.status === 'failed');
+      const parts = [];
+      if (released.length > 0) {
+        const gaps = released.map(p => p.release.releaseGapDays).filter(g => g != null);
+        const avgGap = gaps.length > 0 ? (gaps.reduce((a, b) => a + b, 0) / gaps.length).toFixed(1) : null;
+        parts.push(`<span class="release-badge released" title="${released.length} released${avgGap ? ', avg ' + avgGap + 'd' : ''}">📦 ${released.length}</span>`);
+      }
+      if (pending.length > 0) {
+        parts.push(`<span class="release-badge pending status-pulse" title="${pending.length} pending release">⏳ ${pending.length} pending</span>`);
+      }
+      if (failed.length > 0) {
+        parts.push(`<span class="release-badge failed" title="${failed.length} failed pipeline">❌ ${failed.length}</span>`);
+      }
+      detailMeta = parts.join(' ');
     }
 
     label.innerHTML = `
@@ -1079,7 +1099,7 @@ const ServiceTimeline = (() => {
 
     // PR duration bar
     const bar = document.createElement('div');
-    bar.className = `pr-bar pr-bar-multi ${pr.state === 'merged' ? 'merged' : ''} ${pr.state === 'open' ? 'open' : ''} ${pr.state === 'closed' && !pr.mergedAt ? 'closed' : ''} ${pr.isVersionBump ? 'version-bump' : ''}`;
+    bar.className = `pr-bar pr-bar-multi ${pr.state === 'merged' ? 'merged' : ''} ${pr.state === 'open' ? 'open' : ''} ${pr.state === 'closed' && !pr.mergedAt ? 'closed' : ''}`;
     bar.dataset.prNumber = pr.number;
     bar.style.left = barStart + 'px';
     bar.style.width = Math.max(barEnd - barStart, 4) + 'px';

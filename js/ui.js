@@ -130,12 +130,12 @@ const UI = (() => {
     {
       file: 'data/service-durabletask.json',
       name: 'DurableTask',
-      meta: '7 spec PRs · 28 SDK PRs · 5 languages · 2 release windows · 1yr lookback'
+      meta: '7 spec PRs · 16 SDK PRs · 5 languages · 2 release windows · 1yr lookback'
     },
     {
       file: 'data/service-netapp.json',
       name: 'NetApp',
-      meta: '19 spec PRs · 57 SDK PRs · 4 languages · 2 release windows · 1yr lookback'
+      meta: '19 spec PRs · 29 SDK PRs · 4 languages · 2 release windows · 1yr lookback'
     }
   ];
 
@@ -395,6 +395,14 @@ const UI = (() => {
       ? ((new Date(pr.mergedAt || pr.closedAt) - new Date(pr.createdAt)) / 86400000).toFixed(1) + 'd'
       : '';
 
+    const releaseInfo = pr.release
+      ? pr.release.status === 'released'
+        ? `<div class="tooltip-meta"><span>📦 Released ${DataLoader.formatDate(pr.release.releasedAt)} (${pr.release.releaseGapDays || '<1'}d gap)</span></div>`
+        : pr.release.status === 'pending'
+          ? '<div class="tooltip-meta"><span>⏳ Release pending</span></div>'
+          : '<div class="tooltip-meta"><span>❌ Release pipeline failed</span></div>'
+      : '';
+
     tip.innerHTML = `
       <div class="tooltip-type">#${pr.number}: ${esc((pr.title || '').slice(0, 60))}${(pr.title || '').length > 60 ? '…' : ''}</div>
       <div class="tooltip-meta">
@@ -406,6 +414,7 @@ const UI = (() => {
         <span>📅 ${DataLoader.formatDate(pr.createdAt)}${pr.mergedAt ? ' → ' + DataLoader.formatDate(pr.mergedAt) : ''}</span>
       </div>
       ${pr.reviewers?.length ? `<div class="tooltip-meta"><span>👥 ${pr.reviewers.length} reviewer${pr.reviewers.length > 1 ? 's' : ''}</span></div>` : ''}
+      ${releaseInfo}
       <div class="tooltip-link">Click for full details</div>
     `;
 

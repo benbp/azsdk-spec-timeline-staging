@@ -24,6 +24,21 @@ function run(filePath) {
   console.error(`Processing ${filePath}...`);
   console.error(`  Before: ${d.releaseWindows.length} windows`);
 
+  // Remove version bump PRs from sdkPRs
+  const bumpNums = new Set();
+  for (const [lang, prs] of Object.entries(d.sdkPRs || {})) {
+    for (const pr of prs) {
+      if (/^increment\s+versions?\s+for\s+/i.test(pr.title || '') ||
+          /^update\s+typespec\s+emitter\s+version\s+/i.test(pr.title || '') ||
+          /^prepare\s+for\s+release\b/i.test(pr.title || '') ||
+          /^update\s+changelog\b/i.test(pr.title || '')) {
+        bumpNums.add(pr.number);
+      }
+    }
+    d.sdkPRs[lang] = prs.filter(pr => !bumpNums.has(pr.number));
+  }
+  if (bumpNums.size > 0) console.error(`  Removed ${bumpNums.size} version bump PRs`);
+
   // Re-detect windows from scratch using the spec + SDK PR data
   const specPRs = d.specPRs || [];
   const sdkPRs = d.sdkPRs || {};

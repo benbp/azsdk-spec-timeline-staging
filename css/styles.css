@@ -1695,11 +1695,6 @@ body.drag-over::after {
 .pr-bar-multi {
   cursor: pointer;
 }
-.pr-bar-multi.version-bump {
-  opacity: 0.25;
-  filter: saturate(0.3);
-  pointer-events: none;
-}
 .pr-bar-label {
   position: absolute;
   left: 4px;

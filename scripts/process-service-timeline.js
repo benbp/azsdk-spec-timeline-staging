@@ -511,6 +511,15 @@ function main() {
         delete out._release; // clean up raw data
       }
 
+      // Flag post-release version bump PRs (not real SDK generation)
+      const titleLower = (out.title || '').toLowerCase();
+      if (/^increment\s+versions?\s+for\s+/i.test(out.title || '') ||
+          /^update\s+typespec\s+emitter\s+version\s+/i.test(out.title || '') ||
+          /^prepare\s+for\s+release\b/i.test(out.title || '') ||
+          /^update\s+changelog\b/i.test(out.title || '')) {
+        out.isVersionBump = true;
+      }
+
       return out;
     });
   }

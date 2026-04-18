@@ -7969,7 +7969,8 @@
           "releasedAt": null,
           "releaseGapDays": null,
           "status": "pending"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -8302,7 +8303,8 @@
           "releasedAt": "2026-03-22T12:20:11.36Z",
           "releaseGapDays": 18.9,
           "status": "released"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -8853,7 +8855,8 @@
           "releasedAt": "2026-03-22T12:20:11.36Z",
           "releaseGapDays": 107.1,
           "status": "released"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -9900,7 +9903,8 @@
           "releasedAt": "2026-03-22T12:20:11.36Z",
           "releaseGapDays": 122.8,
           "status": "released"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -10263,7 +10267,8 @@
           "releasedAt": "2026-03-22T12:20:11.36Z",
           "releaseGapDays": 158.4,
           "status": "released"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -10904,7 +10909,8 @@
           "releasedAt": "2026-03-22T12:20:11.36Z",
           "releaseGapDays": 215.1,
           "status": "released"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -11285,7 +11291,8 @@
           "releasedAt": "2026-03-22T12:20:11.36Z",
           "releaseGapDays": 244.2,
           "status": "released"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -11654,7 +11661,8 @@
           "releasedAt": "2026-03-22T12:20:11.36Z",
           "releaseGapDays": 319.1,
           "status": "released"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -11941,7 +11949,8 @@
           "releasedAt": "2026-03-22T12:20:11.36Z",
           "releaseGapDays": 335.3,
           "status": "released"
-        }
+        },
+        "isVersionBump": true
       }
     ],
     "JavaScript": [

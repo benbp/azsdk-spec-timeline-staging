@@ -611,6 +611,19 @@ const Timeline = (() => {
     // Gridlines
     addGridlines(lanesContainer);
 
+    // Sync label/lane heights to prevent subpixel border drift
+    {
+      const labels = document.querySelectorAll('#lane-labels .lane-label');
+      const lanes = document.querySelectorAll('#lanes .lane');
+      const count = Math.min(labels.length, lanes.length);
+      for (let i = 0; i < count; i++) { labels[i].style.height = ''; lanes[i].style.height = ''; }
+      for (let i = 0; i < count; i++) {
+        const h = Math.max(labels[i].offsetHeight, lanes[i].offsetHeight);
+        labels[i].style.height = h + 'px';
+        lanes[i].style.height = h + 'px';
+      }
+    }
+
     // Restore scroll positions
     if (scrollEl) scrollEl.scrollLeft = savedScrollLeft;
     window.scrollTo(window.scrollX, savedPageScrollY);

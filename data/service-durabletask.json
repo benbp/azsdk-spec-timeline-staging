@@ -2118,7 +2118,8 @@
           "releasedAt": null,
           "releaseGapDays": null,
           "status": "pending"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -2247,7 +2248,8 @@
           "releasedAt": "2026-03-12T20:25:25.16Z",
           "releaseGapDays": 154.8,
           "status": "released"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-java",
@@ -2612,7 +2614,8 @@
           "releasedAt": "2026-03-12T20:25:25.16Z",
           "releaseGapDays": 317.7,
           "status": "released"
-        }
+        },
+        "isVersionBump": true
       }
     ],
     "Go": [
@@ -4037,7 +4040,8 @@
           "releasedAt": null,
           "releaseGapDays": null,
           "status": "failed"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-net",
@@ -4914,7 +4918,8 @@
           "releasedAt": null,
           "releaseGapDays": null,
           "status": "failed"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-net",
@@ -5445,7 +5450,8 @@
           "releasedAt": null,
           "releaseGapDays": null,
           "status": "failed"
-        }
+        },
+        "isVersionBump": true
       },
       {
         "repo": "Azure/azure-sdk-for-net",
@@ -6295,7 +6301,8 @@
           "releasedAt": null,
           "releaseGapDays": null,
           "status": "failed"
-        }
+        },
+        "isVersionBump": true
       }
     ],
     "JavaScript": [

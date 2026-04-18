@@ -220,7 +220,7 @@ const ServiceTimeline = (() => {
       const win = data.releaseWindows[selectedWindow];
       const s = win?.summary || {};
       const windowPRs = getWindowPRs();
-      const windowSDKPRs = windowPRs.filter(pr => !win.specPRNumbers.includes(pr.number));
+      const windowSDKPRs = windowPRs.filter(pr => !win.specPRNumbers.includes(pr.number) && !pr.isVersionBump);
       const sdkCount = windowSDKPRs.length;
       const specCount = (win?.specPRNumbers || []).length;
 
@@ -848,9 +848,27 @@ const ServiceTimeline = (() => {
       }
     }
 
+    // Sync label/lane heights to prevent subpixel border drift
+    syncLaneHeights();
+
     // Restore scroll positions
     if (scrollEl) scrollEl.scrollLeft = savedScrollLeft;
     window.scrollTo(window.scrollX, savedPageScrollY);
+  }
+
+  function syncLaneHeights() {
+    const labels = document.querySelectorAll('#lane-labels .service-lane-label');
+    const lanes = document.querySelectorAll('#lanes .service-lane');
+    const count = Math.min(labels.length, lanes.length);
+    for (let i = 0; i < count; i++) {
+      labels[i].style.height = '';
+      lanes[i].style.height = '';
+    }
+    for (let i = 0; i < count; i++) {
+      const h = Math.max(labels[i].offsetHeight, lanes[i].offsetHeight);
+      labels[i].style.height = h + 'px';
+      lanes[i].style.height = h + 'px';
+    }
   }
 
   function renderTimeAxis(elementId) {
@@ -904,26 +922,27 @@ const ServiceTimeline = (() => {
     label.className = `lane-label ${isSpec ? 'spec-lane' : ''} service-lane-label`;
     label.dataset.laneIndex = laneIndex;
 
-    const prCount = prs.length;
-    const mergedCount = prs.filter(p => p.state === 'merged').length;
-    const openCount = prs.filter(p => p.state === 'open').length;
+    const activePRs = prs.filter(p => !p.isVersionBump);
+    const prCount = activePRs.length;
+    const mergedCount = activePRs.filter(p => p.state === 'merged').length;
+    const openCount = activePRs.filter(p => p.state === 'open').length;
 
     // Build PR links for the meta section — links go to GitHub, info button opens sidebar
     let prLinksHtml = '';
-    if (prs.length > 0 && prs.length <= 3) {
-      prLinksHtml = prs.map((pr, i) => {
+    if (activePRs.length > 0 && activePRs.length <= 3) {
+      prLinksHtml = activePRs.map((pr, i) => {
         const prUrl = pr.url || `https://github.com/${pr.repo || ''}/pull/${pr.number}`;
         return `<a href="${prUrl}" target="_blank" rel="noopener" class="meta-pr-link" title="${escapeHtml((pr.title || '').slice(0, 60))}">#${pr.number}</a>` +
           `<span class="meta-pr-info" data-pr-idx="${i}" title="Details">ℹ</span>`;
       }).join(' ');
-    } else if (prs.length > 3) {
+    } else if (activePRs.length > 3) {
       prLinksHtml = `<span class="meta-pr-expand" title="Click to see all PRs">${prCount} PRs — click to see all</span>`;
     }
 
     // Enhanced per-PR meta when there's only 1 PR (matches single PR view detail)
     let detailMeta = '';
-    if (prs.length === 1) {
-      const pr = prs[0];
+    if (activePRs.length === 1) {
+      const pr = activePRs[0];
       const days = pr.mergedAt ? DataLoader.computeDurationDays(pr.createdAt, pr.mergedAt) : null;
       const durationColorClass = days != null
         ? days < 3 ? 'dur-fast' : days < 7 ? 'dur-ok' : days < 14 ? 'dur-slow' : 'dur-critical'
@@ -984,7 +1003,7 @@ const ServiceTimeline = (() => {
         if (dropdown) { dropdown.remove(); return; }
         dropdown = document.createElement('div');
         dropdown.className = 'meta-pr-dropdown';
-        for (const pr of prs) {
+        for (const pr of activePRs) {
           const item = document.createElement('span');
           item.className = 'meta-pr-dropdown-item';
           item.textContent = `#${pr.number}: ${(pr.title || '').slice(0, 50)}${(pr.title || '').length > 50 ? '…' : ''}`;
@@ -1057,7 +1076,7 @@ const ServiceTimeline = (() => {
 
     // PR duration bar
     const bar = document.createElement('div');
-    bar.className = `pr-bar pr-bar-multi ${pr.state === 'merged' ? 'merged' : ''} ${pr.state === 'open' ? 'open' : ''} ${pr.state === 'closed' && !pr.mergedAt ? 'closed' : ''}`;
+    bar.className = `pr-bar pr-bar-multi ${pr.state === 'merged' ? 'merged' : ''} ${pr.state === 'open' ? 'open' : ''} ${pr.state === 'closed' && !pr.mergedAt ? 'closed' : ''} ${pr.isVersionBump ? 'version-bump' : ''}`;
     bar.dataset.prNumber = pr.number;
     bar.style.left = barStart + 'px';
     bar.style.width = Math.max(barEnd - barStart, 4) + 'px';

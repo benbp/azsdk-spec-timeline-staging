@@ -266,13 +266,37 @@ function consolidateWindows(windows, specPRs, sdkPRs) {
     merged.add(fi);
   }
 
-  // Rebuild remaining windows and recalculate dates
-  const result = [];
+  // Rebuild remaining windows (exclude merged followers)
+  let remaining = [];
   for (let i = 0; i < windows.length; i++) {
     if (merged.has(i)) continue;
-    const win = windows[i];
+    remaining.push(windows[i]);
+  }
 
-    // Recalculate date range from all included spec + SDK PRs
+  // Merge anchors with the same label (e.g. multiple "API 2025-11-01" windows)
+  const labelMap = new Map();
+  const deduped = [];
+  for (const win of remaining) {
+    if (win.label.startsWith('API ') && labelMap.has(win.label)) {
+      const target = labelMap.get(win.label);
+      for (const num of win.specPRNumbers) {
+        if (!target.specPRNumbers.includes(num)) target.specPRNumbers.push(num);
+      }
+      for (const [lang, nums] of Object.entries(win.sdkPRNumbers)) {
+        if (!target.sdkPRNumbers[lang]) target.sdkPRNumbers[lang] = [];
+        for (const num of nums) {
+          if (!target.sdkPRNumbers[lang].includes(num)) target.sdkPRNumbers[lang].push(num);
+        }
+      }
+    } else {
+      if (win.label.startsWith('API ')) labelMap.set(win.label, win);
+      deduped.push(win);
+    }
+  }
+
+  // Recalculate date ranges for all remaining windows
+  const result = [];
+  for (const win of deduped) {
     const allDates = [];
     for (const specNum of win.specPRNumbers) {
       const sp = specPRs.find(p => p.number === specNum);

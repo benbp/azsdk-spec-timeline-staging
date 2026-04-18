@@ -136,6 +136,11 @@ const UI = (() => {
       file: 'data/service-netapp.json',
       name: 'NetApp',
       meta: '19 spec PRs · 29 SDK PRs · 4 languages · 2 release windows · 1yr lookback'
+    },
+    {
+      file: 'data/service-containerregistry.json',
+      name: 'ContainerRegistry',
+      meta: '30 spec PRs · 34 SDK PRs · 5 languages · 5 release windows · 1yr lookback'
     }
   ];
 

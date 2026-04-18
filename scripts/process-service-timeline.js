@@ -175,17 +175,127 @@ function detectReleaseWindows(specPRs, sdkPRs) {
     } else {
       // Single or no API version — keep as one window
       const mergedSdkPRs = { ...win.windowSdkPRs };
+      // Match date in title: "2025-09-01" or "2025 12 01" (space-separated)
+      const dashDate = (spec.title || '').match(/(\d{4}-\d{2}-\d{2})/);
+      const spaceDate = (spec.title || '').match(/(\d{4})\s+(\d{2})\s+(\d{2})/);
       const label = versions.length === 1
         ? `API ${versions[0]}`
-        : (spec.title || '').match(/(\d{4}-\d{2}-\d{2})/)
-          ? `API ${(spec.title || '').match(/(\d{4}-\d{2}-\d{2})/)[1]}`
-          : `Spec PR #${spec.number}`;
+        : dashDate
+          ? `API ${dashDate[1]}`
+          : spaceDate
+            ? `API ${spaceDate[1]}-${spaceDate[2]}-${spaceDate[3]}`
+            : `Spec PR #${spec.number}`;
       result.push(buildWindow(spec, mergedSdkPRs, sdkPRs, label));
     }
   }
 
+  // Consolidate follow-up spec PRs under their API-version anchors.
+  // Anchors have labels starting with "API "; non-anchors are follow-up
+  // fixes/refactors that should be grouped with the nearest preceding anchor.
+  const consolidated = consolidateWindows(result, specPRs, sdkPRs);
+
   // Re-number IDs
-  result.forEach((w, i) => { w.id = `rw-${i + 1}`; });
+  consolidated.forEach((w, i) => { w.id = `rw-${i + 1}`; });
+  return consolidated;
+}
+
+function consolidateWindows(windows, specPRs, sdkPRs) {
+  const anchors = [];     // indices of API-version windows
+  const followers = [];   // indices of non-API windows
+
+  for (let i = 0; i < windows.length; i++) {
+    if (windows[i].label.startsWith('API ')) {
+      anchors.push(i);
+    } else {
+      followers.push(i);
+    }
+  }
+
+  // Nothing to consolidate if no anchors or no followers
+  if (anchors.length === 0 || followers.length === 0) return windows;
+
+  // Map each follower to its nearest preceding anchor (by spec PR creation date)
+  const merged = new Set();
+  for (const fi of followers) {
+    const follower = windows[fi];
+    const followerDate = follower.startDate;
+
+    // Find nearest preceding anchor: the latest anchor whose start <= follower start
+    let bestAnchor = null;
+    let bestDist = Infinity;
+    for (const ai of anchors) {
+      const anchor = windows[ai];
+      if (anchor.startDate <= followerDate) {
+        const dist = new Date(followerDate) - new Date(anchor.startDate);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestAnchor = ai;
+        }
+      }
+    }
+
+    // If no preceding anchor, use the nearest following anchor
+    if (bestAnchor === null) {
+      for (const ai of anchors) {
+        const anchor = windows[ai];
+        const dist = Math.abs(new Date(followerDate) - new Date(anchor.startDate));
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestAnchor = ai;
+        }
+      }
+    }
+
+    if (bestAnchor === null) continue;
+
+    const anchor = windows[bestAnchor];
+
+    // Merge spec PR numbers
+    for (const num of follower.specPRNumbers) {
+      if (!anchor.specPRNumbers.includes(num)) anchor.specPRNumbers.push(num);
+    }
+
+    // Merge SDK PR numbers
+    for (const [lang, nums] of Object.entries(follower.sdkPRNumbers)) {
+      if (!anchor.sdkPRNumbers[lang]) anchor.sdkPRNumbers[lang] = [];
+      for (const num of nums) {
+        if (!anchor.sdkPRNumbers[lang].includes(num)) anchor.sdkPRNumbers[lang].push(num);
+      }
+    }
+
+    merged.add(fi);
+  }
+
+  // Rebuild remaining windows and recalculate dates
+  const result = [];
+  for (let i = 0; i < windows.length; i++) {
+    if (merged.has(i)) continue;
+    const win = windows[i];
+
+    // Recalculate date range from all included spec + SDK PRs
+    const allDates = [];
+    for (const specNum of win.specPRNumbers) {
+      const sp = specPRs.find(p => p.number === specNum);
+      if (sp?.createdAt) allDates.push(sp.createdAt);
+      if (sp?.mergedAt) allDates.push(sp.mergedAt);
+    }
+    for (const [lang, nums] of Object.entries(win.sdkPRNumbers)) {
+      for (const num of nums) {
+        const pr = (sdkPRs[lang] || []).find(p => p.number === num);
+        if (pr?.createdAt) allDates.push(pr.createdAt);
+        if (pr?.mergedAt) allDates.push(pr.mergedAt);
+        if (pr?.release?.releasedAt) allDates.push(pr.release.releasedAt);
+      }
+    }
+    allDates.sort();
+    if (allDates.length > 0) {
+      win.startDate = allDates[0];
+      win.endDate = allDates[allDates.length - 1];
+    }
+
+    result.push(win);
+  }
+
   return result;
 }
 
@@ -219,7 +329,11 @@ function buildWindow(spec, windowSdkPRs, sdkPRs, label) {
 /* ── Per-Window Summary ───────────────────────────────────── */
 
 function computeWindowSummary(window, specPRs, sdkPRs) {
-  const specPR = specPRs.find(p => p.number === window.specPRNumbers[0]);
+  // Multi-spec-PR windows: gather all spec PRs, use first as the "anchor"
+  const windowSpecPRs = window.specPRNumbers
+    .map(n => specPRs.find(p => p.number === n))
+    .filter(Boolean);
+  const specPR = windowSpecPRs[0]; // anchor for pipeline gap calculation
   const windowSdkPRs = [];
 
   for (const [lang, nums] of Object.entries(window.sdkPRNumbers)) {
@@ -230,19 +344,29 @@ function computeWindowSummary(window, specPRs, sdkPRs) {
   }
 
   const totalDays = daysBetween(window.startDate, window.endDate);
-  const specDays = specPR ? daysBetween(specPR.createdAt, specPR.mergedAt) : null;
+  // Aggregate spec PR review days across all spec PRs in window
+  const specDaysArr = windowSpecPRs
+    .filter(sp => sp.createdAt && sp.mergedAt)
+    .map(sp => daysBetween(sp.createdAt, sp.mergedAt))
+    .filter(d => d != null);
+  const specDays = specDaysArr.length > 0
+    ? specDaysArr.reduce((a, b) => a + b, 0) : null;
 
-  // Pipeline gap
+  // Pipeline gap: first spec merged → first SDK PR created
+  const firstSpecMerged = windowSpecPRs
+    .filter(sp => sp.mergedAt)
+    .map(sp => sp.mergedAt)
+    .sort()[0] || null;
   const firstSdkCreated = windowSdkPRs
     .filter(pr => pr.createdAt)
     .map(pr => pr.createdAt)
     .sort()[0] || null;
-  const pipeGap = (specPR?.mergedAt && firstSdkCreated)
-    ? daysBetween(specPR.mergedAt, firstSdkCreated)
+  const pipeGap = (firstSpecMerged && firstSdkCreated)
+    ? daysBetween(firstSpecMerged, firstSdkCreated)
     : null;
 
-  // Nags and manual fixes
-  const allPRs = specPR ? [specPR, ...windowSdkPRs] : windowSdkPRs;
+  // Nags and manual fixes across all PRs
+  const allPRs = [...windowSpecPRs, ...windowSdkPRs];
   const totalNags = allPRs.reduce((n, pr) =>
     n + (pr.events || []).filter(e => e.type === 'author_nag').length, 0);
   const totalManualFixes = allPRs.reduce((n, pr) =>
@@ -264,6 +388,7 @@ function computeWindowSummary(window, specPRs, sdkPRs) {
   return {
     totalDurationDays: totalDays != null ? Math.round(totalDays * 100) / 100 : null,
     specPRDays: specDays != null ? Math.round(specDays * 100) / 100 : null,
+    specPRCount: windowSpecPRs.length,
     pipelineGapDays: pipeGap != null && pipeGap > 0 ? Math.round(pipeGap * 100) / 100 : null,
     totalNags,
     totalManualFixes,

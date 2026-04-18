@@ -157,10 +157,12 @@ const ServiceTimeline = (() => {
     for (let i = windows.length - 1; i >= 0; i--) {
       const w = windows[i];
       const sdkCount = Object.values(w.sdkPRNumbers || {}).flat().length;
+      const specCount = (w.specPRNumbers || []).length;
       const isApiVersion = w.label && w.label.startsWith('API ');
       const pill = document.createElement('button');
       pill.className = `window-pill ${selectedWindow === i ? 'active' : ''} ${isApiVersion ? 'api-version' : ''}`;
-      pill.innerHTML = `<span class="pill-label">${escapeHtml(w.label)}</span><span class="pill-sub">${sdkCount} SDK PRs</span>`;
+      const sub = specCount > 1 ? `${specCount} specs · ${sdkCount} SDKs` : `${sdkCount} SDK PRs`;
+      pill.innerHTML = `<span class="pill-label">${escapeHtml(w.label)}</span><span class="pill-sub">${sub}</span>`;
       pill.addEventListener('click', () => selectWindow(i));
       pills.appendChild(pill);
     }
@@ -245,9 +247,10 @@ const ServiceTimeline = (() => {
         }
       }
 
+      const specLabel = (s.specPRCount || 1) > 1 ? `Spec PRs (${s.specPRCount})` : 'Spec PR';
       cards = [
         { label: 'Window', value: escapeHtml(win?.label || ''), sub: `${DataLoader.formatDateRange(win.startDate, win.endDate)}`, cls: 'info', smallValue: true },
-        { label: 'Spec PR', value: fmt(s.specPRDays), sub: 'API review', cls: 'info' },
+        { label: specLabel, value: fmt(s.specPRDays), sub: 'API review', cls: 'info' },
         { label: 'Pipeline Gap', value: fmt(s.pipelineGapDays), sub: 'Merge → SDK PRs', cls: s.pipelineGapDays > 7 ? 'critical' : 'warning' },
       ];
 

@@ -67,7 +67,88 @@ function convertToolCalls(rawToolCalls, metadata) {
 
 /* ── Release Window Detection ─────────────────────────────── */
 
-function detectReleaseWindows(specPRs, sdkPRs) {
+/**
+ * Detect API version from spec PR changed files.
+ * Looks for paths matching: stable/<ver>/, preview/<ver>/, examples/<ver>/
+ * Returns array of { version, confidence } sorted by confidence desc.
+ */
+function detectApiVersionFromFiles(changedFiles, specPath) {
+  if (!changedFiles || changedFiles.length === 0) return [];
+
+  const versionHits = {};  // version -> { count, confidence }
+  const specPathLower = (specPath || '').toLowerCase();
+
+  for (const filePath of changedFiles) {
+    const fp = filePath.toLowerCase();
+    // Only consider files within our TypeSpec project path
+    if (specPathLower && !fp.startsWith(specPathLower.toLowerCase())) continue;
+
+    // High confidence: stable/<version>/ or preview/<version>/
+    const stableMatch = fp.match(/\bstable\/(\d{4}-\d{2}-\d{2})\//);
+    const previewMatch = fp.match(/\bpreview\/(\d{4}-\d{2}-\d{2}-preview)\//);
+    // Medium confidence: examples/<version>/
+    const exampleMatch = fp.match(/\bexamples\/(\d{4}-\d{2}-\d{2}(?:-preview)?)\//);
+
+    if (stableMatch) {
+      const ver = stableMatch[1];
+      if (!versionHits[ver]) versionHits[ver] = { count: 0, confidence: 0 };
+      versionHits[ver].count++;
+      versionHits[ver].confidence = Math.max(versionHits[ver].confidence, 3); // high
+    }
+    if (previewMatch) {
+      const ver = previewMatch[1];
+      if (!versionHits[ver]) versionHits[ver] = { count: 0, confidence: 0 };
+      versionHits[ver].count++;
+      versionHits[ver].confidence = Math.max(versionHits[ver].confidence, 3); // high
+    }
+    if (exampleMatch && !stableMatch && !previewMatch) {
+      const ver = exampleMatch[1];
+      if (!versionHits[ver]) versionHits[ver] = { count: 0, confidence: 0 };
+      versionHits[ver].count++;
+      versionHits[ver].confidence = Math.max(versionHits[ver].confidence, 1); // low
+    }
+  }
+
+  return Object.entries(versionHits)
+    .map(([version, { count, confidence }]) => ({ version, count, confidence }))
+    .sort((a, b) => b.confidence - a.confidence || b.count - a.count);
+}
+
+/**
+ * Check if an SDK PR targets a sibling sub-package (not our target).
+ * Returns true if the PR should be excluded.
+ */
+function isSiblingSubPackage(pr, targetPackageName) {
+  if (!targetPackageName) return false;
+  const title = (pr.title || '').toLowerCase();
+  const targetLower = targetPackageName.toLowerCase();
+
+  // AutoPR pattern: [AutoPR <package-name>]-generated-from-...
+  const autoprMatch = title.match(/^\[autopr\s+([^\]]+)\]/);
+  if (autoprMatch) {
+    const autoprPkg = autoprMatch[1].toLowerCase().trim();
+    // Strip common prefixes for comparison
+    const normalizeForCompare = s => s.replace(/^@azure[\/-]/, '').replace(/^azure[\.-]/, '').replace(/^sdk[-\/]resourcemanager[-\/]/, '');
+    const normTarget = normalizeForCompare(targetLower);
+    const normAutoPR = normalizeForCompare(autoprPkg);
+    // If the AutoPR package is strictly longer (tasks suffix), it's a sibling
+    if (normAutoPR !== normTarget && normAutoPR.startsWith(normTarget)) {
+      return true;
+    }
+  }
+
+  // Title explicitly mentions tasks/dataplane variant
+  const siblingKeywords = ['registrytask', '-tasks', '_tasks'];
+  for (const kw of siblingKeywords) {
+    if (title.includes(kw) && !targetLower.includes(kw.replace(/^-|^_/, ''))) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function detectReleaseWindows(specPRs, sdkPRs, specPath) {
   const windows = [];
 
   // Track which SDK PRs have been claimed (one-to-one assignment)
@@ -128,14 +209,22 @@ function detectReleaseWindows(specPRs, sdkPRs) {
     }
   }
 
-  // Build final window objects, splitting by API version when a spec PR
-  // produces SDK PRs targeting different API versions (e.g. stable + preview)
+  // Build final window objects, determining API version via multi-signal approach:
+  // 1. File-based detection (spec PR changed files → stable/<ver>/ or preview/<ver>/)
+  // 2. SDK PR body regex (API Version: <ver>)
+  // 3. Spec PR title parsing (date patterns)
   const result = [];
   for (const win of windows) {
     const spec = win.spec;
 
-    // Extract API version from each SDK PR body
-    // Patterns: "API Version: 2026-01-01", "Spec API version: 2026-01-02-preview"
+    // Signal 1: File-based version detection from spec PR changed files
+    // If the PR touches 2+ distinct high-confidence version dirs, it's likely a
+    // mass refactor/migration — file-based version detection is unreliable.
+    const fileVersions = detectApiVersionFromFiles(spec._changedFiles, specPath);
+    const distinctHighConfVersions = fileVersions.filter(v => v.confidence >= 3);
+    const highConfFileVer = distinctHighConfVersions.length === 1 ? distinctHighConfVersions[0] : null;
+
+    // Signal 2: Extract API version from each SDK PR body
     const apiVersionRegex = /(?:API [Vv]ersion|Spec API version)[:\s]+(\d{4}-\d{2}-\d{2}(?:-preview)?)/;
     const prsByVersion = {};   // apiVersion -> { lang -> [prNums] }
     const unversioned = {};    // lang -> [prNums] (no version detected)
@@ -144,7 +233,15 @@ function detectReleaseWindows(specPRs, sdkPRs) {
       for (const num of prNums) {
         const pr = (sdkPRs[lang] || []).find(p => p.number === num);
         const body = pr?._rawBody || '';
-        const vMatch = body.match(apiVersionRegex);
+        const title = pr?.title || '';
+        // Check body first, then title for version patterns
+        const vMatch = body.match(apiVersionRegex) ||
+          title.match(/(?:api[- ]?version|for api[- ]version)\s+(\d{4}-\d{2}-\d{2}(?:-preview)?)/i) ||
+          title.match(/\b(\d{4}-\d{2}-\d{2}-preview)\b/) ||
+          (title.match(/\b(\d{4})\s+(\d{2})\s+(\d{2})(?:\s+preview)?\b/) ? 
+            { 1: title.match(/\b(\d{4})\s+(\d{2})\s+(\d{2})/).slice(1).join('-') + 
+              (title.toLowerCase().includes('preview') ? '-preview' : '') } : null);
+        
         if (vMatch) {
           const ver = vMatch[1];
           if (!prsByVersion[ver]) prsByVersion[ver] = {};
@@ -173,18 +270,31 @@ function detectReleaseWindows(specPRs, sdkPRs) {
         }
       }
     } else {
-      // Single or no API version — keep as one window
+      // Single or no API version — determine label using priority:
+      // 1. File-based (high confidence) > 2. SDK PR body > 3. Title parsing
       const mergedSdkPRs = { ...win.windowSdkPRs };
-      // Match date in title: "2025-09-01" or "2025 12 01" (space-separated)
-      const dashDate = (spec.title || '').match(/(\d{4}-\d{2}-\d{2})/);
-      const spaceDate = (spec.title || '').match(/(\d{4})\s+(\d{2})\s+(\d{2})/);
-      const label = versions.length === 1
-        ? `API ${versions[0]}`
-        : dashDate
-          ? `API ${dashDate[1]}`
-          : spaceDate
-            ? `API ${spaceDate[1]}-${spaceDate[2]}-${spaceDate[3]}`
-            : `Spec PR #${spec.number}`;
+      let label;
+      if (highConfFileVer) {
+        label = `API ${highConfFileVer.version}`;
+      } else if (versions.length === 1) {
+        label = `API ${versions[0]}`;
+      } else {
+        // Fall back to title parsing
+        const dashDate = (spec.title || '').match(/(\d{4}-\d{2}-\d{2}(?:-preview)?)/);
+        const spaceDate = (spec.title || '').match(/(\d{4})\s+(\d{2})\s+(\d{2})/);
+        if (dashDate) {
+          label = `API ${dashDate[1]}`;
+        } else if (spaceDate) {
+          const dateStr = `${spaceDate[1]}-${spaceDate[2]}-${spaceDate[3]}`;
+          const previewSuffix = (spec.title || '').toLowerCase().includes('preview') ? '-preview' : '';
+          label = `API ${dateStr}${previewSuffix}`;
+        } else if (fileVersions.length === 1) {
+          // Use single low-confidence file version if nothing else
+          label = `API ${fileVersions[0].version}`;
+        } else {
+          label = `Spec PR #${spec.number}`;
+        }
+      }
       result.push(buildWindow(spec, mergedSdkPRs, sdkPRs, label));
     }
   }
@@ -200,127 +310,90 @@ function detectReleaseWindows(specPRs, sdkPRs) {
 }
 
 function consolidateWindows(windows, specPRs, sdkPRs) {
-  const anchors = [];     // indices of API-version windows
-  const followers = [];   // indices of non-API windows
-
-  for (let i = 0; i < windows.length; i++) {
-    if (windows[i].label.startsWith('API ')) {
-      anchors.push(i);
+  // Step 1: Separate anchors (API-version windows) from followers
+  const anchorWindows = [];
+  const followerWindows = [];
+  for (const win of windows) {
+    if (win.label.startsWith('API ')) {
+      anchorWindows.push(win);
     } else {
-      followers.push(i);
+      followerWindows.push(win);
     }
   }
 
-  // Nothing to consolidate if no anchors or no followers
-  if (anchors.length === 0 || followers.length === 0) return windows;
+  if (anchorWindows.length === 0) return windows;
 
-  // Map each follower to its nearest preceding anchor (by spec PR creation date)
-  const merged = new Set();
-  for (const fi of followers) {
-    const follower = windows[fi];
-    const followerDate = follower.startDate;
+  // Step 2: Merge same-label anchors FIRST (before follower assignment)
+  // e.g. multiple "API 2025-11-01" from different spec PRs → one anchor
+  const labelMap = new Map();
+  const dedupedAnchors = [];
+  for (const win of anchorWindows) {
+    if (labelMap.has(win.label)) {
+      const target = labelMap.get(win.label);
+      mergeWindowInto(target, win);
+    } else {
+      labelMap.set(win.label, win);
+      dedupedAnchors.push(win);
+    }
+  }
 
-    // Find nearest preceding anchor: the latest anchor whose start <= follower start
+  // Step 3: Assign followers to nearest deduplicated anchor (any direction)
+  for (const follower of followerWindows) {
+    const followerDate = new Date(follower.startDate);
     let bestAnchor = null;
     let bestDist = Infinity;
-    for (const ai of anchors) {
-      const anchor = windows[ai];
-      if (anchor.startDate <= followerDate) {
-        const dist = new Date(followerDate) - new Date(anchor.startDate);
-        if (dist < bestDist) {
-          bestDist = dist;
-          bestAnchor = ai;
-        }
+    for (const anchor of dedupedAnchors) {
+      const dist = Math.abs(followerDate - new Date(anchor.startDate));
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestAnchor = anchor;
       }
     }
-
-    // If no preceding anchor, use the nearest following anchor
-    if (bestAnchor === null) {
-      for (const ai of anchors) {
-        const anchor = windows[ai];
-        const dist = Math.abs(new Date(followerDate) - new Date(anchor.startDate));
-        if (dist < bestDist) {
-          bestDist = dist;
-          bestAnchor = ai;
-        }
-      }
-    }
-
-    if (bestAnchor === null) continue;
-
-    const anchor = windows[bestAnchor];
-
-    // Merge spec PR numbers
-    for (const num of follower.specPRNumbers) {
-      if (!anchor.specPRNumbers.includes(num)) anchor.specPRNumbers.push(num);
-    }
-
-    // Merge SDK PR numbers
-    for (const [lang, nums] of Object.entries(follower.sdkPRNumbers)) {
-      if (!anchor.sdkPRNumbers[lang]) anchor.sdkPRNumbers[lang] = [];
-      for (const num of nums) {
-        if (!anchor.sdkPRNumbers[lang].includes(num)) anchor.sdkPRNumbers[lang].push(num);
-      }
-    }
-
-    merged.add(fi);
-  }
-
-  // Rebuild remaining windows (exclude merged followers)
-  let remaining = [];
-  for (let i = 0; i < windows.length; i++) {
-    if (merged.has(i)) continue;
-    remaining.push(windows[i]);
-  }
-
-  // Merge anchors with the same label (e.g. multiple "API 2025-11-01" windows)
-  const labelMap = new Map();
-  const deduped = [];
-  for (const win of remaining) {
-    if (win.label.startsWith('API ') && labelMap.has(win.label)) {
-      const target = labelMap.get(win.label);
-      for (const num of win.specPRNumbers) {
-        if (!target.specPRNumbers.includes(num)) target.specPRNumbers.push(num);
-      }
-      for (const [lang, nums] of Object.entries(win.sdkPRNumbers)) {
-        if (!target.sdkPRNumbers[lang]) target.sdkPRNumbers[lang] = [];
-        for (const num of nums) {
-          if (!target.sdkPRNumbers[lang].includes(num)) target.sdkPRNumbers[lang].push(num);
-        }
-      }
-    } else {
-      if (win.label.startsWith('API ')) labelMap.set(win.label, win);
-      deduped.push(win);
+    if (bestAnchor) {
+      mergeWindowInto(bestAnchor, follower);
     }
   }
 
-  // Recalculate date ranges for all remaining windows
-  const result = [];
-  for (const win of deduped) {
-    const allDates = [];
-    for (const specNum of win.specPRNumbers) {
-      const sp = specPRs.find(p => p.number === specNum);
-      if (sp?.createdAt) allDates.push(sp.createdAt);
-      if (sp?.mergedAt) allDates.push(sp.mergedAt);
-    }
-    for (const [lang, nums] of Object.entries(win.sdkPRNumbers)) {
-      for (const num of nums) {
-        const pr = (sdkPRs[lang] || []).find(p => p.number === num);
-        if (pr?.createdAt) allDates.push(pr.createdAt);
-        if (pr?.mergedAt) allDates.push(pr.mergedAt);
-        if (pr?.release?.releasedAt) allDates.push(pr.release.releasedAt);
-      }
-    }
-    allDates.sort();
-    if (allDates.length > 0) {
-      win.startDate = allDates[0];
-      win.endDate = allDates[allDates.length - 1];
-    }
-
-    result.push(win);
+  // Step 4: Recalculate date ranges
+  for (const win of dedupedAnchors) {
+    recalcWindowDates(win, specPRs, sdkPRs);
   }
 
-  return result;
+  return dedupedAnchors;
+}
+
+function mergeWindowInto(target, source) {
+  for (const num of source.specPRNumbers) {
+    if (!target.specPRNumbers.includes(num)) target.specPRNumbers.push(num);
+  }
+  for (const [lang, nums] of Object.entries(source.sdkPRNumbers)) {
+    if (!target.sdkPRNumbers[lang]) target.sdkPRNumbers[lang] = [];
+    for (const num of nums) {
+      if (!target.sdkPRNumbers[lang].includes(num)) target.sdkPRNumbers[lang].push(num);
+    }
+  }
+}
+
+function recalcWindowDates(win, specPRs, sdkPRs) {
+  const allDates = [];
+  for (const specNum of win.specPRNumbers) {
+    const sp = specPRs.find(p => p.number === specNum);
+    if (sp?.createdAt) allDates.push(sp.createdAt);
+    if (sp?.mergedAt) allDates.push(sp.mergedAt);
+  }
+  for (const [lang, nums] of Object.entries(win.sdkPRNumbers)) {
+    for (const num of nums) {
+      const pr = (sdkPRs[lang] || []).find(p => p.number === num);
+      if (pr?.createdAt) allDates.push(pr.createdAt);
+      if (pr?.mergedAt) allDates.push(pr.mergedAt);
+      if (pr?.release?.releasedAt) allDates.push(pr.release.releasedAt);
+    }
+  }
+  allDates.sort();
+  if (allDates.length > 0) {
+    win.startDate = allDates[0];
+    win.endDate = allDates[allDates.length - 1];
+  }
 }
 
 function buildWindow(spec, windowSdkPRs, sdkPRs, label) {
@@ -701,9 +774,27 @@ function main() {
     bestPR.events.sort((a, b) => a.timestamp.localeCompare(b.timestamp));
   }
 
+  // Filter out SDK PRs targeting sibling sub-packages
+  let siblingDropCount = 0;
+  for (const [lang, prs] of Object.entries(sdkPRs)) {
+    const pkg = metadata.packages[lang];
+    const targetName = pkg?.name || '';
+    const targetDir = pkg?.packageDir || '';
+    const before = prs.length;
+    sdkPRs[lang] = prs.filter(pr => !isSiblingSubPackage(pr, targetName));
+    const dropped = before - sdkPRs[lang].length;
+    if (dropped > 0) {
+      console.error(`  Filtered ${dropped} sibling-package ${lang} PRs`);
+      siblingDropCount += dropped;
+    }
+  }
+  if (siblingDropCount > 0) {
+    console.error(`Filtered ${siblingDropCount} total sibling sub-package PRs`);
+  }
+
   // Detect release windows
   console.error('Detecting release windows...');
-  const releaseWindows = detectReleaseWindows(specPRs, sdkPRs);
+  const releaseWindows = detectReleaseWindows(specPRs, sdkPRs, metadata.specPath);
 
   // Drop SDK PRs not claimed by any release window (outside lookback scope)
   const windowedNums = new Set();

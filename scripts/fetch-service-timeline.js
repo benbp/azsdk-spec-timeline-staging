@@ -104,9 +104,79 @@ function detectGenerationFlow(pr) {
   return 'manual';
 }
 
-function countDistinctServiceDirs(repo, number) {
-  // Fetch first page of changed files (100 max) to detect mass changes
-  const files = ghJson(`api "repos/${repo}/pulls/${number}/files?per_page=100"`) || [];
+/**
+ * Check if an SDK PR targets a different sub-package than our target.
+ * Returns true if the PR should be EXCLUDED (it's for a sibling package).
+ *
+ * Uses multi-signal approach:
+ * - AutoPR title pattern: [AutoPR <package-name>]
+ * - Explicit sibling project name in title (e.g. "RegistryTasks", "containerregistrytasks")
+ * - Changed files touching a sibling package dir but not the target
+ */
+function isSiblingPackagePR(pr, targetPackageDir, targetPackageName, files) {
+  const title = (pr.title || '').toLowerCase();
+  const targetDirBase = targetPackageDir.split('/').pop().toLowerCase();
+
+  // Signal 1: AutoPR title with explicit package name
+  const autoprMatch = title.match(/^\[autopr\s+([^\]]+)\]/);
+  if (autoprMatch) {
+    const autoprPkg = autoprMatch[1].toLowerCase().trim();
+    // If AutoPR names a package that's a longer/different variant of our target, it's a sibling
+    // e.g. target="containerregistry", AutoPR="containerregistrytasks" → sibling
+    // e.g. target="containerregistry", AutoPR="containerregistry" → ours
+    if (autoprPkg !== targetDirBase &&
+        autoprPkg !== targetPackageName.toLowerCase() &&
+        !autoprPkg.endsWith('/' + targetDirBase)) {
+      // Check if the autopr package is a sibling (same prefix, different suffix)
+      if (autoprPkg.includes(targetDirBase) || targetDirBase.includes(autoprPkg.replace(/-/g, ''))) {
+        console.error(`    ⏭ Skipping sibling-package PR (AutoPR: ${autoprPkg} ≠ ${targetDirBase})`);
+        return true;
+      }
+    }
+  }
+
+  // Signal 2: Title explicitly mentions a sibling project name
+  // Common sibling suffixes: tasks, dataplane, etc.
+  const siblingPatterns = [
+    /\bregistrytask/i, /\b[-_]tasks?\b/i, /\bdataplane\b/i, /\bdata-plane\b/i
+  ];
+  // Only flag if target name does NOT contain the sibling keyword
+  for (const pat of siblingPatterns) {
+    if (pat.test(title) && !pat.test(targetDirBase) && !pat.test(targetPackageName)) {
+      console.error(`    ⏭ Skipping sibling-package PR (title mentions sibling: ${title.slice(0, 60)})`);
+      return true;
+    }
+  }
+
+  // Signal 3: Changed files touch sibling package dir but not target
+  if (files && files.length > 0) {
+    const touchesTarget = files.some(f => {
+      const fn = (f.filename || '').toLowerCase();
+      return fn.includes(targetDirBase + '/') || fn.endsWith(targetDirBase);
+    });
+    if (!touchesTarget) {
+      // If files exist but none touch target package dir, likely sibling
+      const touchesSibling = files.some(f => {
+        const fn = (f.filename || '').toLowerCase();
+        const parentDir = targetDirBase.replace(/[^a-z0-9]/g, '');
+        return fn.includes(parentDir);
+      });
+      if (touchesSibling) {
+        console.error(`    ⏭ Skipping sibling-package PR (files don't touch ${targetDirBase})`);
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+function fetchPRFiles(repo, number) {
+  // Fetch first page of changed files (100 max)
+  return ghJson(`api "repos/${repo}/pulls/${number}/files?per_page=100"`) || [];
+}
+
+function countDistinctServiceDirs(repo, files) {
   const dirs = new Set();
   const repoShort = repo.split('/')[1];
   for (const f of files) {
@@ -149,7 +219,8 @@ function fetchFullPRData(repo, number, isSpec) {
   if (!pr) return null;
 
   // Early mass-change detection — skip expensive calls if PR is a broad refactor
-  const serviceDirCount = countDistinctServiceDirs(repo, number);
+  const files = fetchPRFiles(repo, number);
+  const serviceDirCount = countDistinctServiceDirs(repo, files);
   if (isMassChange(pr, serviceDirCount, isSpec)) {
     console.error(`    ⏭ Skipping mass-change PR (${serviceDirCount} dirs, ${pr.changed_files || 0} files)`);
     return null;
@@ -170,7 +241,7 @@ function fetchFullPRData(repo, number, isSpec) {
   const repoShort = repo.split('/')[1];
   const language = LANG_MAP[repoShort] || null;
 
-  return {
+  const result = {
     repo, language, number,
     url: pr.html_url,
     title: pr.title,
@@ -190,6 +261,11 @@ function fetchFullPRData(repo, number, isSpec) {
     ].filter((v, i, a) => a.indexOf(v) === i),
     _raw: { pr, comments, reviews, reviewComments, commits, issueEvents: draftEvents }
   };
+
+  // Store changed file paths (used for API version detection and sub-package filtering)
+  result._changedFiles = files.map(f => f.filename).filter(Boolean);
+
+  return result;
 }
 
 /* ── Spec PR Discovery ────────────────────────────────────── */
@@ -469,10 +545,18 @@ function main() {
   const sdkPRs = {};
   for (const [lang, refs] of Object.entries(sdkPRRefs)) {
     sdkPRs[lang] = [];
+    const pkg = metadata.packages[lang];
+    const targetDir = pkg?.packageDir || '';
+    const targetName = pkg?.name || '';
     console.error(`\n  Fetching ${refs.length} ${lang} PRs...`);
     for (const ref of refs) {
       const data = fetchFullPRData(ref.repo, ref.number, false);
-      if (data) sdkPRs[lang].push(data);
+      if (!data) continue;
+      // Sub-package filter: skip PRs targeting a sibling package
+      // Use files already fetched by fetchFullPRData (stored in _changedFiles)
+      const filesObj = (data._changedFiles || []).map(fn => ({ filename: fn }));
+      if (isSiblingPackagePR(data._raw.pr, targetDir, targetName, filesObj)) continue;
+      sdkPRs[lang].push(data);
     }
   }
 

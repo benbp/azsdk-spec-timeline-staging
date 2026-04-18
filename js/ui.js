@@ -140,7 +140,7 @@ const UI = (() => {
     {
       file: 'data/service-containerregistry.json',
       name: 'ContainerRegistry',
-      meta: '30 spec PRs · 34 SDK PRs · 5 languages · 5 release windows · 1yr lookback'
+      meta: '30 spec PRs · 27 SDK PRs · 5 languages · 3 release windows · 1yr lookback'
     }
   ];
 

@@ -11805,8 +11805,7 @@
         39013,
         39032,
         39037,
-        39143,
-        39842
+        39143
       ],
       "sdkPRNumbers": {
         "Python": [
@@ -11840,23 +11839,24 @@
       },
       "summary": {
         "totalDurationDays": 151.76,
-        "specPRDays": 28.64,
-        "specPRCount": 12,
+        "specPRDays": 24.94,
+        "specPRCount": 11,
         "pipelineGapDays": 11.5,
         "totalNags": 0,
         "totalManualFixes": 0,
-        "totalUniqueReviewers": 25,
-        "totalReviewWaitDays": 53.21,
-        "totalReviewWaitCycles": 59
+        "totalUniqueReviewers": 24,
+        "totalReviewWaitDays": 52.17,
+        "totalReviewWaitCycles": 58
       }
     },
     {
       "id": "rw-2",
       "label": "API 2025-12-01",
-      "startDate": "2026-01-26T16:14:44Z",
+      "startDate": "2026-01-22T17:16:05Z",
       "endDate": "2026-03-25T08:58:58.17Z",
       "specPRNumbers": [
         39908,
+        39842,
         40743,
         40744,
         40855,
@@ -11884,15 +11884,15 @@
         ]
       },
       "summary": {
-        "totalDurationDays": 57.7,
-        "specPRDays": 28.32,
-        "specPRCount": 7,
-        "pipelineGapDays": 1.28,
+        "totalDurationDays": 61.65,
+        "specPRDays": 32.02,
+        "specPRCount": 8,
+        "pipelineGapDays": 17.3,
         "totalNags": 0,
         "totalManualFixes": 0,
-        "totalUniqueReviewers": 16,
-        "totalReviewWaitDays": 63.23,
-        "totalReviewWaitCycles": 30
+        "totalUniqueReviewers": 17,
+        "totalReviewWaitDays": 64.27,
+        "totalReviewWaitCycles": 31
       }
     }
   ],

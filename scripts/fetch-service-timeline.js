@@ -199,7 +199,14 @@ const MASS_FILES_THRESHOLD = 200;
 const MASS_FILES_DIR_THRESHOLD = 3;
 const MASS_LARGE_FILES_THRESHOLD = 500;
 const MASS_LARGE_FILES_DIR_THRESHOLD = 2;
-const MASS_TITLE_PATTERNS = [/^\[automation\] regenerate sdk\b/i];
+const MASS_TITLE_PATTERNS = [/^\[automation\] regenerate sdk\b/i, /^\*{3}NO_CI\*{3}/i];
+
+// Noise patterns — release automation PRs that should be skipped entirely at fetch time
+const NOISE_TITLE_PATTERNS = [
+  /^\[AutoRelease\]/i,
+  /^increment\s+versions?\s+for\s+/i,
+  /^update\s+typespec\s+emitter\s+version\s+/i,
+];
 
 function isMassChange(pr, serviceDirCount, isSpec) {
   const dirs = serviceDirCount || 0;
@@ -217,6 +224,12 @@ function isMassChange(pr, serviceDirCount, isSpec) {
 function fetchFullPRData(repo, number, isSpec) {
   const pr = fetchPR(repo, number);
   if (!pr) return null;
+
+  // Skip noise/automation PRs before any expensive API calls
+  if (!isSpec && NOISE_TITLE_PATTERNS.some(re => re.test(pr.title || ''))) {
+    console.error(`    ⏭ Skipping noise/automation PR: ${(pr.title || '').substring(0, 60)}`);
+    return null;
+  }
 
   // Early mass-change detection — skip expensive calls if PR is a broad refactor
   const files = fetchPRFiles(repo, number);

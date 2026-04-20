@@ -130,7 +130,7 @@ const UI = (() => {
     {
       file: 'data/service-durabletask.json',
       name: 'DurableTask',
-      meta: '7 spec PRs · 16 SDK PRs · 5 languages · 2 release windows · 1yr lookback'
+      meta: '7 spec PRs · 15 SDK PRs · 5 languages · 2 release windows · 1yr lookback'
     },
     {
       file: 'data/service-netapp.json',
@@ -140,7 +140,7 @@ const UI = (() => {
     {
       file: 'data/service-containerregistry.json',
       name: 'ContainerRegistry',
-      meta: '30 spec PRs · 27 SDK PRs · 5 languages · 3 release windows · 1yr lookback'
+      meta: '30 spec PRs · 20 SDK PRs · 5 languages · 3 release windows · 1yr lookback'
     }
   ];
 

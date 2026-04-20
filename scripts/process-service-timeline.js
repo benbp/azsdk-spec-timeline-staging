@@ -115,33 +115,73 @@ function detectApiVersionFromFiles(changedFiles, specPath) {
 }
 
 /**
- * Check if an SDK PR targets a sibling sub-package (not our target).
- * Returns true if the PR should be excluded.
- *
- * Generalized — compares AutoPR package name against known target names/dirs.
- * No hardcoded package-specific keywords.
+ * Build the set of acceptable package name variants from target metadata.
+ * Used by both sibling detection and noise filtering.
  */
-function isSiblingSubPackage(pr, targetPackageName, targetPackageDir) {
-  if (!targetPackageName && !targetPackageDir) return false;
-  const title = (pr.title || '');
+function buildTargetVariants(targetPackageName, targetPackageDir) {
   const targetNameLower = (targetPackageName || '').toLowerCase();
   const targetDirBase = (targetPackageDir || '').split('/').pop().toLowerCase();
-
-  // Build set of acceptable name variants from the target metadata
-  const targetVariants = new Set();
-  if (targetDirBase) targetVariants.add(targetDirBase);
+  const variants = new Set();
+  if (targetDirBase) variants.add(targetDirBase);
   if (targetNameLower) {
-    targetVariants.add(targetNameLower);
+    variants.add(targetNameLower);
     const stripped = targetNameLower
       .replace(/^@azure[\/-]/, '')
       .replace(/^azure[\.-]mgmt[\.-]/, '')
       .replace(/^azure[\.-]/, '')
       .replace(/^com\.azure\.resourcemanager:/, '')
       .replace(/^sdk\/resourcemanager\/[^/]+\//, '');
-    if (stripped) targetVariants.add(stripped);
+    if (stripped) variants.add(stripped);
   }
+  return { variants, targetDirBase, targetNameLower };
+}
 
-  // AutoPR pattern: [AutoPR <package-name>]-generated-from-...
+// Noise exclusion patterns — post-release automation, release automation, mass changes
+const SDK_NOISE_TITLE_PATTERNS = [
+  /^increment\s+versions?\s+for\s+/i,
+  /^update\s+typespec\s+emitter\s+version\s+/i,
+  /^prepare\s+for\s+release\b/i,
+  /^update\s+changelog\b/i,
+  /^\[AutoRelease\]/i,
+];
+
+const SDK_MASS_CHANGE_FILE_THRESHOLD = 500;
+const SDK_MASS_CHANGE_TITLE_PATTERNS = [
+  /^\*{3}NO_CI\*{3}/,
+  /^\[automation\]\s+regenerate\s+sdk\b/i,
+];
+
+/**
+ * Check if an SDK PR should be excluded entirely (noise, automation, mass change).
+ * Runs BEFORE event processing so _raw data is still available.
+ */
+function shouldExcludeSDKPR(pr) {
+  const title = pr.title || '';
+
+  // Post-release automation (version bumps, release PRs)
+  if (SDK_NOISE_TITLE_PATTERNS.some(re => re.test(title))) return 'noise';
+
+  // Mass changes (broad refactors touching many packages)
+  const changedFiles = pr._raw?.pr?.changed_files || 0;
+  if (SDK_MASS_CHANGE_TITLE_PATTERNS.some(re => re.test(title)) && changedFiles >= 50) return 'mass-change';
+  if (changedFiles >= SDK_MASS_CHANGE_FILE_THRESHOLD) return 'mass-change';
+
+  return false;
+}
+
+/**
+ * Check if an SDK PR targets a sibling sub-package (not our target).
+ * Returns true if the PR should be excluded.
+ *
+ * Generalized — compares package references against known target names/dirs.
+ * Checks: AutoPR title pattern, free-form title package references, changed files.
+ */
+function isSiblingSubPackage(pr, targetPackageName, targetPackageDir) {
+  if (!targetPackageName && !targetPackageDir) return false;
+  const title = (pr.title || '');
+  const { variants: targetVariants, targetDirBase } = buildTargetVariants(targetPackageName, targetPackageDir);
+
+  // Signal 1: AutoPR pattern [AutoPR <package-name>]
   const autoprMatch = title.match(/^\[AutoPR\s+([^\]]+)\]/i);
   if (autoprMatch) {
     const autoprPkg = autoprMatch[1].toLowerCase().trim();
@@ -153,6 +193,51 @@ function isSiblingSubPackage(pr, targetPackageName, targetPackageDir) {
       }
     }
     if (!matchesTarget) return true;
+  }
+
+  // Signal 2: Free-form title: "<target-package> for <qualifier>" where qualifier
+  // looks like a sub-package/module name (not a common word like "api-version").
+  // e.g. "Release Azure.ResourceManager.ContainerRegistry for RegistryTasks 2025-03-01-preview"
+  if (targetDirBase && !autoprMatch) {
+    const COMMON_QUALIFIERS = new Set([
+      'api', 'version', 'apiversion', 'api-version', 'release', 'testing',
+      'python', 'java', 'net', 'dotnet', 'go', 'javascript', 'js', 'rust',
+      'typespec', 'swagger', 'openapi', 'preview', 'stable', 'beta',
+    ]);
+
+    for (const variant of targetVariants) {
+      const escaped = variant.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const forMatch = title.match(new RegExp(escaped + '\\s+for\\s+(\\S+)', 'i'));
+      if (forMatch) {
+        const qualifier = forMatch[1].toLowerCase().replace(/[.\-_]/g, '');
+        if (qualifier.length > 2
+          && !COMMON_QUALIFIERS.has(qualifier)
+          && !/^\d{4}/.test(qualifier)
+          && !targetVariants.has(qualifier)) {
+          return true;
+        }
+      }
+    }
+  }
+
+  // Signal 3: Title or path contains an extended form of the target package name
+  // e.g. "armcontainerregistrytasks" when target is "armcontainerregistry"
+  // This catches non-AutoPR bracket titles like "[Containerregistrytasks-typespec]"
+  if (targetDirBase && !autoprMatch) {
+    const titleLower = title.toLowerCase().replace(/[.\-_]/g, '');
+    const baseNorm = targetDirBase.replace(/[.\-_]/g, '');
+    if (baseNorm.length >= 6) {
+      const extRe = new RegExp(baseNorm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[a-z]');
+      if (extRe.test(titleLower)) {
+        // Title mentions an extended variant — only exclude if the ONLY occurrence
+        // is extended (i.e. the title doesn't also mention the exact target alone)
+        const stripped = titleLower.replace(
+          new RegExp(baseNorm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[a-z]+', 'g'), ''
+        );
+        const exactStillPresent = stripped.includes(baseNorm);
+        if (!exactStillPresent) return true;
+      }
+    }
   }
 
   return false;
@@ -747,8 +832,16 @@ function main() {
   // Process SDK PR events (grouped by language)
   console.error('Processing SDK PRs...');
   const sdkPRs = {};
+  let noiseDropCount = 0;
   for (const [lang, prs] of Object.entries(rawSdkPRs)) {
     sdkPRs[lang] = prs.map(pr => {
+      // Early exclusion — check BEFORE expensive event processing while _raw is available
+      const excludeReason = shouldExcludeSDKPR(pr);
+      if (excludeReason) {
+        noiseDropCount++;
+        return null;
+      }
+
       const out = { ...pr };
       const rawBody = pr._raw?.pr?.body || '';
       out._rawBody = rawBody;
@@ -767,16 +860,11 @@ function main() {
         delete out._release; // clean up raw data
       }
 
-      // Skip post-release version bump PRs entirely
-      if (/^increment\s+versions?\s+for\s+/i.test(out.title || '') ||
-          /^update\s+typespec\s+emitter\s+version\s+/i.test(out.title || '') ||
-          /^prepare\s+for\s+release\b/i.test(out.title || '') ||
-          /^update\s+changelog\b/i.test(out.title || '')) {
-        return null;
-      }
-
       return out;
     }).filter(Boolean);
+  }
+  if (noiseDropCount > 0) {
+    console.error(`Excluded ${noiseDropCount} noise/automation/mass-change SDK PRs`);
   }
 
   // Convert tool call telemetry

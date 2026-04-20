@@ -24,20 +24,28 @@ function run(filePath) {
   console.error(`Processing ${filePath}...`);
   console.error(`  Before: ${d.releaseWindows.length} windows`);
 
-  // Remove version bump PRs from sdkPRs
-  const bumpNums = new Set();
+  // Remove noise/automation/mass-change PRs from sdkPRs
+  const excludeNums = new Set();
+  const noisePatterns = [
+    /^increment\s+versions?\s+for\s+/i,
+    /^update\s+typespec\s+emitter\s+version\s+/i,
+    /^prepare\s+for\s+release\b/i,
+    /^update\s+changelog\b/i,
+    /^\[AutoRelease\]/i,
+  ];
+  const massPatterns = [/^\*{3}NO_CI\*{3}/, /^\[automation\]\s+regenerate\s+sdk\b/i];
   for (const [lang, prs] of Object.entries(d.sdkPRs || {})) {
     for (const pr of prs) {
-      if (/^increment\s+versions?\s+for\s+/i.test(pr.title || '') ||
-          /^update\s+typespec\s+emitter\s+version\s+/i.test(pr.title || '') ||
-          /^prepare\s+for\s+release\b/i.test(pr.title || '') ||
-          /^update\s+changelog\b/i.test(pr.title || '')) {
-        bumpNums.add(pr.number);
+      const title = pr.title || '';
+      if (noisePatterns.some(re => re.test(title))) {
+        excludeNums.add(pr.number);
+      } else if (massPatterns.some(re => re.test(title))) {
+        excludeNums.add(pr.number);
       }
     }
-    d.sdkPRs[lang] = prs.filter(pr => !bumpNums.has(pr.number));
+    d.sdkPRs[lang] = prs.filter(pr => !excludeNums.has(pr.number));
   }
-  if (bumpNums.size > 0) console.error(`  Removed ${bumpNums.size} version bump PRs`);
+  if (excludeNums.size > 0) console.error(`  Removed ${excludeNums.size} noise/automation PRs`);
 
   // Re-detect windows from scratch using the spec + SDK PR data
   const specPRs = d.specPRs || [];

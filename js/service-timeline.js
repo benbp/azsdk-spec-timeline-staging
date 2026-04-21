@@ -14,6 +14,7 @@ const ServiceTimeline = (() => {
   let allActors = [];
   let selectedWindow = null; // null = all-up, or a releaseWindows index
   let focusRange = null; // null = full timeline, or { start, end } for window focus
+  let expandedLaneKeys = new Set();
 
   // Gap compaction — 7-day threshold for year-long timelines
   const GAP_THRESHOLD_MS = 7 * 86400000;
@@ -28,6 +29,30 @@ const ServiceTimeline = (() => {
     'release_pipeline_completed', 'release_pipeline_failed', 'release_pending'
   ]);
 
+  const EVENT_LAYOUT = {
+    pr_created: { offset: -38, priority: 0 },
+    ready_for_review: { offset: -28, priority: 1 },
+    review_approved: { offset: -18, priority: 2 },
+    pr_merged: { offset: -10, priority: 3 },
+    pr_closed: { offset: -10, priority: 4 },
+    release_pipeline_completed: { offset: -2, priority: 5 },
+    review_changes_requested: { offset: 10, priority: 10 },
+    release_pipeline_failed: { offset: 18, priority: 11 },
+    release_pending: { offset: 18, priority: 12 },
+    release_pipeline_started: { offset: 26, priority: 13 },
+    manual_fix: { offset: 34, priority: 14 },
+    author_nag: { offset: 42, priority: 15 },
+    commit_pushed: { offset: 20, priority: 16 },
+    review_comment: { offset: 28, priority: 17 },
+    reviewer_responds: { offset: 28, priority: 18 },
+    issue_comment: { offset: 36, priority: 19 },
+    bot_comment: { offset: 44, priority: 20 },
+    convert_to_draft: { offset: 44, priority: 21 },
+    label_added: { offset: 52, priority: 22 },
+    ci_status: { offset: 52, priority: 23 },
+    tool_call: { offset: 52, priority: 24 }
+  };
+
   /* ── Public ─────────────────────────────────────────────── */
 
   function render(timelineData) {
@@ -37,6 +62,7 @@ const ServiceTimeline = (() => {
     selectedWindow = null;
     focusRange = null;
     zoomLevel = 1;
+    expandedLaneKeys.clear();
 
     // Default to Smart View for service timelines (fewer markers = more readable)
     const allTypes = [
@@ -779,6 +805,28 @@ const ServiceTimeline = (() => {
     renderTimeline();
   }
 
+  function toggleLaneExpansion(laneKey) {
+    if (!laneKey) return;
+    if (expandedLaneKeys.has(laneKey)) expandedLaneKeys.delete(laneKey);
+    else expandedLaneKeys.add(laneKey);
+    renderTimeline();
+  }
+
+  function renderLaneGroup(container, labelsContainer, langName, langClass, prs, isSpec, laneKey) {
+    renderMultiPRLane(container, labelsContainer, langName, langClass, prs, isSpec, { laneKey });
+    if (!expandedLaneKeys.has(laneKey) || prs.length <= 1) return;
+
+    const sorted = [...prs].sort((a, b) => {
+      if (!a.createdAt) return 1;
+      if (!b.createdAt) return -1;
+      return new Date(a.createdAt) - new Date(b.createdAt);
+    });
+
+    for (const pr of sorted) {
+      renderExpandedPRLane(container, labelsContainer, langName, langClass, pr, isSpec, laneKey);
+    }
+  }
+
   /* ── Timeline Rendering ─────────────────────────────────── */
 
   function renderTimeline() {
@@ -816,7 +864,7 @@ const ServiceTimeline = (() => {
     // Spec PRs lane
     const specPRs = filterPRs(data.specPRs);
     if (specPRs.length > 0 || !windowNums) {
-      renderMultiPRLane(lanesContainer, labelsContainer, 'Spec PRs', 'spec', specPRs, true);
+      renderLaneGroup(lanesContainer, labelsContainer, 'Spec PRs', 'spec', specPRs, true, 'spec');
     }
 
     // SDK PR lanes per language
@@ -825,14 +873,14 @@ const ServiceTimeline = (() => {
       const prs = filterPRs(data.sdkPRs[lang] || []);
       if (prs.length === 0 && windowNums) continue; // hide empty lanes in focus mode
       if (!data.sdkPRs[lang] || data.sdkPRs[lang].length === 0) continue;
-      renderMultiPRLane(lanesContainer, labelsContainer, lang, lang.toLowerCase().replace('.', ''), prs, false);
+      renderLaneGroup(lanesContainer, labelsContainer, lang, lang.toLowerCase().replace('.', ''), prs, false, `lang:${lang}`);
     }
     // Any remaining languages not in standard order
     for (const [lang, allPrs] of Object.entries(data.sdkPRs)) {
       if (langOrder.includes(lang) || allPrs.length === 0) continue;
       const prs = filterPRs(allPrs);
       if (prs.length === 0 && windowNums) continue;
-      renderMultiPRLane(lanesContainer, labelsContainer, lang, lang.toLowerCase(), prs, false);
+      renderLaneGroup(lanesContainer, labelsContainer, lang, lang.toLowerCase(), prs, false, `lang:${lang}`);
     }
 
     addGridlines(lanesContainer);
@@ -917,8 +965,100 @@ const ServiceTimeline = (() => {
 
   /* ── Multi-PR Lane ──────────────────────────────────────── */
 
-  function renderMultiPRLane(container, labelsContainer, langName, langClass, prs, isSpec) {
+  function getVisibleSDKPRs() {
+    const nums = getWindowPRNumbers();
+    const all = Object.values(data.sdkPRs || {}).flat();
+    return nums ? all.filter(pr => nums.has(pr.number)) : all;
+  }
+
+  function buildSpecToSdkHtml(pr) {
+    if (!pr.mergedAt) return '';
+    const visibleSdkPRs = getVisibleSDKPRs().filter(sdk => sdk.createdAt);
+    if (visibleSdkPRs.length === 0) return '';
+
+    const laterSdkPRs = visibleSdkPRs.filter(sdk => new Date(sdk.createdAt) >= new Date(pr.mergedAt));
+    if (laterSdkPRs.length === 0) return '';
+
+    const firstSdkPR = laterSdkPRs.reduce((earliest, sdk) =>
+      new Date(sdk.createdAt) < new Date(earliest.createdAt) ? sdk : earliest
+    );
+    const gapDays = DataLoader.computeDurationDays(pr.mergedAt, firstSdkPR.createdAt);
+    return `<span class="spec-to-sdk" title="Time from spec merge to first SDK PR opened">→ SDK: ${gapDays}d</span>`;
+  }
+
+  function buildSinglePRLaneMeta(pr, langName, langClass, isSpec) {
+    const prDays = pr.mergedAt ? DataLoader.computeDurationDays(pr.createdAt, pr.mergedAt) : null;
+    const durationColorClass = prDays != null
+      ? prDays < 3 ? 'dur-fast' : prDays < 7 ? 'dur-ok' : prDays < 14 ? 'dur-slow' : 'dur-critical'
+      : '';
+    const prDaysDisplay = prDays != null
+      ? `<span class="duration-value ${durationColorClass}">${prDays}d</span>`
+      : (pr.state === 'open' ? '<span class="status-pulse">⏳ open</span>' : pr.state === 'closed' ? '✖ closed' : '—');
+    const durationTooltip = pr.mergedAt
+      ? `PR open ${prDays} days (${DataLoader.formatDate(pr.createdAt)} → ${DataLoader.formatDate(pr.mergedAt)})`
+      : pr.state === 'open' ? `PR still open (since ${DataLoader.formatDate(pr.createdAt)})` : 'PR not merged';
+    const flowIcon = !isSpec && pr.generationFlow
+      ? pr.generationFlow === 'automated'
+        ? '<span class="flow-badge automated" title="Automated (pipeline-generated)">🤖</span>'
+        : '<span class="flow-badge manual" title="Manual (human-authored)">👤</span>'
+      : '';
+    const draftBadge = pr.isDraft
+      ? '<span class="draft-badge" title="Draft PR — not yet ready for review">draft</span>'
+      : '';
+    const reviewWaitHtml = pr.reviewWaitDays != null && pr.reviewWaitDays > 0
+      ? `<span class="review-wait-badge" title="Time waiting for reviewer response (${pr.reviewWaitCycles || 0} cycles)">⏳ ${pr.reviewWaitDays}d wait</span>`
+      : '';
+    const specToSdkHtml = isSpec ? buildSpecToSdkHtml(pr) : '';
+    const releaseStatus = pr.release
+      ? pr.release.status === 'released'
+        ? `<span class="release-badge released" title="Released ${DataLoader.formatDate(pr.release.releasedAt)}">${pr.release.releaseGapDays ? '📦 ' + pr.release.releaseGapDays + 'd' : '📦 <1d'}</span>`
+        : pr.release.status === 'pending'
+          ? '<span class="release-badge pending status-pulse">⏳ pending</span>'
+          : '<span class="release-badge failed" title="Release pipeline failed">❌ failed</span>'
+      : '';
+    const releaseLinkHtml = pr.release?.pipelineUrl
+      ? ` <a href="${pr.release.pipelineUrl}" target="_blank" rel="noopener" title="${escapeHtml(pr.release.pipelineName || 'Release pipeline')}">🔗</a>`
+      : '';
+
+    return `
+      <div class="lane-repo">
+        <a href="${pr.url}" target="_blank" rel="noopener" class="meta-pr-link" data-pr-idx="0">#${pr.number}</a>${releaseLinkHtml}
+        <span class="meta-pr-info" data-pr-idx="0" aria-label="Open PR details">ℹ</span>
+        ${draftBadge}
+      </div>
+      <div class="lane-meta">
+        <span class="lane-language ${langClass}">${escapeHtml(langName)}</span>
+        ${flowIcon}
+        <span title="${durationTooltip}">${prDaysDisplay}</span>
+        ${reviewWaitHtml}
+        ${specToSdkHtml}
+        ${releaseStatus}
+      </div>
+    `;
+  }
+
+  function wireLanePRMeta(label, prs) {
+    label.querySelectorAll('.meta-pr-info[data-pr-idx]').forEach(el => {
+      const pr = prs[parseInt(el.dataset.prIdx, 10)];
+      if (!pr) return;
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        UI.showPRDetail(pr);
+      });
+    });
+    label.querySelectorAll('.meta-pr-link').forEach(el => {
+      const idx = parseInt(el.dataset.prIdx || '0', 10);
+      const pr = prs[idx];
+      if (!pr) return;
+      el.addEventListener('mouseenter', (e) => UI.showPRTooltip(e, pr));
+      el.addEventListener('mouseleave', () => UI.hideTooltip());
+    });
+  }
+
+  function renderMultiPRLane(container, labelsContainer, langName, langClass, prs, isSpec, options = {}) {
     const laneIndex = container.children.length;
+    const laneKey = options.laneKey || '';
+    const isExpanded = laneKey && expandedLaneKeys.has(laneKey) && prs.length > 1;
 
     // Label
     const label = document.createElement('div');
@@ -935,12 +1075,16 @@ const ServiceTimeline = (() => {
     if (activePRs.length > 0 && activePRs.length <= 3) {
       prLinksHtml = activePRs.map((pr, i) => {
         const prUrl = pr.url || `https://github.com/${pr.repo || ''}/pull/${pr.number}`;
-        return `<a href="${prUrl}" target="_blank" rel="noopener" class="meta-pr-link" title="${escapeHtml((pr.title || '').slice(0, 60))}">#${pr.number}</a>` +
-          `<span class="meta-pr-info" data-pr-idx="${i}" title="Details">ℹ</span>`;
+        return `<a href="${prUrl}" target="_blank" rel="noopener" class="meta-pr-link" data-pr-idx="${i}">#${pr.number}</a>` +
+          `<span class="meta-pr-info" data-pr-idx="${i}" aria-label="Open PR details">ℹ</span>`;
       }).join(' ');
     } else if (activePRs.length > 3) {
       prLinksHtml = `<span class="meta-pr-expand" title="Click to see all PRs">${prCount} PRs — click to see all</span>`;
     }
+
+    const laneToggleHtml = activePRs.length > 1
+      ? `<button class="lane-toggle-btn ${isExpanded ? 'active' : ''}" data-lane-toggle="${escapeHtml(laneKey)}">${isExpanded ? 'Collapse lanes' : 'Expand lanes'}</button>`
+      : '';
 
     // Enhanced per-PR meta when there's only 1 PR (matches single PR view detail)
     let detailMeta = '';
@@ -995,27 +1139,21 @@ const ServiceTimeline = (() => {
       <div class="lane-meta">
         <span>${prCount} PRs</span>
         <span class="pr-counts">${mergedCount}✓ ${openCount > 0 ? openCount + '⏳' : ''}</span>
+        ${laneToggleHtml}
         ${prLinksHtml ? `<span class="meta-pr-links">${prLinksHtml}</span>` : ''}
         ${detailMeta}
       </div>
     `;
 
-    // Info button click → sidebar, hover on PR links → tooltip
-    label.querySelectorAll('.meta-pr-info[data-pr-idx]').forEach(el => {
-      const pr = prs[parseInt(el.dataset.prIdx)];
-      el.addEventListener('click', (e) => {
+    wireLanePRMeta(label, prs);
+
+    const toggleEl = label.querySelector('.lane-toggle-btn');
+    if (toggleEl) {
+      toggleEl.addEventListener('click', (e) => {
         e.stopPropagation();
-        UI.showPRDetail(pr);
+        toggleLaneExpansion(laneKey);
       });
-    });
-    label.querySelectorAll('.meta-pr-link').forEach(el => {
-      const idx = [...label.querySelectorAll('.meta-pr-link')].indexOf(el);
-      const pr = prs[idx];
-      if (pr) {
-        el.addEventListener('mouseenter', (e) => UI.showPRTooltip(e, pr));
-        el.addEventListener('mouseleave', () => UI.hideTooltip());
-      }
-    });
+    }
 
     // Handle "click to see all" expansion
     const expandEl = label.querySelector('.meta-pr-expand');
@@ -1093,6 +1231,46 @@ const ServiceTimeline = (() => {
     container.appendChild(lane);
   }
 
+  function renderExpandedPRLane(container, labelsContainer, langName, langClass, pr, isSpec, laneKey) {
+    const laneIndex = container.children.length;
+
+    const label = document.createElement('div');
+    label.className = `lane-label ${isSpec ? 'spec-lane' : ''} service-lane-label expanded-child-label`;
+    label.dataset.laneIndex = laneIndex;
+    label.dataset.parentLaneKey = laneKey;
+    label.innerHTML = buildSinglePRLaneMeta(pr, langName, langClass, isSpec);
+    wireLanePRMeta(label, [pr]);
+    labelsContainer.appendChild(label);
+
+    const lane = document.createElement('div');
+    lane.className = `lane ${isSpec ? 'spec-lane' : ''} service-lane expanded-child-lane`;
+    lane.dataset.laneIndex = laneIndex;
+    lane.dataset.parentLaneKey = laneKey;
+
+    lane.addEventListener('mouseenter', () => label.classList.add('hover'));
+    lane.addEventListener('mouseleave', () => label.classList.remove('hover'));
+    label.addEventListener('mouseenter', () => { lane.classList.add('hover'); label.classList.add('hover'); });
+    label.addEventListener('mouseleave', () => { lane.classList.remove('hover'); label.classList.remove('hover'); });
+
+    const content = document.createElement('div');
+    content.className = 'lane-content';
+    content.style.width = contentWidth + 'px';
+
+    for (const seg of segments) {
+      if (seg.type === 'gap') {
+        const breakEl = document.createElement('div');
+        breakEl.className = 'lane-break';
+        breakEl.style.left = seg.startPx + 'px';
+        breakEl.style.width = (seg.endPx - seg.startPx) + 'px';
+        content.appendChild(breakEl);
+      }
+    }
+
+    renderPRBar(content, pr, isSpec);
+    lane.appendChild(content);
+    container.appendChild(lane);
+  }
+
   function renderPRBar(content, pr, isSpec) {
     const barStart = timeToX(pr.createdAt);
     const barEnd = timeToX(pr.mergedAt || pr.closedAt || data.endDate);
@@ -1151,6 +1329,7 @@ const ServiceTimeline = (() => {
       marker._eventData = event;
       marker._prData = pr;
       marker._x = x;
+      applyMarkerLayout(marker);
 
       marker.addEventListener('mouseenter', (e) => UI.showTooltip(e, event, pr));
       marker.addEventListener('mouseleave', () => UI.hideTooltip());
@@ -1180,7 +1359,22 @@ const ServiceTimeline = (() => {
 
   /* ── Collision Resolution ───────────────────────────────── */
 
+  function getMarkerLayout(type) {
+    return EVENT_LAYOUT[type] || { offset: 36, priority: 99 };
+  }
+
+  function applyMarkerLayout(marker) {
+    const layout = getMarkerLayout(marker.dataset.eventType);
+    marker._baseOffset = layout.offset;
+    marker._priority = layout.priority;
+    marker.style.top = `calc(50% + ${layout.offset}px)`;
+    marker.classList.toggle('priority-above', layout.offset < 0);
+    marker.classList.toggle('priority-below', layout.offset >= 0);
+  }
+
   function resolveCollisions(markers) {
+    if (markers.length === 0) return;
+    markers.forEach(applyMarkerLayout);
     if (markers.length < 2) return;
     const MIN_SPACING = 14;
     const sorted = [...markers].sort((a, b) => a._x - b._x);
@@ -1197,14 +1391,18 @@ const ServiceTimeline = (() => {
     if (cluster.length > 1) clusters.push(cluster);
 
     for (const group of clusters) {
-      const n = group.length;
-      const maxSpread = 60;
-      const totalSpread = Math.min((n - 1) * 10, maxSpread);
-      const startOffset = -totalSpread / 2;
-      const step = n > 1 ? totalSpread / (n - 1) : 0;
-      for (let i = 0; i < n; i++) {
-        const offset = startOffset + i * step;
-        group[i].style.top = `calc(50% + ${offset}px)`;
+      const placedOffsets = [];
+      const ordered = [...group].sort((a, b) =>
+        a._priority - b._priority || a._baseOffset - b._baseOffset || a._x - b._x
+      );
+      for (const marker of ordered) {
+        let offset = marker._baseOffset;
+        const step = offset < 0 ? -8 : 8;
+        while (placedOffsets.some(existing => Math.abs(existing - offset) < 8)) {
+          offset += step;
+        }
+        marker.style.top = `calc(50% + ${offset}px)`;
+        placedOffsets.push(offset);
       }
     }
   }

@@ -363,6 +363,8 @@ header {
   cursor: inherit;
   transition: none;
   pointer-events: none;
+  max-width: 14px;
+  max-height: 14px;
 }
 .legend-swatch .event-marker.tool_call {
   transform: rotate(45deg);
@@ -918,41 +920,61 @@ header {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: var(--event-size);
-  height: var(--event-size);
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 8px;
   transition: transform 0.1s, box-shadow 0.1s;
-  border: 2px solid var(--bg-secondary);
+  border: 1.5px solid var(--bg-secondary);
+}
+
+.event-marker::before {
+  display: block;
+  line-height: 1;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .event-marker:hover {
-  transform: translate(-50%, -50%) scale(1.4);
+  transform: translate(-50%, -50%) scale(1.25);
   box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
   z-index: 20;
 }
 
-.event-marker.pr_created { background: var(--green); }
+.event-marker.priority-above { z-index: 7; }
+.event-marker.priority-below { z-index: 5; }
+
+.event-marker.pr_created {
+  background: var(--green);
+  width: 18px;
+  height: 18px;
+  box-shadow: 0 0 0 2px rgba(63, 185, 80, 0.18);
+}
+.event-marker.pr_created::before { content: '+'; font-size: 13px; }
 .event-marker.pr_merged { background: var(--purple); }
+.event-marker.pr_merged::before { content: '◆'; font-size: 8px; }
 .event-marker.pr_closed { background: var(--gray); }
-.event-marker.commit_pushed { background: var(--blue); width: 10px; height: 10px; opacity: 0.45; }
-.event-marker.review_approved { background: var(--green); border: 2px solid #fff3; border-radius: 3px; }
+.event-marker.pr_closed::before { content: '×'; font-size: 10px; }
+.event-marker.commit_pushed { background: var(--blue); width: 8px; height: 8px; opacity: 0.45; }
+.event-marker.review_approved { background: var(--green); border: 1.5px solid #fff3; border-radius: 3px; }
+.event-marker.review_approved::before { content: '✓'; font-size: 9px; }
 .event-marker.review_changes_requested { background: var(--red); width: 20px; height: 20px; box-shadow: 0 0 6px var(--red); }
-.event-marker.review_comment { background: var(--yellow); border-radius: 3px; width: 10px; height: 10px; }
-.event-marker.issue_comment { background: var(--text-secondary); border-radius: 3px; width: 10px; height: 10px; }
-.event-marker.bot_comment { background: var(--text-muted); width: 8px; height: 8px; opacity: 0.5; }
+.event-marker.review_comment { background: var(--yellow); border-radius: 3px; width: 9px; height: 9px; }
+.event-marker.issue_comment { background: var(--text-secondary); border-radius: 3px; width: 9px; height: 9px; }
+.event-marker.bot_comment { background: var(--text-muted); width: 7px; height: 7px; opacity: 0.5; }
 .event-marker.author_nag { background: var(--orange); border-radius: 2px; width: 20px; height: 20px; box-shadow: 0 0 6px var(--orange); }
 .event-marker.reviewer_responds { background: var(--accent); border-radius: 3px; }
-.event-marker.label_added { background: var(--teal); width: 8px; height: 8px; }
+.event-marker.label_added { background: var(--teal); width: 7px; height: 7px; }
 .event-marker.manual_fix { background: var(--orange); border: 2px solid var(--red); width: 20px; height: 20px; box-shadow: 0 0 6px var(--orange); }
-.event-marker.ci_status { background: var(--gray); width: 8px; height: 8px; border-radius: 2px; opacity: 0.5; }
-.event-marker.release_pipeline_started { background: var(--teal); border: 2px dashed var(--bg-secondary); }
-.event-marker.release_pipeline_completed { background: var(--teal); border: 2px solid var(--green); }
+.event-marker.ci_status { background: var(--gray); width: 7px; height: 7px; border-radius: 2px; opacity: 0.5; }
+.event-marker.release_pipeline_started { background: var(--teal); border: 1.5px dashed var(--bg-secondary); }
+.event-marker.release_pipeline_completed { background: var(--teal); border: 1.5px solid var(--green); }
+.event-marker.release_pipeline_completed::before { content: '▣'; font-size: 8px; }
 .event-marker.release_pipeline_failed { background: var(--red); border: 2px solid var(--orange); }
 .event-marker.release_pending { background: var(--orange); animation: pulse-pending 1.5s ease-in-out infinite; }
 .event-marker.tool_call { background: var(--accent); border-radius: 2px; border: 2px solid var(--teal); transform: translate(-50%, -50%) rotate(45deg); width: 12px; height: 12px; }
@@ -960,7 +982,8 @@ header {
 .event-marker.tool_call.tool-fail { background: #f85149; border-color: #da3633; }
 .event-marker.tool_call.tool-agent { box-shadow: 0 0 0 3px var(--purple); }
 .event-marker.tool_call:hover { transform: translate(-50%, -50%) rotate(45deg) scale(1.4); }
-.event-marker.ready_for_review { background: var(--green); width: 22px; height: 22px; border: 3px solid var(--teal); box-shadow: 0 0 8px var(--green); border-radius: 4px; }
+.event-marker.ready_for_review { background: var(--green); width: 16px; height: 16px; border: 2px solid var(--teal); box-shadow: 0 0 8px var(--green); border-radius: 4px; }
+.event-marker.ready_for_review::before { content: '↑'; font-size: 10px; }
 .event-marker.convert_to_draft { background: var(--orange); width: 14px; height: 14px; border: 2px dashed var(--text-muted); opacity: 0.7; }
 
 @keyframes pulse-pending {
@@ -1686,9 +1709,51 @@ body.drag-over::after {
   display: flex;
   gap: 6px;
   align-items: center;
+  flex-wrap: wrap;
 }
 .pr-counts {
   font-size: 10px;
+}
+
+.lane-toggle-btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-size: 10px;
+  line-height: 1.5;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.lane-toggle-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.lane-toggle-btn.active {
+  background: rgba(88, 166, 255, 0.12);
+  border-color: rgba(88, 166, 255, 0.4);
+  color: var(--accent);
+}
+
+.expanded-child-label {
+  background:
+    linear-gradient(90deg, rgba(88, 166, 255, 0.08) 0 12px, var(--bg-secondary) 12px 100%);
+}
+.expanded-child-label .lane-repo {
+  position: relative;
+  padding-left: 14px;
+}
+.expanded-child-label .lane-repo::before {
+  content: '↳';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+.expanded-child-lane {
+  background:
+    linear-gradient(90deg, rgba(88, 166, 255, 0.04) 0 16px, transparent 16px 100%);
 }
 
 /* Multi-PR bars */

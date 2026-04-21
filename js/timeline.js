@@ -20,6 +20,30 @@ const Timeline = (() => {
     'release_pipeline_completed', 'release_pipeline_failed', 'release_pending'
   ]);
 
+  const EVENT_LAYOUT = {
+    pr_created: { offset: -38, priority: 0 },
+    ready_for_review: { offset: -28, priority: 1 },
+    review_approved: { offset: -18, priority: 2 },
+    pr_merged: { offset: -10, priority: 3 },
+    pr_closed: { offset: -10, priority: 4 },
+    release_pipeline_completed: { offset: -2, priority: 5 },
+    review_changes_requested: { offset: 10, priority: 10 },
+    release_pipeline_failed: { offset: 18, priority: 11 },
+    release_pending: { offset: 18, priority: 12 },
+    release_pipeline_started: { offset: 26, priority: 13 },
+    manual_fix: { offset: 34, priority: 14 },
+    author_nag: { offset: 42, priority: 15 },
+    commit_pushed: { offset: 20, priority: 16 },
+    review_comment: { offset: 28, priority: 17 },
+    reviewer_responds: { offset: 28, priority: 18 },
+    issue_comment: { offset: 36, priority: 19 },
+    bot_comment: { offset: 44, priority: 20 },
+    convert_to_draft: { offset: 44, priority: 21 },
+    label_added: { offset: 52, priority: 22 },
+    ci_status: { offset: 52, priority: 23 },
+    tool_call: { offset: 52, priority: 24 }
+  };
+
   // Gap compaction — compress dead periods > threshold into narrow breaks
   const GAP_THRESHOLD_MS = 2 * 86400000; // 2 days
   const COMPRESSED_GAP_PX = 44;
@@ -32,6 +56,7 @@ const Timeline = (() => {
     data = timelineData;
     timeRange = DataLoader.getTimeRange(data);
     hiddenActors.clear();
+    document.querySelectorAll('.focus-notice').forEach(el => el.remove());
 
     renderHeader();
     renderSummaryCards();
@@ -773,7 +798,7 @@ const Timeline = (() => {
       : '';
     label.innerHTML = `
       <div class="lane-repo">
-        <a href="${pr.url}" target="_blank" title="${pr.repo}#${pr.number}">#${pr.number}</a>${releaseLinkHtml}
+        <a href="${pr.url}" target="_blank" rel="noopener">#${pr.number}</a>${releaseLinkHtml}
         ${draftBadge}
       </div>
       <div class="lane-meta">
@@ -889,6 +914,7 @@ const Timeline = (() => {
       marker._eventData = event;
       marker._prData = pr;
       marker._x = x;
+      applyMarkerLayout(marker);
 
       marker.addEventListener('mouseenter', (e) => UI.showTooltip(e, event, pr));
       marker.addEventListener('mouseleave', () => UI.hideTooltip());
@@ -908,7 +934,22 @@ const Timeline = (() => {
 
   /* ── Collision Resolution ───────────────────────────────── */
 
+  function getMarkerLayout(type) {
+    return EVENT_LAYOUT[type] || { offset: 36, priority: 99 };
+  }
+
+  function applyMarkerLayout(marker) {
+    const layout = getMarkerLayout(marker.dataset.eventType);
+    marker._baseOffset = layout.offset;
+    marker._priority = layout.priority;
+    marker.style.top = `calc(50% + ${layout.offset}px)`;
+    marker.classList.toggle('priority-above', layout.offset < 0);
+    marker.classList.toggle('priority-below', layout.offset >= 0);
+  }
+
   function resolveCollisions(markers) {
+    if (markers.length === 0) return;
+    markers.forEach(applyMarkerLayout);
     if (markers.length < 2) return;
 
     const MIN_SPACING = 14; // markers closer than this (px) are a cluster
@@ -931,15 +972,19 @@ const Timeline = (() => {
 
     // Stagger each cluster vertically
     for (const group of clusters) {
-      const n = group.length;
-      const maxSpread = 60; // ±30px from center (fits 112px lane)
-      const totalSpread = Math.min((n - 1) * 10, maxSpread);
-      const startOffset = -totalSpread / 2;
-      const step = n > 1 ? totalSpread / (n - 1) : 0;
+      const placedOffsets = [];
+      const ordered = [...group].sort((a, b) =>
+        a._priority - b._priority || a._baseOffset - b._baseOffset || a._x - b._x
+      );
 
-      for (let i = 0; i < n; i++) {
-        const offset = startOffset + i * step;
-        group[i].style.top = `calc(50% + ${offset}px)`;
+      for (const marker of ordered) {
+        let offset = marker._baseOffset;
+        const step = offset < 0 ? -8 : 8;
+        while (placedOffsets.some(existing => Math.abs(existing - offset) < 8)) {
+          offset += step;
+        }
+        marker.style.top = `calc(50% + ${offset}px)`;
+        placedOffsets.push(offset);
       }
     }
   }

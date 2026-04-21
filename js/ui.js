@@ -285,6 +285,7 @@ const UI = (() => {
       const el = document.getElementById(id);
       if (el) el.classList.add('hidden');
     }
+    document.querySelectorAll('.focus-notice').forEach(el => el.remove());
     document.getElementById('empty-state')?.classList.remove('hidden');
     document.getElementById('back-btn')?.classList.add('hidden');
     closeDetail();
